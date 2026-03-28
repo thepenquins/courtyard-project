@@ -20,7 +20,6 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="Godot Template Project"
 config/version="0.2"
-run/main_scene="uid://kkofvxaw2kh5"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -29,10 +28,10 @@ config/icon="res://icon.svg"
 Settings="*res://source/settings/settings.gd"
 Loader="*res://source/loader.gd"
 SteamHandler="*res://source/steam_handler.gd"
-FmodManager="*uid://cds10pm7hwn3p"
 Profile="*res://source/profile/profile.gd"
 RSE="*uid://br7yrar3fjwlv"
 VNE="*uid://conv3btwxe55h"
+FmodManager="*uid://cds10pm7hwn3p"
 
 [display]
 
@@ -43,7 +42,7 @@ window/stretch/aspect="keep_height"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/auto_version/plugin.cfg", "res://addons/fmod/plugin.cfg", "res://addons/rewind_story_engine/plugin.cfg", "res://addons/rewind_story_engine_vn/plugin.cfg", "res://addons/richtext2/plugin.cfg")
+enabled=PackedStringArray("res://addons/auto_version/plugin.cfg", "res://addons/fmod/plugin.cfg", "res://addons/richtext2/plugin.cfg")
 
 [input]
 
@@ -56,6 +55,4 @@ next_frame={
 
 [richer_text_label]
 
-fonts={
-&"XTypewriter": "res://demo/XTypewriter-Regular.ttf"
-}
+fonts={}

@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://jqdp4tsqnpc8"]
-
-[ext_resource type="Texture2D" uid="uid://difx5tvl8dv0v" path="res://demo/locations/scene.png" id="1_4qbih"]
-[ext_resource type="Script" uid="uid://cbmdwli7kq56y" path="res://addons/rewind_story_engine_vn/scene_player/location/location.gd" id="2_7dfhc"]
-
-[node name="Scene" type="Sprite2D" unique_id=1405563578]
-texture = ExtResource("1_4qbih")
-centered = false
-script = ExtResource("2_7dfhc")
