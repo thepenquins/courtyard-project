@@ -1,0 +1,153 @@
+[gd_scene format=3 uid="uid://rt5iix7jd8dk"]
+
+[ext_resource type="Script" uid="uid://hdwjepsfwiu1" path="res://addons/rewind_story_engine_vn/tabs/resources/resource_editor.gd" id="1_kunan"]
+[ext_resource type="Script" uid="uid://8dwfib45n8ir" path="res://addons/rewind_story_engine_vn/utils/set_icon_for_button.gd" id="3_2vetw"]
+[ext_resource type="PackedScene" uid="uid://c8dbdc7405tod" path="res://addons/rewind_story_engine_vn/tabs/resources/editors/audio_editor.tscn" id="3_5emsu"]
+[ext_resource type="PackedScene" uid="uid://80k2f3feh77s" path="res://addons/rewind_story_engine_vn/tabs/resources/editors/character_editor.tscn" id="3_phe0k"]
+
+[sub_resource type="DPITexture" id="DPITexture_2vetw"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"M2 1a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h1V3h9V2a1 1 0 0 0-1-1zm3 3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zm1 2h7v7H6z\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[sub_resource type="DPITexture" id="DPITexture_phe0k"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"M15 6v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-3h2v2h8V7h-3a1 1 0 0 1-1-1V3H5v4H3V2a1 1 0 0 1 1-1h6zm-9 6v-2H1V8h5V6l3 3z\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[node name="ResourceEditor" type="Control" unique_id=682510827 node_paths=PackedStringArray("info", "editor", "uuid_line_edit", "short_key_line_edit", "path_to_file_container", "name_line_edit", "path_to_file_line_edit", "open_file_dialog", "character_editor", "audio_editor")]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kunan")
+info = NodePath("DataPanelContainer/CenterContainer")
+editor = NodePath("DataPanelContainer/Container")
+uuid_line_edit = NodePath("DataPanelContainer/Container/UUIDHBoxContainer/UUIDLineEdit")
+short_key_line_edit = NodePath("DataPanelContainer/Container/ShortKeyHBoxContainer/ShortKeyLineEdit")
+path_to_file_container = NodePath("DataPanelContainer/Container/PathToFileHBoxContainer")
+name_line_edit = NodePath("DataPanelContainer/Container/NameLineEdit")
+path_to_file_line_edit = NodePath("DataPanelContainer/Container/PathToFileHBoxContainer/PathToFileLineEdit")
+open_file_dialog = NodePath("DataPanelContainer/Container/PathToFileHBoxContainer/OpenFileDialogButton/OpenFileDialog")
+character_editor = NodePath("DataPanelContainer/Container/CharacterEditor")
+audio_editor = NodePath("DataPanelContainer/Container/AudioEditor")
+
+[node name="DataPanelContainer" type="PanelContainer" parent="." unique_id=1280271842]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="DataPanelContainer" unique_id=1245440199]
+layout_mode = 2
+
+[node name="InfoLabel" type="Label" parent="DataPanelContainer/CenterContainer" unique_id=1193118899]
+layout_mode = 2
+text = "Создайте или выберете ресурс для редактирования"
+horizontal_alignment = 1
+
+[node name="Container" type="VBoxContainer" parent="DataPanelContainer" unique_id=1578752855]
+layout_mode = 2
+
+[node name="UUIDHBoxContainer" type="HBoxContainer" parent="DataPanelContainer/Container" unique_id=1319650081]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="DataPanelContainer/Container/UUIDHBoxContainer" unique_id=149303031]
+layout_mode = 2
+text = "UUID:"
+
+[node name="UUIDLineEdit" type="LineEdit" parent="DataPanelContainer/Container/UUIDHBoxContainer" unique_id=1761952680]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "UUID"
+editable = false
+
+[node name="CopyUUIDButton" type="Button" parent="DataPanelContainer/Container/UUIDHBoxContainer" unique_id=468830299]
+layout_mode = 2
+tooltip_text = "Копировать"
+icon = SubResource("DPITexture_2vetw")
+script = ExtResource("3_2vetw")
+icon_name = &"ActionCopy"
+
+[node name="ShortKeyHBoxContainer" type="HBoxContainer" parent="DataPanelContainer/Container" unique_id=860351901]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="DataPanelContainer/Container/ShortKeyHBoxContainer" unique_id=1118259214]
+layout_mode = 2
+text = "Short Key:"
+
+[node name="ShortKeyLineEdit" type="LineEdit" parent="DataPanelContainer/Container/ShortKeyHBoxContainer" unique_id=355231788]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Short Key"
+editable = false
+
+[node name="CopyShortKeyButton" type="Button" parent="DataPanelContainer/Container/ShortKeyHBoxContainer" unique_id=966621608]
+layout_mode = 2
+tooltip_text = "Копировать"
+icon = SubResource("DPITexture_2vetw")
+script = ExtResource("3_2vetw")
+icon_name = &"ActionCopy"
+
+[node name="NameLineEdit" type="LineEdit" parent="DataPanelContainer/Container" unique_id=1158417587]
+layout_mode = 2
+placeholder_text = "Название"
+expand_to_text_length = true
+
+[node name="PathToFileHBoxContainer" type="HBoxContainer" parent="DataPanelContainer/Container" unique_id=871807460]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PathToFileLineEdit" type="LineEdit" parent="DataPanelContainer/Container/PathToFileHBoxContainer" unique_id=1452641682]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Путь к файлу"
+editable = false
+expand_to_text_length = true
+
+[node name="OpenFileDialogButton" type="Button" parent="DataPanelContainer/Container/PathToFileHBoxContainer" unique_id=1622340497]
+layout_mode = 2
+tooltip_text = "Открыть файл"
+icon = SubResource("DPITexture_phe0k")
+script = ExtResource("3_2vetw")
+icon_name = &"FileAccess"
+
+[node name="OpenFileDialog" type="FileDialog" parent="DataPanelContainer/Container/PathToFileHBoxContainer/OpenFileDialogButton" unique_id=1902945242]
+oversampling_override = 1.0
+title = "Open a File"
+initial_position = 4
+file_mode = 0
+filters = PackedStringArray("*.tscn")
+
+[node name="CharacterEditor" parent="DataPanelContainer/Container" unique_id=1011904692 instance=ExtResource("3_phe0k")]
+visible = false
+layout_mode = 2
+
+[node name="AudioEditor" parent="DataPanelContainer/Container" unique_id=1537110270 instance=ExtResource("3_5emsu")]
+visible = false
+layout_mode = 2
+
+[connection signal="pressed" from="DataPanelContainer/Container/UUIDHBoxContainer/CopyUUIDButton" to="." method="_on_copy_uuid_button_pressed"]
+[connection signal="pressed" from="DataPanelContainer/Container/ShortKeyHBoxContainer/CopyShortKeyButton" to="." method="_on_copy_short_key_button_pressed"]
+[connection signal="text_changed" from="DataPanelContainer/Container/NameLineEdit" to="." method="_on_resource_name_line_edit_text_changed"]
+[connection signal="pressed" from="DataPanelContainer/Container/PathToFileHBoxContainer/OpenFileDialogButton" to="." method="_on_open_file_dialog_button_pressed"]
+[connection signal="file_selected" from="DataPanelContainer/Container/PathToFileHBoxContainer/OpenFileDialogButton/OpenFileDialog" to="." method="_on_open_file_dialog_file_selected"]
+[connection signal="resource_path_changed" from="DataPanelContainer/Container/AudioEditor" to="." method="_on_audio_editor_resource_path_changed"]

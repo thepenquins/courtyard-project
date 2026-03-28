@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://duei0f41kemq"]
+
+[ext_resource type="StyleBox" uid="uid://ccjrts3npg683" path="res://addons/rewind_story_engine/styles/style_box_flat.tres" id="1_uds50"]
+[ext_resource type="Script" uid="uid://dp6xo6soko26x" path="res://addons/rewind_story_engine_vn/tabs/scene/inspector/inspector.gd" id="2_mbk8o"]
+
+[node name="Inspector" type="PanelContainer" unique_id=1149248658 node_paths=PackedStringArray("resource_name_label", "parameters_container")]
+custom_minimum_size = Vector2(160, 0)
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 168.0
+offset_bottom = 51.0
+theme_override_styles/panel = ExtResource("1_uds50")
+script = ExtResource("2_mbk8o")
+resource_name_label = NodePath("MarginContainer/VBoxContainer/ResourceNameLabel")
+parameters_container = NodePath("MarginContainer/VBoxContainer/ParametersContainer")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=792062279]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1283210350]
+layout_mode = 2
+
+[node name="ResourceNameLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1784450468]
+layout_mode = 2
+bbcode_enabled = true
+text = "[Resource Name]"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="ParametersContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=661567216]
+layout_mode = 2
+
+[node name="TransformContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1337154097]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="MarginContainer/VBoxContainer/TransformContainer" unique_id=1269039675]
+layout_mode = 2
+text = "Transform"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Position" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TransformContainer" unique_id=2002290582]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/TransformContainer/Position" unique_id=317774501]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Position"
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/TransformContainer/Position" unique_id=2104481216]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/panel = ExtResource("1_uds50")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TransformContainer/Position/PanelContainer" unique_id=672788171]
+layout_mode = 2
+
+[node name="XSpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/TransformContainer/Position/PanelContainer/VBoxContainer" unique_id=719454715]
+layout_mode = 2
+min_value = -1000.0
+max_value = 1000.0
+step = 0.01
+prefix = "x"
+suffix = "px"
+select_all_on_focus = true
+
+[node name="YSpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/TransformContainer/Position/PanelContainer/VBoxContainer" unique_id=1931567475]
+layout_mode = 2
+min_value = -1000.0
+max_value = 1000.0
+step = 0.01
+prefix = "y"
+suffix = "px"
+select_all_on_focus = true
+
+[node name="ScaleHBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TransformContainer" unique_id=879710123]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/TransformContainer/ScaleHBoxContainer" unique_id=2990569]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Scale"
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/TransformContainer/ScaleHBoxContainer" unique_id=323760589]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/panel = ExtResource("1_uds50")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TransformContainer/ScaleHBoxContainer/PanelContainer" unique_id=825906389]
+layout_mode = 2
+
+[node name="XSpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/TransformContainer/ScaleHBoxContainer/PanelContainer/VBoxContainer" unique_id=1154477208]
+layout_mode = 2
+max_value = 10.0
+step = 0.01
+value = 1.0
+prefix = "x"
+select_all_on_focus = true
+
+[node name="YSpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/TransformContainer/ScaleHBoxContainer/PanelContainer/VBoxContainer" unique_id=943377281]
+layout_mode = 2
+max_value = 10.0
+step = 0.01
+value = 1.0
+prefix = "y"
+select_all_on_focus = true

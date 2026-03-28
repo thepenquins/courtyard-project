@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cn5q8j6n4gqdg"]
+
+[ext_resource type="Texture2D" uid="uid://ds0pkt1eoogyu" path="res://demo/locations/dressing_room.png" id="1_tr5fn"]
+[ext_resource type="Script" uid="uid://cbmdwli7kq56y" path="res://addons/rewind_story_engine_vn/scene_player/location/location.gd" id="2_jb300"]
+
+[node name="DressingRoom" type="Sprite2D" unique_id=409082104]
+texture = ExtResource("1_tr5fn")
+centered = false
+script = ExtResource("2_jb300")

@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dm6pv1xoukhw1"]
+
+[ext_resource type="Script" uid="uid://c1r8ewtwet1g7" path="res://demo/characters/alice/alice.gd" id="1_4uste"]
+[ext_resource type="Texture2D" uid="uid://c8tsi0hkknf0d" path="res://demo/characters/alice/sprites/sprite_head_0.png" id="2_a1o28"]
+[ext_resource type="Texture2D" uid="uid://caxeq1x3p8rwo" path="res://demo/characters/alice/sprites/sprite_eyes_0.png" id="3_ex4y7"]
+[ext_resource type="Texture2D" uid="uid://c3g8oh4k5l05v" path="res://demo/characters/alice/sprites/sprite_eyes_1.png" id="4_owkry"]
+[ext_resource type="Texture2D" uid="uid://bxif0b2pty6uk" path="res://demo/characters/alice/sprites/sprite_eyes_2.png" id="5_h0th4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a1o28"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_a1o28")
+}],
+"loop": true,
+"name": &"Спокойствие",
+"speed": 1.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ex4y7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ex4y7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_owkry")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_h0th4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_owkry")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ex4y7")
+}],
+"loop": true,
+"name": &"Спокойствие",
+"speed": 5.0
+}]
+
+[node name="Alice" type="Node2D" unique_id=1028293630 node_paths=PackedStringArray("animated_sprites")]
+script = ExtResource("1_4uste")
+uuid = "1760f470-73ff-48a9-b6cb-00d95ad3c8a5"
+animated_sprites = {
+"Глаза": NodePath("Глаза"),
+"Голова": NodePath("Голова")
+}
+
+[node name="Голова" type="AnimatedSprite2D" parent="." unique_id=1936402040]
+sprite_frames = SubResource("SpriteFrames_a1o28")
+animation = &"Спокойствие"
+
+[node name="Глаза" type="AnimatedSprite2D" parent="." unique_id=1166854495]
+sprite_frames = SubResource("SpriteFrames_ex4y7")
+animation = &"Спокойствие"
+frame_progress = 0.073693395

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bsc42mb2c8nlx"]
+
+[ext_resource type="Script" uid="uid://benl3fkn68a82" path="res://addons/rewind_story_engine_vn/scene_player/scene_player.gd" id="1_h4l0k"]
+[ext_resource type="Script" uid="uid://bosxx3cw4hyci" path="res://addons/rewind_story_engine_vn/scene_player/characters_container.gd" id="2_72hb3"]
+[ext_resource type="PackedScene" uid="uid://domheraik2gly" path="res://addons/rewind_story_engine_vn/scene_player/text_box/text_box.tscn" id="3_72hb3"]
+
+[node name="ScenePlayer" type="Node" unique_id=635273600 node_paths=PackedStringArray("location_container", "characters_container", "text_box")]
+script = ExtResource("1_h4l0k")
+location_container = NodePath("LocationContainer")
+characters_container = NodePath("CharactersContainer")
+text_box = NodePath("TextBox")
+
+[node name="LocationContainer" type="Node" parent="." unique_id=1557463958]
+
+[node name="CharactersContainer" type="Node" parent="." unique_id=1956021173]
+script = ExtResource("2_72hb3")
+characters_spacing = 512.0
+
+[node name="TextBox" parent="." unique_id=1782723377 instance=ExtResource("3_72hb3")]
+
+[connection signal="child_order_changed" from="CharactersContainer" to="CharactersContainer" method="move_characters"]

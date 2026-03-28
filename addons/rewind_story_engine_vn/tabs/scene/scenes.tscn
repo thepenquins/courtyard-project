@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cqn5qfk2qbxcw"]
+
+[ext_resource type="Script" uid="uid://onh2xl8uhex6" path="res://addons/rewind_story_engine_vn/tabs/scene/scenes.gd" id="1_7qlvq"]
+[ext_resource type="StyleBox" uid="uid://ccjrts3npg683" path="res://addons/rewind_story_engine/styles/style_box_flat.tres" id="2_iwxy1"]
+[ext_resource type="PackedScene" uid="uid://dvxndubv71qvf" path="res://addons/rewind_story_engine_vn/tabs/scene/scene_editor.tscn" id="3_wvi0y"]
+
+[node name="Сцена" type="Control" unique_id=2098423228 node_paths=PackedStringArray("scene_editor", "tree")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7qlvq")
+scene_editor = NodePath("HSplitContainer/SceneEditor")
+tree = NodePath("HSplitContainer/PanelContainer/Tree")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="." unique_id=1501401299]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offsets = PackedInt32Array(256)
+split_offset = 256
+
+[node name="PanelContainer" type="PanelContainer" parent="HSplitContainer" unique_id=897868073]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_iwxy1")
+
+[node name="Tree" type="Tree" parent="HSplitContainer/PanelContainer" unique_id=1434019037]
+layout_mode = 2
+allow_rmb_select = true
+hide_root = true
+
+[node name="SceneEditor" parent="HSplitContainer" unique_id=49954602 instance=ExtResource("3_wvi0y")]
+layout_mode = 2

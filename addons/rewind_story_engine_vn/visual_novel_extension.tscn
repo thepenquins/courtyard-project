@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://lcubg8amu6e4"]
+
+[ext_resource type="Script" uid="uid://v05jwrgjk25h" path="res://addons/rewind_story_engine_vn/vne_plugin_controller.gd" id="1_1raw3"]
+[ext_resource type="PackedScene" uid="uid://bf0qauknekgym" path="res://addons/rewind_story_engine_vn/tabs/resources/resources.tscn" id="2_ceif2"]
+[ext_resource type="PackedScene" uid="uid://cqn5qfk2qbxcw" path="res://addons/rewind_story_engine_vn/tabs/scene/scenes.tscn" id="3_4r4xm"]
+[ext_resource type="PackedScene" uid="uid://c8fv5gm4d45um" path="res://addons/rewind_story_engine_vn/tabs/structure/structure_editor.tscn" id="4_ceif2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c4dsb"]
+font_size = 24
+
+[node name="VisualNovelExtension" type="Control" unique_id=2043125205 node_paths=PackedStringArray("info_label", "tab_container", "tab_resources", "tab_scene")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_1raw3")
+info_label = NodePath("CenterContainer/VBoxContainer/Info")
+tab_container = NodePath("TabContainer")
+tab_resources = NodePath("TabContainer/Ресурсы")
+tab_scene = NodePath("TabContainer/Сцена")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=792694531]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.5
+offset_top = -57.0
+offset_right = 260.5
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=282832721]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer" unique_id=949922596]
+layout_mode = 2
+text = "Rewind Story Engine Visual Novel Extension"
+label_settings = SubResource("LabelSettings_c4dsb")
+horizontal_alignment = 1
+
+[node name="Info" type="Label" parent="CenterContainer/VBoxContainer" unique_id=122561719]
+layout_mode = 2
+text = "История загружена и готова к работе."
+horizontal_alignment = 1
+
+[node name="About" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1461308911]
+layout_mode = 2
+text = "Version 0.1.0
+Made by O3ZY"
+horizontal_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="." unique_id=799754775]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="Ресурсы" parent="TabContainer" unique_id=808717785 instance=ExtResource("2_ceif2")]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Сцена" parent="TabContainer" unique_id=2098423228 instance=ExtResource("3_4r4xm")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Структура" parent="TabContainer" unique_id=1761135656 instance=ExtResource("4_ceif2")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2

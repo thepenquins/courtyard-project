@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c8fv5gm4d45um"]
+
+[ext_resource type="Script" uid="uid://bji2qqnuyjgit" path="res://addons/rewind_story_engine_vn/tabs/structure/structure_editor.gd" id="1_onwdr"]
+
+[node name="StructureEditor" type="GraphEdit" unique_id=1299636836]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+grid_pattern = 1
+right_disconnects = true
+show_zoom_label = true
+script = ExtResource("1_onwdr")

@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://bum2qv8s0jol7"]
+
+[ext_resource type="Script" uid="uid://r3pv5406jxkh" path="res://addons/rewind_story_engine/rse_plugin_controller.gd" id="1_j8qb8"]
+[ext_resource type="PackedScene" uid="uid://bfifyn0ymyai7" path="res://addons/rewind_story_engine/editors/story/story_editor.tscn" id="2_2jpnt"]
+[ext_resource type="PackedScene" uid="uid://bseo1ntvm2ne" path="res://addons/rewind_story_engine/editors/record/record_editor.tscn" id="3_iay06"]
+[ext_resource type="PackedScene" uid="uid://cmu6ars1muck4" path="res://addons/rewind_story_engine/editors/character/character_editor.tscn" id="3_u35mo"]
+[ext_resource type="PackedScene" uid="uid://bng2vmsocfx4t" path="res://addons/rewind_story_engine/editors/episode/episode_editor.tscn" id="5_l6gk6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u35mo"]
+font_size = 24
+
+[node name="RewindStoryEngine" type="Control" unique_id=1222315199 node_paths=PackedStringArray("tab_container", "open_file_dialog", "create_file_dialog", "record_editor", "story_editor", "characters_editor", "episodes_editor")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_j8qb8")
+tab_container = NodePath("TabContainer")
+open_file_dialog = NodePath("OpenFileDialog")
+create_file_dialog = NodePath("CreateFileDialog")
+record_editor = NodePath("TabContainer/Записи")
+story_editor = NodePath("TabContainer/История")
+characters_editor = NodePath("TabContainer/Персонажи")
+episodes_editor = NodePath("TabContainer/Сценарий")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=673729227]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = -55.5
+offset_right = 79.0
+offset_bottom = 55.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1174799503]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=43168447]
+layout_mode = 2
+text = "Rewind Story Engine"
+label_settings = SubResource("LabelSettings_u35mo")
+horizontal_alignment = 1
+
+[node name="CreateStoryButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1973437697]
+layout_mode = 2
+text = "Создать историю"
+
+[node name="Label3" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1452832207]
+layout_mode = 2
+text = "Для каждой истории рекомендуется
+создавать отдельный каталог"
+horizontal_alignment = 1
+
+[node name="OpenStoryButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1456046038]
+layout_mode = 2
+text = "Открыть историю"
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1300195616]
+layout_mode = 2
+text = "Version 1.0.0
+Made by O3ZY"
+horizontal_alignment = 1
+
+[node name="OpenFileDialog" type="FileDialog" parent="." unique_id=994218069]
+title = "Open a File"
+initial_position = 4
+ok_button_text = "Open"
+file_mode = 0
+filters = PackedStringArray("*.rse")
+
+[node name="CreateFileDialog" type="FileDialog" parent="." unique_id=244369884]
+initial_position = 4
+filters = PackedStringArray("*.rse")
+
+[node name="TabContainer" type="TabContainer" parent="." unique_id=219159099]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="История" parent="TabContainer" unique_id=1637101105 node_paths=PackedStringArray("plugin_controller") instance=ExtResource("2_2jpnt")]
+layout_mode = 2
+plugin_controller = NodePath("../..")
+
+[node name="Записи" parent="TabContainer" unique_id=1207747710 instance=ExtResource("3_iay06")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Персонажи" parent="TabContainer" unique_id=1572175907 instance=ExtResource("3_u35mo")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Сценарий" parent="TabContainer" unique_id=1914186838 instance=ExtResource("5_l6gk6")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CreateStoryButton" to="." method="_on_create_story_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/OpenStoryButton" to="." method="_on_open_story_button_pressed"]
+[connection signal="file_selected" from="OpenFileDialog" to="." method="_on_open_file_dialog_file_selected"]
+[connection signal="file_selected" from="CreateFileDialog" to="." method="_on_create_file_dialog_file_selected"]

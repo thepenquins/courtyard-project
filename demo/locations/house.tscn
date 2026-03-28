@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cq4py7go3r5bf"]
+
+[ext_resource type="Texture2D" uid="uid://bfrduc3uqy7no" path="res://demo/locations/house.png" id="1_hrawu"]
+[ext_resource type="Script" uid="uid://cbmdwli7kq56y" path="res://addons/rewind_story_engine_vn/scene_player/location/location.gd" id="2_jbyh3"]
+
+[node name="House" type="Sprite2D" unique_id=1046197249]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_hrawu")
+centered = false
+script = ExtResource("2_jbyh3")

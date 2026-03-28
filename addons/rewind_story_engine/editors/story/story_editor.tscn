@@ -1,0 +1,91 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfifyn0ymyai7"]
+
+[ext_resource type="Script" uid="uid://b0n45wxkd8n1a" path="res://addons/rewind_story_engine/editors/story/story_editor.gd" id="1_l0lim"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_l0lim"]
+font_size = 64
+outline_size = 16
+outline_color = Color(0, 0, 0, 0.501961)
+
+[node name="История" type="Control" node_paths=PackedStringArray("title_label", "info_label", "story_name_line_edit", "confirmation_dialog", "pot_file_dialog")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l0lim")
+title_label = NodePath("TitleLabel")
+info_label = NodePath("VBoxContainer/InfoLabel")
+story_name_line_edit = NodePath("VBoxContainer/StoryNameLineEdit")
+confirmation_dialog = NodePath("ConfirmationDialog")
+pot_file_dialog = NodePath("PotFileDialog")
+metadata/_tab_index = 0
+
+[node name="TitleLabel" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 271.0
+grow_horizontal = 2
+text = "Title"
+label_settings = SubResource("LabelSettings_l0lim")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -68.0
+offset_right = 150.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+
+[node name="StoryNameLineEdit" type="LineEdit" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 33)
+layout_mode = 2
+placeholder_text = "Название истории"
+alignment = 1
+
+[node name="SaveStoryButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Сохранить"
+
+[node name="UnloadStoryButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Выгрузить"
+
+[node name="GeneratePOTButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Сгенерировать POT-файл"
+
+[node name="InfoLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Info"
+horizontal_alignment = 1
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+initial_position = 4
+size = Vector2i(402, 100)
+dialog_text = "Вы уверены? Несохранённые данные будут утеряны."
+
+[node name="PotFileDialog" type="FileDialog" parent="."]
+auto_translate_mode = 1
+initial_position = 4
+filters = PackedStringArray("*.pot")
+
+[connection signal="text_changed" from="VBoxContainer/StoryNameLineEdit" to="." method="_on_story_name_line_edit_text_changed"]
+[connection signal="pressed" from="VBoxContainer/SaveStoryButton" to="." method="_on_save_story_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/UnloadStoryButton" to="." method="_on_unload_story_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/GeneratePOTButton" to="." method="_on_generate_pot_button_pressed"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]
+[connection signal="file_selected" from="PotFileDialog" to="." method="_on_pot_file_dialog_file_selected"]

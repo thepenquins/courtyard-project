@@ -1,0 +1,313 @@
+[gd_scene format=3 uid="uid://domheraik2gly"]
+
+[ext_resource type="Script" uid="uid://phtx31jeqww6" path="res://addons/rewind_story_engine_vn/scene_player/text_box/text_box.gd" id="1_gk1x7"]
+[ext_resource type="Script" uid="uid://cuyp5kmoygg6s" path="res://addons/richtext2/text_effects/effects/rte_jit2.gd" id="3_45kqg"]
+[ext_resource type="Script" uid="uid://b6mbstaftpedd" path="res://addons/richtext2/rich_text_animation.gd" id="3_gfp3b"]
+[ext_resource type="Script" uid="uid://4mittkdxo7ig" path="res://addons/richtext2/text_effects/effects/rte_cuss.gd" id="4_a7jgp"]
+[ext_resource type="Script" uid="uid://d16jnf3xho2be" path="res://addons/richtext2/text_effects/anims/rte_prickle.gd" id="4_h2ygl"]
+[ext_resource type="Texture2D" uid="uid://bmi3g8drj68du" path="res://addons/rewind_story_engine_vn/icons/next.svg" id="7_h2ygl"]
+[ext_resource type="Script" uid="uid://beh7kaa580cli" path="res://addons/richtext2/text_effects/effects/rte_woo.gd" id="7_vmmjd"]
+[ext_resource type="Script" uid="uid://wj05urqqjjhv" path="res://addons/rewind_story_engine_vn/scene_player/text_box/animation_player.gd" id="8_1hgq8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n2rpe"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_1hgq8"]
+resource_name = "prickle"
+script = ExtResource("4_h2ygl")
+metadata/rt = 2070425973127
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_vmmjd"]
+resource_name = "prickle"
+script = ExtResource("4_h2ygl")
+metadata/rt = 2070778294670
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_hpvdf"]
+resource_name = "jit2"
+script = ExtResource("3_45kqg")
+metadata/rt = 2070778294670
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_ngkud"]
+resource_name = "cuss"
+script = ExtResource("4_a7jgp")
+metadata/rt = 2070778294670
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_1rxjk"]
+resource_name = "woo"
+script = ExtResource("7_vmmjd")
+metadata/rt = 2070778294670
+
+[sub_resource type="Animation" id="Animation_1hgq8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_h2ygl"]
+resource_name = "highlight"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.2, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.2509804), Color(0.39215687, 0.39215687, 0.39215687, 1), Color(0.39215687, 0.39215687, 0.39215687, 1), Color(1, 1, 1, 0.2509804)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1hgq8"]
+_data = {
+&"RESET": SubResource("Animation_1hgq8"),
+&"highlight": SubResource("Animation_h2ygl")
+}
+
+[node name="TextBox" type="MarginContainer" unique_id=1782723377 node_paths=PackedStringArray("speaker_rich_text_label", "text_rich_text_label")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 128
+theme_override_constants/margin_bottom = 32
+script = ExtResource("1_gk1x7")
+speaker_rich_text_label = NodePath("VBoxContainer/SpeakerRicherTextLabel")
+text_rich_text_label = NodePath("VBoxContainer/TextRicherTextLabel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1049391604]
+layout_mode = 2
+alignment = 2
+
+[node name="SpeakerRicherTextLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=212519613]
+clip_contents = false
+custom_minimum_size = Vector2(0, 67)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.19999999, 0.19999999, 0.19999999, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.25)
+theme_override_constants/shadow_outline_size = 15
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 48
+theme_override_font_sizes/bold_font_size = 48
+theme_override_font_sizes/bold_italics_font_size = 48
+theme_override_font_sizes/italics_font_size = 48
+theme_override_font_sizes/mono_font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n2rpe")
+bbcode_enabled = true
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_1hgq8")]
+script = ExtResource("3_gfp3b")
+animation = "prickle"
+progress = 1.0
+visible_character = 5
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 789, 45), Transform2D(1, 0, 0, 1, 817, 45), Transform2D(1, 0, 0, 1, 845, 45), Transform2D(1, 0, 0, 1, 874, 45)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(24, 35), Vector2(23, 35), Vector2(24, 35), Vector2(24, 35)])
+_alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0])
+_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0])
+_forced_finish_delay = -0.03227433333333515
+animation = "prickle"
+default_wait_time = 1.0
+play_on_bbcode = true
+play_speed = 50.0
+fade_out = false
+fade_in_speed = 10.0
+fade_out_speed = 120.0
+ctc_offset = Vector2(1, -0.5)
+ctc_on_finished = false
+ctc_on_wait = false
+shortcut_expression = true
+shortcut_bookmark = true
+signal_quotes = true
+signal_stars = true
+bbcode = "[color=orange]Alice"
+effects = 2
+alignment = 1
+color = Color(1, 1, 1, 1)
+emoji_scale = 1.0
+font = "XTypewriter"
+font_auto_setup = true
+font_size = 48
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = true
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.3
+outline_size = 8
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = true
+autostyle_numbers_tag = "[salmon]%s[]"
+autostyle_numbers_pad_decimals = true
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+image_path = "res://"
+image_resize_to_font_size = true
+image_scale = 1.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+metadata/_custom_type_script = "uid://b6mbstaftpedd"
+metadata/mouse_position = Vector2(1772.5422, -26.48993)
+metadata/frame = 92944
+metadata/rand = Array[int]([3827202865, 851246197, 3223911580, 1909538342, 3427976923, 3173307018, 1203811763, 1837231426, 474591735, 492581785, 1950032328, 2331719964, 1475451029, 3463596478, 3156846455, 2124002567, 2006836971])
+
+[node name="TextRicherTextLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=1258520363 node_paths=PackedStringArray("ctc_node")]
+clip_contents = false
+custom_minimum_size = Vector2(0, 67)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.19999999, 0.19999999, 0.19999999, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.25)
+theme_override_constants/shadow_outline_size = 15
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 48
+theme_override_font_sizes/bold_font_size = 48
+theme_override_font_sizes/bold_italics_font_size = 48
+theme_override_font_sizes/italics_font_size = 48
+theme_override_font_sizes/mono_font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n2rpe")
+bbcode_enabled = true
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_vmmjd"), SubResource("RichTextEffect_hpvdf"), SubResource("RichTextEffect_ngkud"), SubResource("RichTextEffect_1rxjk")]
+script = ExtResource("3_gfp3b")
+animation = "prickle"
+_play = false
+_hold = true
+progress = 0.506646296296296
+visible_character = 9
+_triggers = {
+8: [[1003, {}]]
+}
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 607, 45), Transform2D(1, 0, 0, 1, 635, 45), Transform2D(1, 0, 0, 1, 663, 45), Transform2D(1, 0, 0, 1, 691, 45), Transform2D(1, 0, 0, 1, 719, 45), Transform2D(1, 0, 0, 1, 747, 45), Transform2D(1, 0, 0, 1, 775, 45), Transform2D(1, 0, 0, 1, 803, 45), Transform2D(1, 0, 0, 1, 832, 45), Transform2D(1, 0, 0, 1, 860, 45), Transform2D(1, 0, 0, 1, 888, 45), Transform2D(1, 0, 0, 1, 916, 45), Transform2D(1, 0, 0, 1, 944, 45), Transform2D(1, 0, 0, 1, 972, 45), Transform2D(1, 0, 0, 1, 1000, 45), Transform2D(1, 0, 0, 1, 1029, 45), Transform2D(1, 0, 0, 1, 1057, 45)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(10, 35), Vector2(31, 35), Vector2(0, 35), Vector2(0, 35), Vector2(26, 35), Vector2(14, 35), Vector2(30, 35), Vector2(30, 35), Vector2(0, 35), Vector2(26, 35), Vector2(0, 35), Vector2(28, 35), Vector2(31, 35), Vector2(28, 35), Vector2(26, 35), Vector2(23, 35), Vector2(14, 35)])
+_alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+_showing_ctc = true
+_forced_finish_delay = -0.03227433333333515
+animation = "prickle"
+default_wait_time = 1.0
+play_on_bbcode = true
+play_speed = 20.0
+fade_out = false
+fade_in_speed = 10.0
+fade_out_speed = 120.0
+ctc_node = NodePath("TextureRect")
+ctc_offset = Vector2(0, -1)
+ctc_on_finished = true
+ctc_on_wait = false
+shortcut_expression = true
+shortcut_bookmark = true
+signal_quotes = true
+signal_stars = true
+bbcode = "[jit2]I'm[]  [cuss]fine[][h] [jit2]I [woo]guess[][]."
+effects = 2
+alignment = 1
+color = Color(1, 1, 1, 1)
+emoji_scale = 1.0
+font = "XTypewriter"
+font_auto_setup = true
+font_size = 48
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = true
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.3
+outline_size = 8
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = true
+autostyle_numbers_tag = "[salmon]%s[]"
+autostyle_numbers_pad_decimals = true
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+image_path = "res://"
+image_resize_to_font_size = true
+image_scale = 1.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+metadata/_custom_type_script = "uid://b6mbstaftpedd"
+metadata/mouse_position = Vector2(2436.884, -177.96997)
+metadata/frame = 130193
+metadata/rand = Array[int]([3827202865, 851246197, 3223911580, 1909538342, 3427976923, 3173307018, 1203811763, 1837231426, 474591735, 492581785, 1950032328, 2331719964, 1475451029, 3463596478, 3156846455, 2124002567, 2006836971])
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/TextRicherTextLabel" unique_id=286649157]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -18.5
+offset_right = 105.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_h2ygl")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/TextRicherTextLabel/TextureRect" unique_id=1641649537]
+libraries/ = SubResource("AnimationLibrary_1hgq8")
+autoplay = &"highlight"
+script = ExtResource("8_1hgq8")
