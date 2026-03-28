@@ -1,0 +1,184 @@
+[gd_scene load_steps=9 format=3 uid="uid://bng2vmsocfx4t"]
+
+[ext_resource type="Script" uid="uid://hea3wt4ac56c" path="res://addons/rewind_story_engine/editors/episode/episode_editor.gd" id="1_xl5al"]
+[ext_resource type="Texture2D" uid="uid://d0typr7e4px1p" path="res://addons/rewind_story_engine/icons/Add.svg" id="2_a8gbp"]
+[ext_resource type="Texture2D" uid="uid://bggobug6l5nat" path="res://addons/rewind_story_engine/icons/Remove.svg" id="3_oah1q"]
+[ext_resource type="Texture2D" uid="uid://drsuumsoitobx" path="res://addons/rewind_story_engine/icons/ActionCopy.svg" id="4_6mrwi"]
+[ext_resource type="Script" uid="uid://bertp2ax0crc8" path="res://addons/rewind_story_engine/editors/episode/script_highlighter.gd" id="5_6mrwi"]
+[ext_resource type="Script" uid="uid://bfvdsytc1fqwl" path="res://addons/rewind_story_engine/editors/episode/script_editor.gd" id="6_83mb8"]
+[ext_resource type="Texture2D" uid="uid://dhwtfrxt8mnjw" path="res://addons/rewind_story_engine/icons/File.svg" id="6_l3tpe"]
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_l3tpe"]
+script = ExtResource("5_6mrwi")
+
+[node name="Сценарий" type="Control" node_paths=PackedStringArray("open_file_dialog", "script_editor", "base_data_item_list", "add_item_button", "remove_item_button", "remove_confirmation_dialog", "name_line_edit", "uuid_line_edit", "uuid_copy_button", "short_key_line_edit", "short_key_copy_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xl5al")
+open_file_dialog = NodePath("FileDialog")
+script_editor = NodePath("HSplitContainer/RecordInfo/VBoxContainer/ScrollContainer/VBoxContainer/RSEScriptEditor")
+base_data_item_list = NodePath("HSplitContainer/Episodes/VBoxContainer/EpisodesItemList")
+add_item_button = NodePath("HSplitContainer/Episodes/VBoxContainer/HBoxContainer/AddEpisodeButton")
+remove_item_button = NodePath("HSplitContainer/Episodes/VBoxContainer/HBoxContainer/RemoveEpisodeButton")
+remove_confirmation_dialog = NodePath("ConfirmationDialog")
+name_line_edit = NodePath("HSplitContainer/RecordInfo/VBoxContainer/NameLineEdit")
+uuid_line_edit = NodePath("HSplitContainer/RecordInfo/VBoxContainer/UUIDHBoxContainer/UUIDLineEdit")
+uuid_copy_button = NodePath("HSplitContainer/RecordInfo/VBoxContainer/UUIDHBoxContainer/CopyUUIDButton")
+short_key_line_edit = NodePath("HSplitContainer/RecordInfo/VBoxContainer/ShortKeyHBoxContainer/ShortKeyLineEdit")
+short_key_copy_button = NodePath("HSplitContainer/RecordInfo/VBoxContainer/ShortKeyHBoxContainer/CopyShortKeyButton")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Episodes" type="MarginContainer" parent="HSplitContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Episodes"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="EpisodesItemList" type="ItemList" parent="HSplitContainer/Episodes/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/Episodes/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="AddEpisodeButton" type="Button" parent="HSplitContainer/Episodes/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Добавить"
+icon = ExtResource("2_a8gbp")
+
+[node name="RemoveEpisodeButton" type="Button" parent="HSplitContainer/Episodes/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Удалить"
+icon = ExtResource("3_oah1q")
+
+[node name="RecordInfo" type="MarginContainer" parent="HSplitContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/RecordInfo"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="UUIDHBoxContainer" type="HBoxContainer" parent="HSplitContainer/RecordInfo/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="HSplitContainer/RecordInfo/VBoxContainer/UUIDHBoxContainer"]
+layout_mode = 2
+text = "UUID:"
+
+[node name="UUIDLineEdit" type="LineEdit" parent="HSplitContainer/RecordInfo/VBoxContainer/UUIDHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "UUID"
+editable = false
+
+[node name="CopyUUIDButton" type="Button" parent="HSplitContainer/RecordInfo/VBoxContainer/UUIDHBoxContainer"]
+layout_mode = 2
+tooltip_text = "Копировать"
+icon = ExtResource("4_6mrwi")
+
+[node name="ShortKeyHBoxContainer" type="HBoxContainer" parent="HSplitContainer/RecordInfo/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="HSplitContainer/RecordInfo/VBoxContainer/ShortKeyHBoxContainer"]
+layout_mode = 2
+text = "Short Key:"
+
+[node name="ShortKeyLineEdit" type="LineEdit" parent="HSplitContainer/RecordInfo/VBoxContainer/ShortKeyHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Short Key"
+editable = false
+
+[node name="CopyShortKeyButton" type="Button" parent="HSplitContainer/RecordInfo/VBoxContainer/ShortKeyHBoxContainer"]
+layout_mode = 2
+tooltip_text = "Копировать"
+icon = ExtResource("4_6mrwi")
+
+[node name="NameLineEdit" type="LineEdit" parent="HSplitContainer/RecordInfo/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+placeholder_text = "Название эпизода"
+
+[node name="Label" type="Label" parent="HSplitContainer/RecordInfo/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Строки:"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HSplitContainer/RecordInfo/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/RecordInfo/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RSEScriptEditor" type="CodeEdit" parent="HSplitContainer/RecordInfo/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+syntax_highlighter = SubResource("CodeHighlighter_l3tpe")
+gutters_draw_line_numbers = true
+indent_use_spaces = true
+script = ExtResource("6_83mb8")
+metadata/_custom_type_script = "uid://bfvdsytc1fqwl"
+
+[node name="OpenEpisodeFileButton" type="Button" parent="HSplitContainer/RecordInfo/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+text = "Открыть файл эпизода"
+icon = ExtResource("6_l3tpe")
+flat = true
+
+[node name="InfoLabel" type="Label" parent="HSplitContainer/RecordInfo/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "\"!\" Автоввод имени персонажа
+\"-\" Строка текста
+\"#\" Комментарий"
+horizontal_alignment = 1
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+initial_position = 4
+size = Vector2i(236, 100)
+dialog_text = "Вы уверены? Это действие нельзя отменить."
+
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+initial_position = 4
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.txt")
+
+[connection signal="pressed" from="HSplitContainer/RecordInfo/VBoxContainer/ScrollContainer/VBoxContainer/OpenEpisodeFileButton" to="." method="_on_open_episode_file_button_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]

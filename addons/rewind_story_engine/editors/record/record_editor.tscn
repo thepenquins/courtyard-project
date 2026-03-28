@@ -1,0 +1,133 @@
+[gd_scene load_steps=5 format=3 uid="uid://bseo1ntvm2ne"]
+
+[ext_resource type="Script" uid="uid://cv3fxf36c1tjj" path="res://addons/rewind_story_engine/editors/record/record_editor.gd" id="1_cnlnq"]
+[ext_resource type="Texture2D" uid="uid://d0typr7e4px1p" path="res://addons/rewind_story_engine/icons/Add.svg" id="2_goavc"]
+[ext_resource type="Texture2D" uid="uid://bggobug6l5nat" path="res://addons/rewind_story_engine/icons/Remove.svg" id="3_vogi3"]
+[ext_resource type="Texture2D" uid="uid://drsuumsoitobx" path="res://addons/rewind_story_engine/icons/ActionCopy.svg" id="4_vogi3"]
+
+[node name="Записи" type="Control" node_paths=PackedStringArray("record_text_edit", "base_data_item_list", "add_item_button", "remove_item_button", "remove_confirmation_dialog", "name_line_edit", "uuid_line_edit", "uuid_copy_button", "short_key_line_edit", "short_key_copy_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cnlnq")
+record_text_edit = NodePath("HSplitContainer/RecordInfo/VBoxContainer/RecordTextEdit")
+base_data_item_list = NodePath("HSplitContainer/Records/VBoxContainer/RecordsItemList")
+add_item_button = NodePath("HSplitContainer/Records/VBoxContainer/HBoxContainer/AddRecordButton")
+remove_item_button = NodePath("HSplitContainer/Records/VBoxContainer/HBoxContainer/RemoveRecordButton")
+remove_confirmation_dialog = NodePath("RemoveConfirmationDialog")
+name_line_edit = NodePath("HSplitContainer/RecordInfo/VBoxContainer/NameLineEdit")
+uuid_line_edit = NodePath("HSplitContainer/RecordInfo/VBoxContainer/UUIDHBoxContainer/UUIDLineEdit")
+uuid_copy_button = NodePath("HSplitContainer/RecordInfo/VBoxContainer/UUIDHBoxContainer/CopyUUIDButton")
+short_key_line_edit = NodePath("HSplitContainer/RecordInfo/VBoxContainer/ShortKeyHBoxContainer/ShortKeyLineEdit")
+short_key_copy_button = NodePath("HSplitContainer/RecordInfo/VBoxContainer/ShortKeyHBoxContainer/CopyShortKeyButton")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Records" type="MarginContainer" parent="HSplitContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Records"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="RecordsItemList" type="ItemList" parent="HSplitContainer/Records/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/Records/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="AddRecordButton" type="Button" parent="HSplitContainer/Records/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Добавить"
+icon = ExtResource("2_goavc")
+
+[node name="RemoveRecordButton" type="Button" parent="HSplitContainer/Records/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Удалить"
+icon = ExtResource("3_vogi3")
+
+[node name="RecordInfo" type="MarginContainer" parent="HSplitContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/RecordInfo"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="UUIDHBoxContainer" type="HBoxContainer" parent="HSplitContainer/RecordInfo/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="HSplitContainer/RecordInfo/VBoxContainer/UUIDHBoxContainer"]
+layout_mode = 2
+text = "UUID:"
+
+[node name="UUIDLineEdit" type="LineEdit" parent="HSplitContainer/RecordInfo/VBoxContainer/UUIDHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "UUID"
+editable = false
+
+[node name="CopyUUIDButton" type="Button" parent="HSplitContainer/RecordInfo/VBoxContainer/UUIDHBoxContainer"]
+layout_mode = 2
+tooltip_text = "Копировать"
+icon = ExtResource("4_vogi3")
+
+[node name="ShortKeyHBoxContainer" type="HBoxContainer" parent="HSplitContainer/RecordInfo/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="HSplitContainer/RecordInfo/VBoxContainer/ShortKeyHBoxContainer"]
+layout_mode = 2
+text = "Short Key:"
+
+[node name="ShortKeyLineEdit" type="LineEdit" parent="HSplitContainer/RecordInfo/VBoxContainer/ShortKeyHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Short Key"
+editable = false
+
+[node name="CopyShortKeyButton" type="Button" parent="HSplitContainer/RecordInfo/VBoxContainer/ShortKeyHBoxContainer"]
+layout_mode = 2
+tooltip_text = "Копировать"
+icon = ExtResource("4_vogi3")
+
+[node name="NameLineEdit" type="LineEdit" parent="HSplitContainer/RecordInfo/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+placeholder_text = "Название записи"
+
+[node name="RecordTextEdit" type="TextEdit" parent="HSplitContainer/RecordInfo/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Запись"
+
+[node name="RemoveConfirmationDialog" type="ConfirmationDialog" parent="."]
+initial_position = 4
+size = Vector2i(236, 100)
+dialog_text = "Вы уверены? Это действие нельзя отменить."
+
+[connection signal="text_changed" from="HSplitContainer/RecordInfo/VBoxContainer/RecordTextEdit" to="." method="_on_record_text_edit_text_changed"]
