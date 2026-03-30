@@ -2,15 +2,16 @@
 
 [ext_resource type="Script" uid="uid://d2iy3p7dbamos" path="res://scenes/game/game.gd" id="1_sul5r"]
 [ext_resource type="PackedScene" uid="uid://bsc42mb2c8nlx" path="res://addons/rewind_story_engine_vn/scene_player/scene_player.tscn" id="2_7h61r"]
+[ext_resource type="PackedScene" uid="uid://c6ppnx1khkfvc" path="res://scenes/game/pause/pause.tscn" id="3_0sr1o"]
 
-[node name="Game" type="Control" unique_id=1724380601 node_paths=PackedStringArray("scene_player")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Game" type="Node" unique_id=377975300 node_paths=PackedStringArray("scene_player", "pause")]
 script = ExtResource("1_sul5r")
 scene_player = NodePath("ScenePlayer")
+pause = NodePath("Pause")
 
 [node name="ScenePlayer" parent="." unique_id=635273600 instance=ExtResource("2_7h61r")]
+
+[node name="Pause" parent="." unique_id=2031611172 instance=ExtResource("3_0sr1o")]
+visible = false
+
+[connection signal="continue_pressed" from="Pause" to="." method="_continue"]

@@ -28,5 +28,5 @@ func _add_container() -> void:
 	_container.size_flags_horizontal = Control.SIZE_SHRINK_END | SIZE_EXPAND
 
 
-@abstract func set_value(value: float) -> void
+@abstract func set_value(value) -> void
 @abstract func get_value()

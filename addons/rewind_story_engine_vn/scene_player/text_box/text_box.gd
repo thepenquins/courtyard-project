@@ -9,11 +9,11 @@ signal frame_ended
 
 @export var click_to_continue_texture_rect: TextureRect
 
+var _playing: bool = true
 
-func set_frame(frame: RSEFrame) -> void:
-	var speaker = get_speaker(frame)
-	if speaker_rich_text_label.bbcode != speaker:
-		speaker_rich_text_label.bbcode = speaker
+
+func set_frame(frame: RSEFrame, vn_frame: VneFrame) -> void:
+	speaker_rich_text_label.bbcode = get_speaker(frame, vn_frame)
 	text_rich_text_label.bbcode = frame.text
 	
 	if Engine.is_editor_hint():
@@ -23,16 +23,39 @@ func set_frame(frame: RSEFrame) -> void:
 		print_rich(text)
 
 
-func get_speaker(frame: RSEFrame) -> String:
+func get_speaker(frame: RSEFrame, vn_frame: VneFrame) -> String:
 	if frame._character == null:
 		return "[skip]" + frame.speaker
 	else:
-		return "[skip][color=%s]%s[]" % [frame._character.color.to_html(false), frame.speaker]
+		var speaker = frame.speaker
+		for character_frame: VneCharacterFrame in vn_frame.characters:
+			for character_resource: VneCharacterResource in vn_frame.character_resources:
+				if character_resource.character == frame._character:
+					speaker = character_frame.displayed_name
+		return "[skip][color=%s]%s[]" % [frame._character.color.to_html(false), speaker]
 
 
 func advance() -> void:
 	text_rich_text_label.advance()
 
 
+## Временное решение.
+func _physics_process(delta: float) -> void:
+	click_to_continue_texture_rect.modulate.a = 0 if _playing else 1 
+
+
 func _on_text_richer_text_label_anim_finished() -> void:
 	frame_ended.emit()
+	_playing = false
+
+
+func _on_text_richer_text_label_anim_continued() -> void:
+	_playing = true
+
+
+func _on_text_richer_text_label_anim_paused() -> void:
+	_playing = false
+
+
+func _on_text_richer_text_label_anim_started() -> void:
+	_playing = true

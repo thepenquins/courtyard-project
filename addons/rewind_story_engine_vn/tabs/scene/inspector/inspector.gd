@@ -88,11 +88,21 @@ func _set_character(character_resource: VneCharacterResource) -> void:
 		parameter.value_changed_string.connect(_on_character_emotion_changed)
 		parameter.set_value_string(current_emotion)
 		parameters_container.add_child(parameter)
+	
+	var parameter := VneStringInspectorParameter.new("Отображаемое имя", character_resource.name)
+	parameter.value_changed.connect(_on_character_displayed_name_changed)
+	parameter.set_value((_frame_data as VneCharacterFrame).displayed_name)
+	parameters_container.add_child(parameter)
 
 
 func _on_character_emotion_changed(value: String) -> void:
 	if _frame_data is VneCharacterFrame:
 		_frame_data.emotion = value
+
+
+func _on_character_displayed_name_changed(value: String) -> void:
+	if _frame_data is VneCharacterFrame:
+		_frame_data.displayed_name = value
 #endregion
 
 func _set_location(location_resource: VneLocationResource) -> void:

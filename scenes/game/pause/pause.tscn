@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://c6ppnx1khkfvc"]
+
+[ext_resource type="Script" uid="uid://s5rl12jba1y2" path="res://scenes/game/pause/pause.gd" id="1_okjjf"]
+
+[node name="Pause" type="Control" unique_id=2031611172]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_okjjf")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1360977577]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.49803922)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=934477403]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ContinueButton" type="Button" parent="VBoxContainer" unique_id=450887714]
+layout_mode = 2
+text = "Продолжить"
+flat = true
+
+[node name="SaveButton" type="Button" parent="VBoxContainer" unique_id=702606019]
+layout_mode = 2
+disabled = true
+text = "Сохранить"
+flat = true
+
+[node name="LoadButton" type="Button" parent="VBoxContainer" unique_id=1986472823]
+layout_mode = 2
+disabled = true
+text = "Загрузить"
+flat = true
+
+[node name="ExitToMenuButton" type="Button" parent="VBoxContainer" unique_id=1636007353]
+layout_mode = 2
+text = "Выйти в меню"
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitToMenuButton" to="." method="_on_exit_to_menu_button_pressed"]

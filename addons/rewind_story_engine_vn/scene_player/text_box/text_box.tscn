@@ -38,6 +38,7 @@ metadata/rt = 2135890668529
 
 [sub_resource type="Animation" id="Animation_1hgq8"]
 length = 0.001
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -237,7 +238,7 @@ _triggers = {
 8: [[1003, {}]]
 }
 _transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 662, 52), Transform2D(1, 0, 0, 1, 673, 52), Transform2D(1, 0, 0, 1, 719, 52), Transform2D(1, 0, 0, 1, 731, 52), Transform2D(1, 0, 0, 1, 743, 52), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 774, 52), Transform2D(1, 0, 0, 1, 804, 52), Transform2D(1, 0, 0, 1, 832, 52), Transform2D(1, 0, 0, 1, 844, 52), Transform2D(1, 0, 0, 1, 859, 52), Transform2D(1, 0, 0, 1, 871, 52), Transform2D(1, 0, 0, 1, 898, 52), Transform2D(1, 0, 0, 1, 928, 52), Transform2D(1, 0, 0, 1, 956, 52), Transform2D(1, 0, 0, 1, 979, 52), Transform2D(1, 0, 0, 1, 1016, 52), Transform2D(1, 0, 0, 1, 1016, 52)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(8, 37), Vector2(42, 37), Vector2(0, 37), Vector2(0, 37), Vector2(30, 37), Vector2(0, 0), Vector2(26, 37), Vector2(36, 37), Vector2(0, 37), Vector2(9, 37), Vector2(0, 37), Vector2(32, 37), Vector2(26, 37), Vector2(26, 37), Vector2(25, 37), Vector2(22, 37), Vector2(0, 37), Vector2(0, 37)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(8, 37), Vector2(42, 37), Vector2(0, 37), Vector2(0, 37), Vector2(30, 37), Vector2(0, 0), Vector2(26, 37), Vector2(10, 37), Vector2(0, 37), Vector2(9, 37), Vector2(0, 37), Vector2(32, 37), Vector2(30, 37), Vector2(22, 37), Vector2(22, 37), Vector2(22, 37), Vector2(0, 37), Vector2(0, 37)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 _showing_ctc = true
@@ -330,6 +331,10 @@ stretch_mode = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control/TextRicherTextLabel/TextureRect" unique_id=1641649537]
 libraries/ = SubResource("AnimationLibrary_1hgq8")
+autoplay = &"highlight"
 script = ExtResource("8_1hgq8")
 
+[connection signal="anim_continued" from="Control/TextRicherTextLabel" to="." method="_on_text_richer_text_label_anim_continued"]
 [connection signal="anim_finished" from="Control/TextRicherTextLabel" to="." method="_on_text_richer_text_label_anim_finished"]
+[connection signal="anim_paused" from="Control/TextRicherTextLabel" to="." method="_on_text_richer_text_label_anim_paused"]
+[connection signal="anim_started" from="Control/TextRicherTextLabel" to="." method="_on_text_richer_text_label_anim_started"]

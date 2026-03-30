@@ -1,6 +1,7 @@
 @tool class_name VneScenePlayer extends Node
 
 
+signal frame_setting
 signal scene_ended(scene: VneScene)
 
 @export var location_container: Node
@@ -22,10 +23,13 @@ var _ready_to_next_frame: bool = false
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("next_frame"):
-		if _ready_to_next_frame:
-			next_frame()
-		else:
+		if Engine.is_editor_hint():
 			text_box.advance()
+		else:
+			if _ready_to_next_frame:
+				next_frame()
+			else:
+				text_box.advance()
 
 
 func _on_text_box_frame_ended() -> void:
@@ -72,7 +76,7 @@ func set_frame(frame_index: int) -> void:
 	set_music(_frame.music)
 	## ...
 	
-	text_box.set_frame(_scene.episode.get_frame_by_uuid(_frame.uuid))
+	text_box.set_frame(_scene.episode.get_frame_by_uuid(_frame.uuid), _frame)
 
 
 func set_location(location_frame: VneLocationFrame) -> void:
