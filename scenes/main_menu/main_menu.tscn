@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://cea2kp6234jfk"]
+
+[ext_resource type="Script" uid="uid://cjfajfghsdim5" path="res://scenes/main_menu/main_menu.gd" id="1_0ebjn"]
+[ext_resource type="PackedScene" uid="uid://b6swifjkjxwor" path="res://scenes/main_menu/developers/developers.tscn" id="1_fsom3"]
+[ext_resource type="PackedScene" uid="uid://dogjfwgr4fqbu" path="res://scenes/main_menu/settings/settings.tscn" id="3_ob46e"]
+[ext_resource type="PackedScene" uid="uid://mna5pt2yt5wp" path="res://scenes/main_menu/extra/extra.tscn" id="3_uqeha"]
+
+[node name="MainMenu" type="Control" unique_id=1387221139 node_paths=PackedStringArray("main", "extra", "settings", "developers")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0ebjn")
+main = NodePath("Main")
+extra = NodePath("Extra")
+settings = NodePath("Settings")
+developers = NodePath("Developers")
+
+[node name="Main" type="Control" parent="." unique_id=428847958]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main" unique_id=998975460]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play" type="Button" parent="Main/VBoxContainer" unique_id=2025765370]
+layout_mode = 2
+text = "Играть"
+flat = true
+
+[node name="Continue" type="Button" parent="Main/VBoxContainer" unique_id=578454009]
+layout_mode = 2
+disabled = true
+text = "Продолжить"
+flat = true
+
+[node name="Load" type="Button" parent="Main/VBoxContainer" unique_id=2031729635]
+layout_mode = 2
+disabled = true
+text = "Загрузить игру"
+flat = true
+
+[node name="Extra" type="Button" parent="Main/VBoxContainer" unique_id=1879831428]
+layout_mode = 2
+disabled = true
+text = "Экстра"
+flat = true
+
+[node name="Settings" type="Button" parent="Main/VBoxContainer" unique_id=835871003]
+layout_mode = 2
+text = "Настройки"
+flat = true
+
+[node name="Developers" type="Button" parent="Main/VBoxContainer" unique_id=927345693]
+layout_mode = 2
+text = "Разработчики"
+flat = true
+
+[node name="Exit" type="Button" parent="Main/VBoxContainer" unique_id=1073429201]
+layout_mode = 2
+text = "Выйти"
+flat = true
+
+[node name="Extra" parent="." unique_id=1207989455 instance=ExtResource("3_uqeha")]
+visible = false
+layout_mode = 1
+
+[node name="Settings" parent="." unique_id=267592914 instance=ExtResource("3_ob46e")]
+visible = false
+layout_mode = 1
+
+[node name="Developers" parent="." unique_id=2032380843 instance=ExtResource("1_fsom3")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="Main/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/Extra" to="." method="_on_extra_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/Developers" to="." method="_on_developers_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="return_pressed" from="Extra" to="." method="_return_to_main"]
+[connection signal="return_pressed" from="Settings" to="." method="_return_to_main"]
+[connection signal="return_pressed" from="Developers" to="." method="_return_to_main"]

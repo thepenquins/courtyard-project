@@ -19,3 +19,4 @@ characters_spacing = 512.0
 [node name="TextBox" parent="." unique_id=1782723377 instance=ExtResource("3_72hb3")]
 
 [connection signal="child_order_changed" from="CharactersContainer" to="CharactersContainer" method="move_characters"]
+[connection signal="frame_ended" from="TextBox" to="." method="_on_text_box_frame_ended"]

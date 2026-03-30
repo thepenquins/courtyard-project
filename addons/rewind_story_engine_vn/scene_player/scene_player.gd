@@ -9,6 +9,7 @@ signal scene_ended(scene: VneScene)
 
 var _scene: VneScene
 var _frame: VneFrame
+var _index: int
 
 var _characters: Dictionary[VneCharacterResource, VneCharacter2D]
 var _location_resource: VneLocationResource
@@ -16,15 +17,36 @@ var _current_location: VneLocation
 
 var _is_new_location: bool = true
 
+var _ready_to_next_frame: bool = false
+
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("next_frame"):
-		text_box.advance()
+		if _ready_to_next_frame:
+			next_frame()
+		else:
+			text_box.advance()
+
+
+func _on_text_box_frame_ended() -> void:
+	_ready_to_next_frame = true
 
 
 func set_scene(scene: VneScene, frame_index: int = 0) -> void:
 	_scene = scene
 	set_frame(frame_index)
+
+
+func next_frame() -> bool:
+	_ready_to_next_frame = false
+	set_frame(_index + 1)
+	return false
+
+
+func prev_frame() -> bool:
+	_ready_to_next_frame = true
+	set_frame(_index - 1)
+	return false
 
 
 func set_frame(frame_index: int) -> void:
@@ -37,6 +59,8 @@ func set_frame(frame_index: int) -> void:
 		return
 
 	_frame = frame_info.frame
+	_index = frame_info.index
+	
 	if _frame == null:
 		return
 	

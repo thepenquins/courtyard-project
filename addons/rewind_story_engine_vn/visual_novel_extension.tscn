@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://v05jwrgjk25h" path="res://addons/rewind_story_engine_vn/vne_plugin_controller.gd" id="1_1raw3"]
 [ext_resource type="PackedScene" uid="uid://bf0qauknekgym" path="res://addons/rewind_story_engine_vn/tabs/resources/resources.tscn" id="2_ceif2"]
 [ext_resource type="PackedScene" uid="uid://cqn5qfk2qbxcw" path="res://addons/rewind_story_engine_vn/tabs/scene/scenes.tscn" id="3_4r4xm"]
-[ext_resource type="PackedScene" uid="uid://c8fv5gm4d45um" path="res://addons/rewind_story_engine_vn/tabs/structure/structure_editor.tscn" id="4_ceif2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_c4dsb"]
 font_size = 24
@@ -74,8 +73,3 @@ metadata/_tab_index = 0
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
-
-[node name="Структура" parent="TabContainer" unique_id=1761135656 instance=ExtResource("4_ceif2")]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 2

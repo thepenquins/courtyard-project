@@ -19,6 +19,9 @@ func fill_data(file: FileAccess) -> void:
 	var character_uuid = file.get_line()
 	character = RSE.story.get_character_by_uuid(character_uuid)
 	
+	if character:
+		name = character.name
+	
 	while file.get_position() < file.get_length():
 		emotions.append(file.get_line())
 

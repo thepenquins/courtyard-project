@@ -9,12 +9,14 @@ enum AudioBus {
 	MASTER,
 	SFX,
 	MUSIC,
+	BLEEP,
 }
 
 var audio_bus_name: Dictionary[AudioBus, StringName] = {
 	AudioBus.MASTER : &"Master",
 	AudioBus.SFX : &"SFX",
 	AudioBus.MUSIC : &"Music",
+	AudioBus.BLEEP : &"Bleep",
 }
 
 var config: ConfigFile
@@ -60,6 +62,12 @@ var music_volume: int = 50:
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index(audio_bus_name[AudioBus.MUSIC]), db)
 		print("%s bus volume is set to %s db." % [audio_bus_name[AudioBus.MUSIC], db])
 
+var bleep_mode: bool = true: 
+	set(value):
+		bleep_mode = value
+		AudioServer.set_bus_mute(AudioServer.get_bus_index(audio_bus_name[AudioBus.BLEEP]), not value)
+		print("Bleep mode: %s" % value)
+
 
 func _enter_tree():
 	load_config()
@@ -84,6 +92,7 @@ func save_config() -> void:
 	config.set_value("audio_settings", "master_volume", master_volume)
 	config.set_value("audio_settings", "sfx_volume", sfx_volume)
 	config.set_value("audio_settings", "music_volume", music_volume)
+	config.set_value("audio_settings", "bleep_mode", bleep_mode)
 	
 	config.save(PATH_TO_CONFIG)
 
@@ -107,6 +116,7 @@ func load_config() -> void:
 		master_volume = config.get_value("audio_settings", "master_volume", 50)
 		sfx_volume = config.get_value("audio_settings", "sfx_volume", 50)
 		music_volume = config.get_value("audio_settings", "music_volume", 50)
+		bleep_mode = config.get_value("audio_settings", "bleep_mode", true)
 		
 		print("Configuration file loaded successfully!")
 	else:

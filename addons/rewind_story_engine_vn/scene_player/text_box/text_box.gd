@@ -2,9 +2,12 @@
 class_name VneTextBox
 extends MarginContainer
 
+signal frame_ended
 
 @export var speaker_rich_text_label: RichTextAnimation
 @export var text_rich_text_label: RichTextAnimation
+
+@export var click_to_continue_texture_rect: TextureRect
 
 
 func set_frame(frame: RSEFrame) -> void:
@@ -27,6 +30,9 @@ func get_speaker(frame: RSEFrame) -> String:
 		return "[skip][color=%s]%s[]" % [frame._character.color.to_html(false), frame.speaker]
 
 
-func advance() -> bool:
+func advance() -> void:
 	text_rich_text_label.advance()
-	return true
+
+
+func _on_text_richer_text_label_anim_finished() -> void:
+	frame_ended.emit()
