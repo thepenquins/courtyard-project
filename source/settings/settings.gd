@@ -3,6 +3,10 @@ extends Node
 signal locale_was_changed
 signal player_name_was_changed
 
+signal master_volume_was_changed
+signal sfx_volume_was_changed
+signal music_volume_was_changed
+
 const PATH_TO_CONFIG = "user://config.ini"
 
 enum AudioBus {
@@ -21,11 +25,13 @@ var audio_bus_name: Dictionary[AudioBus, StringName] = {
 
 var config: ConfigFile
 
+
 var player_name: String = "":
 	set(new_name):
 		player_name = new_name
 		player_name_was_changed.emit()
 		print("Player name: %s" % player_name)
+
 
 var locale: String = OS.get_locale():
 	set(new_locale):
@@ -33,6 +39,7 @@ var locale: String = OS.get_locale():
 		TranslationServer.set_locale(locale)
 		locale_was_changed.emit()
 		print("Locale: %s" % locale)
+
 
 var screen_mode: DisplayServer.WindowMode = DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
 	set(mode):
@@ -44,23 +51,29 @@ var screen_mode: DisplayServer.WindowMode = DisplayServer.WINDOW_MODE_EXCLUSIVE_
 var master_volume: int = 50:
 	set(value):
 		master_volume = value
-		var db: float = linear_to_db(value / 100.0)
-		AudioServer.set_bus_volume_db(AudioServer.get_bus_index(audio_bus_name[AudioBus.MASTER]), db)
-		print("%s bus volume is set to %s db." % [audio_bus_name[AudioBus.MASTER], db])
+		_set_audio_bus_volume(value, AudioBus.MASTER)
+		master_volume_was_changed.emit()
+
 
 var sfx_volume: int = 50:
 	set(value):
 		sfx_volume = value
-		var db: float = linear_to_db(value / 100.0)
-		AudioServer.set_bus_volume_db(AudioServer.get_bus_index(audio_bus_name[AudioBus.SFX]), db)
-		print("%s bus volume is set to %s db." % [audio_bus_name[AudioBus.SFX], db])
+		_set_audio_bus_volume(value, AudioBus.SFX)
+		sfx_volume_was_changed.emit()
+
 
 var music_volume: int = 50:
 	set(value):
 		music_volume = value
-		var db: float = linear_to_db(value / 100.0)
-		AudioServer.set_bus_volume_db(AudioServer.get_bus_index(audio_bus_name[AudioBus.MUSIC]), db)
-		print("%s bus volume is set to %s db." % [audio_bus_name[AudioBus.MUSIC], db])
+		_set_audio_bus_volume(value, AudioBus.MUSIC)
+		music_volume_was_changed.emit()
+
+
+func _set_audio_bus_volume(value: int, bus: AudioBus) -> void:
+	var db: float = linear_to_db(value / 100.0)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(audio_bus_name[bus]), db)
+	print("%s bus volume is set to %s db." % [audio_bus_name[bus], db])
+
 
 var bleep_mode: bool = true: 
 	set(value):

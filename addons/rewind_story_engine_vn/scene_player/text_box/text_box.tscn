@@ -14,27 +14,27 @@
 [sub_resource type="RichTextEffect" id="RichTextEffect_1hgq8"]
 resource_name = "prickle"
 script = ExtResource("4_h2ygl")
-metadata/rt = 2102923439080
+metadata/rt = 2106882862129
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_vmmjd"]
 resource_name = "prickle"
 script = ExtResource("4_h2ygl")
-metadata/rt = 2135890668529
+metadata/rt = 2140118527034
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_hpvdf"]
 resource_name = "jit2"
 script = ExtResource("3_45kqg")
-metadata/rt = 2135890668529
+metadata/rt = 2140118527034
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_ngkud"]
 resource_name = "cuss"
 script = ExtResource("4_a7jgp")
-metadata/rt = 2135890668529
+metadata/rt = 2140118527034
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_1rxjk"]
 resource_name = "woo"
 script = ExtResource("7_vmmjd")
-metadata/rt = 2135890668529
+metadata/rt = 2140118527034
 
 [sub_resource type="Animation" id="Animation_1hgq8"]
 length = 0.001
@@ -100,7 +100,7 @@ layout_mode = 2
 
 [node name="SpeakerRicherTextLabel" type="RichTextLabel" parent="Control" unique_id=212519613]
 clip_contents = false
-custom_minimum_size = Vector2(0, 67)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -116,11 +116,11 @@ theme_override_constants/shadow_outline_size = 15
 theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_offset_y = 3
 theme_override_constants/outline_size = 8
-theme_override_font_sizes/normal_font_size = 48
-theme_override_font_sizes/bold_font_size = 48
-theme_override_font_sizes/bold_italics_font_size = 48
-theme_override_font_sizes/italics_font_size = 48
-theme_override_font_sizes/mono_font_size = 48
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
+theme_override_font_sizes/bold_italics_font_size = 36
+theme_override_font_sizes/italics_font_size = 36
+theme_override_font_sizes/mono_font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxEmpty_n2rpe")
 bbcode_enabled = true
 fit_content = true
@@ -129,8 +129,8 @@ script = ExtResource("3_gfp3b")
 animation = "prickle"
 progress = 1.0
 visible_character = 6
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 803, 52), Transform2D(1, 0, 0, 1, 816, 52), Transform2D(1, 0, 0, 1, 830, 52), Transform2D(1, 0, 0, 1, 853, 52), Transform2D(1, 0, 0, 1, 881, 52)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(9, 37), Vector2(9, 37), Vector2(23, 37), Vector2(26, 37), Vector2(0, 37)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 810, 39), Transform2D(1, 0, 0, 1, 820, 39), Transform2D(1, 0, 0, 1, 830, 39), Transform2D(1, 0, 0, 1, 848, 39), Transform2D(1, 0, 0, 1, 868, 39)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(8, 28), Vector2(8, 28), Vector2(18, 28), Vector2(21, 28), Vector2(0, 28)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _forced_finish_delay = -0.03227433333333515
@@ -155,7 +155,7 @@ color = Color(1, 1, 1, 1)
 emoji_scale = 1.0
 font = "XTypewriter"
 font_auto_setup = true
-font_size = 48
+font_size = 36
 font_bold_weight = 1.5
 font_italics_slant = 0.25
 font_italics_weight = -0.25
@@ -204,7 +204,7 @@ metadata/rand = Array[int]([3827202865, 851246197, 3223911580, 1909538342, 34279
 
 [node name="TextRicherTextLabel" type="RichTextLabel" parent="Control" unique_id=1258520363 node_paths=PackedStringArray("ctc_node")]
 clip_contents = false
-custom_minimum_size = Vector2(0, 67)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -219,11 +219,11 @@ theme_override_constants/shadow_outline_size = 15
 theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_offset_y = 3
 theme_override_constants/outline_size = 8
-theme_override_font_sizes/normal_font_size = 48
-theme_override_font_sizes/bold_font_size = 48
-theme_override_font_sizes/bold_italics_font_size = 48
-theme_override_font_sizes/italics_font_size = 48
-theme_override_font_sizes/mono_font_size = 48
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
+theme_override_font_sizes/bold_italics_font_size = 36
+theme_override_font_sizes/italics_font_size = 36
+theme_override_font_sizes/mono_font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxEmpty_n2rpe")
 bbcode_enabled = true
 fit_content = true
@@ -232,13 +232,13 @@ script = ExtResource("3_gfp3b")
 animation = "prickle"
 _play = false
 _hold = true
-progress = 0.47368421052631593
+progress = 0.473986666666656
 visible_character = 9
 _triggers = {
 8: [[1003, {}]]
 }
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 662, 52), Transform2D(1, 0, 0, 1, 673, 52), Transform2D(1, 0, 0, 1, 719, 52), Transform2D(1, 0, 0, 1, 731, 52), Transform2D(1, 0, 0, 1, 743, 52), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 774, 52), Transform2D(1, 0, 0, 1, 804, 52), Transform2D(1, 0, 0, 1, 832, 52), Transform2D(1, 0, 0, 1, 844, 52), Transform2D(1, 0, 0, 1, 859, 52), Transform2D(1, 0, 0, 1, 871, 52), Transform2D(1, 0, 0, 1, 898, 52), Transform2D(1, 0, 0, 1, 928, 52), Transform2D(1, 0, 0, 1, 956, 52), Transform2D(1, 0, 0, 1, 979, 52), Transform2D(1, 0, 0, 1, 1016, 52), Transform2D(1, 0, 0, 1, 1016, 52)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(8, 37), Vector2(42, 37), Vector2(0, 37), Vector2(0, 37), Vector2(30, 37), Vector2(0, 0), Vector2(26, 37), Vector2(10, 37), Vector2(0, 37), Vector2(9, 37), Vector2(0, 37), Vector2(32, 37), Vector2(30, 37), Vector2(22, 37), Vector2(22, 37), Vector2(22, 37), Vector2(0, 37), Vector2(0, 37)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 704, 39), Transform2D(1, 0, 0, 1, 713, 39), Transform2D(1, 0, 0, 1, 747, 39), Transform2D(1, 0, 0, 1, 756, 39), Transform2D(1, 0, 0, 1, 765, 39), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 788, 39), Transform2D(1, 0, 0, 1, 811, 39), Transform2D(1, 0, 0, 1, 832, 39), Transform2D(1, 0, 0, 1, 841, 39), Transform2D(1, 0, 0, 1, 852, 39), Transform2D(1, 0, 0, 1, 861, 39), Transform2D(1, 0, 0, 1, 881, 39), Transform2D(1, 0, 0, 1, 904, 39), Transform2D(1, 0, 0, 1, 925, 39), Transform2D(1, 0, 0, 1, 942, 39), Transform2D(1, 0, 0, 1, 970, 39), Transform2D(1, 0, 0, 1, 970, 39)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(7, 28), Vector2(32, 28), Vector2(0, 28), Vector2(0, 28), Vector2(23, 28), Vector2(0, 0), Vector2(21, 28), Vector2(28, 28), Vector2(0, 28), Vector2(7, 28), Vector2(0, 28), Vector2(22, 28), Vector2(23, 28), Vector2(17, 28), Vector2(18, 28), Vector2(20, 28), Vector2(0, 28), Vector2(0, 28)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 _showing_ctc = true
@@ -266,7 +266,7 @@ color = Color(1, 1, 1, 1)
 emoji_scale = 1.0
 font = "XTypewriter"
 font_auto_setup = true
-font_size = 48
+font_size = 36
 font_bold_weight = 1.5
 font_italics_slant = 0.25
 font_italics_weight = -0.25
@@ -320,9 +320,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -76.5
+offset_top = -80.5
 offset_right = 105.0
-offset_bottom = -35.5
+offset_bottom = -39.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("7_h2ygl")

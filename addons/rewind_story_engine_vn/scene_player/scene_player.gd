@@ -15,6 +15,10 @@ var _index: int
 var _characters: Dictionary[VneCharacterResource, VneCharacter2D]
 var _location_resource: VneLocationResource
 var _current_location: VneLocation
+var _current_music: VneMusicResource
+var _music_player: FmodEventEmitter2D
+var _current_bgs: VneBgsResource
+var _bgs_player: FmodEventEmitter2D
 
 var _is_new_location: bool = true
 
@@ -74,6 +78,8 @@ func set_frame(frame_index: int) -> void:
 	set_location(_frame.location)
 	set_characters(_frame.characters)
 	set_music(_frame.music)
+	set_bgs(_frame.bgs)
+	set_sfx(_frame.sfx)
 	## ...
 	
 	text_box.set_frame(_scene.episode.get_frame_by_uuid(_frame.uuid), _frame)
@@ -136,7 +142,39 @@ func _reorder_characters(character_frames: Array[VneCharacterFrame]) -> void:
 
 
 func set_music(music_frame: VneMusicFrame) -> void:
-	pass
+	_music_player = set_audio(_music_player, _current_music, music_frame)
+	_current_music = music_frame.music
+
+
+func set_bgs(bgs_frame: VneBgsFrame) -> void:
+	_bgs_player = set_audio(_bgs_player, _current_bgs, bgs_frame)
+	_current_bgs = bgs_frame.bgs
+
+
+func set_sfx(sfx_array: Array[VneSfxFrame]) -> void:
+	for sfx in sfx_array:
+		var emitter = set_audio(null, null, sfx)
+
+
+func set_audio(player: FmodEventEmitter2D, current_audio: VneAudioResource, audio_frame: VneFrameWithMultipleParameters) -> FmodEventEmitter2D:
+	if Engine.is_editor_hint(): ## TODO: Починить воспроизведение в редакторе.
+		return
+	
+	if audio_frame.resource == null:
+		if player:
+			player.queue_free()
+			player = null
+		return
+	
+	if current_audio == audio_frame.resource:
+		if player:
+			_set_fmod_event_emitter_2D_parameters(player, audio_frame.parameters)
+		return player
+	
+	player = _create_fmod_event_emitter_2D(audio_frame.resource.path_to_file)
+	_set_fmod_event_emitter_2D_parameters(player, audio_frame.parameters)
+	
+	return player
 
 
 ## Загрузить персонажей, если их нет.
@@ -152,3 +190,17 @@ func load_all_characters() -> void:
 			var character_scene: VneCharacter2D = character_packed_scene.instantiate()
 			characters_container.add_character(character_scene)
 			_characters[character] = character_scene
+
+
+func _create_fmod_event_emitter_2D(event_name: String) -> FmodEventEmitter2D:
+	var event_emitter = FmodEventEmitter2D.new()
+	event_emitter.event_name = event_name
+	event_emitter.autoplay = true
+	event_emitter.auto_release = true
+	add_child(event_emitter)
+	return event_emitter
+
+
+func _set_fmod_event_emitter_2D_parameters(event_emitter: FmodEventEmitter2D, parameters: Dictionary[String, float]) -> void:
+	for parameter in parameters:
+		event_emitter.set_parameter_by_id(int(parameter), parameters[parameter])
