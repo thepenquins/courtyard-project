@@ -158,13 +158,12 @@ func set_sfx(sfx_array: Array[VneSfxFrame]) -> void:
 
 func set_audio(player: FmodEventEmitter2D, current_audio: VneAudioResource, audio_frame: VneFrameWithMultipleParameters) -> FmodEventEmitter2D:
 	if Engine.is_editor_hint(): ## TODO: Починить воспроизведение в редакторе.
-		return
+		return null
 	
 	if audio_frame.resource == null:
 		if player:
-			player.queue_free()
-			player = null
-		return
+			player.stop()
+		return null
 	
 	if current_audio == audio_frame.resource:
 		if player:

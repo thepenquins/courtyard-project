@@ -59,7 +59,7 @@ func _create_developer(developer_name: String, url: String) -> void:
 		developer.text = developer_name
 	else:
 		developer.text = "[url=%s]%s[/url]" % [url, developer_name]
-	developer.add_theme_font_size_override("normal_font_size", 24)
+	developer.add_theme_font_size_override("normal_font_size", 16)
 	developer.meta_clicked.connect(_on_developer_meta_clicked)
 
 
