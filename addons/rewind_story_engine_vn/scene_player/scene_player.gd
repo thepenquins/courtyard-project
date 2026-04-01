@@ -1,7 +1,7 @@
 @tool class_name VneScenePlayer extends Node
 
 
-signal frame_setting
+signal frame_setting(rse_frame: RSEFrame, vn_frame: VneFrame)
 signal scene_ended(scene: VneScene)
 
 @export var location_container: Node
@@ -24,6 +24,9 @@ var _is_new_location: bool = true
 
 var _ready_to_next_frame: bool = false
 
+const REWIND_RELOAD_TIME: float = 0.05
+var _current_rewind_reload: float = 0.0
+
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("next_frame"):
@@ -34,6 +37,22 @@ func _input(event: InputEvent) -> void:
 				next_frame()
 			else:
 				text_box.advance()
+	if event.is_action_pressed("prev_frame"):
+		if not Engine.is_editor_hint():
+			if _ready_to_next_frame:
+				prev_frame()
+			else:
+				text_box.skip()
+
+
+func _process(delta: float) -> void:
+	if _current_rewind_reload > 0:
+		_current_rewind_reload -= delta
+	
+	if Input.is_action_pressed("rewind"):
+		if not Engine.is_editor_hint() and _current_rewind_reload <= 0:
+			_current_rewind_reload = REWIND_RELOAD_TIME
+			next_frame(true)
 
 
 func _on_text_box_frame_ended() -> void:
@@ -45,23 +64,31 @@ func set_scene(scene: VneScene, frame_index: int = 0) -> void:
 	set_frame(frame_index)
 
 
-func next_frame() -> bool:
+func next_frame(instantly: bool = false) -> bool:
+	var new_index = _index + 1
+	if new_index >= _scene.episode.frames_without_commentary.size():
+		return false
+	
 	_ready_to_next_frame = false
-	set_frame(_index + 1)
-	return false
+	set_frame(new_index, instantly)
+	return true
 
 
 func prev_frame() -> bool:
+	var new_index = _index - 1
+	if new_index < 0:
+		return false
+	
 	_ready_to_next_frame = true
-	set_frame(_index - 1)
-	return false
+	set_frame(new_index, true)
+	return true
 
 
-func set_frame(frame_index: int) -> void:
+func set_frame(frame_index: int, instantly: bool = false) -> void:
 	if _scene == null:
 		return
 	
-	var frame_info = _scene.get_frame(frame_index)
+	var frame_info = _scene.get_frame(frame_index, true)
 	
 	if _frame == frame_info.frame:
 		return
@@ -76,13 +103,17 @@ func set_frame(frame_index: int) -> void:
 		scene_ended.emit(_scene)
 	
 	set_location(_frame.location)
-	set_characters(_frame.characters)
+	set_characters(_frame.characters, instantly)
 	set_music(_frame.music)
 	set_bgs(_frame.bgs)
 	set_sfx(_frame.sfx)
 	## ...
 	
-	text_box.set_frame(_scene.episode.get_frame_by_uuid(_frame.uuid), _frame)
+	var rse_frame = _scene.episode.get_frame_by_uuid(_frame.uuid)
+	
+	set_text(rse_frame, instantly)
+	
+	frame_setting.emit(rse_frame, _frame)
 
 
 func set_location(location_frame: VneLocationFrame) -> void:
@@ -115,7 +146,7 @@ func set_location(location_frame: VneLocationFrame) -> void:
 		_current_location.set_parameters(location_frame.parameters)
 
 
-func set_characters(character_frames: Array[VneCharacterFrame]) -> void:
+func set_characters(character_frames: Array[VneCharacterFrame], instantly: bool = false) -> void:
 	for character in _characters:
 		var visible: bool = false
 		for character_frame in character_frames:
@@ -123,10 +154,10 @@ func set_characters(character_frames: Array[VneCharacterFrame]) -> void:
 				_characters[character].emotion = character_frame.emotion
 				visible = true
 				break
-		_characters[character].set_visibility(visible, _is_new_location)
+		_characters[character].set_visibility(visible, _is_new_location or instantly)
 	
 	_reorder_characters(character_frames)
-	characters_container.move_characters(_is_new_location)
+	characters_container.move_characters(_is_new_location or instantly)
 
 
 func _reorder_characters(character_frames: Array[VneCharacterFrame]) -> void:
@@ -157,9 +188,9 @@ func set_sfx(sfx_array: Array[VneSfxFrame]) -> void:
 
 
 func set_audio(player: FmodEventEmitter2D, current_audio: VneAudioResource, audio_frame: VneFrameWithMultipleParameters) -> FmodEventEmitter2D:
-	if Engine.is_editor_hint(): ## TODO: Починить воспроизведение в редакторе.
-		return null
-	
+	#if Engine.is_editor_hint(): ## TODO: Починить воспроизведение в редакторе.
+		#return
+		
 	if audio_frame.resource == null:
 		if player:
 			player.stop()
@@ -173,7 +204,24 @@ func set_audio(player: FmodEventEmitter2D, current_audio: VneAudioResource, audi
 	player = _create_fmod_event_emitter_2D(audio_frame.resource.path_to_file)
 	_set_fmod_event_emitter_2D_parameters(player, audio_frame.parameters)
 	
+	player.process_mode = Node.PROCESS_MODE_ALWAYS
+	
+	if Engine.is_editor_hint(): ## TODO: Починить воспроизведение в редакторе.
+		player.play()
+		#var event_instance = FmodServer.create_event_instance(audio_frame.resource.path_to_file)
+		#event_instance.position
+		#var desc = FmodServer.get_event(audio_frame.resource.path_to_file)
+		#if desc.is_valid():
+			#print(desc.get_instance_count()) 
+			#print(desc.get_instance_list()) 
+	
 	return player
+
+
+func set_text(rse_frame: RSEFrame = null, instantly: bool = false) -> void:
+	if not rse_frame:
+		rse_frame = _scene.episode.get_frame_by_uuid(_frame.uuid)
+	text_box.set_frame(rse_frame, _frame, instantly)
 
 
 ## Загрузить персонажей, если их нет.
@@ -203,3 +251,22 @@ func _create_fmod_event_emitter_2D(event_name: String) -> FmodEventEmitter2D:
 func _set_fmod_event_emitter_2D_parameters(event_emitter: FmodEventEmitter2D, parameters: Dictionary[String, float]) -> void:
 	for parameter in parameters:
 		event_emitter.set_parameter_by_id(int(parameter), parameters[parameter])
+	
+	if Engine.is_editor_hint(): ## TODO: Починить воспроизведение в редакторе.
+		event_emitter.play()
+
+
+func _exit_tree() -> void:
+	if _music_player:
+		_music_player.stop()
+	if _bgs_player:
+		_bgs_player.stop()
+
+
+func _ready() -> void:
+	var event_instance = FmodServer.create_event_instance("event:/mus/mus_bachbabach")
+	event_instance.position = 2000
+	event_instance.start()
+	await get_tree().create_timer(4).timeout
+	event_instance.stop(0)
+	event_instance = null

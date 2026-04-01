@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://ccyrngug1blcp"]
+
+[ext_resource type="Script" uid="uid://cbrp1a2vjsdkv" path="res://addons/rewind_story_engine_vn/scene_player/character/character_2d.gd" id="1_y2s6q"]
+[ext_resource type="Texture2D" uid="uid://dxobhn3b0faa6" path="res://scenes/characters/милалика/sprites/mila_задумчивость.png" id="2_kkrds"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s3wgs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kkrds")
+}],
+"loop": true,
+"name": &"Задумчивость",
+"speed": 1.0
+}]
+
+[node name="Милалика" type="Node2D" unique_id=438957723 node_paths=PackedStringArray("animated_sprites")]
+script = ExtResource("1_y2s6q")
+uuid = "abea155a-50cd-44db-9770-9b6d245de91e"
+animated_sprites = {
+"Целиком": NodePath("Целиком")
+}
+
+[node name="Целиком" type="AnimatedSprite2D" parent="." unique_id=390962100]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_s3wgs")
+animation = &"Задумчивость"

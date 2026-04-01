@@ -1,5 +1,10 @@
 @tool class_name VneInspector extends PanelContainer
 
+signal frame_was_changed(frame_data: VneBaseFrameData)
+signal audio_was_changed(frame_data: VneBaseFrameData)
+signal character_was_changed(frame_data: VneBaseFrameData)
+signal location_was_changed(frame_data: VneBaseFrameData)
+
 @export var resource_name_label: RichTextLabel
 @export var parameters_container: VBoxContainer
 
@@ -75,6 +80,8 @@ func _get_parameter_value_from_frame(param_id: String) -> float:
 func _on_fmod_parameter_changed(value: Variant, param_id: String) -> void:
 	if _frame_data is VneFrameWithMultipleParameters:
 		_frame_data.parameters[param_id] = float(value)
+		frame_was_changed.emit(_frame_data)
+		audio_was_changed.emit(_frame_data)
 #endregion
 #endregion
 
@@ -98,16 +105,35 @@ func _set_character(character_resource: VneCharacterResource) -> void:
 func _on_character_emotion_changed(value: String) -> void:
 	if _frame_data is VneCharacterFrame:
 		_frame_data.emotion = value
+		frame_was_changed.emit(_frame_data)
+		character_was_changed.emit(_frame_data)
 
 
 func _on_character_displayed_name_changed(value: String) -> void:
 	if _frame_data is VneCharacterFrame:
 		_frame_data.displayed_name = value
+		frame_was_changed.emit(_frame_data)
+		character_was_changed.emit(_frame_data)
 #endregion
 
+#region location
 func _set_location(location_resource: VneLocationResource) -> void:
 	_create_category_label("Локация")
+	
+	for location_parameter in location_resource.parameters:
+		var current_value = (_frame_data as VneFrameWithMultipleParameters).parameters.get(location_parameter, 0.0)
+		var parameter := VneOptionInspectorParameter.new(location_parameter, location_resource.parameters[location_parameter])
+		parameter.value_changed.connect(_on_location_parameter_changed.bind(location_parameter))
+		parameter.set_value(current_value)
+		parameters_container.add_child(parameter)
 
+
+func _on_location_parameter_changed(value: float, key: String) -> void:
+	if _frame_data is VneLocationFrame:
+		_frame_data.parameters[key] = value
+		frame_was_changed.emit(_frame_data)
+		location_was_changed.emit(_frame_data)
+#endregion
 
 func _set_fvx(fvx_resource: VneVfxResource) -> void:
 	_create_category_label("Визуальный эффект")

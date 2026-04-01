@@ -104,7 +104,7 @@ func set_frame(index: int) -> void:
 	add_character_button.select_resources(_frame.character_resources)
 	
 	# Установить локацию.
-	location_option_button.select_resource(_frame.location.resource)
+	location_option_button.select_resource(_frame.location.resource) ## TODO: Ошибка.
 	
 	# Установить музыку.
 	music_option_button.select_resource(_frame.music.resource)
@@ -341,3 +341,25 @@ func _on_resource_edited(resource: VneResource) -> void:
 func _clear_frame_data(frame_data: VneBaseFrameData) -> void:
 	if frame_data is VneFrameWithMultipleParameters:
 		frame_data.parameters.clear()
+
+
+func _on_inspector_frame_was_changed(frame_data: VneBaseFrameData) -> void:
+	pass # Replace with function body.
+
+
+func _on_inspector_audio_was_changed(frame_data: VneBaseFrameData) -> void:
+	if frame_data is VneMusicFrame:
+		scene_player.set_music(_frame.music)
+	if frame_data is VneBgsFrame:
+		scene_player.set_bgs(_frame.bgs)
+	if frame_data is VneSfxFrame:
+		scene_player.set_sfx(_frame.sfx)
+
+
+func _on_inspector_character_was_changed(frame_data: VneBaseFrameData) -> void:
+	scene_player.set_characters(_frame.characters)
+	scene_player.set_text(null, true)
+
+
+func _on_inspector_location_was_changed(frame_data: VneBaseFrameData) -> void:
+	scene_player.set_location(_frame.location)

@@ -12,9 +12,12 @@ signal frame_ended
 var _playing: bool = true
 
 
-func set_frame(frame: RSEFrame, vn_frame: VneFrame) -> void:
+func set_frame(frame: RSEFrame, vn_frame: VneFrame, instantly: bool = false) -> void:
 	speaker_rich_text_label.bbcode = get_speaker(frame, vn_frame)
 	text_rich_text_label.bbcode = frame.text
+	
+	if instantly:
+		skip()
 	
 	if Engine.is_editor_hint():
 		var text = frame.text
@@ -31,12 +34,17 @@ func get_speaker(frame: RSEFrame, vn_frame: VneFrame) -> String:
 		for character_frame: VneCharacterFrame in vn_frame.characters:
 			for character_resource: VneCharacterResource in vn_frame.character_resources:
 				if character_resource.character == frame._character:
-					speaker = character_frame.displayed_name
+					if character_frame.displayed_name != "":
+						speaker = character_frame.displayed_name
 		return "[skip][color=%s]%s[]" % [frame._character.color.to_html(false), speaker]
 
 
 func advance() -> void:
 	text_rich_text_label.advance()
+
+
+func skip() -> void:
+	text_rich_text_label.bbcode = "[skip]" + text_rich_text_label.bbcode
 
 
 ## Временное решение.

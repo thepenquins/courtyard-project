@@ -141,11 +141,13 @@ size_flags_vertical = 4
 layout_mode = 2
 
 [node name="BleepsLabel" type="Label" parent="VBoxContainer/GridContainer" unique_id=1838804995]
+visible = false
 layout_mode = 2
 text = "Блипы персонажей"
 horizontal_alignment = 2
 
 [node name="BleepsCheckBox" type="CheckBox" parent="VBoxContainer/GridContainer" unique_id=1974147970]
+visible = false
 layout_mode = 2
 script = ExtResource("5_7vie7")
 

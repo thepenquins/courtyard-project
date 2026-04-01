@@ -21,6 +21,11 @@ func _init(label_text: String, params: PackedStringArray) -> void:
 
 
 func set_value(value: float) -> void:
+	if value < 0:
+		value = 0
+	elif value > options.size() - 1:
+		value = options.size() - 1
+	
 	_option_button.select(int(value))
 	value_changed.emit(value)
 	value_changed_string.emit(options[int(value)])

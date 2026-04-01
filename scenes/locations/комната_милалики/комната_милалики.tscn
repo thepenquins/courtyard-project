@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dbctrbeefc1th"]
+
+[ext_resource type="Script" uid="uid://brf16tg74itr7" path="res://scenes/locations/комната_милалики/milalika_room.gd" id="1_u3s58"]
+[ext_resource type="Texture2D" uid="uid://dglfhh0yagf2r" path="res://scenes/locations/комната_милалики/2_2_day.jpg" id="2_mwjro"]
+[ext_resource type="Texture2D" uid="uid://dsycfsew7b4hm" path="res://scenes/locations/комната_милалики/2_2_night.jpg" id="3_rquhb"]
+
+[node name="КомнатаМилалики" type="Node2D" unique_id=104243358 node_paths=PackedStringArray("sprite_2d")]
+script = ExtResource("1_u3s58")
+day = ExtResource("2_mwjro")
+night = ExtResource("3_rquhb")
+sprite_2d = NodePath("Sprite2D")
+uuid = "874e60eb-1e7c-4a18-b886-5bd84fbb8545"
+parameters = Dictionary[String, PackedStringArray]({
+"Время суток": PackedStringArray("День", "Ночь")
+})
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1950586964]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_mwjro")
+centered = false

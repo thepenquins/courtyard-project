@@ -186,6 +186,14 @@ func get_character_by_uuid(uuid: String) -> VneCharacterResource:
 			return resource
 	return null
 
+
+#func get_location_by_uuid(uuid: String) -> VneLocationResource:
+	#for resource in locations:
+		#if resource.uuid == uuid:
+			#return resource
+	#return null
+
+
 func get_resource_index_in_array(resource: VneResource) -> int:
 	var array = _get_array_by_resource_type(resource)
 	for index in array.size():

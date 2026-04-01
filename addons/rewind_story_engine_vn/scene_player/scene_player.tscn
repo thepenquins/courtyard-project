@@ -14,6 +14,7 @@ text_box = NodePath("TextBox")
 
 [node name="CharactersContainer" type="Node" parent="." unique_id=1956021173]
 script = ExtResource("2_72hb3")
+bottom_point = 650.0
 characters_spacing = 512.0
 
 [node name="TextBox" parent="." unique_id=1782723377 instance=ExtResource("3_72hb3")]
