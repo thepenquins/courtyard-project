@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dkow7ueunxahb"]
+
+[ext_resource type="Script" uid="uid://cl2mwrracqoi0" path="res://scenes/locations/cg_сосед_в_окне_1/cg_сосед_в_окне.gd" id="1_vgou7"]
+[ext_resource type="Texture2D" uid="uid://cyyor82lkrnjc" path="res://scenes/locations/cg_сосед_в_окне_1/cg1.jpg" id="2_otyvf"]
+[ext_resource type="Texture2D" uid="uid://dl5ry5p5w25j3" path="res://scenes/locations/cg_сосед_в_окне_1/cg1_1.jpg" id="3_vcajl"]
+
+[node name="CgСоседВОкне" type="Node2D" unique_id=415403073 node_paths=PackedStringArray("sprite_2d")]
+script = ExtResource("1_vgou7")
+light = ExtResource("2_otyvf")
+dark = ExtResource("3_vcajl")
+sprite_2d = NodePath("Sprite2D")
+uuid = "26f063c4-67bb-4674-b3d6-4a81c2b81c3c"
+parameters = Dictionary[String, PackedStringArray]({
+"Свет": PackedStringArray("Светло", "Темно")
+})
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=558232312]
+texture = ExtResource("2_otyvf")
+centered = false

@@ -1,20 +1,35 @@
 [gd_scene format=3 uid="uid://dbctrbeefc1th"]
 
 [ext_resource type="Script" uid="uid://brf16tg74itr7" path="res://scenes/locations/комната_милалики/milalika_room.gd" id="1_u3s58"]
-[ext_resource type="Texture2D" uid="uid://dglfhh0yagf2r" path="res://scenes/locations/комната_милалики/2_2_day.jpg" id="2_mwjro"]
-[ext_resource type="Texture2D" uid="uid://dsycfsew7b4hm" path="res://scenes/locations/комната_милалики/2_2_night.jpg" id="3_rquhb"]
+[ext_resource type="Texture2D" uid="uid://bxvn4sjr0lhl6" path="res://scenes/locations/комната_милалики/КСестры2.jpg" id="2_2dqip"]
+[ext_resource type="Texture2D" uid="uid://bdnha4ikax06" path="res://scenes/locations/комната_милалики/КСестры1.jpg" id="2_u3s58"]
+[ext_resource type="Texture2D" uid="uid://34vt0s4mixgc" path="res://scenes/locations/комната_милалики/КСестры2_2.jpg" id="3_kqvav"]
+[ext_resource type="Texture2D" uid="uid://cnbrq6htmsooe" path="res://scenes/locations/комната_милалики/КСестры1_1.jpg" id="5_s8mnv"]
+[ext_resource type="Texture2D" uid="uid://djl04o54y2asv" path="res://scenes/locations/комната_милалики/КСестры2_3.jpg" id="6_lexeh"]
+[ext_resource type="Texture2D" uid="uid://b5hmran7al4rg" path="res://scenes/locations/комната_милалики/Ксестры4_2.jpg" id="7_juxej"]
+[ext_resource type="Texture2D" uid="uid://b3elpvn33j45h" path="res://scenes/locations/комната_милалики/Ксестры4.jpg" id="8_rdnfo"]
+[ext_resource type="Texture2D" uid="uid://oqubwyh30xf1" path="res://scenes/locations/комната_милалики/Ксестры5.jpg" id="9_8kntj"]
+[ext_resource type="Texture2D" uid="uid://emquiu41ufxx" path="res://scenes/locations/комната_милалики/Ксестры5_2.jpg" id="10_omkj0"]
 
 [node name="КомнатаМилалики" type="Node2D" unique_id=104243358 node_paths=PackedStringArray("sprite_2d")]
 script = ExtResource("1_u3s58")
-day = ExtResource("2_mwjro")
-night = ExtResource("3_rquhb")
+day = ExtResource("2_2dqip")
+day_nightmare = ExtResource("3_kqvav")
+day_curtains = ExtResource("2_u3s58")
+day_curtains_nightmare = ExtResource("5_s8mnv")
+evening = ExtResource("6_lexeh")
+night = ExtResource("7_juxej")
+night_nightmare = ExtResource("8_rdnfo")
+night_curtains = ExtResource("9_8kntj")
+night_nightmare_curtains = ExtResource("10_omkj0")
 sprite_2d = NodePath("Sprite2D")
 uuid = "874e60eb-1e7c-4a18-b886-5bd84fbb8545"
 parameters = Dictionary[String, PackedStringArray]({
-"Время суток": PackedStringArray("День", "Ночь")
+"Время суток": PackedStringArray("День", "Вечер", "Ночь"),
+"Мрак": PackedStringArray("Нет", "Да"),
+"Шторы": PackedStringArray("Нет", "Да")
 })
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1950586964]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_mwjro")
+texture = ExtResource("2_2dqip")
 centered = false

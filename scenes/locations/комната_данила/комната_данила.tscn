@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bidt05qtfr1ws"]
+
+[ext_resource type="Script" uid="uid://dsjyj1e8ewclv" path="res://scenes/locations/комната_данила/комната_данила.gd" id="1_3cr4l"]
+[ext_resource type="Texture2D" uid="uid://d0cokbv8ldihm" path="res://scenes/locations/комната_данила/КБрата2.jpg" id="2_kt1vi"]
+[ext_resource type="Texture2D" uid="uid://i3yrfq648kqg" path="res://scenes/locations/комната_данила/КБрата2_2.jpg" id="3_25bhh"]
+[ext_resource type="Texture2D" uid="uid://bm0u2uuu2enkc" path="res://scenes/locations/комната_данила/КБрата1.jpg" id="4_ybgvh"]
+[ext_resource type="Texture2D" uid="uid://bsp5hdrjqm87p" path="res://scenes/locations/комната_данила/КБрата1_1.jpg" id="5_1j0wx"]
+[ext_resource type="Texture2D" uid="uid://cd1if3eh11vil" path="res://scenes/locations/комната_данила/КБрата2_3.jpg" id="6_pd4cn"]
+[ext_resource type="Texture2D" uid="uid://bhwnmw22mglyc" path="res://scenes/locations/комната_данила/Кбрата4.jpg" id="7_ikw3u"]
+[ext_resource type="Texture2D" uid="uid://chvdpdmfgu4bi" path="res://scenes/locations/комната_данила/Кбрата4_2.jpg" id="8_eucgu"]
+[ext_resource type="Texture2D" uid="uid://cv3q1mic2aehf" path="res://scenes/locations/комната_данила/Кбрата5.jpg" id="9_5c3n4"]
+[ext_resource type="Texture2D" uid="uid://bhdi0uukvdnk2" path="res://scenes/locations/комната_данила/Кбрата5_1.jpg" id="10_iwehs"]
+
+[node name="КомнатаДанила" type="Node2D" unique_id=1135519030 node_paths=PackedStringArray("sprite_2d")]
+script = ExtResource("1_3cr4l")
+day = ExtResource("2_kt1vi")
+day_nightmare = ExtResource("3_25bhh")
+day_curtains = ExtResource("4_ybgvh")
+day_curtains_nightmare = ExtResource("5_1j0wx")
+evening = ExtResource("6_pd4cn")
+night = ExtResource("7_ikw3u")
+night_nightmare = ExtResource("8_eucgu")
+night_curtains = ExtResource("9_5c3n4")
+night_nightmare_curtains = ExtResource("10_iwehs")
+sprite_2d = NodePath("Sprite2D")
+uuid = "ad7d85d2-09fe-450c-b6f5-26159fa29c11"
+parameters = Dictionary[String, PackedStringArray]({
+"Время суток": PackedStringArray("День", "Вечер", "Ночь"),
+"Мрак": PackedStringArray("Нет", "Да"),
+"Шторы": PackedStringArray("Нет", "Да")
+})
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1308470728]
+texture = ExtResource("2_kt1vi")
+centered = false

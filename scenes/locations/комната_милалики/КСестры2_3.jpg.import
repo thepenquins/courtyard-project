@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dglfhh0yagf2r"
-path="res://.godot/imported/2_2_day.jpg-fe2ba5d07d42e0a5122b73ce4bda13bf.ctex"
+uid="uid://djl04o54y2asv"
+path="res://.godot/imported/КСестры2_3.jpg-9797499248899c6e910c7190539bfebb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/locations/комната_милалики/2_2_day.jpg"
-dest_files=["res://.godot/imported/2_2_day.jpg-fe2ba5d07d42e0a5122b73ce4bda13bf.ctex"]
+source_file="res://scenes/locations/комната_милалики/КСестры2_3.jpg"
+dest_files=["res://.godot/imported/КСестры2_3.jpg-9797499248899c6e910c7190539bfebb.ctex"]
 
 [params]
 

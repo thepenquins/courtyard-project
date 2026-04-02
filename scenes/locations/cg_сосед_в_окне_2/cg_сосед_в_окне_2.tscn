@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://mjl338ng8jqk"]
+
+[ext_resource type="Script" uid="uid://dfsehopq3448p" path="res://scenes/locations/cg_сосед_в_окне_2/cg_сосед_в_окне_2.gd" id="1_povsa"]
+[ext_resource type="Texture2D" uid="uid://dci7w6dd2stgr" path="res://scenes/locations/cg_сосед_в_окне_2/cg2_1.jpg" id="2_m34hc"]
+[ext_resource type="Texture2D" uid="uid://o5yqdw1mlxnv" path="res://scenes/locations/cg_сосед_в_окне_2/cg2.jpg" id="3_lw7uu"]
+
+[node name="CgСоседВОкне2" type="Node2D" unique_id=834445920 node_paths=PackedStringArray("sprite_2d")]
+script = ExtResource("1_povsa")
+normal = ExtResource("2_m34hc")
+zoomed = ExtResource("3_lw7uu")
+sprite_2d = NodePath("Sprite2D")
+uuid = "6ca09d2d-248b-4fe5-8f06-4519600df6b4"
+parameters = Dictionary[String, PackedStringArray]({
+"Приближение": PackedStringArray("Далеко", "Близко")
+})
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=454440671]
+texture = ExtResource("2_m34hc")
+centered = false
