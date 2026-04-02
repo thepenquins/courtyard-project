@@ -19,6 +19,10 @@ var _character_resource: VneCharacterResource
 var _emotions_directory: String
 var _sprites_directory: String
 
+var _sprites_directory_0: String
+var _sprites_directory_1: String
+var _sprites_directory_2: String
+
 var _loaded_textures: Dictionary[String, Texture2D]
 
 var visibility: bool = false
@@ -46,6 +50,9 @@ var talking: bool:
 				animated_sprite.stop()
 
 
+var scaling_mode: int = 0
+
+
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		_setting_directories()
@@ -57,6 +64,10 @@ func _ready() -> void:
 func _setting_directories() -> void:
 	_emotions_directory = scene_file_path.get_base_dir().path_join(ANIMATIONS_DIRECTORY)
 	_sprites_directory = scene_file_path.get_base_dir().path_join(SPRITES_DIRECTORY)
+	
+	_sprites_directory_0 = _sprites_directory.path_join("0")
+	_sprites_directory_1 = _sprites_directory.path_join("1")
+	_sprites_directory_2 = _sprites_directory.path_join("2")
 
 
 func _check_directories() -> void:
@@ -67,6 +78,15 @@ func _check_directories() -> void:
 		
 	if not dir_access.dir_exists(_sprites_directory):
 		dir_access.make_dir(_sprites_directory)
+		
+	if not dir_access.dir_exists(_sprites_directory_0):
+		dir_access.make_dir(_sprites_directory_0)
+		
+	if not dir_access.dir_exists(_sprites_directory_1):
+		dir_access.make_dir(_sprites_directory_1)
+		
+	if not dir_access.dir_exists(_sprites_directory_2):
+		dir_access.make_dir(_sprites_directory_2)
 
 
 func _load_character_resource() -> void:
@@ -105,6 +125,7 @@ func get_files_in_directory(directory: String, extension: String) -> PackedStrin
 
 
 func _set_animation(emotion_name: String, animation: VneCharacter2DAnimation) -> void:
+	print(emotion_name)
 	if not animated_sprites.has(animation.animated_sprite_name):
 		return
 	

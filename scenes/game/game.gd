@@ -51,10 +51,6 @@ func _new_game() -> void:
 func load_save(save: Save) -> void:
 	_score = save.local_variables["Score"]
 	_set_scene_by_episode_uuid(save.episode_uuid, save.frame_index)
-	
-	print("Загрузка.")
-	print(save.episode_name)
-	print(save.frame_index)
 
 
 func _set_scene_by_episode_uuid(uuid: String, frame_index: int = 0) -> void:

@@ -56,7 +56,7 @@ func _on_developers_pressed() -> void:
 
 
 func _on_exit_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().quit()
 
 
 func _return_to_main() -> void:

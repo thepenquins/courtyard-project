@@ -50,6 +50,7 @@ text = "Играть"
 flat = true
 
 [node name="Continue" type="Button" parent="Main/VBoxContainer" unique_id=578454009]
+visible = false
 layout_mode = 2
 disabled = true
 text = "Продолжить"

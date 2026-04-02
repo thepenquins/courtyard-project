@@ -96,6 +96,12 @@ func _set_character(character_resource: VneCharacterResource) -> void:
 		parameter.set_value_string(current_emotion)
 		parameters_container.add_child(parameter)
 	
+	var current_scaling_mode = (_frame_data as VneCharacterFrame).scaling_mode
+	var scaling_parameter := VneOptionInspectorParameter.new("Режим масштабирования", VneCharacterFrame.SCALING_MODS)
+	scaling_parameter.value_changed.connect(_on_character_scaling_mode_changed)
+	scaling_parameter.set_value(current_scaling_mode)
+	parameters_container.add_child(scaling_parameter)
+	
 	var parameter := VneStringInspectorParameter.new("Отображаемое имя", character_resource.name)
 	parameter.value_changed.connect(_on_character_displayed_name_changed)
 	parameter.set_value((_frame_data as VneCharacterFrame).displayed_name)
@@ -105,6 +111,13 @@ func _set_character(character_resource: VneCharacterResource) -> void:
 func _on_character_emotion_changed(value: String) -> void:
 	if _frame_data is VneCharacterFrame:
 		_frame_data.emotion = value
+		frame_was_changed.emit(_frame_data)
+		character_was_changed.emit(_frame_data)
+
+
+func _on_character_scaling_mode_changed(value: float) -> void:
+	if _frame_data is VneCharacterFrame:
+		_frame_data.scaling_mode = value
 		frame_was_changed.emit(_frame_data)
 		character_was_changed.emit(_frame_data)
 
