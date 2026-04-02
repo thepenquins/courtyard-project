@@ -92,6 +92,11 @@
 [ext_resource type="Texture2D" uid="uid://dgnbtio8ss2hv" path="res://scenes/characters/милалика/sprites/1/sprite_brows_3.png" id="88_bj3oq"]
 [ext_resource type="Texture2D" uid="uid://18s2vtyei8gw" path="res://scenes/characters/милалика/sprites/2/sprite_brows_5.png" id="88_s6guf"]
 [ext_resource type="Texture2D" uid="uid://fvdiwol252ks" path="res://scenes/characters/милалика/sprites/2/sprite_brows_3.png" id="91_5gtiu"]
+[ext_resource type="Texture2D" uid="uid://cefwf8p3ivve7" path="res://scenes/characters/милалика/sprites/0/sprite_head1_hair_0.png" id="92_bq74e"]
+[ext_resource type="Texture2D" uid="uid://cbkyd76uwfi3o" path="res://scenes/characters/милалика/sprites/1/sprite_head1_hair_0.png" id="93_pk3t1"]
+[ext_resource type="Texture2D" uid="uid://lc7pnd8ptpgl" path="res://scenes/characters/милалика/sprites/2/sprite_head1_hair_0.png" id="94_fihur"]
+[ext_resource type="Texture2D" uid="uid://rfm2qho22vk3" path="res://scenes/characters/милалика/sprites/1/sprite_hair_0.png" id="96_2q146"]
+[ext_resource type="Texture2D" uid="uid://d2do6ufurmtxm" path="res://scenes/characters/милалика/sprites/2/sprite_hair_0.png" id="97_jyk65"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rwfmc"]
 animations = [{
@@ -2868,13 +2873,568 @@ animations = [{
 "speed": 1.0
 }]
 
-[node name="Милалика" type="Node2D" unique_id=438957723 node_paths=PackedStringArray("hair", "animated_sprites")]
+[sub_resource type="SpriteFrames" id="SpriteFrames_cuiml"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("92_bq74e")
+}],
+"loop": true,
+"name": &"Агрессия_0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("93_pk3t1")
+}],
+"loop": true,
+"name": &"Агрессия_1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("94_fihur")
+}],
+"loop": true,
+"name": &"Агрессия_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kkrds")
+}],
+"loop": true,
+"name": &"Грустьнеадекв_0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("96_2q146")
+}],
+"loop": true,
+"name": &"Грустьнеадекв_1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("97_jyk65")
+}],
+"loop": true,
+"name": &"Грустьнеадекв_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kkrds")
+}],
+"loop": true,
+"name": &"Задумчивость_0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("96_2q146")
+}],
+"loop": true,
+"name": &"Задумчивость_1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("97_jyk65")
+}],
+"loop": true,
+"name": &"Задумчивость_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("92_bq74e")
+}],
+"loop": true,
+"name": &"Злость_0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("93_pk3t1")
+}],
+"loop": true,
+"name": &"Злость_1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("94_fihur")
+}],
+"loop": true,
+"name": &"Злость_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("92_bq74e")
+}],
+"loop": true,
+"name": &"Игривость_0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("93_pk3t1")
+}],
+"loop": true,
+"name": &"Игривость_1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("94_fihur")
+}],
+"loop": true,
+"name": &"Игривость_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("92_bq74e")
+}],
+"loop": true,
+"name": &"Каприз_0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("93_pk3t1")
+}],
+"loop": true,
+"name": &"Каприз_1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("94_fihur")
+}],
+"loop": true,
+"name": &"Каприз_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kkrds")
+}],
+"loop": true,
+"name": &"Мрак_0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("96_2q146")
+}],
+"loop": true,
+"name": &"Мрак_1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("97_jyk65")
+}],
+"loop": true,
+"name": &"Мрак_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kkrds")
+}],
+"loop": true,
+"name": &"Надменность_0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("96_2q146")
+}],
+"loop": true,
+"name": &"Надменность_1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("97_jyk65")
+}],
+"loop": true,
+"name": &"Надменность_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kkrds")
+}],
+"loop": true,
+"name": &"Недоверие_0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("96_2q146")
+}],
+"loop": true,
+"name": &"Недоверие_1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("97_jyk65")
+}],
+"loop": true,
+"name": &"Недоверие_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("92_bq74e")
+}],
+"loop": true,
+"name": &"Недовольство_0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("93_pk3t1")
+}],
+"loop": true,
+"name": &"Недовольство_1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("94_fihur")
+}],
+"loop": true,
+"name": &"Недовольство_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("92_bq74e")
+}],
+"loop": true,
+"name": &"Непонимание_0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("93_pk3t1")
+}],
+"loop": true,
+"name": &"Непонимание_1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("94_fihur")
+}],
+"loop": true,
+"name": &"Непонимание_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("92_bq74e")
+}],
+"loop": true,
+"name": &"Обожание_0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("93_pk3t1")
+}],
+"loop": true,
+"name": &"Обожание_1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("94_fihur")
+}],
+"loop": true,
+"name": &"Обожание_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("92_bq74e")
+}],
+"loop": true,
+"name": &"Отчуждённость_0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("93_pk3t1")
+}],
+"loop": true,
+"name": &"Отчуждённость_1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("94_fihur")
+}],
+"loop": true,
+"name": &"Отчуждённость_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kkrds")
+}],
+"loop": true,
+"name": &"Печаль_0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("96_2q146")
+}],
+"loop": true,
+"name": &"Печаль_1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("97_jyk65")
+}],
+"loop": true,
+"name": &"Печаль_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kkrds")
+}],
+"loop": true,
+"name": &"Растерянность_0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("96_2q146")
+}],
+"loop": true,
+"name": &"Растерянность_1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("97_jyk65")
+}],
+"loop": true,
+"name": &"Растерянность_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kkrds")
+}],
+"loop": true,
+"name": &"Скука_0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("96_2q146")
+}],
+"loop": true,
+"name": &"Скука_1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("97_jyk65")
+}],
+"loop": true,
+"name": &"Скука_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kkrds")
+}],
+"loop": true,
+"name": &"Смущение_0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("96_2q146")
+}],
+"loop": true,
+"name": &"Смущение_1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("97_jyk65")
+}],
+"loop": true,
+"name": &"Смущение_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kkrds")
+}],
+"loop": true,
+"name": &"Спокойствие_0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("96_2q146")
+}],
+"loop": true,
+"name": &"Спокойствие_1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("97_jyk65")
+}],
+"loop": true,
+"name": &"Спокойствие_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kkrds")
+}],
+"loop": true,
+"name": &"Счастье_0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("96_2q146")
+}],
+"loop": true,
+"name": &"Счастье_1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("97_jyk65")
+}],
+"loop": true,
+"name": &"Счастье_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kkrds")
+}],
+"loop": true,
+"name": &"Ужас_0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("96_2q146")
+}],
+"loop": true,
+"name": &"Ужас_1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("97_jyk65")
+}],
+"loop": true,
+"name": &"Ужас_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("92_bq74e")
+}],
+"loop": true,
+"name": &"Улыбка_0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("93_pk3t1")
+}],
+"loop": true,
+"name": &"Улыбка_1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("94_fihur")
+}],
+"loop": true,
+"name": &"Улыбка_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kkrds")
+}],
+"loop": true,
+"name": &"Улыбканеадекв_0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("96_2q146")
+}],
+"loop": true,
+"name": &"Улыбканеадекв_1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("97_jyk65")
+}],
+"loop": true,
+"name": &"Улыбканеадекв_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kkrds")
+}],
+"loop": true,
+"name": &"Шок_0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("96_2q146")
+}],
+"loop": true,
+"name": &"Шок_1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("97_jyk65")
+}],
+"loop": true,
+"name": &"Шок_2",
+"speed": 1.0
+}]
+
+[node name="Милалика" type="Node2D" unique_id=438957723 node_paths=PackedStringArray("animated_sprites")]
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_ix7ng")
-hair = NodePath("Волосы")
 uuid = "abea155a-50cd-44db-9770-9b6d245de91e"
 animated_sprites = {
 "Брови": NodePath("Брови"),
+"Волосы": NodePath("Волосы"),
 "Глаза": NodePath("Глаза"),
 "Голова": NodePath("Голова"),
 "Рот": NodePath("Рот"),
@@ -2883,23 +3443,24 @@ animated_sprites = {
 
 [node name="Руки" type="AnimatedSprite2D" parent="." unique_id=810940538]
 sprite_frames = SubResource("SpriteFrames_rwfmc")
-animation = &"Смущение_0"
+animation = &"Агрессия_0"
 
 [node name="Голова" type="AnimatedSprite2D" parent="." unique_id=1353507265]
 sprite_frames = SubResource("SpriteFrames_bsu83")
-animation = &"Растерянность_0"
+animation = &"Агрессия_0"
 
 [node name="Рот" type="AnimatedSprite2D" parent="." unique_id=958556387]
 sprite_frames = SubResource("SpriteFrames_tvug5")
-animation = &"Спокойствие_0"
+animation = &"Агрессия_0"
 
 [node name="Глаза" type="AnimatedSprite2D" parent="." unique_id=1207701387]
 sprite_frames = SubResource("SpriteFrames_yhewh")
-animation = &"Спокойствие_0"
+animation = &"Агрессия_0"
 
 [node name="Брови" type="AnimatedSprite2D" parent="." unique_id=422211069]
 sprite_frames = SubResource("SpriteFrames_7wj1x")
-animation = &"Спокойствие_0"
+animation = &"Агрессия_0"
 
-[node name="Волосы" type="Sprite2D" parent="." unique_id=798852085]
-texture = ExtResource("2_kkrds")
+[node name="Волосы" type="AnimatedSprite2D" parent="." unique_id=550573263]
+sprite_frames = SubResource("SpriteFrames_cuiml")
+animation = &"Агрессия_0"
