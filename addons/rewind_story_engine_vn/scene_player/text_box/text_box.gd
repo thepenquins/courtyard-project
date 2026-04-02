@@ -67,3 +67,9 @@ func _on_text_richer_text_label_anim_paused() -> void:
 
 func _on_text_richer_text_label_anim_started() -> void:
 	_playing = true
+
+
+func clear() -> void:
+	speaker_rich_text_label.bbcode = ""
+	text_rich_text_label.bbcode = ""
+	_playing = true
