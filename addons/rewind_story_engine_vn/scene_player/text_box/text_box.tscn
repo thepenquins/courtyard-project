@@ -3,38 +3,49 @@
 [ext_resource type="Script" uid="uid://phtx31jeqww6" path="res://addons/rewind_story_engine_vn/scene_player/text_box/text_box.gd" id="1_gk1x7"]
 [ext_resource type="Script" uid="uid://cuyp5kmoygg6s" path="res://addons/richtext2/text_effects/effects/rte_jit2.gd" id="3_45kqg"]
 [ext_resource type="Script" uid="uid://b6mbstaftpedd" path="res://addons/richtext2/rich_text_animation.gd" id="3_gfp3b"]
+[ext_resource type="Texture2D" uid="uid://dhu5nhi21jnb4" path="res://scenes/ui/text_box/knopka1.png" id="3_ngkud"]
+[ext_resource type="Texture2D" uid="uid://bgc1gh25da8qa" path="res://scenes/ui/text_box/knopka1_1.png" id="4_1rxjk"]
 [ext_resource type="Script" uid="uid://4mittkdxo7ig" path="res://addons/richtext2/text_effects/effects/rte_cuss.gd" id="4_a7jgp"]
 [ext_resource type="Script" uid="uid://d16jnf3xho2be" path="res://addons/richtext2/text_effects/anims/rte_prickle.gd" id="4_h2ygl"]
+[ext_resource type="Texture2D" uid="uid://cfxhc8gelco7m" path="res://scenes/ui/text_box/knopka2.png" id="5_gs2tg"]
+[ext_resource type="Texture2D" uid="uid://b1txf1b1tj8vy" path="res://scenes/ui/text_box/knopka2_1.png" id="6_4l6td"]
 [ext_resource type="Texture2D" uid="uid://bmi3g8drj68du" path="res://addons/rewind_story_engine_vn/icons/next.svg" id="7_h2ygl"]
 [ext_resource type="Script" uid="uid://beh7kaa580cli" path="res://addons/richtext2/text_effects/effects/rte_woo.gd" id="7_vmmjd"]
+[ext_resource type="Texture2D" uid="uid://baqjh53hmxssi" path="res://scenes/ui/text_box/knopka3.png" id="7_vqpn8"]
 [ext_resource type="Script" uid="uid://wj05urqqjjhv" path="res://addons/rewind_story_engine_vn/scene_player/text_box/animation_player.gd" id="8_1hgq8"]
+[ext_resource type="Texture2D" uid="uid://beytk7fqbvmxw" path="res://scenes/ui/text_box/knopka3_1.png" id="8_p5omk"]
+[ext_resource type="Texture2D" uid="uid://bn7wfiimyfdvu" path="res://scenes/ui/text_box/textbox.png" id="9_vmmjd"]
+[ext_resource type="Texture2D" uid="uid://cpudcid4dd56a" path="res://scenes/ui/text_box/knopka4.png" id="9_yrk6n"]
+[ext_resource type="Texture2D" uid="uid://djwhyyj2fyu30" path="res://scenes/ui/text_box/knopka4_1.png" id="10_m1h46"]
+[ext_resource type="Texture2D" uid="uid://bkjjq8a45qsxo" path="res://scenes/ui/text_box/knopka5.png" id="11_vqpn8"]
+[ext_resource type="Texture2D" uid="uid://sl1qw8wqnuy6" path="res://scenes/ui/text_box/knopka5_1.png" id="12_p5omk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n2rpe"]
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_1hgq8"]
 resource_name = "prickle"
 script = ExtResource("4_h2ygl")
-metadata/rt = 36551698568289
+metadata/rt = 2233534066656
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_vmmjd"]
 resource_name = "prickle"
 script = ExtResource("4_h2ygl")
-metadata/rt = 36598490224699
+metadata/rt = 2280325722089
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_hpvdf"]
 resource_name = "jit2"
 script = ExtResource("3_45kqg")
-metadata/rt = 36598490224699
+metadata/rt = 2280325722089
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_ngkud"]
 resource_name = "cuss"
 script = ExtResource("4_a7jgp")
-metadata/rt = 36598490224699
+metadata/rt = 2280325722089
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_1rxjk"]
 resource_name = "woo"
 script = ExtResource("7_vmmjd")
-metadata/rt = 36598490224699
+metadata/rt = 2280325722089
 
 [sub_resource type="Animation" id="Animation_1hgq8"]
 length = 0.001
@@ -99,6 +110,53 @@ alignment = 2
 [node name="Control" type="Control" parent="." unique_id=250777671]
 layout_mode = 2
 
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=877136854]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -226.0
+offset_right = 128.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("9_vmmjd")
+stretch_mode = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/TextureRect" unique_id=361207120]
+layout_mode = 0
+offset_left = 763.0
+offset_top = 200.0
+offset_right = 1174.0
+offset_bottom = 259.0
+
+[node name="TextureButton" type="TextureButton" parent="Control/TextureRect/HBoxContainer" unique_id=715361026]
+layout_mode = 2
+texture_normal = ExtResource("3_ngkud")
+texture_hover = ExtResource("4_1rxjk")
+
+[node name="TextureButton2" type="TextureButton" parent="Control/TextureRect/HBoxContainer" unique_id=1065538822]
+layout_mode = 2
+texture_normal = ExtResource("5_gs2tg")
+texture_hover = ExtResource("6_4l6td")
+
+[node name="TextureButton3" type="TextureButton" parent="Control/TextureRect/HBoxContainer" unique_id=1472846824]
+layout_mode = 2
+texture_normal = ExtResource("7_vqpn8")
+texture_hover = ExtResource("8_p5omk")
+
+[node name="TextureButton4" type="TextureButton" parent="Control/TextureRect/HBoxContainer" unique_id=720678917]
+layout_mode = 2
+texture_normal = ExtResource("9_yrk6n")
+texture_hover = ExtResource("10_m1h46")
+
+[node name="TextureButton5" type="TextureButton" parent="Control/TextureRect/HBoxContainer" unique_id=826310671]
+layout_mode = 2
+texture_normal = ExtResource("11_vqpn8")
+texture_hover = ExtResource("12_p5omk")
+
 [node name="SpeakerRicherTextLabel" type="RichTextLabel" parent="Control" unique_id=212519613]
 clip_contents = false
 custom_minimum_size = Vector2(0, 50)
@@ -107,10 +165,11 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -248.0
-offset_bottom = -181.0
+offset_top = -261.0
+offset_bottom = -194.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 2
 theme_override_colors/font_outline_color = Color(0.19999999, 0.19999999, 0.19999999, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.25)
 theme_override_constants/shadow_outline_size = 18
@@ -211,9 +270,11 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -183.0
+offset_top = -173.0
+offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 2
 theme_override_colors/font_outline_color = Color(0.19999999, 0.19999999, 0.19999999, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.25)
 theme_override_constants/shadow_outline_size = 18
@@ -233,13 +294,13 @@ script = ExtResource("3_gfp3b")
 animation = "prickle"
 _play = false
 _hold = true
-progress = 0.45060691358052885
+progress = 0.45000000000000007
 visible_character = 8
 _triggers = {
 7: [[1003, {}]]
 }
 _transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 709, 39), Transform2D(1, 0, 0, 1, 718, 39), Transform2D(1, 0, 0, 1, 752, 39), Transform2D(1, 0, 0, 1, 761, 39), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 784, 39), Transform2D(1, 0, 0, 1, 807, 39), Transform2D(1, 0, 0, 1, 828, 39), Transform2D(1, 0, 0, 1, 837, 39), Transform2D(1, 0, 0, 1, 848, 39), Transform2D(1, 0, 0, 1, 857, 39), Transform2D(1, 0, 0, 1, 877, 39), Transform2D(1, 0, 0, 1, 900, 39), Transform2D(1, 0, 0, 1, 921, 39), Transform2D(1, 0, 0, 1, 938, 39), Transform2D(1, 0, 0, 1, 966, 39), Transform2D(1, 0, 0, 1, 966, 39)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(7, 28), Vector2(32, 28), Vector2(0, 28), Vector2(23, 28), Vector2(0, 0), Vector2(21, 28), Vector2(28, 28), Vector2(0, 28), Vector2(7, 28), Vector2(0, 28), Vector2(24, 28), Vector2(20, 28), Vector2(21, 28), Vector2(18, 28), Vector2(20, 28), Vector2(0, 28), Vector2(0, 28)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(7, 28), Vector2(32, 28), Vector2(0, 28), Vector2(23, 28), Vector2(0, 0), Vector2(21, 28), Vector2(25, 28), Vector2(0, 28), Vector2(7, 28), Vector2(0, 28), Vector2(24, 28), Vector2(23, 28), Vector2(17, 28), Vector2(20, 28), Vector2(20, 28), Vector2(0, 28), Vector2(0, 28)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 _showing_ctc = true

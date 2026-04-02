@@ -20,9 +20,9 @@ func _ready() -> void:
 
 
 func set_parameters(new_parameters: Dictionary[String, float]) -> void:
-	var time = new_parameters["Время суток"]
-	var curtains = new_parameters["Шторы"]
-	var nightmare = new_parameters["Мрак"]
+	var time = new_parameters.get("Время суток", 0)
+	var curtains = new_parameters.get("Шторы", 0)
+	var nightmare = new_parameters.get("Мрак", 0)
 	
 	if time == 0: ## День
 		if curtains == 0: 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bo1lvhmjwcvg2"]
 
 [ext_resource type="Script" uid="uid://bruwhx8sjvpe0" path="res://scenes/save_manager/save_container.gd" id="1_xq2kt"]
-[ext_resource type="Texture2D" uid="uid://dglfhh0yagf2r" path="res://scenes/locations/комната_милалики/2_2_day.jpg" id="2_b0ro2"]
+[ext_resource type="Texture2D" uid="uid://bdnha4ikax06" path="res://scenes/locations/комната_милалики/КСестры1.jpg" id="2_b0ro2"]
 
 [node name="SaveContainer" type="MarginContainer" unique_id=860658107 node_paths=PackedStringArray("image", "label")]
 anchors_preset = 8
