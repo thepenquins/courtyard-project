@@ -1,6 +1,15 @@
 @abstract class_name VneBaseFrameData extends RefCounted
 
-var resource: VneResource
+var resource: VneResource:
+	set(value):
+		if resource == value:
+			return
+		resource = value
+		_set_resource_process()
+
+
+func _set_resource_process() -> void:
+	pass
 
 
 func get_string_data() -> PackedStringArray:

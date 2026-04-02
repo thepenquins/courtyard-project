@@ -119,26 +119,49 @@ func fill_data(file: FileAccess) -> void:
 
 
 func copy_from(frame: VneFrame) -> void:
+	copy_characters_from(frame)
+	copy_location_from(frame)
+	copy_music_from(frame)
+	copy_bgs_from(frame)
+	copy_sfx_from(frame)
+	copy_vfx_from(frame)
+	
+	transition_in = frame.transition_in
+	transition_out = frame.transition_out
+
+
+func copy_characters_from(frame: VneFrame) -> void:
 	characters.clear()
+	
 	for character_f in frame.characters:
 		var new_character_f = VneCharacterFrame.new()
 		new_character_f.copy_from(character_f)
 		characters.append(new_character_f)
 	
+	character_frames_by_resource.clear()
+	for character_f in characters:
+		character_frames_by_resource[character_f.character] = character_f
+
+
+func copy_location_from(frame: VneFrame) -> void:
 	if frame.location:
 		if not location:
 			location = VneLocationFrame.new()
 		location.copy_from(frame.location)
 	else:
 		location = null
-		
+
+
+func copy_music_from(frame: VneFrame) -> void:
 	if frame.music:
 		if not music:
 			music = VneMusicFrame.new()
 		music.copy_from(frame.music) 
 	else:
 		music = null
-	
+
+
+func copy_bgs_from(frame: VneFrame) -> void:
 	if frame.bgs:
 		if not bgs:
 			bgs = VneBgsFrame.new()
@@ -146,28 +169,27 @@ func copy_from(frame: VneFrame) -> void:
 	else:
 		bgs = null
 
+
+func copy_sfx_from(frame: VneFrame) -> void:
 	sfx.clear()
+	
 	for sfx_f in frame.sfx:
 		var new_sfx_f = VneSfxFrame.new()
 		new_sfx_f.copy_from(sfx_f)
 		sfx.append(new_sfx_f)
-
-	vfx.clear()
-	for vfx_f in frame.vfx:
-		var new_vfx_f = VneVfxFrame.new()
-		new_vfx_f.copy_from(vfx_f)
-		vfx.append(new_vfx_f)
-	
-	transition_in = frame.transition_in
-	transition_out = frame.transition_out
-	
-	character_frames_by_resource.clear()
-	for character_f in characters:
-		character_frames_by_resource[character_f.character] = character_f
 	
 	sfx_frames_by_resource.clear()
 	for sfx_f in sfx:
 		sfx_frames_by_resource[sfx_f.sfx] = sfx_f
+
+
+func copy_vfx_from(frame: VneFrame) -> void:
+	vfx.clear()
+	
+	for vfx_f in frame.vfx:
+		var new_vfx_f = VneVfxFrame.new()
+		new_vfx_f.copy_from(vfx_f)
+		vfx.append(new_vfx_f)
 	
 	vfx_frames_by_resource.clear()
 	for vfx_f in vfx:

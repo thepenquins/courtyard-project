@@ -49,15 +49,11 @@ func _set_scene_by_episode_uuid(uuid: String) -> void:
 	var episode = RSE.get_episode_by_uuid(uuid)
 	var scene = VNE.visual_novel.get_scene_by_episode(episode)
 	scene_player.set_scene(scene)
-	
-	print("==========")
-	print(episode.name)
-	print(_score)
 
 
 func _set_scene_by_episode_uuid_backward() -> void:
 	if _episode_uuid_order.size() < 1:
-		print("Предыдущих сцен нет")
+		print("Предыдущих сцен нет.")
 		return
 	
 	_current_episode_uuid = _episode_uuid_order[_episode_uuid_order.size() - 1]

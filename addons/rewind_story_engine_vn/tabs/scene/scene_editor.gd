@@ -151,11 +151,12 @@ func _on_add_music_button_resource_selected(resource: VneResource) -> void:
 	if not _frame.music:
 		_frame.music = VneMusicFrame.new()
 	_frame.music.resource = resource
+	scene_player.set_music(_frame.music)
 	
 	if _edited_resource is VneMusicResource:
 		inspector.set_frame_data(_frame.get_frame_data_by_resource(resource))
 	
-	_clear_frame_data(_frame.music)
+	#_clear_frame_data(_frame.music)
 
 
 func _on_add_bgs_button_resource_selected(resource: VneResource) -> void:
@@ -164,6 +165,7 @@ func _on_add_bgs_button_resource_selected(resource: VneResource) -> void:
 	if not _frame.bgs:
 		_frame.bgs = VneBgsFrame.new()
 	_frame.bgs.resource = resource
+	scene_player.set_bgs(_frame.bgs)
 	
 	if _edited_resource is VneBgsResource:
 		inspector.set_frame_data(_frame.get_frame_data_by_resource(resource))
@@ -367,3 +369,51 @@ func _on_inspector_character_was_changed(frame_data: VneBaseFrameData) -> void:
 
 func _on_inspector_location_was_changed(frame_data: VneBaseFrameData) -> void:
 	scene_player.set_location(_frame.location)
+
+
+func _on_inherit_characters_next_button_pressed() -> void: 
+	var total_frames = _scene.episode.frames_without_commentary.size()
+	for i in range(_index + 1, total_frames):
+		var frame_info = _scene.get_frame(i, true)
+		if frame_info.frame:
+			frame_info.frame.copy_characters_from(_frame)
+
+
+func _on_inherit_location_next_button_pressed() -> void:
+	var total_frames = _scene.episode.frames_without_commentary.size()
+	for i in range(_index + 1, total_frames):
+		var frame_info = _scene.get_frame(i, true)
+		if frame_info.frame:
+			frame_info.frame.copy_location_from(_frame)
+
+
+func _on_inherit_music_next_button_pressed() -> void:
+	var total_frames = _scene.episode.frames_without_commentary.size()
+	for i in range(_index + 1, total_frames):
+		var frame_info = _scene.get_frame(i, true)
+		if frame_info.frame:
+			frame_info.frame.copy_music_from(_frame)
+
+
+func _on_inherit_bgs_next_button_pressed() -> void:
+	var total_frames = _scene.episode.frames_without_commentary.size()
+	for i in range(_index + 1, total_frames):
+		var frame_info = _scene.get_frame(i, true)
+		if frame_info.frame:
+			frame_info.frame.copy_bgs_from(_frame)
+
+
+func _on_inherit_sfx_next_button_pressed() -> void:
+	var total_frames = _scene.episode.frames_without_commentary.size()
+	for i in range(_index + 1, total_frames):
+		var frame_info = _scene.get_frame(i, true)
+		if frame_info.frame:
+			frame_info.frame.copy_sfx_from(_frame)
+
+
+func _on_inherit_vfx_next_button_pressed() -> void:
+	var total_frames = _scene.episode.frames_without_commentary.size()
+	for i in range(_index + 1, total_frames):
+		var frame_info = _scene.get_frame(i, true)
+		if frame_info.frame:
+			frame_info.frame.copy_vfx_from(_frame)
