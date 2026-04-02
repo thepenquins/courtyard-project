@@ -263,10 +263,10 @@ func _exit_tree() -> void:
 		_bgs_player.stop()
 
 
-func _ready() -> void:
-	var event_instance = FmodServer.create_event_instance("event:/mus/mus_bachbabach")
-	event_instance.position = 2000
-	event_instance.start()
-	await get_tree().create_timer(4).timeout
-	event_instance.stop(0)
-	event_instance = null
+#func _ready() -> void:
+	#var event_instance = FmodServer.create_event_instance("event:/mus/mus_bachbabach")
+	#event_instance.position = 2000
+	#event_instance.start()
+	#await get_tree().create_timer(4).timeout
+	#event_instance.stop(0)
+	#event_instance = null
