@@ -14,7 +14,7 @@ var _frame: VneFrame
 var _index: int
 
 var _characters: Dictionary[VneCharacterResource, VneCharacter2D]
-var _locations: Dictionary[VneLocationResource, VneLocation]
+static var _locations: Dictionary[VneLocationResource, PackedScene]
 
 var _location_resource: VneLocationResource
 var _current_location: VneLocation
@@ -32,8 +32,12 @@ var _ready_to_next_frame: bool = false
 const REWIND_RELOAD_TIME: float = 0.05
 var _current_rewind_reload: float = 0.0
 
+var transition_playing: bool = false
+
 
 func _input(event: InputEvent) -> void:
+	if transition_playing:
+		return
 	if event.is_action_pressed("next_frame"):
 		if Engine.is_editor_hint():
 			text_box.advance()
@@ -150,8 +154,8 @@ func set_location(location_frame: VneLocationFrame) -> void:
 		if location_frame.location.path_to_file == "":
 			return
 		
-		var location_scene: PackedScene = load(location_frame.location.path_to_file)
-		_current_location = location_scene.instantiate()
+		#var location_scene: PackedScene = load(location_frame.location.path_to_file)
+		_current_location = _locations[location_frame.location].instantiate()
 		location_container.add_child(_current_location)
 		
 		_is_new_location = true
@@ -265,19 +269,17 @@ func load_all_characters() -> void:
 			_characters[character] = character_scene
 
 
-### Загрузить локации, если их нет.
-#func load_all_locations() -> void:
-	#if VNE.visual_novel == null:
-		#return
-	#
-	#for location in VNE.visual_novel.locations:
-		#if not _locations.has(location):
-			#if location.path_to_file == "":
-				#continue
-			#var location_packed_scene: PackedScene = load(location.path_to_file)
-			#var location_scene: VneLocation = location_packed_scene.instantiate()
-			#location_container.add_child(location_scene)
-			#_locations[location] = location_scene
+## Загрузить локации, если их нет.
+func load_all_locations() -> void:
+	if VNE.visual_novel == null:
+		return
+	
+	for location in VNE.visual_novel.locations:
+		if not _locations.has(location):
+			if location.path_to_file == "":
+				continue
+			var location_packed_scene: PackedScene = load(location.path_to_file)
+			_locations[location] = location_packed_scene
 
 
 func _create_fmod_event(event_name: String) -> FmodEvent:
@@ -333,13 +335,13 @@ func play_all_audio() -> void:
 		_bgs_player.play()
 
 
-#var prev_transition_scene
-
 func play_transition(transition_resource: VneTransitionResource, clear_text_box: bool) -> void:
 	if transition_resource != null:
+		transition_playing = true
 		if clear_text_box:
 			text_box.clear()
 		var transition_packed_scene = load(transition_resource.path_to_file) as PackedScene
 		var transition_scene = transition_packed_scene.instantiate() as VneTransition
 		add_child(transition_scene)
 		await transition_scene.ended
+		transition_playing = false

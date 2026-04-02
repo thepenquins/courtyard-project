@@ -17,6 +17,7 @@ var _is_handling_scene_end : bool = false
 
 func _ready() -> void:
 	scene_player.load_all_characters()
+	scene_player.load_all_locations()
 	_start()
 
 
