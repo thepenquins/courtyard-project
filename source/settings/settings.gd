@@ -108,6 +108,9 @@ var auto_speed: int = 20:
 		print("Auto speed: %s." % auto_speed);
 
 
+var last_save: String
+
+
 func _enter_tree():
 	load_config()
 
@@ -136,6 +139,8 @@ func save_config() -> void:
 	config.set_value("game_settings", "text_speed", text_speed)
 	config.set_value("game_settings", "auto_speed", auto_speed)
 	
+	config.set_value("game_settings", "last_save", last_save)
+	
 	config.save(PATH_TO_CONFIG)
 
 
@@ -162,6 +167,8 @@ func load_config() -> void:
 		
 		text_speed = config.get_value("game_settings", "text_speed", 40)
 		auto_speed = config.get_value("game_settings", "auto_speed", 20)
+		
+		last_save = config.get_value("game_settings", "last_save", "")
 		
 		print("Configuration file loaded successfully!")
 	else:

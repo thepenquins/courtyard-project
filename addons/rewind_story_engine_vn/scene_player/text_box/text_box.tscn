@@ -238,7 +238,7 @@ _triggers = {
 7: [[1003, {}]]
 }
 _transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 709, 39), Transform2D(1, 0, 0, 1, 718, 39), Transform2D(1, 0, 0, 1, 752, 39), Transform2D(1, 0, 0, 1, 761, 39), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 784, 39), Transform2D(1, 0, 0, 1, 807, 39), Transform2D(1, 0, 0, 1, 828, 39), Transform2D(1, 0, 0, 1, 837, 39), Transform2D(1, 0, 0, 1, 848, 39), Transform2D(1, 0, 0, 1, 857, 39), Transform2D(1, 0, 0, 1, 877, 39), Transform2D(1, 0, 0, 1, 900, 39), Transform2D(1, 0, 0, 1, 921, 39), Transform2D(1, 0, 0, 1, 938, 39), Transform2D(1, 0, 0, 1, 966, 39), Transform2D(1, 0, 0, 1, 966, 39)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(7, 28), Vector2(32, 28), Vector2(0, 28), Vector2(23, 28), Vector2(0, 0), Vector2(21, 28), Vector2(20, 28), Vector2(0, 28), Vector2(7, 28), Vector2(0, 28), Vector2(22, 28), Vector2(23, 28), Vector2(17, 28), Vector2(20, 28), Vector2(18, 28), Vector2(0, 28), Vector2(0, 28)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(7, 28), Vector2(32, 28), Vector2(0, 28), Vector2(23, 28), Vector2(0, 0), Vector2(31, 28), Vector2(20, 28), Vector2(0, 28), Vector2(7, 28), Vector2(0, 28), Vector2(22, 28), Vector2(20, 28), Vector2(21, 28), Vector2(18, 28), Vector2(18, 28), Vector2(0, 28), Vector2(0, 28)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 _showing_ctc = true
@@ -312,6 +312,7 @@ metadata/_custom_type_script = "uid://b6mbstaftpedd"
 metadata/mouse_position = Vector2(2436.884, -177.96997)
 metadata/frame = 130193
 metadata/rand = Array[int]([3827202865, 851246197, 3223911580, 1909538342, 3427976923, 3173307018, 1203811763, 1837231426, 474591735, 492581785, 1950032328, 2331719964, 1475451029, 3463596478, 3156846455, 2124002567, 2006836971])
+metadata/_edit_group_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Control/TextRicherTextLabel" unique_id=286649157]
 layout_mode = 1

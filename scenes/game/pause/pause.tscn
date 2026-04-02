@@ -41,13 +41,12 @@ flat = true
 
 [node name="SaveButton" type="Button" parent="VBoxContainer" unique_id=702606019]
 layout_mode = 2
-disabled = true
 text = "Сохранить"
 flat = true
 
 [node name="LoadButton" type="Button" parent="VBoxContainer" unique_id=1986472823]
+visible = false
 layout_mode = 2
-disabled = true
 text = "Загрузить"
 flat = true
 
@@ -57,4 +56,5 @@ text = "Выйти в меню"
 flat = true
 
 [connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitToMenuButton" to="." method="_on_exit_to_menu_button_pressed"]

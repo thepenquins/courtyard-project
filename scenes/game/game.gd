@@ -16,11 +16,20 @@ var _is_handling_scene_end : bool = false
 
 var interface_visible: bool = true
 
+var _screenshoot: Image
+
+static var save_to_load: Save
+
 
 func _ready() -> void:
 	scene_player.load_all_characters()
 	scene_player.load_all_locations()
-	_start()
+	
+	if save_to_load != null:
+		load_save(save_to_load)
+		save_to_load = null
+	else:
+		_new_game()
 
 
 func _input(event: InputEvent) -> void:
@@ -35,11 +44,20 @@ func _input(event: InputEvent) -> void:
 		switch_interface_visibility()
 
 
-func _start() -> void:
+func _new_game() -> void:
 	_set_scene_by_episode_uuid("2e06a402-8c35-4b45-a56a-461653c4289c")
 
 
-func _set_scene_by_episode_uuid(uuid: String) -> void:
+func load_save(save: Save) -> void:
+	_score = save.local_variables["Score"]
+	_set_scene_by_episode_uuid(save.episode_uuid, save.frame_index)
+	
+	print("Загрузка.")
+	print(save.episode_name)
+	print(save.frame_index)
+
+
+func _set_scene_by_episode_uuid(uuid: String, frame_index: int = 0) -> void:
 	if _current_episode_uuid == uuid:
 		return
 	
@@ -51,7 +69,7 @@ func _set_scene_by_episode_uuid(uuid: String) -> void:
 	
 	var episode = RSE.get_episode_by_uuid(uuid)
 	var scene = VNE.visual_novel.get_scene_by_episode(episode)
-	scene_player.set_scene(scene)
+	scene_player.set_scene(scene, frame_index)
 
 
 func _set_scene_by_episode_uuid_backward() -> void:
@@ -68,10 +86,12 @@ func _set_scene_by_episode_uuid_backward() -> void:
 
 
 func _pause() -> void:
-	pause.show()
 	history.visible = false
 	scene_player.text_box.visible = false
 	scene_player.process_mode = Node.PROCESS_MODE_DISABLED
+	await get_tree().physics_frame
+	_get_screenshot()
+	pause.show()
 
 
 func _continue() -> void:
@@ -181,3 +201,16 @@ func switch_interface_visibility() -> void:
 	
 	options.visible = interface_visible
 	scene_player.text_box.visible = interface_visible
+
+
+func _get_screenshot() -> void:
+	_screenshoot = get_viewport().get_texture().get_image()
+
+
+func _on_pause_save_pressed() -> void:
+	SaveManager.create_save(_screenshoot, _current_episode_uuid, scene_player._index, {"Score" : _score})
+	_continue()
+
+
+func _on_pause_exit_to_menu_pressed() -> void:
+	SaveManager.create_autosave(_screenshoot, _current_episode_uuid, scene_player._index, {"Score" : _score})

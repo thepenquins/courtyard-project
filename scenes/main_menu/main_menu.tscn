@@ -4,8 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://b6swifjkjxwor" path="res://scenes/main_menu/developers/developers.tscn" id="1_fsom3"]
 [ext_resource type="PackedScene" uid="uid://dogjfwgr4fqbu" path="res://scenes/main_menu/settings/settings.tscn" id="3_ob46e"]
 [ext_resource type="PackedScene" uid="uid://mna5pt2yt5wp" path="res://scenes/main_menu/extra/extra.tscn" id="3_uqeha"]
+[ext_resource type="PackedScene" uid="uid://mr4x0s326o2i" path="res://scenes/save_manager/save_manager.tscn" id="5_wem23"]
 
-[node name="MainMenu" type="Control" unique_id=1387221139 node_paths=PackedStringArray("main", "extra", "settings", "developers")]
+[node name="MainMenu" type="Control" unique_id=1387221139 node_paths=PackedStringArray("main", "save_manager", "extra", "settings", "developers", "continue_button", "load_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,9 +15,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0ebjn")
 main = NodePath("Main")
+save_manager = NodePath("SaveManager")
 extra = NodePath("Extra")
 settings = NodePath("Settings")
 developers = NodePath("Developers")
+continue_button = NodePath("Main/VBoxContainer/Continue")
+load_button = NodePath("Main/VBoxContainer/Load")
 
 [node name="Main" type="Control" parent="." unique_id=428847958]
 layout_mode = 1
@@ -53,7 +57,6 @@ flat = true
 
 [node name="Load" type="Button" parent="Main/VBoxContainer" unique_id=2031729635]
 layout_mode = 2
-disabled = true
 text = "Загрузить игру"
 flat = true
 
@@ -78,6 +81,10 @@ layout_mode = 2
 text = "Выйти"
 flat = true
 
+[node name="SaveManager" parent="." unique_id=157741692 instance=ExtResource("5_wem23")]
+visible = false
+layout_mode = 1
+
 [node name="Extra" parent="." unique_id=1207989455 instance=ExtResource("3_uqeha")]
 visible = false
 layout_mode = 1
@@ -97,6 +104,8 @@ layout_mode = 1
 [connection signal="pressed" from="Main/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Main/VBoxContainer/Developers" to="." method="_on_developers_pressed"]
 [connection signal="pressed" from="Main/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="load_save" from="SaveManager" to="." method="_on_save_manager_load_save"]
+[connection signal="return_pressed" from="SaveManager" to="." method="_return_to_main"]
 [connection signal="return_pressed" from="Extra" to="." method="_return_to_main"]
 [connection signal="return_pressed" from="Settings" to="." method="_return_to_main"]
 [connection signal="return_pressed" from="Developers" to="." method="_return_to_main"]

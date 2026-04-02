@@ -15,7 +15,10 @@ var auto_save: bool = false
 func _init(_image: Image, _episode_uuid: String, _frame_index: int, _local_variables: Dictionary, path_to_file: String = ""):
 	image = _image
 	episode_uuid = _episode_uuid
-	episode_name = RSE.story.get_episode_by_uuid(episode_uuid).name
+	#episode_name = RSE.story.get_episode_by_uuid(episode_uuid).name
+	episode_name = RSE.story.get_episode_by_uuid(episode_uuid).frames[_frame_index].text
+	if episode_name.length() > 20:
+		episode_name = episode_name.substr(0, 32) + "..."
 	frame_index = _frame_index
 	local_variables = _local_variables
 	path = path_to_file

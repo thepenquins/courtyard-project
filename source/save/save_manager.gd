@@ -13,11 +13,11 @@ func _enter_tree():
 	get_saves()
 
 
-func create_save(image: Image, episode_id: int, frame_index: int, local_variables: Dictionary) -> void:
+func create_save(image: Image, episode_uuid: String, frame_index: int, local_variables: Dictionary) -> void:
 	if not DirAccess.dir_exists_absolute(PATH_TO_SAVE_FOLDER):
 		DirAccess.make_dir_absolute(PATH_TO_SAVE_FOLDER)
 	
-	var save = Save.new(image, episode_id, frame_index, local_variables)
+	var save = Save.new(image, episode_uuid, frame_index, local_variables)
 	var file_name = PATH_TO_SAVE_FOLDER + "/" + save.get_file_name()
 	save.save_to_file(file_name)
 	
@@ -41,11 +41,11 @@ func get_saves() -> void:
 	saves_loaded.emit()
 
 
-func create_autosave(image: Image, episode_id: int, frame_index: int, local_variables: Dictionary) -> void:
+func create_autosave(image: Image, episode_uuid: String, frame_index: int, local_variables: Dictionary) -> void:
 	if not DirAccess.dir_exists_absolute(PATH_TO_SAVE_FOLDER):
 		DirAccess.make_dir_absolute(PATH_TO_SAVE_FOLDER)
 	
-	var save = Save.new(image, episode_id, frame_index, local_variables)
+	var save = Save.new(image, episode_uuid, frame_index, local_variables)
 	save.save_to_file(PATH_TO_AUTOSAVE)
 	
 	get_saves()
