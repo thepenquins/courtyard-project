@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://do11t7p74ofk5"]
+
+[ext_resource type="Script" uid="uid://btgfpwrdxwd4p" path="res://scenes/locations/чёрный фон/чёрный_фон.gd" id="1_sgbqf"]
+
+[node name="ЧёрныйФон" type="Node2D" unique_id=1722506349]
+script = ExtResource("1_sgbqf")
+uuid = "485d132a-9cdd-4c9a-ad13-0013e6d32544"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=147165814]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
