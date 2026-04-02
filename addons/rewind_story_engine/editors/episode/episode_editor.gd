@@ -94,6 +94,8 @@ func _import_episode() -> void:
 			if script_text != "": # Если это не первая строка, добавляем перенос.
 				script_text += "\n"
 			script_text += frame.speaker + "\n"
+		elif frame.speaker == "":
+			last_speaker = ""
 		if frame.speaker == "" and script_text != "":
 			script_text += "\n"
 		script_text += "[UUID: %s]\n" % frame.uuid
