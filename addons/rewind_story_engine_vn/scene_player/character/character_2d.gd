@@ -23,6 +23,8 @@ var _sprites_directory_0: String
 var _sprites_directory_1: String
 var _sprites_directory_2: String
 
+var _sprites_directory_by_mode: Dictionary[int, String]
+
 var _loaded_textures: Dictionary[String, Texture2D]
 
 var visibility: bool = false
@@ -31,6 +33,7 @@ var _visibility_tween: Tween
 
 var emotion: String:
 	set(value):
+		value = "%s_%s" % [value, scaling_mode] 
 		if emotion == value:
 			return
 		emotion = value
@@ -68,6 +71,12 @@ func _setting_directories() -> void:
 	_sprites_directory_0 = _sprites_directory.path_join("0")
 	_sprites_directory_1 = _sprites_directory.path_join("1")
 	_sprites_directory_2 = _sprites_directory.path_join("2")
+	
+	_sprites_directory_by_mode = {
+		0 : _sprites_directory_0,
+		1 : _sprites_directory_1,
+		2 : _sprites_directory_2,
+	}
 
 
 func _check_directories() -> void:
@@ -104,7 +113,9 @@ func _parse_animations() -> void:
 	for file in get_files_in_directory(_emotions_directory, VneCharacter2DEmotion.FILE_EXTENSION):
 		var emotion = VneCharacter2DEmotion.new(_emotions_directory.path_join(file))
 		for animation: VneCharacter2DAnimation in emotion.animations:
-			_set_animation(emotion.name, animation)
+			_set_animation(emotion.name, 0, animation)
+			_set_animation(emotion.name, 1, animation)
+			_set_animation(emotion.name, 2, animation)
 		if _character_resource:
 			_character_resource.emotions.append(emotion.name)
 
@@ -124,8 +135,8 @@ func get_files_in_directory(directory: String, extension: String) -> PackedStrin
 	return files
 
 
-func _set_animation(emotion_name: String, animation: VneCharacter2DAnimation) -> void:
-	print(emotion_name)
+func _set_animation(emotion_name: String, mode: int, animation: VneCharacter2DAnimation) -> void:
+	emotion_name = "%s_%s" % [emotion_name, mode]
 	if not animated_sprites.has(animation.animated_sprite_name):
 		return
 	
@@ -140,15 +151,16 @@ func _set_animation(emotion_name: String, animation: VneCharacter2DAnimation) ->
 	animated_sprite.sprite_frames.add_animation(emotion_name)
 	animated_sprite.sprite_frames.set_animation_speed(emotion_name, animation.speed)
 	for sprite in animation.sprites:
-		if not _loaded_textures.has(sprite): # Загружаем текстуру, если её ещё не загружали.
-			if not FileAccess.file_exists(_sprites_directory.path_join(sprite)):
-				push_warning("Отсутствует спрайт: %s" % _sprites_directory.path_join(sprite))
-				continue # Пропускаем шаг, если спрайта не существует.
-			var texture = load(_sprites_directory.path_join(sprite))
-			if texture is not Texture2D:
-				continue # Пропускаем шаг, если это по какой-то причине не текстура.
-			_loaded_textures[sprite] = texture
-		animated_sprite.sprite_frames.add_frame(emotion_name, _loaded_textures[sprite])
+		#if not _loaded_textures.has(sprite): # Загружаем текстуру, если её ещё не загружали.
+		var path_to_texture = _sprites_directory_by_mode[mode].path_join(sprite)
+		if not FileAccess.file_exists(path_to_texture):
+			push_warning("Отсутствует спрайт: %s" % path_to_texture)
+			continue # Пропускаем шаг, если спрайта не существует.
+		var texture = load(path_to_texture)
+		if texture is not Texture2D:
+			continue # Пропускаем шаг, если это по какой-то причине не текстура.
+			#_loaded_textures[sprite] = texture
+		animated_sprite.sprite_frames.add_frame(emotion_name, texture)
 
 
 func set_visibility(visible: bool, instant: bool = false) -> void:

@@ -172,6 +172,7 @@ func set_characters(character_frames: Array[VneCharacterFrame], instantly: bool 
 		var visible: bool = false
 		for character_frame in character_frames:
 			if character_frame.character == character:
+				_characters[character].scaling_mode = character_frame.scaling_mode
 				_characters[character].emotion = character_frame.emotion
 				visible = true
 				break

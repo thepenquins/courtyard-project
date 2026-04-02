@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dagdhdh8lc2mw"]
+
+[ext_resource type="Script" uid="uid://kts54sfayy0e" path="res://addons/rewind_story_engine/data/character.gd" id="1_d0qrj"]
+
+[node name="Мать" type="Node2D" unique_id=1750919618]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_d0qrj")
