@@ -35,6 +35,7 @@ VNE="*uid://conv3btwxe55h"
 FmodManager="*uid://cds10pm7hwn3p"
 StoryLoader="*uid://bus06qbqmubs"
 FmodHandler="*uid://jrem3oombdxh"
+SaveManager="*uid://vj1y0r1m1pty"
 
 [display]
 
