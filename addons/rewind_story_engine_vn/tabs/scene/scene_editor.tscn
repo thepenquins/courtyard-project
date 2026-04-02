@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://dta4vqfl8g8b5" path="res://addons/rewind_story_engine_vn/tabs/scene/ui_visability_check_button.gd" id="12_mlkba"]
 [ext_resource type="PackedScene" uid="uid://duei0f41kemq" path="res://addons/rewind_story_engine_vn/tabs/scene/inspector/inspector.tscn" id="14_hpj0k"]
 [ext_resource type="Script" uid="uid://debioms5t20ev" path="res://addons/rewind_story_engine_vn/tabs/scene/add_resource_button/add_vfx_button.gd" id="14_mlkba"]
+[ext_resource type="Script" uid="uid://chb6p35t70sxp" path="res://addons/rewind_story_engine_vn/tabs/scene/audio_volume_slider.gd" id="15_bsqx8"]
 [ext_resource type="Script" uid="uid://dixg8opgfc8ae" path="res://addons/rewind_story_engine_vn/tabs/scene/add_resource_option_button/add_transition_button.gd" id="15_hpj0k"]
 [ext_resource type="StyleBox" uid="uid://ccjrts3npg683" path="res://addons/rewind_story_engine/styles/style_box_flat.tres" id="16_xo5hf"]
 [ext_resource type="Script" uid="uid://8dwfib45n8ir" path="res://addons/rewind_story_engine_vn/utils/set_icon_for_button.gd" id="17_i21fc"]
@@ -140,6 +141,16 @@ Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
 Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
 }
 
+[sub_resource type="DPITexture" id="DPITexture_w16c2"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" xml:space=\"preserve\" width=\"16\" height=\"16\" version=\"1.0\" viewBox=\"0 0 2.4 2.4\"><path fill=\"#e0e0e0\" d=\"M1.252.15a.1.1 0 0 0-.082.03L.6.75H.318C.225.75.15.817.15.9v.6c0 .083.075.15.168.15H.6l.57.57c.066.067.18.02.18-.074V.256A.106.106 0 0 0 1.252.15\" paint-order=\"markers stroke fill\"/><path fill=\"none\" stroke=\"#e0e0e0\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\".165\" d=\"M1.575.675c.45.525 0 1.05 0 1.05m.3-1.35c.675.825 0 1.65 0 1.65\" paint-order=\"markers stroke fill\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
 [sub_resource type="DPITexture" id="DPITexture_431fo"]
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"M8 14A6 6 0 0 0 8 2a6 6 0 0 0 0 12zM5.293 8.707a1 1 0 0 1 0-1.414l3-3a1 1 0 0 1 1.414 1.414L7.414 8l2.293 2.293a1 1 0 0 1-1.414 1.414z\"/></svg>
 "
@@ -218,7 +229,6 @@ text = "Выберете эпизод для редактирования"
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1961950753]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -270,10 +280,10 @@ script = ExtResource("2_bsqx8")
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/VBoxContainer/Scene/AspectRatioContainer/SubViewportContainer" unique_id=1084950756]
 handle_input_locally = false
 canvas_item_default_texture_filter = 3
-size = Vector2i(2, 2)
+size = Vector2i(1833, 1030)
 size_2d_override = Vector2i(1920, 1080)
 size_2d_override_stretch = true
-render_target_update_mode = 0
+render_target_update_mode = 4
 
 [node name="ScenePlayer" parent="MarginContainer/VBoxContainer/Scene/AspectRatioContainer/SubViewportContainer/SubViewport" unique_id=2115196977 instance=ExtResource("2_ysgoj")]
 
@@ -558,6 +568,37 @@ theme_override_styles/panel = ExtResource("16_xo5hf")
 layout_mode = 2
 button_pressed = true
 text = "Автонаследование новых кадров"
+
+[node name="AudioVolumePanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftDownVBoxContainer" unique_id=1792802377]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("16_xo5hf")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftDownVBoxContainer/AudioVolumePanelContainer" unique_id=926897585]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftDownVBoxContainer/AudioVolumePanelContainer/MarginContainer" unique_id=461259041]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftDownVBoxContainer/AudioVolumePanelContainer/MarginContainer/HBoxContainer" unique_id=449566659]
+layout_mode = 2
+texture = SubResource("DPITexture_w16c2")
+stretch_mode = 5
+script = ExtResource("4_los03")
+icon_name = &"AudioStreamPlayer"
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftDownVBoxContainer/AudioVolumePanelContainer/MarginContainer/HBoxContainer" unique_id=1486121058]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 0.5
+script = ExtResource("15_bsqx8")
 
 [node name="Inspector" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control" unique_id=792062279 instance=ExtResource("14_hpj0k")]
 layout_mode = 1

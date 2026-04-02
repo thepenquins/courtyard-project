@@ -14,27 +14,27 @@
 [sub_resource type="RichTextEffect" id="RichTextEffect_1hgq8"]
 resource_name = "prickle"
 script = ExtResource("4_h2ygl")
-metadata/rt = 2124381498675
+metadata/rt = 2216538745638
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_vmmjd"]
 resource_name = "prickle"
 script = ExtResource("4_h2ygl")
-metadata/rt = 2158707682665
+metadata/rt = 2261317135151
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_hpvdf"]
 resource_name = "jit2"
 script = ExtResource("3_45kqg")
-metadata/rt = 2158707682665
+metadata/rt = 2261317135151
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_ngkud"]
 resource_name = "cuss"
 script = ExtResource("4_a7jgp")
-metadata/rt = 2158707682665
+metadata/rt = 2261317135151
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_1rxjk"]
 resource_name = "woo"
 script = ExtResource("7_vmmjd")
-metadata/rt = 2158707682665
+metadata/rt = 2261317135151
 
 [sub_resource type="Animation" id="Animation_1hgq8"]
 length = 0.001
@@ -232,15 +232,15 @@ script = ExtResource("3_gfp3b")
 animation = "prickle"
 _play = false
 _hold = true
-progress = 0.4754447953216368
-visible_character = 9
+progress = 0.44753086419753046
+visible_character = 8
 _triggers = {
-8: [[1003, {}]]
+7: [[1003, {}]]
 }
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 704, 39), Transform2D(1, 0, 0, 1, 713, 39), Transform2D(1, 0, 0, 1, 747, 39), Transform2D(1, 0, 0, 1, 756, 39), Transform2D(1, 0, 0, 1, 765, 39), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 788, 39), Transform2D(1, 0, 0, 1, 811, 39), Transform2D(1, 0, 0, 1, 832, 39), Transform2D(1, 0, 0, 1, 841, 39), Transform2D(1, 0, 0, 1, 852, 39), Transform2D(1, 0, 0, 1, 861, 39), Transform2D(1, 0, 0, 1, 881, 39), Transform2D(1, 0, 0, 1, 904, 39), Transform2D(1, 0, 0, 1, 925, 39), Transform2D(1, 0, 0, 1, 942, 39), Transform2D(1, 0, 0, 1, 970, 39), Transform2D(1, 0, 0, 1, 970, 39)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(7, 28), Vector2(32, 28), Vector2(0, 28), Vector2(0, 28), Vector2(23, 28), Vector2(0, 0), Vector2(21, 28), Vector2(32, 28), Vector2(0, 28), Vector2(7, 28), Vector2(0, 28), Vector2(22, 28), Vector2(23, 28), Vector2(17, 28), Vector2(18, 28), Vector2(20, 28), Vector2(0, 28), Vector2(0, 28)])
-_alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
-_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 709, 39), Transform2D(1, 0, 0, 1, 718, 39), Transform2D(1, 0, 0, 1, 752, 39), Transform2D(1, 0, 0, 1, 761, 39), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 784, 39), Transform2D(1, 0, 0, 1, 807, 39), Transform2D(1, 0, 0, 1, 828, 39), Transform2D(1, 0, 0, 1, 837, 39), Transform2D(1, 0, 0, 1, 848, 39), Transform2D(1, 0, 0, 1, 857, 39), Transform2D(1, 0, 0, 1, 877, 39), Transform2D(1, 0, 0, 1, 900, 39), Transform2D(1, 0, 0, 1, 921, 39), Transform2D(1, 0, 0, 1, 938, 39), Transform2D(1, 0, 0, 1, 966, 39), Transform2D(1, 0, 0, 1, 966, 39)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(7, 28), Vector2(32, 28), Vector2(0, 28), Vector2(23, 28), Vector2(0, 0), Vector2(21, 28), Vector2(25, 28), Vector2(0, 28), Vector2(7, 28), Vector2(0, 28), Vector2(24, 28), Vector2(23, 28), Vector2(21, 28), Vector2(18, 28), Vector2(20, 28), Vector2(0, 28), Vector2(0, 28)])
+_alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 _showing_ctc = true
 _forced_finish_delay = -0.03227433333333515
 animation = "prickle"
@@ -258,7 +258,7 @@ shortcut_expression = true
 shortcut_bookmark = true
 signal_quotes = true
 signal_stars = true
-bbcode = "[jit2]I'm[]  [cuss]fine[][h] [jit2]I [woo]guess[][].
+bbcode = "[jit2]I'm[] [cuss]fine[][h] [jit2]I [woo]guess[][].
 "
 effects = 2
 alignment = 1
@@ -320,8 +320,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -4.0
 offset_top = -80.5
-offset_right = 105.0
+offset_right = 101.0
 offset_bottom = -39.5
 grow_horizontal = 2
 grow_vertical = 2
