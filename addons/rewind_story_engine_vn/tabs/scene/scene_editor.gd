@@ -55,6 +55,7 @@ func _notification(what: int) -> void:
 		if is_visible_in_tree():
 			update_options()
 			scene_player.load_all_characters()
+			scene_player.load_all_locations()
 			scene_player.play_all_audio()
 			if _frame != null:
 				set_frame(_index)
