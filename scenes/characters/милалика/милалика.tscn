@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ccyrngug1blcp"]
 
-[ext_resource type="Script" uid="uid://cbrp1a2vjsdkv" path="res://addons/rewind_story_engine_vn/scene_player/character/character_2d.gd" id="1_y2s6q"]
+[ext_resource type="Script" uid="uid://b2842w5tvwo7m" path="res://scenes/characters/милалика/милалика.gd" id="1_ix7ng"]
 [ext_resource type="Texture2D" uid="uid://br2jvi7k7slv3" path="res://scenes/characters/милалика/sprites/0/sprite_hands_4.png" id="2_8t70x"]
 [ext_resource type="Texture2D" uid="uid://2pv7gh6hv6sv" path="res://scenes/characters/милалика/sprites/0/sprite_hair_0.png" id="2_kkrds"]
 [ext_resource type="Texture2D" uid="uid://byy56eh1d702" path="res://scenes/characters/милалика/sprites/0/sprite_hands_0.png" id="2_sytsk"]
@@ -2868,9 +2868,10 @@ animations = [{
 "speed": 1.0
 }]
 
-[node name="Милалика" type="Node2D" unique_id=438957723 node_paths=PackedStringArray("animated_sprites")]
+[node name="Милалика" type="Node2D" unique_id=438957723 node_paths=PackedStringArray("hair", "animated_sprites")]
 scale = Vector2(0.6, 0.6)
-script = ExtResource("1_y2s6q")
+script = ExtResource("1_ix7ng")
+hair = NodePath("Волосы")
 uuid = "abea155a-50cd-44db-9770-9b6d245de91e"
 animated_sprites = {
 "Брови": NodePath("Брови"),
@@ -2901,5 +2902,4 @@ sprite_frames = SubResource("SpriteFrames_7wj1x")
 animation = &"Спокойствие_0"
 
 [node name="Волосы" type="Sprite2D" parent="." unique_id=798852085]
-visible = false
 texture = ExtResource("2_kkrds")

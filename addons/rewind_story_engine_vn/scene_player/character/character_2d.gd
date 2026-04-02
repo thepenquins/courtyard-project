@@ -40,6 +40,8 @@ var emotion: String:
 		for animated_sprite: AnimatedSprite2D in animated_sprites.values():
 			if animated_sprite.sprite_frames.has_animation(emotion):
 				animated_sprite.animation = emotion
+		_process_emotion_setter()
+
 
 var talking: bool:
 	set(value):
@@ -53,7 +55,17 @@ var talking: bool:
 				animated_sprite.stop()
 
 
-var scaling_mode: int = 0
+var scaling_mode: int = 0:
+	set(value):
+		scaling_mode = value
+		match value:
+			0:
+				z_index = 0
+			1:
+				z_index = 1
+			2:
+				z_index = 2
+		_process_scaling_mode_setter()
 
 
 func _ready() -> void:
@@ -179,3 +191,11 @@ func set_visibility(visible: bool, instant: bool = false) -> void:
 
 	_visibility_tween = create_tween()
 	_visibility_tween.tween_property(self, "modulate:a", target_alpha, 0.5).set_trans(Tween.TRANS_BACK)
+
+
+func _process_emotion_setter() -> void:
+	pass
+
+
+func _process_scaling_mode_setter() -> void:
+	pass
