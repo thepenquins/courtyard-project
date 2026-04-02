@@ -3,6 +3,7 @@
 
 signal frame_setting(rse_frame: RSEFrame, vn_frame: VneFrame)
 signal scene_ended(scene: VneScene)
+signal to_prev_scene
 
 @export var location_container: Node
 @export var characters_container: VneCharactersContainer
@@ -36,13 +37,15 @@ func _input(event: InputEvent) -> void:
 			text_box.advance()
 		else:
 			if _ready_to_next_frame:
-				next_frame()
+				if not next_frame():
+					scene_ended.emit(_scene)
 			else:
 				text_box.advance()
 	if event.is_action_pressed("prev_frame"):
 		if not Engine.is_editor_hint():
 			if _ready_to_next_frame:
-				prev_frame()
+				if not prev_frame():
+					to_prev_scene.emit()
 			else:
 				text_box.skip()
 
@@ -54,7 +57,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("rewind"):
 		if not Engine.is_editor_hint() and _current_rewind_reload <= 0:
 			_current_rewind_reload = REWIND_RELOAD_TIME
-			next_frame(true)
+			if not next_frame(true):
+				scene_ended.emit(_scene)
 
 
 func _on_text_box_frame_ended() -> void:
@@ -62,8 +66,16 @@ func _on_text_box_frame_ended() -> void:
 
 
 func set_scene(scene: VneScene, frame_index: int = 0) -> void:
+	_ready_to_next_frame = false
 	_scene = scene
 	set_frame(frame_index)
+
+
+
+func set_scene_from_end(scene: VneScene) -> void:
+	_ready_to_next_frame = true
+	_scene = scene
+	set_frame(_scene.episode.frames.size() - 1, true)
 
 
 func next_frame(instantly: bool = false) -> bool:
@@ -101,8 +113,8 @@ func set_frame(frame_index: int, instantly: bool = false) -> void:
 	if _frame == null:
 		return
 	
-	if frame_info.index == _scene.frames.size() - 1:
-		scene_ended.emit(_scene)
+	#if frame_info.index == _scene.episode.frames.size() - 1:
+		#scene_ended.emit(_scene)
 	
 	set_location(_frame.location)
 	set_characters(_frame.characters, instantly)

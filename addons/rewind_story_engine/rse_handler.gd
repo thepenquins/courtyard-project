@@ -60,3 +60,14 @@ func get_episode_by_name(episode_name: String) -> RSEEpisode:
 			return episode
 		
 	return null
+
+
+func get_episode_by_uuid(episode_uuid: String) -> RSEEpisode:
+	if episode_uuid == "":
+		return
+	
+	for episode in story.episodes:
+		if episode.uuid == episode_uuid:
+			return episode
+		
+	return null

@@ -2,9 +2,7 @@ class_name History extends Control
 
 @export var container: Container
 @export var scroll_container: ScrollContainer
-
-
-var keys: PackedStringArray
+@export var double_max_records: int = 256
 
 
 func _ready() -> void:
@@ -12,10 +10,9 @@ func _ready() -> void:
 
 
 func add_record(frame: RSEFrame, vn_frame: VneFrame) -> void:
-	if keys.has(frame.uuid):
-		return
-	
-	keys.append(frame.uuid)
+	if container.get_child_count() > double_max_records:
+		container.get_child(0).queue_free()
+		container.get_child(1).queue_free()
 	
 	var speaker_text = ""
 	if frame.speaker != "":
@@ -51,3 +48,8 @@ func get_speaker(frame: RSEFrame, vn_frame: VneFrame) -> String:
 
 func _scroll_to_bottom() -> void:
 	scroll_container.scroll_vertical = int(scroll_container.get_v_scroll_bar().max_value)
+
+
+func clear() -> void:
+	for child in container.get_children():
+		child.queue_free()

@@ -3,15 +3,20 @@
 [ext_resource type="Script" uid="uid://d2iy3p7dbamos" path="res://scenes/game/game.gd" id="1_sul5r"]
 [ext_resource type="PackedScene" uid="uid://bsc42mb2c8nlx" path="res://addons/rewind_story_engine_vn/scene_player/scene_player.tscn" id="2_7h61r"]
 [ext_resource type="PackedScene" uid="uid://c6ppnx1khkfvc" path="res://scenes/game/pause/pause.tscn" id="3_0sr1o"]
+[ext_resource type="PackedScene" uid="uid://bo24d73rvgjri" path="res://scenes/game/options/options.tscn" id="3_lfrn8"]
 [ext_resource type="PackedScene" uid="uid://bufkqri1fm8lj" path="res://scenes/game/history/history.tscn" id="4_kelw5"]
 
-[node name="Game" type="Node" unique_id=377975300 node_paths=PackedStringArray("scene_player", "history", "pause")]
+[node name="Game" type="Node" unique_id=377975300 node_paths=PackedStringArray("scene_player", "options", "history", "pause")]
 script = ExtResource("1_sul5r")
 scene_player = NodePath("ScenePlayer")
+options = NodePath("Options")
 history = NodePath("History")
 pause = NodePath("Pause")
 
 [node name="ScenePlayer" parent="." unique_id=635273600 instance=ExtResource("2_7h61r")]
+
+[node name="Options" parent="." unique_id=1554327022 instance=ExtResource("3_lfrn8")]
+visible = false
 
 [node name="History" parent="." unique_id=860033839 instance=ExtResource("4_kelw5")]
 visible = false
@@ -20,4 +25,6 @@ visible = false
 visible = false
 
 [connection signal="frame_setting" from="ScenePlayer" to="." method="_on_scene_player_frame_setting"]
+[connection signal="scene_ended" from="ScenePlayer" to="." method="_on_scene_player_scene_ended"]
+[connection signal="to_prev_scene" from="ScenePlayer" to="." method="_on_scene_player_to_prev_scene"]
 [connection signal="continue_pressed" from="Pause" to="." method="_continue"]
