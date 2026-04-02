@@ -226,6 +226,9 @@ func set_audio_fmod_event(fmod_event: FmodEvent, current_audio: VneAudioResource
 			_set_fmod_event_parameters(fmod_event, audio_frame.parameters)
 		return fmod_event
 	
+	if fmod_event:
+		fmod_event.stop(0)
+	
 	fmod_event = _create_fmod_event(audio_frame.resource.path_to_file)
 	_set_fmod_event_parameters(fmod_event, audio_frame.parameters)
 	
@@ -242,6 +245,9 @@ func set_audio_fmod_event_emitter_2d(event_emitter: FmodEventEmitter2D, current_
 		if event_emitter:
 			_set_fmod_event_emitter_2D_parameters(event_emitter, audio_frame.parameters)
 		return event_emitter
+	
+	if event_emitter:
+		event_emitter.stop()
 	
 	event_emitter = _create_fmod_event_emitter_2D(audio_frame.resource.path_to_file)
 	_set_fmod_event_emitter_2D_parameters(event_emitter, audio_frame.parameters)
@@ -267,6 +273,7 @@ func load_all_characters() -> void:
 			var character_packed_scene: PackedScene = load(character.path_to_file)
 			var character_scene: VneCharacter2D = character_packed_scene.instantiate()
 			characters_container.add_character(character_scene)
+			character_scene.visible = false
 			_characters[character] = character_scene
 
 
