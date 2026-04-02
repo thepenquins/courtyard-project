@@ -16,8 +16,10 @@ var _characters: Dictionary[VneCharacterResource, VneCharacter2D]
 var _location_resource: VneLocationResource
 var _current_location: VneLocation
 var _current_music: VneMusicResource
+var _editor_music_player: FmodEvent
 var _music_player: FmodEventEmitter2D
 var _current_bgs: VneBgsResource
+var _editor_bgs_player: FmodEvent
 var _bgs_player: FmodEventEmitter2D
 
 var _is_new_location: bool = true
@@ -173,49 +175,58 @@ func _reorder_characters(character_frames: Array[VneCharacterFrame]) -> void:
 
 
 func set_music(music_frame: VneMusicFrame) -> void:
-	_music_player = set_audio(_music_player, _current_music, music_frame)
+	if Engine.is_editor_hint():
+		_editor_music_player = set_audio_fmod_event(_editor_music_player, _current_music, music_frame)
+	else:
+		_music_player = set_audio_fmod_event_emitter_2d(_music_player, _current_music, music_frame)
 	_current_music = music_frame.music
 
 
 func set_bgs(bgs_frame: VneBgsFrame) -> void:
-	_bgs_player = set_audio(_bgs_player, _current_bgs, bgs_frame)
+	if Engine.is_editor_hint():
+		_editor_bgs_player = set_audio_fmod_event(_editor_bgs_player, _current_bgs, bgs_frame)
+	else:
+		_bgs_player = set_audio_fmod_event_emitter_2d(_bgs_player, _current_music, bgs_frame)
 	_current_bgs = bgs_frame.bgs
 
 
 func set_sfx(sfx_array: Array[VneSfxFrame]) -> void:
 	for sfx in sfx_array:
-		var emitter = set_audio(null, null, sfx)
+		var emitter = set_audio_fmod_event(null, null, sfx)
 
 
-func set_audio(player: FmodEventEmitter2D, current_audio: VneAudioResource, audio_frame: VneFrameWithMultipleParameters) -> FmodEventEmitter2D:
-	#if Engine.is_editor_hint(): ## TODO: Починить воспроизведение в редакторе.
-		#return
-		
+func set_audio_fmod_event(fmod_event: FmodEvent, current_audio: VneAudioResource, audio_frame: VneFrameWithMultipleParameters) -> FmodEvent:
 	if audio_frame.resource == null:
-		if player:
-			player.stop()
+		if fmod_event:
+			fmod_event.stop(0)
 		return null
 	
 	if current_audio == audio_frame.resource:
-		if player:
-			_set_fmod_event_emitter_2D_parameters(player, audio_frame.parameters)
-		return player
+		if fmod_event:
+			_set_fmod_event_parameters(fmod_event, audio_frame.parameters)
+		return fmod_event
 	
-	player = _create_fmod_event_emitter_2D(audio_frame.resource.path_to_file)
-	_set_fmod_event_emitter_2D_parameters(player, audio_frame.parameters)
+	fmod_event = _create_fmod_event(audio_frame.resource.path_to_file)
+	_set_fmod_event_parameters(fmod_event, audio_frame.parameters)
 	
-	player.process_mode = Node.PROCESS_MODE_ALWAYS
+	return fmod_event
+
+
+func set_audio_fmod_event_emitter_2d(event_emitter: FmodEventEmitter2D, current_audio: VneAudioResource, audio_frame: VneFrameWithMultipleParameters) -> FmodEventEmitter2D:
+	if audio_frame.resource == null:
+		if event_emitter:
+			event_emitter.stop()
+		return null
 	
-	if Engine.is_editor_hint(): ## TODO: Починить воспроизведение в редакторе.
-		player.play()
-		#var event_instance = FmodServer.create_event_instance(audio_frame.resource.path_to_file)
-		#event_instance.position
-		#var desc = FmodServer.get_event(audio_frame.resource.path_to_file)
-		#if desc.is_valid():
-			#print(desc.get_instance_count()) 
-			#print(desc.get_instance_list()) 
+	if current_audio == audio_frame.resource:
+		if event_emitter:
+			_set_fmod_event_emitter_2D_parameters(event_emitter, audio_frame.parameters)
+		return event_emitter
 	
-	return player
+	event_emitter = _create_fmod_event_emitter_2D(audio_frame.resource.path_to_file)
+	_set_fmod_event_emitter_2D_parameters(event_emitter, audio_frame.parameters)
+	
+	return event_emitter
 
 
 func set_text(rse_frame: RSEFrame = null, instantly: bool = false) -> void:
@@ -239,6 +250,12 @@ func load_all_characters() -> void:
 			_characters[character] = character_scene
 
 
+func _create_fmod_event(event_name: String) -> FmodEvent:
+	var event_instance = FmodServer.create_event_instance(event_name)
+	event_instance.start()
+	return event_instance
+
+
 func _create_fmod_event_emitter_2D(event_name: String) -> FmodEventEmitter2D:
 	var event_emitter = FmodEventEmitter2D.new()
 	event_emitter.event_name = event_name
@@ -248,25 +265,39 @@ func _create_fmod_event_emitter_2D(event_name: String) -> FmodEventEmitter2D:
 	return event_emitter
 
 
+func _set_fmod_event_parameters(fmod_event: FmodEvent, parameters: Dictionary[String, float]) -> void:
+	for parameter in parameters:
+		fmod_event.set_parameter_by_id(int(parameter), parameters[parameter])
+
+
 func _set_fmod_event_emitter_2D_parameters(event_emitter: FmodEventEmitter2D, parameters: Dictionary[String, float]) -> void:
 	for parameter in parameters:
 		event_emitter.set_parameter_by_id(int(parameter), parameters[parameter])
-	
-	if Engine.is_editor_hint(): ## TODO: Починить воспроизведение в редакторе.
-		event_emitter.play()
 
 
 func _exit_tree() -> void:
+	stop_all_audio()
+
+
+func stop_all_audio() -> void:
+	if _editor_music_player:
+		_editor_music_player.stop(0)
+	if _editor_bgs_player:
+		_editor_bgs_player.stop(0)
+	
 	if _music_player:
 		_music_player.stop()
 	if _bgs_player:
 		_bgs_player.stop()
 
 
-#func _ready() -> void:
-	#var event_instance = FmodServer.create_event_instance("event:/mus/mus_bachbabach")
-	#event_instance.position = 2000
-	#event_instance.start()
-	#await get_tree().create_timer(4).timeout
-	#event_instance.stop(0)
-	#event_instance = null
+func play_all_audio() -> void:
+	if _editor_music_player:
+		_editor_music_player.start()
+	if _editor_bgs_player:
+		_editor_bgs_player.start()
+	
+	if _music_player:
+		_music_player.play()
+	if _bgs_player:
+		_bgs_player.play()
