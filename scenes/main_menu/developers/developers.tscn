@@ -59,8 +59,7 @@ script = ExtResource("1_hy3gp")
 title = "Графика"
 developers = Dictionary[String, String]({
 "LehanFox": "",
-"RANKEL": "https://vk.com/ankelran",
-"Василий Василич": "https://vk.com/agnialoo"
+"RANKEL": "https://vk.com/ankelran"
 })
 
 [node name="AudioSection" type="VBoxContainer" parent="VBoxContainer" unique_id=569618715]
