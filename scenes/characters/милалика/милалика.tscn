@@ -33,34 +33,52 @@
 [ext_resource type="Texture2D" uid="uid://ernjobao47mu" path="res://scenes/characters/милалика/sprites/1/sprite_head_1.png" id="18_cuiml"]
 [ext_resource type="Texture2D" uid="uid://bgldqusxu3ut1" path="res://scenes/characters/милалика/sprites/2/sprite_head_1.png" id="19_prhy8"]
 [ext_resource type="Texture2D" uid="uid://bvvjjr0hhfr12" path="res://scenes/characters/милалика/sprites/0/sprite_mouth_8.png" id="23_a3mu5"]
+[ext_resource type="Texture2D" uid="uid://hp0vjknixeoa" path="res://scenes/characters/милалика/sprites/0/sprite_head1_mouth_8.png" id="23_qod42"]
+[ext_resource type="Texture2D" uid="uid://d1ot1ttravg2l" path="res://scenes/characters/милалика/sprites/1/sprite_head1_mouth_8.png" id="24_cuyec"]
 [ext_resource type="Texture2D" uid="uid://bvxyrijiaqr6c" path="res://scenes/characters/милалика/sprites/1/sprite_mouth_8.png" id="24_fqcej"]
+[ext_resource type="Texture2D" uid="uid://dg6tpbg6ptkkl" path="res://scenes/characters/милалика/sprites/2/sprite_head1_mouth_8.png" id="25_3fpo1"]
 [ext_resource type="Texture2D" uid="uid://bf8xvxmp12mli" path="res://scenes/characters/милалика/sprites/2/sprite_mouth_8.png" id="25_255ka"]
 [ext_resource type="Texture2D" uid="uid://b1lx82ftft0ej" path="res://scenes/characters/милалика/sprites/0/sprite_mouth_5.png" id="29_r4mpc"]
 [ext_resource type="Texture2D" uid="uid://rlrjnuv4of86" path="res://scenes/characters/милалика/sprites/1/sprite_mouth_5.png" id="30_rj00b"]
 [ext_resource type="Texture2D" uid="uid://dafltins5urss" path="res://scenes/characters/милалика/sprites/2/sprite_mouth_5.png" id="31_omqar"]
-[ext_resource type="Texture2D" uid="uid://chbaoxl232u2l" path="res://scenes/characters/милалика/sprites/0/sprite_mouth_4.png" id="32_5nny4"]
-[ext_resource type="Texture2D" uid="uid://dkgs37p6p4883" path="res://scenes/characters/милалика/sprites/1/sprite_mouth_4.png" id="33_ajqtu"]
-[ext_resource type="Texture2D" uid="uid://byefjrrhcxw42" path="res://scenes/characters/милалика/sprites/2/sprite_mouth_4.png" id="34_gjb8u"]
+[ext_resource type="Texture2D" uid="uid://cr6jup46ato18" path="res://scenes/characters/милалика/sprites/0/sprite_head1_mouth_4.png" id="32_iri6s"]
+[ext_resource type="Texture2D" uid="uid://hxd7q3olbrdq" path="res://scenes/characters/милалика/sprites/1/sprite_head1_mouth_4.png" id="33_1ulco"]
+[ext_resource type="Texture2D" uid="uid://dgvdm12gc1b5b" path="res://scenes/characters/милалика/sprites/2/sprite_head1_mouth_4.png" id="34_y3523"]
+[ext_resource type="Texture2D" uid="uid://sjpwbxdfpuas" path="res://scenes/characters/милалика/sprites/0/sprite_head1_mouth_2.png" id="35_fsnxv"]
 [ext_resource type="Texture2D" uid="uid://cbu40bbt8iicu" path="res://scenes/characters/милалика/sprites/0/sprite_mouth_2.png" id="35_mbgdp"]
 [ext_resource type="Texture2D" uid="uid://dvi5atk0ewt83" path="res://scenes/characters/милалика/sprites/1/sprite_mouth_2.png" id="36_jyax6"]
+[ext_resource type="Texture2D" uid="uid://dgrr7dotilvla" path="res://scenes/characters/милалика/sprites/1/sprite_head1_mouth_2.png" id="36_oykb1"]
 [ext_resource type="Texture2D" uid="uid://damg56f1cxrel" path="res://scenes/characters/милалика/sprites/2/sprite_mouth_2.png" id="37_3e5jj"]
+[ext_resource type="Texture2D" uid="uid://c6brfbmyu6h27" path="res://scenes/characters/милалика/sprites/2/sprite_head1_mouth_2.png" id="37_rjpnr"]
+[ext_resource type="Texture2D" uid="uid://ckutxhsk5apvw" path="res://scenes/characters/милалика/sprites/0/sprite_head1_mouth_1.png" id="38_3slmv"]
 [ext_resource type="Texture2D" uid="uid://bbwc2oocedpvs" path="res://scenes/characters/милалика/sprites/0/sprite_mouth_1.png" id="38_ofnen"]
 [ext_resource type="Texture2D" uid="uid://j7g86ryb3g1q" path="res://scenes/characters/милалика/sprites/1/sprite_mouth_1.png" id="39_iwtjg"]
+[ext_resource type="Texture2D" uid="uid://d2cg2vo8xdd2k" path="res://scenes/characters/милалика/sprites/1/sprite_head1_mouth_1.png" id="39_pb2g6"]
 [ext_resource type="Texture2D" uid="uid://ljy0q7m81cc6" path="res://scenes/characters/милалика/sprites/2/sprite_mouth_1.png" id="40_01suk"]
+[ext_resource type="Texture2D" uid="uid://bc7ksgi4ew7yg" path="res://scenes/characters/милалика/sprites/2/sprite_head1_mouth_1.png" id="40_b1pax"]
 [ext_resource type="Texture2D" uid="uid://dyen87ert6xqt" path="res://scenes/characters/милалика/sprites/0/sprite_mouth_6.png" id="41_mbnlt"]
 [ext_resource type="Texture2D" uid="uid://dgngfwutnhkkg" path="res://scenes/characters/милалика/sprites/1/sprite_mouth_6.png" id="42_hn73t"]
 [ext_resource type="Texture2D" uid="uid://cnaittv5s3351" path="res://scenes/characters/милалика/sprites/2/sprite_mouth_6.png" id="43_5yale"]
 [ext_resource type="Texture2D" uid="uid://bpqubp1n72guj" path="res://scenes/characters/милалика/sprites/0/sprite_mouth_7.png" id="44_6j532"]
 [ext_resource type="Texture2D" uid="uid://dsr111y2lcbqs" path="res://scenes/characters/милалика/sprites/1/sprite_mouth_7.png" id="45_avqf8"]
 [ext_resource type="Texture2D" uid="uid://drlaoid7frobv" path="res://scenes/characters/милалика/sprites/2/sprite_mouth_7.png" id="46_3dnhq"]
+[ext_resource type="Texture2D" uid="uid://c8e7sftjekjby" path="res://scenes/characters/милалика/sprites/0/sprite_head1_mouth_6.png" id="47_lxy3c"]
 [ext_resource type="Texture2D" uid="uid://bxcaryhabhguv" path="res://scenes/characters/милалика/sprites/0/sprite_mouth_3.png" id="47_qhlll"]
 [ext_resource type="Texture2D" uid="uid://8dewmc466qhg" path="res://scenes/characters/милалика/sprites/1/sprite_mouth_3.png" id="48_6wfys"]
+[ext_resource type="Texture2D" uid="uid://ddgc4duuyx4v5" path="res://scenes/characters/милалика/sprites/1/sprite_head1_mouth_6.png" id="48_cm6ur"]
+[ext_resource type="Texture2D" uid="uid://dsxn3hy0diqfp" path="res://scenes/characters/милалика/sprites/2/sprite_head1_mouth_6.png" id="49_e7jwr"]
 [ext_resource type="Texture2D" uid="uid://orljuwiqrrsx" path="res://scenes/characters/милалика/sprites/2/sprite_mouth_3.png" id="49_xlihb"]
+[ext_resource type="Texture2D" uid="uid://cfobska4li7hv" path="res://scenes/characters/милалика/sprites/0/sprite_head1_mouth_7.png" id="50_a7pdx"]
 [ext_resource type="Texture2D" uid="uid://bo283ekm2rydx" path="res://scenes/characters/милалика/sprites/0/sprite_eyes_2.png" id="50_qfny3"]
+[ext_resource type="Texture2D" uid="uid://0tw0hol1kuuk" path="res://scenes/characters/милалика/sprites/1/sprite_head1_mouth_7.png" id="51_b8bhq"]
 [ext_resource type="Texture2D" uid="uid://7ar7fjlkpo0i" path="res://scenes/characters/милалика/sprites/1/sprite_eyes_2.png" id="51_xmnnp"]
 [ext_resource type="Texture2D" uid="uid://bc10t70e48102" path="res://scenes/characters/милалика/sprites/2/sprite_eyes_2.png" id="52_4rl2j"]
+[ext_resource type="Texture2D" uid="uid://c221n2jaijtwa" path="res://scenes/characters/милалика/sprites/2/sprite_head1_mouth_7.png" id="52_mnoen"]
+[ext_resource type="Texture2D" uid="uid://d0c4rlfa1ahb" path="res://scenes/characters/милалика/sprites/0/sprite_head1_mouth_0.png" id="53_3pjb8"]
 [ext_resource type="Texture2D" uid="uid://d0c35o1soalgl" path="res://scenes/characters/милалика/sprites/0/sprite_eyes_1.png" id="53_18utj"]
 [ext_resource type="Texture2D" uid="uid://ci8180gayowpw" path="res://scenes/characters/милалика/sprites/1/sprite_eyes_1.png" id="54_cmdp5"]
+[ext_resource type="Texture2D" uid="uid://dgj15ammmkbtg" path="res://scenes/characters/милалика/sprites/1/sprite_head1_mouth_0.png" id="54_wxk85"]
+[ext_resource type="Texture2D" uid="uid://bpm4un2nlkdcg" path="res://scenes/characters/милалика/sprites/2/sprite_head1_mouth_0.png" id="55_dlbbl"]
 [ext_resource type="Texture2D" uid="uid://b0hmctl75khxm" path="res://scenes/characters/милалика/sprites/2/sprite_eyes_1.png" id="55_h0mfl"]
 [ext_resource type="Texture2D" uid="uid://dhve0f0lrtj5g" path="res://scenes/characters/милалика/sprites/0/sprite_eyes_5.png" id="56_eyc7g"]
 [ext_resource type="Texture2D" uid="uid://cqsjqxlch4vr5" path="res://scenes/characters/милалика/sprites/1/sprite_eyes_5.png" id="57_1e1bk"]
@@ -71,9 +89,12 @@
 [ext_resource type="Texture2D" uid="uid://ddanw1tlsvfe5" path="res://scenes/characters/милалика/sprites/0/sprite_eyes_3.png" id="65_1ulco"]
 [ext_resource type="Texture2D" uid="uid://dfts7nedev3n4" path="res://scenes/characters/милалика/sprites/1/sprite_eyes_3.png" id="66_y3523"]
 [ext_resource type="Texture2D" uid="uid://cyuemgptqb7h4" path="res://scenes/characters/милалика/sprites/2/sprite_eyes_3.png" id="67_fsnxv"]
+[ext_resource type="Texture2D" uid="uid://dv5towx43i46t" path="res://scenes/characters/милалика/sprites/0/sprite_head1_eyes_2.png" id="68_llwuf"]
 [ext_resource type="Texture2D" uid="uid://ttyc3xido7nt" path="res://scenes/characters/милалика/sprites/0/sprite_eyes_7.png" id="68_oykb1"]
+[ext_resource type="Texture2D" uid="uid://fcwu7g7yf2k7" path="res://scenes/characters/милалика/sprites/1/sprite_head1_eyes_2.png" id="69_21cum"]
 [ext_resource type="Texture2D" uid="uid://c1htcgljsoe2h" path="res://scenes/characters/милалика/sprites/1/sprite_eyes_7.png" id="69_rjpnr"]
 [ext_resource type="Texture2D" uid="uid://c1c5mlbnnndlx" path="res://scenes/characters/милалика/sprites/2/sprite_eyes_7.png" id="70_3slmv"]
+[ext_resource type="Texture2D" uid="uid://sysb8laiehv7" path="res://scenes/characters/милалика/sprites/2/sprite_head1_eyes_2.png" id="70_pbbtb"]
 [ext_resource type="Texture2D" uid="uid://cayo1j2252t7" path="res://scenes/characters/милалика/sprites/0/sprite_eyes_6.png" id="71_pb2g6"]
 [ext_resource type="Texture2D" uid="uid://ywff2cba8xm7" path="res://scenes/characters/милалика/sprites/1/sprite_eyes_6.png" id="72_b1pax"]
 [ext_resource type="Texture2D" uid="uid://5vbfasiqagqj" path="res://scenes/characters/милалика/sprites/2/sprite_eyes_6.png" id="73_lxy3c"]
@@ -81,22 +102,40 @@
 [ext_resource type="Texture2D" uid="uid://bs7tvhsysijus" path="res://scenes/characters/милалика/sprites/1/sprite_brows_2.png" id="75_e7jwr"]
 [ext_resource type="Texture2D" uid="uid://1m7d32i3vdoy" path="res://scenes/characters/милалика/sprites/2/sprite_brows_2.png" id="76_a7pdx"]
 [ext_resource type="Texture2D" uid="uid://bmqpgql4x74e5" path="res://scenes/characters/милалика/sprites/0/sprite_brows_1.png" id="77_b8bhq"]
+[ext_resource type="Texture2D" uid="uid://dfd2dshx3f72" path="res://scenes/characters/милалика/sprites/0/sprite_head1_eyes_4.png" id="77_bj3oq"]
+[ext_resource type="Texture2D" uid="uid://dhxmq7bvry7nv" path="res://scenes/characters/милалика/sprites/1/sprite_head1_eyes_4.png" id="78_jxba0"]
 [ext_resource type="Texture2D" uid="uid://c1wiijmioirvl" path="res://scenes/characters/милалика/sprites/1/sprite_brows_1.png" id="78_mnoen"]
 [ext_resource type="Texture2D" uid="uid://bdn7dik6cwab2" path="res://scenes/characters/милалика/sprites/2/sprite_brows_1.png" id="79_3pjb8"]
+[ext_resource type="Texture2D" uid="uid://hh08bpnnuhuo" path="res://scenes/characters/милалика/sprites/2/sprite_head1_eyes_4.png" id="79_eq588"]
 [ext_resource type="Texture2D" uid="uid://dpyl8gpv5s26p" path="res://scenes/characters/милалика/sprites/0/sprite_brows_4.png" id="83_wxk85"]
 [ext_resource type="Texture2D" uid="uid://l0s4ha3ppdu2" path="res://scenes/characters/милалика/sprites/1/sprite_brows_4.png" id="84_dlbbl"]
 [ext_resource type="Texture2D" uid="uid://bjdiupyju8wl3" path="res://scenes/characters/милалика/sprites/2/sprite_brows_4.png" id="85_ix7ng"]
-[ext_resource type="Texture2D" uid="uid://dfqxx70ylb7fd" path="res://scenes/characters/милалика/sprites/0/sprite_brows_5.png" id="85_llwuf"]
-[ext_resource type="Texture2D" uid="uid://c6xl5ufrn87k7" path="res://scenes/characters/милалика/sprites/1/sprite_brows_5.png" id="86_21cum"]
+[ext_resource type="Texture2D" uid="uid://buym3ar40gs0r" path="res://scenes/characters/милалика/sprites/0/sprite_head1_eyes_0.png" id="86_k7urm"]
+[ext_resource type="Texture2D" uid="uid://k8ercpf7l1dc" path="res://scenes/characters/милалика/sprites/1/sprite_head1_eyes_0.png" id="87_oeikk"]
 [ext_resource type="Texture2D" uid="uid://chxt1urva21j8" path="res://scenes/characters/милалика/sprites/0/sprite_brows_3.png" id="87_pbbtb"]
 [ext_resource type="Texture2D" uid="uid://dgnbtio8ss2hv" path="res://scenes/characters/милалика/sprites/1/sprite_brows_3.png" id="88_bj3oq"]
-[ext_resource type="Texture2D" uid="uid://18s2vtyei8gw" path="res://scenes/characters/милалика/sprites/2/sprite_brows_5.png" id="88_s6guf"]
+[ext_resource type="Texture2D" uid="uid://dv614lee5f7v7" path="res://scenes/characters/милалика/sprites/2/sprite_head1_eyes_0.png" id="88_ctgp2"]
+[ext_resource type="Texture2D" uid="uid://cc0cfc1mna01d" path="res://scenes/characters/милалика/sprites/0/sprite_head1_eyes_3.png" id="89_fo7hl"]
+[ext_resource type="Texture2D" uid="uid://cka2rv7xhm5by" path="res://scenes/characters/милалика/sprites/1/sprite_head1_eyes_3.png" id="90_2eoi2"]
 [ext_resource type="Texture2D" uid="uid://fvdiwol252ks" path="res://scenes/characters/милалика/sprites/2/sprite_brows_3.png" id="91_5gtiu"]
+[ext_resource type="Texture2D" uid="uid://cdm3kdadyhqbb" path="res://scenes/characters/милалика/sprites/2/sprite_head1_eyes_3.png" id="91_j77nf"]
 [ext_resource type="Texture2D" uid="uid://cefwf8p3ivve7" path="res://scenes/characters/милалика/sprites/0/sprite_head1_hair_0.png" id="92_bq74e"]
 [ext_resource type="Texture2D" uid="uid://cbkyd76uwfi3o" path="res://scenes/characters/милалика/sprites/1/sprite_head1_hair_0.png" id="93_pk3t1"]
 [ext_resource type="Texture2D" uid="uid://lc7pnd8ptpgl" path="res://scenes/characters/милалика/sprites/2/sprite_head1_hair_0.png" id="94_fihur"]
 [ext_resource type="Texture2D" uid="uid://rfm2qho22vk3" path="res://scenes/characters/милалика/sprites/1/sprite_hair_0.png" id="96_2q146"]
 [ext_resource type="Texture2D" uid="uid://d2do6ufurmtxm" path="res://scenes/characters/милалика/sprites/2/sprite_hair_0.png" id="97_jyk65"]
+[ext_resource type="Texture2D" uid="uid://c80uwx6a4g81p" path="res://scenes/characters/милалика/sprites/0/sprite_head1_brows_2.png" id="104_od47c"]
+[ext_resource type="Texture2D" uid="uid://b4kins5odp0t3" path="res://scenes/characters/милалика/sprites/1/sprite_head1_brows_2.png" id="105_v1d8k"]
+[ext_resource type="Texture2D" uid="uid://udjb5p5w71vf" path="res://scenes/characters/милалика/sprites/2/sprite_head1_brows_2.png" id="106_hx1dc"]
+[ext_resource type="Texture2D" uid="uid://d2ncfdp5exbxr" path="res://scenes/characters/милалика/sprites/0/sprite_head1_brows_0.png" id="113_52mn8"]
+[ext_resource type="Texture2D" uid="uid://bboe7si47ym2" path="res://scenes/characters/милалика/sprites/1/sprite_head1_brows_0.png" id="114_g88c5"]
+[ext_resource type="Texture2D" uid="uid://bcacbqvt6lvs0" path="res://scenes/characters/милалика/sprites/2/sprite_head1_brows_0.png" id="115_rynb5"]
+[ext_resource type="Texture2D" uid="uid://cen57vsjo5yvi" path="res://scenes/characters/милалика/sprites/0/sprite_head1_brows_1.png" id="119_nd4nb"]
+[ext_resource type="Texture2D" uid="uid://d1mwjnlak4syq" path="res://scenes/characters/милалика/sprites/1/sprite_head1_brows_1.png" id="120_kamql"]
+[ext_resource type="Texture2D" uid="uid://bg78s3iilt8rq" path="res://scenes/characters/милалика/sprites/2/sprite_head1_brows_1.png" id="121_cvxmx"]
+[ext_resource type="Texture2D" uid="uid://u4oohef56e5w" path="res://scenes/characters/милалика/sprites/0/sprite_head1_brows_5.png" id="122_01iy3"]
+[ext_resource type="Texture2D" uid="uid://dtxr85gjappbv" path="res://scenes/characters/милалика/sprites/1/sprite_head1_brows_5.png" id="123_gtdc7"]
+[ext_resource type="Texture2D" uid="uid://dajp3ibpekceh" path="res://scenes/characters/милалика/sprites/2/sprite_head1_brows_5.png" id="124_lit6v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rwfmc"]
 animations = [{
@@ -458,6 +497,30 @@ animations = [{
 }],
 "loop": true,
 "name": &"Растерянность_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_5db54")
+}],
+"loop": true,
+"name": &"Серьёзность_0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_8kuhw")
+}],
+"loop": true,
+"name": &"Серьёзность_1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_bq74e")
+}],
+"loop": true,
+"name": &"Серьёзность_2",
 "speed": 1.0
 }, {
 "frames": [{
@@ -1020,6 +1083,30 @@ animations = [{
 "texture": ExtResource("3_sn6yf")
 }],
 "loop": true,
+"name": &"Серьёзность_0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_eeet5")
+}],
+"loop": true,
+"name": &"Серьёзность_1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_524sw")
+}],
+"loop": true,
+"name": &"Серьёзность_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_sn6yf")
+}],
+"loop": true,
 "name": &"Скука_0",
 "speed": 1.0
 }, {
@@ -1212,7 +1299,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("23_a3mu5")
+"texture": ExtResource("23_qod42")
 }],
 "loop": true,
 "name": &"Агрессия_0",
@@ -1220,7 +1307,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("24_fqcej")
+"texture": ExtResource("24_cuyec")
 }],
 "loop": true,
 "name": &"Агрессия_1",
@@ -1228,7 +1315,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("25_255ka")
+"texture": ExtResource("25_3fpo1")
 }],
 "loop": true,
 "name": &"Агрессия_2",
@@ -1284,7 +1371,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("32_5nny4")
+"texture": ExtResource("32_iri6s")
 }],
 "loop": true,
 "name": &"Злость_0",
@@ -1292,7 +1379,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("33_ajqtu")
+"texture": ExtResource("33_1ulco")
 }],
 "loop": true,
 "name": &"Злость_1",
@@ -1300,7 +1387,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("34_gjb8u")
+"texture": ExtResource("34_y3523")
 }],
 "loop": true,
 "name": &"Злость_2",
@@ -1308,7 +1395,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("35_mbgdp")
+"texture": ExtResource("35_fsnxv")
 }],
 "loop": true,
 "name": &"Игривость_0",
@@ -1316,7 +1403,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("36_jyax6")
+"texture": ExtResource("36_oykb1")
 }],
 "loop": true,
 "name": &"Игривость_1",
@@ -1324,7 +1411,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("37_3e5jj")
+"texture": ExtResource("37_rjpnr")
 }],
 "loop": true,
 "name": &"Игривость_2",
@@ -1332,7 +1419,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("38_ofnen")
+"texture": ExtResource("38_3slmv")
 }],
 "loop": true,
 "name": &"Каприз_0",
@@ -1340,7 +1427,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("39_iwtjg")
+"texture": ExtResource("39_pb2g6")
 }],
 "loop": true,
 "name": &"Каприз_1",
@@ -1348,7 +1435,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("40_01suk")
+"texture": ExtResource("40_b1pax")
 }],
 "loop": true,
 "name": &"Каприз_2",
@@ -1428,7 +1515,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("32_5nny4")
+"texture": ExtResource("32_iri6s")
 }],
 "loop": true,
 "name": &"Недовольство_0",
@@ -1436,7 +1523,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("33_ajqtu")
+"texture": ExtResource("33_1ulco")
 }],
 "loop": true,
 "name": &"Недовольство_1",
@@ -1444,7 +1531,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("34_gjb8u")
+"texture": ExtResource("34_y3523")
 }],
 "loop": true,
 "name": &"Недовольство_2",
@@ -1452,7 +1539,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("41_mbnlt")
+"texture": ExtResource("47_lxy3c")
 }],
 "loop": true,
 "name": &"Непонимание_0",
@@ -1460,7 +1547,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("42_hn73t")
+"texture": ExtResource("48_cm6ur")
 }],
 "loop": true,
 "name": &"Непонимание_1",
@@ -1468,7 +1555,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("43_5yale")
+"texture": ExtResource("49_e7jwr")
 }],
 "loop": true,
 "name": &"Непонимание_2",
@@ -1476,7 +1563,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("44_6j532")
+"texture": ExtResource("50_a7pdx")
 }],
 "loop": true,
 "name": &"Обожание_0",
@@ -1484,7 +1571,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("45_avqf8")
+"texture": ExtResource("51_b8bhq")
 }],
 "loop": true,
 "name": &"Обожание_1",
@@ -1492,7 +1579,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("46_3dnhq")
+"texture": ExtResource("52_mnoen")
 }],
 "loop": true,
 "name": &"Обожание_2",
@@ -1500,7 +1587,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_pbib7")
+"texture": ExtResource("53_3pjb8")
 }],
 "loop": true,
 "name": &"Отчуждённость_0",
@@ -1508,7 +1595,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_vm8c3")
+"texture": ExtResource("54_wxk85")
 }],
 "loop": true,
 "name": &"Отчуждённость_1",
@@ -1516,7 +1603,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_5q8yu")
+"texture": ExtResource("55_dlbbl")
 }],
 "loop": true,
 "name": &"Отчуждённость_2",
@@ -1568,6 +1655,30 @@ animations = [{
 }],
 "loop": true,
 "name": &"Растерянность_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("41_mbnlt")
+}],
+"loop": true,
+"name": &"Серьёзность_0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("42_hn73t")
+}],
+"loop": true,
+"name": &"Серьёзность_1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("43_5yale")
+}],
+"loop": true,
+"name": &"Серьёзность_2",
 "speed": 1.0
 }, {
 "frames": [{
@@ -1692,7 +1803,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("44_6j532")
+"texture": ExtResource("50_a7pdx")
 }],
 "loop": true,
 "name": &"Улыбка_0",
@@ -1700,7 +1811,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("45_avqf8")
+"texture": ExtResource("51_b8bhq")
 }],
 "loop": true,
 "name": &"Улыбка_1",
@@ -1708,7 +1819,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("46_3dnhq")
+"texture": ExtResource("52_mnoen")
 }],
 "loop": true,
 "name": &"Улыбка_2",
@@ -1767,7 +1878,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("50_qfny3")
+"texture": ExtResource("68_llwuf")
 }],
 "loop": true,
 "name": &"Агрессия_0",
@@ -1775,7 +1886,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("51_xmnnp")
+"texture": ExtResource("69_21cum")
 }],
 "loop": true,
 "name": &"Агрессия_1",
@@ -1783,7 +1894,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("52_4rl2j")
+"texture": ExtResource("70_pbbtb")
 }],
 "loop": true,
 "name": &"Агрессия_2",
@@ -1839,7 +1950,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("50_qfny3")
+"texture": ExtResource("68_llwuf")
 }],
 "loop": true,
 "name": &"Злость_0",
@@ -1847,7 +1958,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("51_xmnnp")
+"texture": ExtResource("69_21cum")
 }],
 "loop": true,
 "name": &"Злость_1",
@@ -1855,7 +1966,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("52_4rl2j")
+"texture": ExtResource("70_pbbtb")
 }],
 "loop": true,
 "name": &"Злость_2",
@@ -1863,7 +1974,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("59_cuyec")
+"texture": ExtResource("77_bj3oq")
 }],
 "loop": true,
 "name": &"Игривость_0",
@@ -1871,7 +1982,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("60_3fpo1")
+"texture": ExtResource("78_jxba0")
 }],
 "loop": true,
 "name": &"Игривость_1",
@@ -1879,7 +1990,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("61_iri6s")
+"texture": ExtResource("79_eq588")
 }],
 "loop": true,
 "name": &"Игривость_2",
@@ -1887,7 +1998,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("59_cuyec")
+"texture": ExtResource("77_bj3oq")
 }],
 "loop": true,
 "name": &"Каприз_0",
@@ -1895,7 +2006,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("60_3fpo1")
+"texture": ExtResource("78_jxba0")
 }],
 "loop": true,
 "name": &"Каприз_1",
@@ -1903,7 +2014,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("61_iri6s")
+"texture": ExtResource("79_eq588")
 }],
 "loop": true,
 "name": &"Каприз_2",
@@ -1983,7 +2094,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_8wtmg")
+"texture": ExtResource("86_k7urm")
 }],
 "loop": true,
 "name": &"Недовольство_0",
@@ -1991,7 +2102,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("12_3dmj7")
+"texture": ExtResource("87_oeikk")
 }],
 "loop": true,
 "name": &"Недовольство_1",
@@ -1999,7 +2110,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("13_nghm7")
+"texture": ExtResource("88_ctgp2")
 }],
 "loop": true,
 "name": &"Недовольство_2",
@@ -2007,7 +2118,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_8wtmg")
+"texture": ExtResource("86_k7urm")
 }],
 "loop": true,
 "name": &"Непонимание_0",
@@ -2015,7 +2126,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("12_3dmj7")
+"texture": ExtResource("87_oeikk")
 }],
 "loop": true,
 "name": &"Непонимание_1",
@@ -2023,7 +2134,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("13_nghm7")
+"texture": ExtResource("88_ctgp2")
 }],
 "loop": true,
 "name": &"Непонимание_2",
@@ -2031,7 +2142,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("65_1ulco")
+"texture": ExtResource("89_fo7hl")
 }],
 "loop": true,
 "name": &"Обожание_0",
@@ -2039,7 +2150,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("66_y3523")
+"texture": ExtResource("90_2eoi2")
 }],
 "loop": true,
 "name": &"Обожание_1",
@@ -2047,7 +2158,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("67_fsnxv")
+"texture": ExtResource("91_j77nf")
 }],
 "loop": true,
 "name": &"Обожание_2",
@@ -2055,7 +2166,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_8wtmg")
+"texture": ExtResource("86_k7urm")
 }],
 "loop": true,
 "name": &"Отчуждённость_0",
@@ -2063,7 +2174,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("12_3dmj7")
+"texture": ExtResource("87_oeikk")
 }],
 "loop": true,
 "name": &"Отчуждённость_1",
@@ -2071,7 +2182,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("13_nghm7")
+"texture": ExtResource("88_ctgp2")
 }],
 "loop": true,
 "name": &"Отчуждённость_2",
@@ -2123,6 +2234,30 @@ animations = [{
 }],
 "loop": true,
 "name": &"Растерянность_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_8wtmg")
+}],
+"loop": true,
+"name": &"Серьёзность_0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_3dmj7")
+}],
+"loop": true,
+"name": &"Серьёзность_1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_nghm7")
+}],
+"loop": true,
+"name": &"Серьёзность_2",
 "speed": 1.0
 }, {
 "frames": [{
@@ -2247,7 +2382,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_8wtmg")
+"texture": ExtResource("86_k7urm")
 }],
 "loop": true,
 "name": &"Улыбка_0",
@@ -2255,7 +2390,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("12_3dmj7")
+"texture": ExtResource("87_oeikk")
 }],
 "loop": true,
 "name": &"Улыбка_1",
@@ -2263,7 +2398,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("13_nghm7")
+"texture": ExtResource("88_ctgp2")
 }],
 "loop": true,
 "name": &"Улыбка_2",
@@ -2322,7 +2457,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("74_cm6ur")
+"texture": ExtResource("104_od47c")
 }],
 "loop": true,
 "name": &"Агрессия_0",
@@ -2330,7 +2465,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("75_e7jwr")
+"texture": ExtResource("105_v1d8k")
 }],
 "loop": true,
 "name": &"Агрессия_1",
@@ -2338,7 +2473,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("76_a7pdx")
+"texture": ExtResource("106_hx1dc")
 }],
 "loop": true,
 "name": &"Агрессия_2",
@@ -2394,7 +2529,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("74_cm6ur")
+"texture": ExtResource("104_od47c")
 }],
 "loop": true,
 "name": &"Злость_0",
@@ -2402,7 +2537,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("75_e7jwr")
+"texture": ExtResource("105_v1d8k")
 }],
 "loop": true,
 "name": &"Злость_1",
@@ -2410,7 +2545,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("76_a7pdx")
+"texture": ExtResource("106_hx1dc")
 }],
 "loop": true,
 "name": &"Злость_2",
@@ -2418,7 +2553,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_u4neh")
+"texture": ExtResource("113_52mn8")
 }],
 "loop": true,
 "name": &"Игривость_0",
@@ -2426,7 +2561,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("15_031b6")
+"texture": ExtResource("114_g88c5")
 }],
 "loop": true,
 "name": &"Игривость_1",
@@ -2434,7 +2569,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("16_akt4f")
+"texture": ExtResource("115_rynb5")
 }],
 "loop": true,
 "name": &"Игривость_2",
@@ -2442,7 +2577,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("74_cm6ur")
+"texture": ExtResource("104_od47c")
 }],
 "loop": true,
 "name": &"Каприз_0",
@@ -2450,7 +2585,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("75_e7jwr")
+"texture": ExtResource("105_v1d8k")
 }],
 "loop": true,
 "name": &"Каприз_1",
@@ -2458,7 +2593,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("76_a7pdx")
+"texture": ExtResource("106_hx1dc")
 }],
 "loop": true,
 "name": &"Каприз_2",
@@ -2538,7 +2673,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("74_cm6ur")
+"texture": ExtResource("104_od47c")
 }],
 "loop": true,
 "name": &"Недовольство_0",
@@ -2546,7 +2681,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("75_e7jwr")
+"texture": ExtResource("105_v1d8k")
 }],
 "loop": true,
 "name": &"Недовольство_1",
@@ -2554,7 +2689,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("76_a7pdx")
+"texture": ExtResource("106_hx1dc")
 }],
 "loop": true,
 "name": &"Недовольство_2",
@@ -2562,7 +2697,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("77_b8bhq")
+"texture": ExtResource("119_nd4nb")
 }],
 "loop": true,
 "name": &"Непонимание_0",
@@ -2570,7 +2705,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("78_mnoen")
+"texture": ExtResource("120_kamql")
 }],
 "loop": true,
 "name": &"Непонимание_1",
@@ -2578,7 +2713,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("79_3pjb8")
+"texture": ExtResource("121_cvxmx")
 }],
 "loop": true,
 "name": &"Непонимание_2",
@@ -2586,7 +2721,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_u4neh")
+"texture": ExtResource("113_52mn8")
 }],
 "loop": true,
 "name": &"Обожание_0",
@@ -2594,7 +2729,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("15_031b6")
+"texture": ExtResource("114_g88c5")
 }],
 "loop": true,
 "name": &"Обожание_1",
@@ -2602,7 +2737,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("16_akt4f")
+"texture": ExtResource("115_rynb5")
 }],
 "loop": true,
 "name": &"Обожание_2",
@@ -2610,7 +2745,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("85_llwuf")
+"texture": ExtResource("122_01iy3")
 }],
 "loop": true,
 "name": &"Отчуждённость_0",
@@ -2618,7 +2753,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("86_21cum")
+"texture": ExtResource("123_gtdc7")
 }],
 "loop": true,
 "name": &"Отчуждённость_1",
@@ -2626,7 +2761,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("88_s6guf")
+"texture": ExtResource("124_lit6v")
 }],
 "loop": true,
 "name": &"Отчуждённость_2",
@@ -2678,6 +2813,30 @@ animations = [{
 }],
 "loop": true,
 "name": &"Растерянность_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("74_cm6ur")
+}],
+"loop": true,
+"name": &"Серьёзность_0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("75_e7jwr")
+}],
+"loop": true,
+"name": &"Серьёзность_1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("76_a7pdx")
+}],
+"loop": true,
+"name": &"Серьёзность_2",
 "speed": 1.0
 }, {
 "frames": [{
@@ -2802,7 +2961,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_u4neh")
+"texture": ExtResource("113_52mn8")
 }],
 "loop": true,
 "name": &"Улыбка_0",
@@ -2810,7 +2969,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("15_031b6")
+"texture": ExtResource("114_g88c5")
 }],
 "loop": true,
 "name": &"Улыбка_1",
@@ -2818,7 +2977,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("16_akt4f")
+"texture": ExtResource("115_rynb5")
 }],
 "loop": true,
 "name": &"Улыбка_2",
@@ -3233,6 +3392,30 @@ animations = [{
 }],
 "loop": true,
 "name": &"Растерянность_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kkrds")
+}],
+"loop": true,
+"name": &"Серьёзность_0",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("96_2q146")
+}],
+"loop": true,
+"name": &"Серьёзность_1",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("97_jyk65")
+}],
+"loop": true,
+"name": &"Серьёзность_2",
 "speed": 1.0
 }, {
 "frames": [{
