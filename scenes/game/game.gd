@@ -14,6 +14,8 @@ var _score: int = 0
 
 var _is_handling_scene_end : bool = false
 
+var interface_visible: bool = true
+
 
 func _ready() -> void:
 	scene_player.load_all_characters()
@@ -30,7 +32,7 @@ func _input(event: InputEvent) -> void:
 		scene_player.text_box.visible = not history.visible
 		scene_player.process_mode = Node.PROCESS_MODE_DISABLED if history.visible else Node.PROCESS_MODE_INHERIT
 	if event.is_action_pressed("switch_interface_visibility"):
-		pass
+		switch_interface_visibility()
 
 
 func _start() -> void:
@@ -68,12 +70,13 @@ func _set_scene_by_episode_uuid_backward() -> void:
 func _pause() -> void:
 	pause.show()
 	history.visible = false
-	scene_player.text_box.visible = true
+	scene_player.text_box.visible = false
 	scene_player.process_mode = Node.PROCESS_MODE_DISABLED
 
 
 func _continue() -> void:
 	pause.hide()
+	scene_player.text_box.visible = true
 	scene_player.process_mode = Node.PROCESS_MODE_INHERIT
 
 
@@ -165,3 +168,16 @@ func _on_scene_player_to_prev_scene() -> void:
 	elif _current_episode_uuid == "4908fa65-07fb-4d2d-9da8-decab666a086": ## Вязаную маму в ванне 1 штуку, пожалуйста
 		_score -= 1
 	_set_scene_by_episode_uuid_backward()
+
+
+func switch_interface_visibility() -> void:
+	if history.visible:
+		return
+	
+	if pause.visible:
+		return
+	
+	interface_visible = not interface_visible
+	
+	options.visible = interface_visible
+	scene_player.text_box.visible = interface_visible

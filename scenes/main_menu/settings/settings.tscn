@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://c73hb4etnplp1" path="res://scenes/main_menu/settings/setting_language.gd" id="3_hcp8u"]
 [ext_resource type="Script" uid="uid://qc4jxomgpxgy" path="res://scenes/main_menu/settings/setting_audio_bus.gd" id="4_fb5ky"]
 [ext_resource type="Script" uid="uid://ctdwgd7h8c4f3" path="res://scenes/main_menu/settings/setting_bleep_mode.gd" id="5_7vie7"]
+[ext_resource type="Script" uid="uid://bve84udsyjhov" path="res://scenes/main_menu/settings/setting_text_speed.gd" id="6_7vie7"]
 
 [node name="Settings" type="Control" unique_id=267592914 node_paths=PackedStringArray("return_button")]
 layout_mode = 3
@@ -150,6 +151,28 @@ horizontal_alignment = 2
 visible = false
 layout_mode = 2
 script = ExtResource("5_7vie7")
+
+[node name="TextSpeedLabel" type="Label" parent="VBoxContainer/GridContainer" unique_id=2087706980]
+layout_mode = 2
+text = "Скорость текста"
+horizontal_alignment = 2
+
+[node name="TextSpeedHBoxContainer" type="HBoxContainer" parent="VBoxContainer/GridContainer" unique_id=596951727 node_paths=PackedStringArray("slider", "spin_box")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+script = ExtResource("6_7vie7")
+slider = NodePath("HSlider")
+spin_box = NodePath("SpinBox")
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/GridContainer/TextSpeedHBoxContainer" unique_id=686793466]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/GridContainer/TextSpeedHBoxContainer" unique_id=1535561861]
+visible = false
+layout_mode = 2
 
 [node name="ReturnButton" type="Button" parent="." unique_id=270555135]
 layout_mode = 1

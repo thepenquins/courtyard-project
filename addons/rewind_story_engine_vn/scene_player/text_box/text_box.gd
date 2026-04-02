@@ -12,6 +12,11 @@ signal frame_ended
 var _playing: bool = true
 
 
+func _ready() -> void:
+	if not Engine.is_editor_hint():
+		text_rich_text_label.play_speed = Settings.text_speed
+
+
 func set_frame(frame: RSEFrame, vn_frame: VneFrame, instantly: bool = false) -> void:
 	speaker_rich_text_label.bbcode = get_speaker(frame, vn_frame)
 	text_rich_text_label.bbcode = frame.text

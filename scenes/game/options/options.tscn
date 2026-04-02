@@ -26,11 +26,3 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 8
-
-[node name="Button" type="Button" parent="OptionsContainer" unique_id=777532781]
-layout_mode = 2
-text = "Молчать и наблюдать за срачем с удовольствием"
-
-[node name="Button2" type="Button" parent="OptionsContainer" unique_id=1266783290]
-layout_mode = 2
-text = "Резко перебить мать"

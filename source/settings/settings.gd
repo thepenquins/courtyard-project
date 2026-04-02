@@ -82,6 +82,32 @@ var bleep_mode: bool = true:
 		print("Bleep mode: %s" % value)
 
 
+const MIN_TEXT_SPEED: int = 20
+const MAX_TEXT_SPEED: int = 80
+## Скорость вывода текста. Измеряется в количестве символов в секунду.
+var text_speed: int = 40:
+	set(value):
+		if value < MIN_TEXT_SPEED:
+			value = MIN_TEXT_SPEED
+		elif value > MAX_TEXT_SPEED:
+			value = MAX_TEXT_SPEED
+		text_speed = value
+		print("Text speed: %s." % text_speed);
+
+
+const MIN_AUTO_SPEED: int = 10
+const MAX_AUTO_SPEED: int = 60
+## Скорость автоматического переключения кадров. Измеряется в символах на секунду после показа текста.
+var auto_speed: int = 20:
+	set(value):
+		if value < MIN_AUTO_SPEED:
+			value = MIN_AUTO_SPEED
+		elif value > MAX_AUTO_SPEED:
+			value = MAX_AUTO_SPEED
+		auto_speed = value
+		print("Auto speed: %s." % auto_speed);
+
+
 func _enter_tree():
 	load_config()
 
@@ -107,6 +133,9 @@ func save_config() -> void:
 	config.set_value("audio_settings", "music_volume", music_volume)
 	config.set_value("audio_settings", "bleep_mode", bleep_mode)
 	
+	config.set_value("game_settings", "text_speed", text_speed)
+	config.set_value("game_settings", "auto_speed", auto_speed)
+	
 	config.save(PATH_TO_CONFIG)
 
 
@@ -130,6 +159,9 @@ func load_config() -> void:
 		sfx_volume = config.get_value("audio_settings", "sfx_volume", 50)
 		music_volume = config.get_value("audio_settings", "music_volume", 50)
 		bleep_mode = config.get_value("audio_settings", "bleep_mode", true)
+		
+		text_speed = config.get_value("game_settings", "text_speed", 40)
+		auto_speed = config.get_value("game_settings", "auto_speed", 20)
 		
 		print("Configuration file loaded successfully!")
 	else:

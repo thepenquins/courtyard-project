@@ -14,27 +14,27 @@
 [sub_resource type="RichTextEffect" id="RichTextEffect_1hgq8"]
 resource_name = "prickle"
 script = ExtResource("4_h2ygl")
-metadata/rt = 2216538745638
+metadata/rt = 2155369016139
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_vmmjd"]
 resource_name = "prickle"
 script = ExtResource("4_h2ygl")
-metadata/rt = 2261317135151
+metadata/rt = 2200147405652
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_hpvdf"]
 resource_name = "jit2"
 script = ExtResource("3_45kqg")
-metadata/rt = 2261317135151
+metadata/rt = 2200147405652
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_ngkud"]
 resource_name = "cuss"
 script = ExtResource("4_a7jgp")
-metadata/rt = 2261317135151
+metadata/rt = 2200147405652
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_1rxjk"]
 resource_name = "woo"
 script = ExtResource("7_vmmjd")
-metadata/rt = 2261317135151
+metadata/rt = 2200147405652
 
 [sub_resource type="Animation" id="Animation_1hgq8"]
 length = 0.001
@@ -232,13 +232,13 @@ script = ExtResource("3_gfp3b")
 animation = "prickle"
 _play = false
 _hold = true
-progress = 0.44753086419753046
+progress = 0.4516012345679007
 visible_character = 8
 _triggers = {
 7: [[1003, {}]]
 }
 _transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 709, 39), Transform2D(1, 0, 0, 1, 718, 39), Transform2D(1, 0, 0, 1, 752, 39), Transform2D(1, 0, 0, 1, 761, 39), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 784, 39), Transform2D(1, 0, 0, 1, 807, 39), Transform2D(1, 0, 0, 1, 828, 39), Transform2D(1, 0, 0, 1, 837, 39), Transform2D(1, 0, 0, 1, 848, 39), Transform2D(1, 0, 0, 1, 857, 39), Transform2D(1, 0, 0, 1, 877, 39), Transform2D(1, 0, 0, 1, 900, 39), Transform2D(1, 0, 0, 1, 921, 39), Transform2D(1, 0, 0, 1, 938, 39), Transform2D(1, 0, 0, 1, 966, 39), Transform2D(1, 0, 0, 1, 966, 39)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(7, 28), Vector2(32, 28), Vector2(0, 28), Vector2(23, 28), Vector2(0, 0), Vector2(21, 28), Vector2(25, 28), Vector2(0, 28), Vector2(7, 28), Vector2(0, 28), Vector2(24, 28), Vector2(23, 28), Vector2(21, 28), Vector2(18, 28), Vector2(20, 28), Vector2(0, 28), Vector2(0, 28)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(7, 28), Vector2(32, 28), Vector2(0, 28), Vector2(23, 28), Vector2(0, 0), Vector2(21, 28), Vector2(31, 28), Vector2(0, 28), Vector2(7, 28), Vector2(0, 28), Vector2(24, 28), Vector2(23, 28), Vector2(21, 28), Vector2(18, 28), Vector2(20, 28), Vector2(0, 28), Vector2(0, 28)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 _showing_ctc = true
