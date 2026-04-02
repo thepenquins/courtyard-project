@@ -12,6 +12,8 @@ var _current_episode_uuid: String = ""
 var _episode_uuid_order: PackedStringArray
 var _score: int = 0
 
+var _is_handling_scene_end : bool = false
+
 
 func _ready() -> void:
 	scene_player.load_all_characters()
@@ -35,6 +37,9 @@ func _start() -> void:
 
 
 func _set_scene_by_episode_uuid(uuid: String) -> void:
+	if _current_episode_uuid == uuid:
+		return
+	
 	if _current_episode_uuid != "":
 		_episode_uuid_order.append(_current_episode_uuid)
 	_current_episode_uuid = uuid
@@ -44,16 +49,19 @@ func _set_scene_by_episode_uuid(uuid: String) -> void:
 	var episode = RSE.get_episode_by_uuid(uuid)
 	var scene = VNE.visual_novel.get_scene_by_episode(episode)
 	scene_player.set_scene(scene)
+	
+	print("==========")
+	print(episode.name)
+	print(_score)
 
 
 func _set_scene_by_episode_uuid_backward() -> void:
-	_episode_uuid_order.erase(_current_episode_uuid)
-	
-	if _episode_uuid_order.size() == 0:
+	if _episode_uuid_order.size() < 1:
 		print("Предыдущих сцен нет")
 		return
 	
 	_current_episode_uuid = _episode_uuid_order[_episode_uuid_order.size() - 1]
+	_episode_uuid_order.erase(_current_episode_uuid)
 	
 	var episode = RSE.get_episode_by_uuid(_current_episode_uuid)
 	var scene = VNE.visual_novel.get_scene_by_episode(episode)
@@ -81,6 +89,10 @@ func _on_scene_player_frame_setting(rse_frame: RSEFrame, vn_frame: VneFrame) -> 
 
 
 func _on_scene_player_scene_ended(scene: VneScene) -> void:
+	if _is_handling_scene_end:
+		return
+	_is_handling_scene_end = true
+	
 	if scene.episode.uuid == "2e06a402-8c35-4b45-a56a-461653c4289c": ## Начало
 		options.add_options(["Резко перебить мать", "Молчать и наблюдать за срачем с удовольствием"])
 		
@@ -96,13 +108,63 @@ func _on_scene_player_scene_ended(scene: VneScene) -> void:
 		
 	elif scene.episode.uuid == "b13ca84a-5613-44ad-bad7-9042f629f977": ## Молчать и наблюдать за срачем с удовольствием
 		_set_scene_by_episode_uuid("c58d0710-b1fd-411f-995e-5efe754ceffa") ## Резко перебить мать
+		
+	elif scene.episode.uuid == "c58d0710-b1fd-411f-995e-5efe754ceffa": ## Резко перебить мать
+		options.add_options(["Сказать, что они даже не пытаются поддержать", "Ответить как сигма"])
+		
+		scene_player.set_process_input(false)
+		var index = await options.option_selected
+		scene_player.set_process_input(true)
+		
+		if index == 0:
+			_score += 1
+			_set_scene_by_episode_uuid("a8433770-5067-4e07-bc16-a18ba2d082fd") ## Сказать, что они даже не пытаются поддержать
+		elif index == 1:
+			_set_scene_by_episode_uuid("4288bfb8-9f83-49b9-9fdf-00f6090e49e5") ## Ответить как сигма
+	
+	elif scene.episode.uuid == "a8433770-5067-4e07-bc16-a18ba2d082fd": ## Сказать, что они даже не пытаются поддержать
+		_set_scene_by_episode_uuid("43e0c47f-5631-4ddc-bb19-f9a02aab8b8b") ## После выбора...
+	elif scene.episode.uuid == "4288bfb8-9f83-49b9-9fdf-00f6090e49e5": ## Ответить как сигма
+		_set_scene_by_episode_uuid("43e0c47f-5631-4ddc-bb19-f9a02aab8b8b") ## После выбора...
+	
+	elif scene.episode.uuid == "43e0c47f-5631-4ddc-bb19-f9a02aab8b8b": ## После выбора...
+		options.add_options(["Как обычно", "Вязаную маму в ванне 1 штуку, пожалуйста"])
+		
+		scene_player.set_process_input(false)
+		var index = await options.option_selected
+		scene_player.set_process_input(true)
+		
+		if index == 0:
+			_set_scene_by_episode_uuid("6845e21f-aa2a-491f-9b0c-0b14f1c58443") ## Как обычно
+		elif index == 1:
+			_score += 1
+			_set_scene_by_episode_uuid("4908fa65-07fb-4d2d-9da8-decab666a086") ## Вязаную маму в ванне 1 штуку, пожалуйста
+		
+	elif scene.episode.uuid == "4908fa65-07fb-4d2d-9da8-decab666a086": ## Вязаную маму в ванне 1 штуку, пожалуйста
+		_set_scene_by_episode_uuid("6845e21f-aa2a-491f-9b0c-0b14f1c58443") ## Как обычно
+		
+	elif scene.episode.uuid == "6845e21f-aa2a-491f-9b0c-0b14f1c58443": ## Как обычно
+		if _score > 1:
+			_set_scene_by_episode_uuid("8a6235c6-99af-472d-a534-c46543194305") ## Плохая концовка
+		else:
+			_set_scene_by_episode_uuid("edf5410c-93f4-4563-8d27-86a93945c8fd") ## Неплохая
+	
+	## Конец игры.
+	elif scene.episode.uuid == "8a6235c6-99af-472d-a534-c46543194305": ## Плохая концовка:
+		print("Плохая концовка")
+		pass
+	elif scene.episode.uuid == "edf5410c-93f4-4563-8d27-86a93945c8fd": ## Неплохая:
+		print("Неплохая концовка")
+		pass
+	
+	_is_handling_scene_end = false
 
 
 func _on_scene_player_to_prev_scene() -> void:
 	if _current_episode_uuid == "b13ca84a-5613-44ad-bad7-9042f629f977": ## Молчать и наблюдать за срачем с удовольствием
 		_score -= 1
-	#elif _current_episode_uuid == "b13ca84a-5613-44ad-bad7-9042f629f977": ## Молчать и наблюдать за срачем с удовольствием
-		#_score -= 1
-	#elif _current_episode_uuid == "b13ca84a-5613-44ad-bad7-9042f629f977": ## Молчать и наблюдать за срачем с удовольствием
-		#_score -= 1
+	elif _current_episode_uuid == "a8433770-5067-4e07-bc16-a18ba2d082fd": ## Сказать, что они даже не пытаются поддержать
+		_score -= 1
+	elif _current_episode_uuid == "4908fa65-07fb-4d2d-9da8-decab666a086": ## Вязаную маму в ванне 1 штуку, пожалуйста
+		_score -= 1
 	_set_scene_by_episode_uuid_backward()
