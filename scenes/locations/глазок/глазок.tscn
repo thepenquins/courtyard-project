@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c4nl4q38bmnf6"]
+
+[node name="Глазок" type="Node2D" unique_id=1617961950]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=680564735]
+centered = false
