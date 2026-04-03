@@ -206,6 +206,20 @@ color = Color(0.1254902, 0.1254902, 0.1254902, 0)
 libraries/ = SubResource("AnimationLibrary_lqpn7")
 autoplay = &"fade_out"
 
+[node name="FmodEventEmitter2D" type="FmodEventEmitter2D" parent="." unique_id=753607642]
+event_name = "event:/mus/main"
+event_guid = "{164e7a7c-df9e-421e-8d9a-40343e1bfbc7}"
+autoplay = true
+fmod_parameters/otherside_scale/id = -447183269532637344
+fmod_parameters/otherside_scale = 0.0
+fmod_parameters/otherside_scale/variant_type = 3
+fmod_parameters/unchill_scale/id = -149302578609150601
+fmod_parameters/unchill_scale = 0.0
+fmod_parameters/unchill_scale/variant_type = 3
+fmod_parameters/transition_speed/id = 1915305782577568744
+fmod_parameters/transition_speed = 0.5
+fmod_parameters/transition_speed/variant_type = 3
+
 [connection signal="pressed" from="Main/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Main/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Main/VBoxContainer/Load" to="." method="_on_load_pressed"]
