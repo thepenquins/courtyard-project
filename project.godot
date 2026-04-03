@@ -31,7 +31,6 @@ config/icon="uid://c5uw7gk2oc74k"
 
 Settings="*res://source/settings/settings.gd"
 Loader="*res://source/loader.gd"
-Profile="*res://source/profile/profile.gd"
 RSE="*uid://br7yrar3fjwlv"
 VNE="*uid://conv3btwxe55h"
 FmodManager="*uid://cds10pm7hwn3p"
