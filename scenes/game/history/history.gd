@@ -4,6 +4,8 @@ class_name History extends Control
 @export var scroll_container: ScrollContainer
 @export var double_max_records: int = 256
 
+@export var close_button: Button
+
 
 func _ready() -> void:
 	scroll_container.get_v_scroll_bar().changed.connect(_scroll_to_bottom)

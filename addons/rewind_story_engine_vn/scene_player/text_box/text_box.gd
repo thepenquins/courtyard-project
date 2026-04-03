@@ -3,13 +3,22 @@ class_name VneTextBox
 extends MarginContainer
 
 signal frame_ended
-
 @export var speaker_rich_text_label: RichTextAnimation
 @export var text_rich_text_label: RichTextAnimation
 
 @export var click_to_continue_texture_rect: TextureRect
+@export var pimpka_1: CompressedTexture2D
+@export var pimpka_2: CompressedTexture2D
 
 var _playing: bool = true
+
+var mouse_on_ui: bool = false
+
+@export var history_button: TextureButton
+@export var hide_button: TextureButton
+@export var prev_button: TextureButton
+@export var next_button: TextureButton
+@export var rewind_button: TextureButton
 
 
 func _ready() -> void:
@@ -60,6 +69,7 @@ func _physics_process(delta: float) -> void:
 func _on_text_richer_text_label_anim_finished() -> void:
 	frame_ended.emit()
 	_playing = false
+	click_to_continue_texture_rect.texture = pimpka_2
 
 
 func _on_text_richer_text_label_anim_continued() -> void:
@@ -68,6 +78,7 @@ func _on_text_richer_text_label_anim_continued() -> void:
 
 func _on_text_richer_text_label_anim_paused() -> void:
 	_playing = false
+	click_to_continue_texture_rect.texture = pimpka_1
 
 
 func _on_text_richer_text_label_anim_started() -> void:
@@ -78,3 +89,11 @@ func clear() -> void:
 	speaker_rich_text_label.bbcode = ""
 	text_rich_text_label.bbcode = ""
 	_playing = true
+
+
+func _on_h_box_container_mouse_entered() -> void:
+	mouse_on_ui = true
+
+
+func _on_h_box_container_mouse_exited() -> void:
+	mouse_on_ui = false

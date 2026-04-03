@@ -35,26 +35,47 @@ var _current_rewind_reload: float = 0.0
 var transition_playing: bool = false
 
 
+func _ready() -> void:
+	text_box.prev_button.pressed.connect(_prev_frame_pressed)
+	text_box.next_button.pressed.connect(_next_frame_pressed)
+	text_box.rewind_button.pressed.connect(_rewind)
+
+
 func _input(event: InputEvent) -> void:
 	if transition_playing:
 		return
+	
+	if text_box.mouse_on_ui:
+		return
+	
+	if not text_box.visible:
+		return
+	
 	if event.is_action_pressed("next_frame"):
-		if Engine.is_editor_hint():
-			text_box.advance()
-		else:
-			if _ready_to_next_frame:
-				await play_transition(_frame.transition_out, true)
-				if not next_frame():
-					scene_ended.emit(_scene)
-			else:
-				text_box.advance()
+		_next_frame_pressed()
 	if event.is_action_pressed("prev_frame"):
-		if not Engine.is_editor_hint():
-			if _ready_to_next_frame:
-				if not prev_frame():
-					to_prev_scene.emit()
-			else:
-				text_box.skip()
+		_prev_frame_pressed()
+
+
+func _next_frame_pressed() -> void:
+	if Engine.is_editor_hint():
+		text_box.advance()
+	else:
+		if _ready_to_next_frame:
+			await play_transition(_frame.transition_out, true)
+			if not next_frame():
+				scene_ended.emit(_scene)
+		else:
+			text_box.advance()
+
+
+func  _prev_frame_pressed() -> void:
+	if not Engine.is_editor_hint():
+		if _ready_to_next_frame:
+			if not prev_frame():
+				to_prev_scene.emit()
+		else:
+			text_box.skip()
 
 
 func _process(delta: float) -> void:
@@ -62,10 +83,14 @@ func _process(delta: float) -> void:
 		_current_rewind_reload -= delta
 	
 	if Input.is_action_pressed("rewind"):
-		if not Engine.is_editor_hint() and _current_rewind_reload <= 0:
-			_current_rewind_reload = REWIND_RELOAD_TIME
-			if not next_frame(true):
-				scene_ended.emit(_scene)
+		_rewind()
+
+
+func _rewind() -> void:
+	if not Engine.is_editor_hint() and _current_rewind_reload <= 0:
+		_current_rewind_reload = REWIND_RELOAD_TIME
+		if not next_frame(true):
+			scene_ended.emit(_scene)
 
 
 func _on_text_box_frame_ended() -> void:
