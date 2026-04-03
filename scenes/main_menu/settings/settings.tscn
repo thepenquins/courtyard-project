@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://qc4jxomgpxgy" path="res://scenes/main_menu/settings/setting_audio_bus.gd" id="4_fb5ky"]
 [ext_resource type="Script" uid="uid://ctdwgd7h8c4f3" path="res://scenes/main_menu/settings/setting_bleep_mode.gd" id="5_7vie7"]
 [ext_resource type="Script" uid="uid://bve84udsyjhov" path="res://scenes/main_menu/settings/setting_text_speed.gd" id="6_7vie7"]
+[ext_resource type="Script" uid="uid://c3twvr5phbd2x" path="res://scenes/main_menu/settings/rewind_option_button.gd" id="8_kct2i"]
 [ext_resource type="StyleBox" uid="uid://b7frbj2fptrvo" path="res://scenes/main_menu/sub_menu_button_style_box.tres" id="8_mqanq"]
 
 [node name="Settings" type="Control" unique_id=267592914 node_paths=PackedStringArray("return_button")]
@@ -187,6 +188,20 @@ size_flags_vertical = 4
 [node name="SpinBox" type="SpinBox" parent="VBoxContainer/GridContainer/TextSpeedHBoxContainer" unique_id=1535561861]
 visible = false
 layout_mode = 2
+
+[node name="TextSpeedLabel2" type="Label" parent="VBoxContainer/GridContainer" unique_id=17742859]
+layout_mode = 2
+text = "Режим перемеотки"
+horizontal_alignment = 2
+
+[node name="RewindOptionButton" type="OptionButton" parent="VBoxContainer/GridContainer" unique_id=2138304838]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Только просмотренное"
+popup/item_0/id = 0
+popup/item_1/text = "Пропускать всё"
+popup/item_1/id = 1
+script = ExtResource("8_kct2i")
 
 [node name="ReturnButton" type="Button" parent="." unique_id=270555135]
 layout_mode = 1
