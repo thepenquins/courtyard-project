@@ -207,7 +207,7 @@ func switch_interface_visibility() -> void:
 	
 	interface_visible = not interface_visible
 	
-	options.visible = interface_visible
+	options.visible = interface_visible and options.options_container.get_child_count() > 0
 	scene_player.text_box.visible = interface_visible
 
 

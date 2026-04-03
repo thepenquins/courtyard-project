@@ -17,12 +17,15 @@ pause = NodePath("Pause")
 
 [node name="Options" parent="." unique_id=1554327022 instance=ExtResource("3_lfrn8")]
 visible = false
+z_index = 100
 
 [node name="History" parent="." unique_id=860033839 instance=ExtResource("4_kelw5")]
 visible = false
+z_index = 100
 
 [node name="Pause" parent="." unique_id=2031611172 instance=ExtResource("3_0sr1o")]
 visible = false
+z_index = 100
 
 [connection signal="frame_setting" from="ScenePlayer" to="." method="_on_scene_player_frame_setting"]
 [connection signal="scene_ended" from="ScenePlayer" to="." method="_on_scene_player_scene_ended"]
