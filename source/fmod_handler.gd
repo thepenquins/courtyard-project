@@ -25,11 +25,11 @@ func _subscribe_to_signals() -> void:
 
 
 func _on_master_volume_was_changed() -> void:
-	_set_bus_volume("bus:/", Settings.master_volume / 100.0)
+	_set_bus_volume("bus:/", Settings.master_volume)
 
 
 func _on_sfx_volume_was_changed() -> void:
-	var volume = Settings.sfx_volume / 100.0
+	var volume = Settings.sfx_volume
 	
 	_set_bus_volume("bus:/SFX", volume)
 	_set_bus_volume("bus:/UI", volume)
@@ -37,7 +37,7 @@ func _on_sfx_volume_was_changed() -> void:
 
 func _on_music_volume_was_changed() -> void:
 	
-	var volume = Settings.music_volume / 100.0
+	var volume = Settings.music_volume
 	_set_bus_volume("bus:/Music", volume)
 	_set_bus_volume("bus:/Ambience", volume)
 
