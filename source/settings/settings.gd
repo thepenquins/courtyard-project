@@ -7,6 +7,8 @@ signal master_volume_was_changed
 signal sfx_volume_was_changed
 signal music_volume_was_changed
 
+signal text_speed_was_changed
+
 const PATH_TO_CONFIG = "user://config.ini"
 
 enum AudioBus {
@@ -92,6 +94,7 @@ var text_speed: int = 40:
 		elif value > MAX_TEXT_SPEED:
 			value = MAX_TEXT_SPEED
 		text_speed = value
+		text_speed_was_changed.emit()
 		print("Text speed: %s." % text_speed);
 
 
