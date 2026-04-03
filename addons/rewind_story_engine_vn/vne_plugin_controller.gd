@@ -13,7 +13,7 @@ const RICH_TEXT_LABEL_STYLE_BOX = preload("res://addons/rewind_story_engine_vn/s
 
 @export var info_label: Label
 
-@export var tab_container: TabContainer
+@export var main_container: Container
 @export var tab_resources: VneBaseTreeTab
 @export var tab_scene: VneBaseTreeTab
 
@@ -56,10 +56,10 @@ func setting_story(story: RSEStory):
 func _update_info() -> void:
 	if RSE.story == null:
 		info_label.text = INFO_STORY_RSE
-		tab_container.hide()
+		main_container.hide()
 	else:
 		info_label.text = INFO_READY
-		tab_container.show()
+		main_container.show()
 		initialize_windows()
 
 
@@ -72,6 +72,6 @@ func _on_story_character_removed(character: RSECharacter) -> void:
 
 
 func initialize_windows() -> void:
-	tab_container.show()
+	main_container.show()
 	tab_resources.initialize()
 	tab_scene.initialize()

@@ -7,7 +7,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_c4dsb"]
 font_size = 24
 
-[node name="VisualNovelExtension" type="Control" unique_id=2043125205 node_paths=PackedStringArray("info_label", "tab_container", "tab_resources", "tab_scene")]
+[node name="VisualNovelExtension" type="Control" unique_id=2043125205 node_paths=PackedStringArray("info_label", "main_container", "tab_resources", "tab_scene")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,9 +18,9 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_1raw3")
 info_label = NodePath("CenterContainer/VBoxContainer/Info")
-tab_container = NodePath("TabContainer")
-tab_resources = NodePath("TabContainer/Ресурсы")
-tab_scene = NodePath("TabContainer/Сцена")
+main_container = NodePath("MainVBoxContainer")
+tab_resources = NodePath("MainVBoxContainer/TabContainer/Ресурсы")
+tab_scene = NodePath("MainVBoxContainer/TabContainer/Сцена")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=792694531]
 layout_mode = 1
@@ -56,20 +56,35 @@ text = "Version 0.1.0
 Made by O3ZY"
 horizontal_alignment = 1
 
-[node name="TabContainer" type="TabContainer" parent="." unique_id=799754775]
+[node name="MainVBoxContainer" type="VBoxContainer" parent="." unique_id=1835215753]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MenuBar" type="MenuBar" parent="MainVBoxContainer" unique_id=87982147]
+visible = false
+layout_mode = 2
+
+[node name="Файл" type="PopupMenu" parent="MainVBoxContainer/MenuBar" unique_id=2059754606]
+oversampling_override = 1.0
+size = Vector2i(161, 100)
+item_count = 1
+item_0/text = "Сохранить"
+item_0/id = 0
+
+[node name="TabContainer" type="TabContainer" parent="MainVBoxContainer" unique_id=799754775]
+layout_mode = 2
+size_flags_vertical = 3
 current_tab = 0
 
-[node name="Ресурсы" parent="TabContainer" unique_id=808717785 instance=ExtResource("2_ceif2")]
+[node name="Ресурсы" parent="MainVBoxContainer/TabContainer" unique_id=808717785 instance=ExtResource("2_ceif2")]
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="Сцена" parent="TabContainer" unique_id=2098423228 instance=ExtResource("3_4r4xm")]
+[node name="Сцена" parent="MainVBoxContainer/TabContainer" unique_id=2098423228 instance=ExtResource("3_4r4xm")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1

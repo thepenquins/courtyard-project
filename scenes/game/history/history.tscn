@@ -1,8 +1,20 @@
 [gd_scene format=3 uid="uid://bufkqri1fm8lj"]
 
 [ext_resource type="Script" uid="uid://lpie5xpngm1o" path="res://scenes/game/history/history.gd" id="1_g63q5"]
+[ext_resource type="Script" uid="uid://8dwfib45n8ir" path="res://addons/rewind_story_engine_vn/utils/set_icon_for_button.gd" id="2_iwt6i"]
+[ext_resource type="Texture2D" uid="uid://dhmgrya5as3ba" path="res://graphics/фон для истории диалогов.png" id="2_okc20"]
 
-[node name="History" type="Control" unique_id=860033839 node_paths=PackedStringArray("container", "scroll_container")]
+[sub_resource type="DPITexture" id="DPITexture_0jn8w"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"none\" stroke=\"#e0e0e0\" stroke-width=\"2\" d=\"m3 3 10 10M3 13 13 3\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[node name="History" type="Control" unique_id=860033839 node_paths=PackedStringArray("container", "scroll_container", "close_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,15 +24,18 @@ grow_vertical = 2
 script = ExtResource("1_g63q5")
 container = NodePath("MarginContainer/ScrollContainer/GridContainer")
 scroll_container = NodePath("MarginContainer/ScrollContainer")
+close_button = NodePath("CloseButton")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1712755192]
+[node name="Background" type="TextureRect" parent="." unique_id=311068912]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.49803922)
+mouse_filter = 2
+texture = ExtResource("2_okc20")
+expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1674933043]
 layout_mode = 1
@@ -29,9 +44,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 64
+theme_override_constants/margin_left = 128
 theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 64
+theme_override_constants/margin_right = 256
 theme_override_constants/margin_bottom = 32
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer" unique_id=1640273468]
@@ -45,3 +60,17 @@ size_flags_vertical = 3
 theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 16
 columns = 2
+
+[node name="CloseButton" type="Button" parent="." unique_id=1116785999]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -56.0
+offset_top = 32.0
+offset_right = -32.0
+offset_bottom = 56.0
+grow_horizontal = 0
+icon = SubResource("DPITexture_0jn8w")
+script = ExtResource("2_iwt6i")
+icon_name = &"Close"

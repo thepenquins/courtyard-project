@@ -2,9 +2,50 @@
 
 [ext_resource type="Script" uid="uid://cjfajfghsdim5" path="res://scenes/main_menu/main_menu.gd" id="1_0ebjn"]
 [ext_resource type="PackedScene" uid="uid://b6swifjkjxwor" path="res://scenes/main_menu/developers/developers.tscn" id="1_fsom3"]
+[ext_resource type="Texture2D" uid="uid://1eff70bapcpw" path="res://graphics/главное_меню/Меню.png" id="2_3ovsr"]
+[ext_resource type="FontFile" uid="uid://d05i7wrk48m4v" path="res://graphics/шрифт/static/InterTight-ExtraBold.ttf" id="3_5seab"]
 [ext_resource type="PackedScene" uid="uid://dogjfwgr4fqbu" path="res://scenes/main_menu/settings/settings.tscn" id="3_ob46e"]
 [ext_resource type="PackedScene" uid="uid://mna5pt2yt5wp" path="res://scenes/main_menu/extra/extra.tscn" id="3_uqeha"]
+[ext_resource type="Script" uid="uid://cdr2yyqgqaaxj" path="res://scenes/main_menu/бегущая_строка.gd" id="4_4xg86"]
+[ext_resource type="FontFile" uid="uid://bsdjrci2x7mok" path="res://graphics/шрифт/static/InterTight-BlackItalic.ttf" id="5_thkx5"]
 [ext_resource type="PackedScene" uid="uid://mr4x0s326o2i" path="res://scenes/save_manager/save_manager.tscn" id="5_wem23"]
+
+[sub_resource type="Animation" id="Animation_thkx5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.1254902, 0.1254902, 0.1254902, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_x2yjq"]
+resource_name = "fade_out"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.1254902, 0.1254902, 0.1254902, 1), Color(0.1254902, 0.1254902, 0.1254902, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lqpn7"]
+_data = {
+&"RESET": SubResource("Animation_thkx5"),
+&"fade_out": SubResource("Animation_x2yjq")
+}
 
 [node name="MainMenu" type="Control" unique_id=1387221139 node_paths=PackedStringArray("main", "save_manager", "extra", "settings", "developers", "continue_button", "load_button")]
 layout_mode = 3
@@ -30,6 +71,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TextureRect" type="TextureRect" parent="Main" unique_id=544769208]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3ovsr")
+expand_mode = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Main" unique_id=998975460]
 layout_mode = 1
 anchors_preset = 8
@@ -37,50 +88,93 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -729.0
+offset_top = 115.0
+offset_right = -368.0
+offset_bottom = 466.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = -8
 
 [node name="Play" type="Button" parent="Main/VBoxContainer" unique_id=2025765370]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5seab")
+theme_override_font_sizes/font_size = 38
 text = "Играть"
 flat = true
+alignment = 0
 
 [node name="Continue" type="Button" parent="Main/VBoxContainer" unique_id=578454009]
 visible = false
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5seab")
+theme_override_font_sizes/font_size = 38
 disabled = true
 text = "Продолжить"
 flat = true
+alignment = 0
 
 [node name="Load" type="Button" parent="Main/VBoxContainer" unique_id=2031729635]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5seab")
+theme_override_font_sizes/font_size = 38
 text = "Загрузить игру"
 flat = true
+alignment = 0
 
 [node name="Extra" type="Button" parent="Main/VBoxContainer" unique_id=1879831428]
+visible = false
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5seab")
+theme_override_font_sizes/font_size = 38
 disabled = true
 text = "Экстра"
 flat = true
+alignment = 0
 
 [node name="Settings" type="Button" parent="Main/VBoxContainer" unique_id=835871003]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5seab")
+theme_override_font_sizes/font_size = 38
 text = "Настройки"
 flat = true
+alignment = 0
 
 [node name="Developers" type="Button" parent="Main/VBoxContainer" unique_id=927345693]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5seab")
+theme_override_font_sizes/font_size = 38
 text = "Разработчики"
 flat = true
+alignment = 0
 
 [node name="Exit" type="Button" parent="Main/VBoxContainer" unique_id=1073429201]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5seab")
+theme_override_font_sizes/font_size = 38
 text = "Выйти"
 flat = true
+alignment = 0
+
+[node name="БегущаяСтрока" type="ColorRect" parent="Main" unique_id=1344773036]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.4392157, 0.4392157, 0.4392157, 0.16862746)
+script = ExtResource("4_4xg86")
+developers = PackedStringArray("O3ZY", "RANKEL", "lexander", "Даня Балахнин", "LehanFox")
+separator = "                              "
+speed = 120.0
+spacing = 120.0
+pause_on_hover = false
+font = ExtResource("5_thkx5")
+text_color = Color(1, 1, 1, 0.6862745)
 
 [node name="SaveManager" parent="." unique_id=157741692 instance=ExtResource("5_wem23")]
 visible = false
@@ -97,6 +191,34 @@ layout_mode = 1
 [node name="Developers" parent="." unique_id=2032380843 instance=ExtResource("1_fsom3")]
 visible = false
 layout_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1488435546]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.1254902, 0.1254902, 0.1254902, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect" unique_id=498077173]
+libraries/ = SubResource("AnimationLibrary_lqpn7")
+autoplay = &"fade_out"
+
+[node name="FmodEventEmitter2D" type="FmodEventEmitter2D" parent="." unique_id=753607642]
+event_name = "event:/mus/main"
+event_guid = "{164e7a7c-df9e-421e-8d9a-40343e1bfbc7}"
+autoplay = true
+fmod_parameters/otherside_scale/id = -447183269532637344
+fmod_parameters/otherside_scale = 0.0
+fmod_parameters/otherside_scale/variant_type = 3
+fmod_parameters/unchill_scale/id = -149302578609150601
+fmod_parameters/unchill_scale = 0.0
+fmod_parameters/unchill_scale/variant_type = 3
+fmod_parameters/transition_speed/id = 1915305782577568744
+fmod_parameters/transition_speed = 0.5
+fmod_parameters/transition_speed/variant_type = 3
 
 [connection signal="pressed" from="Main/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Main/VBoxContainer/Continue" to="." method="_on_continue_pressed"]

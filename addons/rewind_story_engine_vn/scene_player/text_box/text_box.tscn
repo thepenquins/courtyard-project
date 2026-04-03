@@ -4,13 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://bv8i2qw3o5kur" path="res://scenes/ui/text_box/textbox1.png" id="2_vqpn8"]
 [ext_resource type="Script" uid="uid://cuyp5kmoygg6s" path="res://addons/richtext2/text_effects/effects/rte_jit2.gd" id="3_45kqg"]
 [ext_resource type="Script" uid="uid://b6mbstaftpedd" path="res://addons/richtext2/rich_text_animation.gd" id="3_gfp3b"]
-[ext_resource type="Texture2D" uid="uid://dhu5nhi21jnb4" path="res://scenes/ui/text_box/knopka1.png" id="3_ngkud"]
-[ext_resource type="Texture2D" uid="uid://bgc1gh25da8qa" path="res://scenes/ui/text_box/knopka1_1.png" id="4_1rxjk"]
+[ext_resource type="Texture2D" uid="uid://c7qb38kbc5d1b" path="res://scenes/ui/text_box/pimpka2.png" id="3_p5omk"]
 [ext_resource type="Script" uid="uid://4mittkdxo7ig" path="res://addons/richtext2/text_effects/effects/rte_cuss.gd" id="4_a7jgp"]
 [ext_resource type="Script" uid="uid://d16jnf3xho2be" path="res://addons/richtext2/text_effects/anims/rte_prickle.gd" id="4_h2ygl"]
 [ext_resource type="Texture2D" uid="uid://cfxhc8gelco7m" path="res://scenes/ui/text_box/knopka2.png" id="5_gs2tg"]
 [ext_resource type="Texture2D" uid="uid://b1txf1b1tj8vy" path="res://scenes/ui/text_box/knopka2_1.png" id="6_4l6td"]
-[ext_resource type="Texture2D" uid="uid://bmi3g8drj68du" path="res://addons/rewind_story_engine_vn/icons/next.svg" id="7_h2ygl"]
 [ext_resource type="Script" uid="uid://beh7kaa580cli" path="res://addons/richtext2/text_effects/effects/rte_woo.gd" id="7_vmmjd"]
 [ext_resource type="Texture2D" uid="uid://baqjh53hmxssi" path="res://scenes/ui/text_box/knopka3.png" id="7_vqpn8"]
 [ext_resource type="Script" uid="uid://wj05urqqjjhv" path="res://addons/rewind_story_engine_vn/scene_player/text_box/animation_player.gd" id="8_1hgq8"]
@@ -19,33 +17,34 @@
 [ext_resource type="Texture2D" uid="uid://djwhyyj2fyu30" path="res://scenes/ui/text_box/knopka4_1.png" id="10_m1h46"]
 [ext_resource type="Texture2D" uid="uid://bkjjq8a45qsxo" path="res://scenes/ui/text_box/knopka5.png" id="11_vqpn8"]
 [ext_resource type="Texture2D" uid="uid://sl1qw8wqnuy6" path="res://scenes/ui/text_box/knopka5_1.png" id="12_p5omk"]
+[ext_resource type="Texture2D" uid="uid://cqdqwugsmlu6w" path="res://scenes/ui/text_box/pimpka1.png" id="18_vqpn8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n2rpe"]
 
+[sub_resource type="RichTextEffect" id="RichTextEffect_4l6td"]
+resource_name = "prickle"
+script = ExtResource("4_h2ygl")
+metadata/rt = 2220212957264
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_vqpn8"]
+resource_name = "prickle"
+script = ExtResource("4_h2ygl")
+metadata/rt = 2220565278809
+
 [sub_resource type="RichTextEffect" id="RichTextEffect_p5omk"]
-resource_name = "prickle"
-script = ExtResource("4_h2ygl")
-metadata/rt = 3359453029880
-
-[sub_resource type="RichTextEffect" id="RichTextEffect_yrk6n"]
-resource_name = "prickle"
-script = ExtResource("4_h2ygl")
-metadata/rt = 3406110469796
-
-[sub_resource type="RichTextEffect" id="RichTextEffect_m1h46"]
 resource_name = "jit2"
 script = ExtResource("3_45kqg")
-metadata/rt = 3406110469796
+metadata/rt = 2220565278809
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_ds3j7"]
+[sub_resource type="RichTextEffect" id="RichTextEffect_yrk6n"]
 resource_name = "cuss"
 script = ExtResource("4_a7jgp")
-metadata/rt = 3406110469796
+metadata/rt = 2220565278809
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_oijo1"]
+[sub_resource type="RichTextEffect" id="RichTextEffect_m1h46"]
 resource_name = "woo"
 script = ExtResource("7_vmmjd")
-metadata/rt = 3406110469796
+metadata/rt = 2220565278809
 
 [sub_resource type="Animation" id="Animation_1hgq8"]
 length = 0.001
@@ -86,7 +85,7 @@ _data = {
 &"highlight": SubResource("Animation_h2ygl")
 }
 
-[node name="TextBox" type="MarginContainer" unique_id=1782723377 node_paths=PackedStringArray("speaker_rich_text_label", "text_rich_text_label", "click_to_continue_texture_rect")]
+[node name="TextBox" type="MarginContainer" unique_id=1782723377 node_paths=PackedStringArray("speaker_rich_text_label", "text_rich_text_label", "click_to_continue_texture_rect", "history_button", "hide_button", "prev_button", "next_button", "rewind_button")]
 z_index = 10
 anchors_preset = 15
 anchor_right = 1.0
@@ -101,6 +100,13 @@ script = ExtResource("1_gk1x7")
 speaker_rich_text_label = NodePath("Control/SpeakerRicherTextLabel")
 text_rich_text_label = NodePath("Control/TextRicherTextLabel")
 click_to_continue_texture_rect = NodePath("Control/TextRicherTextLabel/TextureRect")
+pimpka_1 = ExtResource("18_vqpn8")
+pimpka_2 = ExtResource("3_p5omk")
+history_button = NodePath("Control/TextureRect/HBoxContainer/History")
+hide_button = NodePath("Control/TextureRect/HBoxContainer/Hide")
+prev_button = NodePath("Control/TextureRect/HBoxContainer/Prev")
+next_button = NodePath("Control/TextureRect/HBoxContainer/Next")
+rewind_button = NodePath("Control/TextureRect/HBoxContainer/Rewind")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1049391604]
 visible = false
@@ -132,34 +138,46 @@ offset_top = 200.0
 offset_right = 1174.0
 offset_bottom = 259.0
 
-[node name="TextureButton" type="TextureButton" parent="Control/TextureRect/HBoxContainer" unique_id=715361026]
+[node name="History" type="TextureButton" parent="Control/TextureRect/HBoxContainer" unique_id=1065538822]
 layout_mode = 2
-texture_normal = ExtResource("3_ngkud")
-texture_hover = ExtResource("4_1rxjk")
-
-[node name="TextureButton2" type="TextureButton" parent="Control/TextureRect/HBoxContainer" unique_id=1065538822]
-layout_mode = 2
+tooltip_text = "История (L)"
+mouse_filter = 1
 texture_normal = ExtResource("5_gs2tg")
 texture_hover = ExtResource("6_4l6td")
 
-[node name="TextureButton3" type="TextureButton" parent="Control/TextureRect/HBoxContainer" unique_id=1472846824]
+[node name="Hide" type="TextureButton" parent="Control/TextureRect/HBoxContainer" unique_id=1472846824]
 layout_mode = 2
+tooltip_text = "Скрыть интерфейс (H)"
+mouse_filter = 1
 texture_normal = ExtResource("7_vqpn8")
 texture_hover = ExtResource("8_p5omk")
 
-[node name="TextureButton4" type="TextureButton" parent="Control/TextureRect/HBoxContainer" unique_id=720678917]
+[node name="Prev" type="TextureButton" parent="Control/TextureRect/HBoxContainer" unique_id=1332203081]
 layout_mode = 2
+tooltip_text = "Следующий кадр (ЛКМ | Колёсико мыши вниз)"
+mouse_filter = 1
+texture_normal = ExtResource("9_yrk6n")
+texture_hover = ExtResource("10_m1h46")
+flip_h = true
+
+[node name="Next" type="TextureButton" parent="Control/TextureRect/HBoxContainer" unique_id=720678917]
+layout_mode = 2
+tooltip_text = "Следующий кадр (ЛКМ | Колёсико мыши вниз)"
+mouse_filter = 1
 texture_normal = ExtResource("9_yrk6n")
 texture_hover = ExtResource("10_m1h46")
 
-[node name="TextureButton5" type="TextureButton" parent="Control/TextureRect/HBoxContainer" unique_id=826310671]
+[node name="Rewind" type="TextureButton" parent="Control/TextureRect/HBoxContainer" unique_id=826310671]
 layout_mode = 2
+tooltip_text = "Перемотка (Left CTRL)"
+mouse_filter = 1
+action_mode = 0
 texture_normal = ExtResource("11_vqpn8")
 texture_hover = ExtResource("12_p5omk")
 
 [node name="SpeakerRicherTextLabel" type="RichTextLabel" parent="Control" unique_id=212519613]
 clip_contents = false
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 44)
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -184,13 +202,13 @@ theme_override_font_sizes/mono_font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxEmpty_n2rpe")
 bbcode_enabled = true
 fit_content = true
-custom_effects = [SubResource("RichTextEffect_p5omk")]
+custom_effects = [SubResource("RichTextEffect_4l6td")]
 script = ExtResource("3_gfp3b")
 animation = "prickle"
 progress = 1.0
 visible_character = 6
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 810, 39), Transform2D(1, 0, 0, 1, 820, 39), Transform2D(1, 0, 0, 1, 830, 39), Transform2D(1, 0, 0, 1, 848, 39), Transform2D(1, 0, 0, 1, 868, 39)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(8, 28), Vector2(8, 28), Vector2(18, 28), Vector2(21, 28), Vector2(0, 28)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 813, 35), Transform2D(1, 0, 0, 1, 820, 35), Transform2D(1, 0, 0, 1, 828, 35), Transform2D(1, 0, 0, 1, 847, 35), Transform2D(1, 0, 0, 1, 866, 35)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(7, 26), Vector2(8, 26), Vector2(21, 26), Vector2(21, 26), Vector2(0, 26)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _forced_finish_delay = -0.03227433333333515
@@ -213,7 +231,7 @@ effects = 2
 alignment = 1
 color = Color(1, 1, 1, 1)
 emoji_scale = 1.0
-font = "XTypewriter"
+font = "InterTight-Medium"
 font_auto_setup = true
 font_size = 36
 font_bold_weight = 1.5
@@ -289,18 +307,18 @@ theme_override_font_sizes/mono_font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxEmpty_n2rpe")
 bbcode_enabled = true
 fit_content = true
-custom_effects = [SubResource("RichTextEffect_yrk6n"), SubResource("RichTextEffect_m1h46"), SubResource("RichTextEffect_ds3j7"), SubResource("RichTextEffect_oijo1")]
+custom_effects = [SubResource("RichTextEffect_vqpn8"), SubResource("RichTextEffect_p5omk"), SubResource("RichTextEffect_yrk6n"), SubResource("RichTextEffect_m1h46")]
 script = ExtResource("3_gfp3b")
 animation = "prickle"
 _play = false
 _hold = true
-progress = 0.4529392592592591
+progress = 0.457924444444444
 visible_character = 8
 _triggers = {
 7: [[1003, {}]]
 }
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 709, 39), Transform2D(1, 0, 0, 1, 718, 39), Transform2D(1, 0, 0, 1, 752, 39), Transform2D(1, 0, 0, 1, 761, 39), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 784, 39), Transform2D(1, 0, 0, 1, 807, 39), Transform2D(1, 0, 0, 1, 828, 39), Transform2D(1, 0, 0, 1, 837, 39), Transform2D(1, 0, 0, 1, 848, 39), Transform2D(1, 0, 0, 1, 857, 39), Transform2D(1, 0, 0, 1, 877, 39), Transform2D(1, 0, 0, 1, 900, 39), Transform2D(1, 0, 0, 1, 921, 39), Transform2D(1, 0, 0, 1, 938, 39), Transform2D(1, 0, 0, 1, 966, 39), Transform2D(1, 0, 0, 1, 966, 39)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(7, 28), Vector2(32, 28), Vector2(0, 28), Vector2(23, 28), Vector2(0, 0), Vector2(21, 28), Vector2(31, 28), Vector2(0, 28), Vector2(7, 28), Vector2(0, 28), Vector2(22, 28), Vector2(23, 28), Vector2(17, 28), Vector2(20, 28), Vector2(18, 28), Vector2(0, 28), Vector2(0, 28)])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 718, 35), Transform2D(1, 0, 0, 1, 728, 35), Transform2D(1, 0, 0, 1, 758, 35), Transform2D(1, 0, 0, 1, 766, 35), Transform2D(1, 0, 0, 1, 778, 35), Transform2D(1, 0, 0, 1, 785, 35), Transform2D(1, 0, 0, 1, 805, 35), Transform2D(1, 0, 0, 1, 825, 35), Transform2D(1, 0, 0, 1, 833, 35), Transform2D(1, 0, 0, 1, 841, 35), Transform2D(1, 0, 0, 1, 849, 35), Transform2D(1, 0, 0, 1, 870, 35), Transform2D(1, 0, 0, 1, 890, 35), Transform2D(1, 0, 0, 1, 909, 35), Transform2D(1, 0, 0, 1, 927, 35), Transform2D(1, 0, 0, 1, 954, 35), Transform2D(1, 0, 0, 1, 954, 35)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(7, 26), Vector2(30, 26), Vector2(0, 26), Vector2(15, 26), Vector2(17, 26), Vector2(20, 26), Vector2(22, 26), Vector2(0, 26), Vector2(7, 26), Vector2(0, 26), Vector2(26, 26), Vector2(23, 26), Vector2(21, 26), Vector2(19, 26), Vector2(22, 26), Vector2(0, 26), Vector2(0, 26)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 _showing_ctc = true
@@ -313,7 +331,7 @@ fade_out = false
 fade_in_speed = 10.0
 fade_out_speed = 120.0
 ctc_node = NodePath("TextureRect")
-ctc_offset = Vector2(0, -1)
+ctc_offset = Vector2(0, -1.2)
 ctc_on_finished = true
 ctc_on_wait = false
 shortcut_expression = true
@@ -326,7 +344,7 @@ effects = 2
 alignment = 1
 color = Color(1, 1, 1, 1)
 emoji_scale = 1.0
-font = "XTypewriter"
+font = "InterTight-Medium"
 font_auto_setup = true
 font_size = 36
 font_bold_weight = 1.5
@@ -384,12 +402,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -4.0
-offset_top = -80.5
-offset_right = 101.0
-offset_bottom = -39.5
+offset_top = -86.100006
+offset_right = 76.0
+offset_bottom = -45.09987
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("7_h2ygl")
+texture = ExtResource("18_vqpn8")
 expand_mode = 2
 stretch_mode = 5
 
@@ -398,6 +416,8 @@ libraries/ = SubResource("AnimationLibrary_1hgq8")
 autoplay = &"highlight"
 script = ExtResource("8_1hgq8")
 
+[connection signal="mouse_entered" from="Control/TextureRect/HBoxContainer" to="." method="_on_h_box_container_mouse_entered"]
+[connection signal="mouse_exited" from="Control/TextureRect/HBoxContainer" to="." method="_on_h_box_container_mouse_exited"]
 [connection signal="anim_continued" from="Control/TextRicherTextLabel" to="." method="_on_text_richer_text_label_anim_continued"]
 [connection signal="anim_finished" from="Control/TextRicherTextLabel" to="." method="_on_text_richer_text_label_anim_finished"]
 [connection signal="anim_paused" from="Control/TextRicherTextLabel" to="." method="_on_text_richer_text_label_anim_paused"]

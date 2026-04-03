@@ -22,8 +22,12 @@ static var save_to_load: Save
 
 
 func _ready() -> void:
-	scene_player.load_all_characters()
-	scene_player.load_all_locations()
+	scene_player.text_box.history_button.pressed.connect(switch_history)
+	scene_player.text_box.hide_button.pressed.connect(switch_interface_visibility)
+	
+	scene_player.instantiate_all_characters()
+	
+	history.close_button.pressed.connect(set_history.bind(false))
 	
 	if save_to_load != null:
 		load_save(save_to_load)
@@ -37,9 +41,7 @@ func _input(event: InputEvent) -> void:
 		if not pause.visible:
 			_pause()
 	if event.is_action_pressed("switch_history"):
-		history.visible = not history.visible
-		scene_player.text_box.visible = not history.visible
-		scene_player.process_mode = Node.PROCESS_MODE_DISABLED if history.visible else Node.PROCESS_MODE_INHERIT
+		switch_history()
 	if event.is_action_pressed("switch_interface_visibility"):
 		switch_interface_visibility()
 
@@ -184,6 +186,16 @@ func _on_scene_player_to_prev_scene() -> void:
 	elif _current_episode_uuid == "4908fa65-07fb-4d2d-9da8-decab666a086": ## Вязаную маму в ванне 1 штуку, пожалуйста
 		_score -= 1
 	_set_scene_by_episode_uuid_backward()
+
+
+func switch_history() -> void:
+	set_history(not history.visible)
+
+
+func set_history(value: bool) -> void:
+	history.visible = value
+	scene_player.text_box.visible = not history.visible
+	scene_player.process_mode = Node.PROCESS_MODE_DISABLED if history.visible else Node.PROCESS_MODE_INHERIT
 
 
 func switch_interface_visibility() -> void:

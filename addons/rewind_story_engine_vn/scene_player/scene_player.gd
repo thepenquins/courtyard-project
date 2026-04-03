@@ -13,8 +13,12 @@ var _scene: VneScene
 var _frame: VneFrame
 var _index: int
 
-var _characters: Dictionary[VneCharacterResource, VneCharacter2D]
+static var _characters_packed_scenes: Dictionary[VneCharacterResource, PackedScene]
 static var _locations: Dictionary[VneLocationResource, PackedScene]
+static var _transitions: Dictionary[VneTransitionResource, PackedScene]
+static var _vfx: Dictionary[VneVfxResource, PackedScene]
+
+var _characters: Dictionary[VneCharacterResource, VneCharacter2D]
 
 var _location_resource: VneLocationResource
 var _current_location: VneLocation
@@ -24,6 +28,8 @@ var _music_player: FmodEventEmitter2D
 var _current_bgs: VneBgsResource
 var _editor_bgs_player: FmodEvent
 var _bgs_player: FmodEventEmitter2D
+
+var _current_vfx: Dictionary[VneVfxResource, VneVfx]
 
 var _is_new_location: bool = true
 
@@ -35,26 +41,47 @@ var _current_rewind_reload: float = 0.0
 var transition_playing: bool = false
 
 
+func _ready() -> void:
+	text_box.prev_button.pressed.connect(_prev_frame_pressed)
+	text_box.next_button.pressed.connect(_next_frame_pressed)
+	text_box.rewind_button.pressed.connect(_rewind)
+
+
 func _input(event: InputEvent) -> void:
 	if transition_playing:
 		return
+	
+	if text_box.mouse_on_ui:
+		return
+	
+	if not text_box.visible:
+		return
+	
 	if event.is_action_pressed("next_frame"):
-		if Engine.is_editor_hint():
-			text_box.advance()
-		else:
-			if _ready_to_next_frame:
-				await play_transition(_frame.transition_out, true)
-				if not next_frame():
-					scene_ended.emit(_scene)
-			else:
-				text_box.advance()
+		_next_frame_pressed()
 	if event.is_action_pressed("prev_frame"):
-		if not Engine.is_editor_hint():
-			if _ready_to_next_frame:
-				if not prev_frame():
-					to_prev_scene.emit()
-			else:
-				text_box.skip()
+		_prev_frame_pressed()
+
+
+func _next_frame_pressed() -> void:
+	if Engine.is_editor_hint():
+		text_box.advance()
+	else:
+		if _ready_to_next_frame:
+			await play_transition(_frame.transition_out, true)
+			if not next_frame():
+				scene_ended.emit(_scene)
+		else:
+			text_box.advance()
+
+
+func  _prev_frame_pressed() -> void:
+	if not Engine.is_editor_hint():
+		if _ready_to_next_frame:
+			if not prev_frame():
+				to_prev_scene.emit()
+		else:
+			text_box.skip()
 
 
 func _process(delta: float) -> void:
@@ -62,10 +89,14 @@ func _process(delta: float) -> void:
 		_current_rewind_reload -= delta
 	
 	if Input.is_action_pressed("rewind"):
-		if not Engine.is_editor_hint() and _current_rewind_reload <= 0:
-			_current_rewind_reload = REWIND_RELOAD_TIME
-			if not next_frame(true):
-				scene_ended.emit(_scene)
+		_rewind()
+
+
+func _rewind() -> void:
+	if not Engine.is_editor_hint() and _current_rewind_reload <= 0:
+		_current_rewind_reload = REWIND_RELOAD_TIME
+		if not next_frame(true):
+			scene_ended.emit(_scene)
 
 
 func _on_text_box_frame_ended() -> void:
@@ -125,6 +156,7 @@ func set_frame(frame_index: int, instantly: bool = false) -> void:
 	set_music(_frame.music)
 	set_bgs(_frame.bgs)
 	set_sfx(_frame.sfx)
+	set_vfx(_frame.vfx)
 	## ...
 	
 	var rse_frame = _scene.episode.get_frame_by_uuid(_frame.uuid)
@@ -215,6 +247,25 @@ func set_sfx(sfx_array: Array[VneSfxFrame]) -> void:
 		var emitter = set_audio_fmod_event(null, null, sfx)
 
 
+## 1. Удалить все VFX, которых нет в кадре.
+## 2. Добавить недостающие VFX.
+func set_vfx(vfx_array: Array[VneVfxFrame]) -> void:
+	var new_vfx_dict: Dictionary[VneVfxResource, VneVfx]
+	for vfx in vfx_array:
+		if _current_vfx.has(vfx.resource):
+			new_vfx_dict[vfx.vfx] = _current_vfx[vfx.vfx]
+			_current_vfx.erase(vfx.vfx)
+		else:
+			var vfx_scene = _vfx[vfx.vfx].instantiate() as VneVfx
+			add_child(vfx_scene)
+			new_vfx_dict[vfx.vfx] = vfx_scene
+	
+	for vfx: VneVfx in _current_vfx.values():
+		vfx.queue_free()
+	
+	_current_vfx = new_vfx_dict.duplicate_deep()
+
+
 func set_audio_fmod_event(fmod_event: FmodEvent, current_audio: VneAudioResource, audio_frame: VneFrameWithMultipleParameters) -> FmodEvent:
 	if audio_frame.resource == null:
 		if fmod_event:
@@ -223,11 +274,14 @@ func set_audio_fmod_event(fmod_event: FmodEvent, current_audio: VneAudioResource
 	
 	if current_audio == audio_frame.resource:
 		if fmod_event:
-			_set_fmod_event_parameters(fmod_event, audio_frame.parameters)
+			_set_fmod_event_parameters(fmod_event, current_audio, audio_frame.parameters)
 		return fmod_event
 	
+	if fmod_event:
+		fmod_event.stop(0)
+	
 	fmod_event = _create_fmod_event(audio_frame.resource.path_to_file)
-	_set_fmod_event_parameters(fmod_event, audio_frame.parameters)
+	_set_fmod_event_parameters(fmod_event, current_audio, audio_frame.parameters)
 	
 	return fmod_event
 
@@ -240,11 +294,14 @@ func set_audio_fmod_event_emitter_2d(event_emitter: FmodEventEmitter2D, current_
 	
 	if current_audio == audio_frame.resource:
 		if event_emitter:
-			_set_fmod_event_emitter_2D_parameters(event_emitter, audio_frame.parameters)
+			_set_fmod_event_emitter_2D_parameters(event_emitter, current_audio, audio_frame.parameters)
 		return event_emitter
 	
+	if event_emitter:
+		event_emitter.stop()
+	
 	event_emitter = _create_fmod_event_emitter_2D(audio_frame.resource.path_to_file)
-	_set_fmod_event_emitter_2D_parameters(event_emitter, audio_frame.parameters)
+	_set_fmod_event_emitter_2D_parameters(event_emitter, current_audio, audio_frame.parameters)
 	
 	return event_emitter
 
@@ -256,22 +313,37 @@ func set_text(rse_frame: RSEFrame = null, instantly: bool = false) -> void:
 
 
 ## Загрузить персонажей, если их нет.
-func load_all_characters() -> void:
+func instantiate_all_characters() -> void:
+	for character_resource in _characters_packed_scenes:
+		if not _characters.has(character_resource):
+			var character_scene: VneCharacter2D = _characters_packed_scenes[character_resource].instantiate()
+			characters_container.add_character(character_scene)
+			character_scene.set_visibility(false)
+			_characters[character_resource] = character_scene
+
+
+static func load_all_resources() -> void:
+	load_all_characters()
+	load_all_locations()
+	load_all_transitions()
+	load_all_vfx()
+
+
+## Загрузить персонажей, если их нет.
+static func load_all_characters() -> void:
 	if VNE.visual_novel == null:
 		return
 	
 	for character in VNE.visual_novel.characters:
-		if not _characters.has(character):
+		if not _characters_packed_scenes.has(character):
 			if character.path_to_file == "":
 				continue
 			var character_packed_scene: PackedScene = load(character.path_to_file)
-			var character_scene: VneCharacter2D = character_packed_scene.instantiate()
-			characters_container.add_character(character_scene)
-			_characters[character] = character_scene
+			_characters_packed_scenes[character] = character_packed_scene
 
 
 ## Загрузить локации, если их нет.
-func load_all_locations() -> void:
+static func load_all_locations() -> void:
 	if VNE.visual_novel == null:
 		return
 	
@@ -281,6 +353,30 @@ func load_all_locations() -> void:
 				continue
 			var location_packed_scene: PackedScene = load(location.path_to_file)
 			_locations[location] = location_packed_scene
+
+
+static func load_all_transitions() -> void:
+	if VNE.visual_novel == null:
+		return
+	
+	for transition in VNE.visual_novel.transitions:
+		if not _transitions.has(transition):
+			if transition.path_to_file == "":
+				continue
+			var transition_packed_scene: PackedScene = load(transition.path_to_file)
+			_transitions[transition] = transition_packed_scene
+
+
+static func load_all_vfx() -> void:
+	if VNE.visual_novel == null:
+		return
+	
+	for vfx in VNE.visual_novel.vfx:
+		if not _vfx.has(vfx):
+			if vfx.path_to_file == "":
+				continue
+			var vfx_packed_scene: PackedScene = load(vfx.path_to_file)
+			_vfx[vfx] = vfx_packed_scene
 
 
 func _create_fmod_event(event_name: String) -> FmodEvent:
@@ -298,14 +394,34 @@ func _create_fmod_event_emitter_2D(event_name: String) -> FmodEventEmitter2D:
 	return event_emitter
 
 
-func _set_fmod_event_parameters(fmod_event: FmodEvent, parameters: Dictionary[String, float]) -> void:
+func _set_fmod_event_parameters(fmod_event: FmodEvent, audio: VneAudioResource, parameters: Dictionary[String, float]) -> void:
+	if audio == null:
+		return
+	
+	var event_description = FmodServer.get_event(audio.path_to_file)
+	var event_parameters = event_description.get_parameters()
+	
+	if not event_description.is_valid():
+		return
+	
 	for parameter in parameters:
-		fmod_event.set_parameter_by_id(int(parameter), parameters[parameter])
+		if event_parameters.has(parameter):
+			fmod_event.set_parameter_by_id(int(parameter), parameters[parameter])
 
 
-func _set_fmod_event_emitter_2D_parameters(event_emitter: FmodEventEmitter2D, parameters: Dictionary[String, float]) -> void:
+func _set_fmod_event_emitter_2D_parameters(event_emitter: FmodEventEmitter2D, audio: VneAudioResource, parameters: Dictionary[String, float]) -> void:
+	if audio == null:
+		return
+	
+	var event_description = FmodServer.get_event(audio.path_to_file)
+	var event_parameters = event_description.get_parameters()
+	
+	if not event_description.is_valid():
+		return
+	
 	for parameter in parameters:
-		event_emitter.set_parameter_by_id(int(parameter), parameters[parameter])
+		if event_parameters.has(parameter):
+			event_emitter.set_parameter_by_id(int(parameter), parameters[parameter])
 
 
 func _exit_tree() -> void:
@@ -341,7 +457,7 @@ func play_transition(transition_resource: VneTransitionResource, clear_text_box:
 		transition_playing = true
 		if clear_text_box:
 			text_box.clear()
-		var transition_packed_scene = load(transition_resource.path_to_file) as PackedScene
+		var transition_packed_scene = _transitions[transition_resource]
 		var transition_scene = transition_packed_scene.instantiate() as VneTransition
 		add_child(transition_scene)
 		await transition_scene.ended
