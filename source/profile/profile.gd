@@ -1,76 +1,61 @@
-extends Node
+class_name Profile
+extends RefCounted
 
 
-const PATH_TO_PROFILE = "user://profile"
+## Просмотренные эпизоды и кадры.
+var viewed: Dictionary
 
 
-## Данные профиля для сохранения / загрузки.
-var _data: Array[ProfileData] = [
-]
-
-## Список достижений.
-var _achievements: Array[ProfileAchievement] = [
-]
-
-
-func _enter_tree():
-	load_profile()
-
-
-func _exit_tree():
-	save_profile()
-
-
-func load_profile() -> void:
-	var file = FileAccess.open(PATH_TO_PROFILE, FileAccess.READ)   
-	if file == null:
-		return
+func add_viewed(episode_uuid: String, frame_index: int) -> void:
+	if not viewed.has(episode_uuid):
+		viewed[episode_uuid] = []
 	
-	var base64 = file.get_as_text()
-	var json_string = Marshalls.base64_to_utf8(base64)
+	if not viewed[episode_uuid].has(float(frame_index)):
+		viewed[episode_uuid].append(float(frame_index))
+
+
+func is_viewed(episode_uuid: String, frame_index: int) -> bool:
+	if not viewed.has(episode_uuid):
+		return false
+	
+	if not viewed[episode_uuid].has(float(frame_index)):
+		return false
+	
+	return true
+
+
+func is_viewed_episode(episode_uuid: String) -> bool:
+	return viewed.has(episode_uuid)
+
+
+func save_to_file(path_to_file: String) -> void:
+	var data := {
+		"viewed" : viewed,
+	}
+	
+	var json_string = JSON.stringify(data, " ")
+	
+	var file = FileAccess.open(path_to_file, FileAccess.WRITE)
+	file.store_string(json_string)
+	file.close()
+
+
+static func load_from_file(path_to_file: String) -> Profile:
+	var profile = Profile.new()
+	
+	var file = FileAccess.open(path_to_file, FileAccess.READ)
+	if file == null:
+		return profile
+	
+	var json_string = file.get_as_text()
 	file.close()
 	
 	var json = JSON.new()
 	var error = json.parse(json_string)
 	if error == OK:
-		_fill_data_array_from_json(json, "data", _data)
-		_fill_data_array_from_json(json, "achievements", _achievements)
+		profile.viewed = json.data["viewed"]
 	
 	print("Profile has been loaded.")
-
-
-func _fill_data_array_from_json(json: JSON, key: String, data_array: Array) -> void:
-	if json.data.has(key):
-		for d: ProfileData in data_array:
-			if json.data[key].has(d.key):
-				d._v = json.data[key][d.key]
-
-
-func save_profile() -> void:
-	var data: Dictionary = {}
-
-	_save_data_array_to_dictionary(data, "data", _data)
-	_save_data_array_to_dictionary(data, "achievements", _achievements)
-	
-	var json_string = JSON.stringify(data, " ")
-	var base64 = Marshalls.utf8_to_base64(json_string)
-	
-	var file = FileAccess.open(PATH_TO_PROFILE, FileAccess.WRITE)
-	file.store_string(base64)
-	file.close()
-
-
-func _save_data_array_to_dictionary(dictionary: Dictionary, key: String, data_array: Array) -> void:
-	dictionary[key] = {}
-	for d: ProfileData in data_array:
-		dictionary[key][d.key] = d.value
-
-
-func unlock_achievement(achievement_key: String) -> bool:
-	for achievement in _achievements:
-		if achievement.key.to_lower() == achievement_key.to_lower():
-			achievement.value = true
-			print("Открыто достижение: %s" % achievement.key)
-			return true
-
-	return false
+	if Engine.is_editor_hint():
+		print("Viewed: %s" % profile.viewed)
+	return profile

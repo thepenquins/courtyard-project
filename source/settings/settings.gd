@@ -7,13 +7,22 @@ signal master_volume_was_changed
 signal sfx_volume_was_changed
 signal music_volume_was_changed
 
+signal text_speed_was_changed
+
 const PATH_TO_CONFIG = "user://config.ini"
+const PATH_TO_PROFILE = "user://profile"
 
 enum AudioBus {
 	MASTER,
 	SFX,
 	MUSIC,
 	BLEEP,
+}
+
+## Режимы пропуска кадров.
+enum RewindMode {
+	Viewed = 0, ## Только просмотренное.
+	Full = 1, ## Пропускать всё.
 }
 
 var audio_bus_name: Dictionary[AudioBus, StringName] = {
@@ -92,6 +101,7 @@ var text_speed: int = 40:
 		elif value > MAX_TEXT_SPEED:
 			value = MAX_TEXT_SPEED
 		text_speed = value
+		text_speed_was_changed.emit()
 		print("Text speed: %s." % text_speed);
 
 
@@ -108,15 +118,26 @@ var auto_speed: int = 20:
 		print("Auto speed: %s." % auto_speed);
 
 
+var rewind_mode: RewindMode = RewindMode.Viewed:
+	set(value):
+		rewind_mode = value
+		print("Rewind mode: %s." % RewindMode.keys()[rewind_mode]);
+
+
 var last_save: String
 
+var profile: Profile
 
 func _enter_tree():
 	load_config()
+	
+	profile = Profile.load_from_file(PATH_TO_PROFILE)
 
 
 func _exit_tree():
 	save_config()
+	
+	profile.save_to_file(PATH_TO_PROFILE)
 
 
 func save_config() -> void:
@@ -136,6 +157,7 @@ func save_config() -> void:
 	config.set_value("audio_settings", "music_volume", music_volume)
 	config.set_value("audio_settings", "bleep_mode", bleep_mode)
 	
+	config.set_value("game_settings", "rewind_mode", rewind_mode)
 	config.set_value("game_settings", "text_speed", text_speed)
 	config.set_value("game_settings", "auto_speed", auto_speed)
 	
@@ -165,6 +187,7 @@ func load_config() -> void:
 		music_volume = config.get_value("audio_settings", "music_volume", 50)
 		bleep_mode = config.get_value("audio_settings", "bleep_mode", true)
 		
+		rewind_mode = config.get_value("game_settings", "rewind_mode", RewindMode.Viewed)
 		text_speed = config.get_value("game_settings", "text_speed", 40)
 		auto_speed = config.get_value("game_settings", "auto_speed", 20)
 		

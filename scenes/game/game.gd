@@ -264,10 +264,10 @@ func _on_scene_player_scene_ended(scene: VneScene) -> void:
 	## Конец игры.
 	elif scene.episode.uuid == "8a6235c6-99af-472d-a534-c46543194305": ## Плохая концовка:
 		print("Плохая концовка")
-		pass
+		Loader.load_scene("res://scenes/main_menu/main_menu.tscn")
 	elif scene.episode.uuid == "edf5410c-93f4-4563-8d27-86a93945c8fd": ## Неплохая:
 		print("Неплохая концовка")
-		pass
+		Loader.load_scene("res://scenes/main_menu/main_menu.tscn")
 	
 	_is_handling_scene_end = false
 

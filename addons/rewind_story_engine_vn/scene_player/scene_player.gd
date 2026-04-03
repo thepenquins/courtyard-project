@@ -72,7 +72,8 @@ func _next_frame_pressed() -> void:
 			if not next_frame():
 				scene_ended.emit(_scene)
 		else:
-			text_box.advance()
+			if not transition_playing:
+				text_box.advance()
 
 
 func  _prev_frame_pressed() -> void:
@@ -95,8 +96,13 @@ func _process(delta: float) -> void:
 func _rewind() -> void:
 	if not Engine.is_editor_hint() and _current_rewind_reload <= 0:
 		_current_rewind_reload = REWIND_RELOAD_TIME
-		if not next_frame(true):
-			scene_ended.emit(_scene)
+		if Settings.rewind_mode == Settings.RewindMode.Viewed:
+			if Settings.profile.is_viewed(_scene.episode.uuid, _index + 1):
+				if not next_frame(true):
+					scene_ended.emit(_scene)
+		else:
+			if not next_frame(true):
+				scene_ended.emit(_scene)
 
 
 func _on_text_box_frame_ended() -> void:
@@ -150,6 +156,8 @@ func set_frame(frame_index: int, instantly: bool = false) -> void:
 	
 	if _frame == null:
 		return
+	
+	Settings.profile.add_viewed(_scene.episode.uuid, _index)
 	
 	set_location(_frame.location)
 	set_characters(_frame.characters, instantly)
