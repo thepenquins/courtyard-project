@@ -119,6 +119,24 @@ func _on_scene_player_frame_setting(rse_frame: RSEFrame, vn_frame: VneFrame) -> 
 	_frame_setting_processing(rse_frame, vn_frame)
 
 
+var first_vent_uuids = [
+	"7652e22d-08db-49ed-a2e5-e3956346e35f",
+	"4709f6b7-f839-43c3-b8ad-1d5d8f1b1d2a",
+	"f8476a82-c88b-4eed-856a-f2360f3c0a86",
+	"75b468ab-4abe-4ddb-af66-770bbbd1a26a",
+	"75b468ab-4abe-4ddb-af66-770bbbd1a26a",
+	"837fcf98-1981-42f4-85b9-471313e6738d",
+	"837fcf98-1981-42f4-85b9-471313e6738d",
+	"25e35726-7463-476b-a30c-3391fa700730",
+]
+
+
+var second_vent_uuids = [
+	"747370b6-3b67-4065-a51b-d771e8e4d513",
+	"5322b889-b98f-4abc-9175-c70c28cd8cf0",
+]
+
+
 func _frame_setting_processing(rse_frame: RSEFrame, _vn_frame: VneFrame) -> void:
 	if _current_episode_uuid == "2e06a402-8c35-4b45-a56a-461653c4289c":
 		if rse_frame.uuid == "065b4619-ead9-4555-aa55-0c195e1446ee" or rse_frame.uuid == "ce7d8169-a703-419f-9de6-fa3988ad69e8":
@@ -150,12 +168,35 @@ func _frame_setting_processing(rse_frame: RSEFrame, _vn_frame: VneFrame) -> void
 				_sis_camera_4 = true
 				_zoom_camera_from_to(Vector2(3, 3), Vector2(4, 4), 0.25)
 				_move_camera_from_to(Vector2(-43.0, 36.0), Vector2(-24.0, -52.0), 0.5)
+	
+	if _current_episode_uuid == "6845e21f-aa2a-491f-9b0c-0b14f1c58443":
+		if rse_frame.uuid == "fd01bd5a-e36c-4283-ae9d-fa663f680bec" or rse_frame.uuid == "d48d8cb5-1183-4e12-aaea-6a57c0a0af73":
+			_reset_camera()
+		elif first_vent_uuids.has(rse_frame.uuid):
+			if not _vent_camera_1:
+				_vent_camera_1 = true
+				_zoom_camera_from_to(Vector2(1, 1), Vector2(3, 3), 2.0)
+				_move_camera_from_to(Vector2(0.0, 0.0), Vector2(-550.0, -270.0), 2.0)
+				pass
+		
+	if _current_episode_uuid == "8a6235c6-99af-472d-a534-c46543194305":
+		if rse_frame.uuid == "2149ed4f-fa74-4290-99ac-2aa132f7b77a" or rse_frame.uuid == "167b43c3-2de1-4522-9163-b2c518ccc579":
+			_reset_camera()
+		elif second_vent_uuids.has(rse_frame.uuid):
+			if not _vent_camera_2:
+				_vent_camera_2 = true
+				_zoom_camera_from_to(Vector2(1, 1), Vector2(3, 3), 2.0)
+				_move_camera_from_to(Vector2(0.0, 0.0), Vector2(-550.0, -270.0), 2.0)
+				pass
 
 
 var _sis_camera_1: bool = false
 var _sis_camera_2: bool = false
 var _sis_camera_3: bool = false
 var _sis_camera_4: bool = false
+
+var _vent_camera_1: bool = false
+var _vent_camera_2: bool = false
 
 @export var camera_2d: Camera2D
 var _camera_tween_position: Tween
@@ -176,6 +217,9 @@ func _reset_camera() -> void:
 	_sis_camera_2 = false
 	_sis_camera_3 = false
 	_sis_camera_4 = false
+	
+	_vent_camera_1 = false
+	_vent_camera_2 = false
 
 
 func _move_camera_from_to(from: Vector2, to: Vector2, duration: float) -> void:
