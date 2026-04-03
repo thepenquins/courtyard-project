@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bays1pd84xhqr"]
+
+[ext_resource type="Texture2D" uid="uid://x2mumi5a2u8r" path="res://scenes/locations/cg_мать/Mother_Hug_Full_hd.png" id="1_i3cn0"]
+[ext_resource type="Script" uid="uid://c3cwr4au7kra8" path="res://scenes/locations/cg_мать/cg_мать.gd" id="1_srmuf"]
+[ext_resource type="Texture2D" uid="uid://d4eck8rtr2g2d" path="res://scenes/locations/cg_мать/Mother_Hug_Full_hd_2.png" id="3_rtpja"]
+
+[node name="CgМать" type="Node2D" unique_id=1455384059 node_paths=PackedStringArray("sprite_2d")]
+script = ExtResource("1_srmuf")
+image1 = ExtResource("1_i3cn0")
+image2 = ExtResource("3_rtpja")
+sprite_2d = NodePath("Sprite2D")
+uuid = "ba720b58-c878-4721-bfdb-104dd7812df0"
+parameters = Dictionary[String, PackedStringArray]({
+"Глаза": PackedStringArray("Открыты", "Закрыты")
+})
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=337405140]
+texture = ExtResource("1_i3cn0")
+centered = false
