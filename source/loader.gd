@@ -14,9 +14,9 @@ var _loader_scene: Control
 
 
 func _ready() -> void:
-	#var packed = load("res://scenes/ui/loader.tscn") as PackedScene
-	#_loader_scene = packed.instantiate()
-	#add_child(_loader_scene)
+	var packed = load("res://scenes/ui/loader.tscn") as PackedScene
+	_loader_scene = packed.instantiate()
+	add_child(_loader_scene)
 	
 	VneScenePlayer.load_all_characters()
 	VneScenePlayer.load_all_locations()
