@@ -15,6 +15,8 @@ var _index: int
 
 static var _characters_packed_scenes: Dictionary[VneCharacterResource, PackedScene]
 static var _locations: Dictionary[VneLocationResource, PackedScene]
+static var _transitions: Dictionary[VneTransitionResource, PackedScene]
+static var _vfx: Dictionary[VneVfxResource, PackedScene]
 
 var _characters: Dictionary[VneCharacterResource, VneCharacter2D]
 
@@ -26,6 +28,8 @@ var _music_player: FmodEventEmitter2D
 var _current_bgs: VneBgsResource
 var _editor_bgs_player: FmodEvent
 var _bgs_player: FmodEventEmitter2D
+
+var _current_vfx: Dictionary[VneVfxResource, VneVfx]
 
 var _is_new_location: bool = true
 
@@ -152,6 +156,7 @@ func set_frame(frame_index: int, instantly: bool = false) -> void:
 	set_music(_frame.music)
 	set_bgs(_frame.bgs)
 	set_sfx(_frame.sfx)
+	set_vfx(_frame.vfx)
 	## ...
 	
 	var rse_frame = _scene.episode.get_frame_by_uuid(_frame.uuid)
@@ -242,6 +247,25 @@ func set_sfx(sfx_array: Array[VneSfxFrame]) -> void:
 		var emitter = set_audio_fmod_event(null, null, sfx)
 
 
+## 1. Удалить все VFX, которых нет в кадре.
+## 2. Добавить недостающие VFX.
+func set_vfx(vfx_array: Array[VneVfxFrame]) -> void:
+	var new_vfx_dict: Dictionary[VneVfxResource, VneVfx]
+	for vfx in vfx_array:
+		if _current_vfx.has(vfx.resource):
+			new_vfx_dict[vfx.vfx] = _current_vfx[vfx.vfx]
+			_current_vfx.erase(vfx.vfx)
+		else:
+			var vfx_scene = _vfx[vfx.vfx].instantiate() as VneVfx
+			add_child(vfx_scene)
+			new_vfx_dict[vfx.vfx] = vfx_scene
+	
+	for vfx: VneVfx in _current_vfx.values():
+		vfx.queue_free()
+	
+	_current_vfx = new_vfx_dict.duplicate_deep()
+
+
 func set_audio_fmod_event(fmod_event: FmodEvent, current_audio: VneAudioResource, audio_frame: VneFrameWithMultipleParameters) -> FmodEvent:
 	if audio_frame.resource == null:
 		if fmod_event:
@@ -298,6 +322,13 @@ func instantiate_all_characters() -> void:
 			_characters[character_resource] = character_scene
 
 
+static func load_all_resources() -> void:
+	load_all_characters()
+	load_all_locations()
+	load_all_transitions()
+	load_all_vfx()
+
+
 ## Загрузить персонажей, если их нет.
 static func load_all_characters() -> void:
 	if VNE.visual_novel == null:
@@ -322,6 +353,30 @@ static func load_all_locations() -> void:
 				continue
 			var location_packed_scene: PackedScene = load(location.path_to_file)
 			_locations[location] = location_packed_scene
+
+
+static func load_all_transitions() -> void:
+	if VNE.visual_novel == null:
+		return
+	
+	for transition in VNE.visual_novel.transitions:
+		if not _transitions.has(transition):
+			if transition.path_to_file == "":
+				continue
+			var transition_packed_scene: PackedScene = load(transition.path_to_file)
+			_transitions[transition] = transition_packed_scene
+
+
+static func load_all_vfx() -> void:
+	if VNE.visual_novel == null:
+		return
+	
+	for vfx in VNE.visual_novel.vfx:
+		if not _vfx.has(vfx):
+			if vfx.path_to_file == "":
+				continue
+			var vfx_packed_scene: PackedScene = load(vfx.path_to_file)
+			_vfx[vfx] = vfx_packed_scene
 
 
 func _create_fmod_event(event_name: String) -> FmodEvent:
@@ -402,7 +457,7 @@ func play_transition(transition_resource: VneTransitionResource, clear_text_box:
 		transition_playing = true
 		if clear_text_box:
 			text_box.clear()
-		var transition_packed_scene = load(transition_resource.path_to_file) as PackedScene
+		var transition_packed_scene = _transitions[transition_resource]
 		var transition_scene = transition_packed_scene.instantiate() as VneTransition
 		add_child(transition_scene)
 		await transition_scene.ended

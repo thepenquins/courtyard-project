@@ -54,8 +54,7 @@ func _notification(what: int) -> void:
 	if what == NOTIFICATION_VISIBILITY_CHANGED:
 		if is_visible_in_tree():
 			update_options()
-			scene_player.load_all_characters()
-			scene_player.load_all_locations()
+			scene_player.load_all_resources()
 			scene_player.instantiate_all_characters()
 			scene_player.play_all_audio()
 			if _frame != null:
@@ -213,6 +212,8 @@ func _on_sfx_resource_added(resource: VneResource) -> void:
 	if _frame == null:
 		return
 	_frame.add_sfx(resource)
+	
+	scene_player.set_sfx(_frame.sfx)
 
 
 func _on_sfx_resource_removed(resource: VneResource) -> void:
@@ -223,6 +224,8 @@ func _on_sfx_resource_removed(resource: VneResource) -> void:
 	if _edited_resource is VneSfxResource:
 		_edited_resource = null
 		inspector.set_frame_data(null)
+	
+	scene_player.set_sfx(_frame.sfx)
 
 
 func _on_sfx_resources_order_changed(new_order: Array[VneResource]) -> void:
@@ -235,12 +238,16 @@ func _on_sfx_resources_order_changed(new_order: Array[VneResource]) -> void:
 		if sfx_f:
 			new_sfxs.append(sfx_f)
 	_frame.sfx = new_sfxs
+	
+	scene_player.set_sfx(_frame.sfx)
 
 
 func _on_vfx_resource_added(resource: VneResource) -> void:
 	if _frame == null:
 		return
 	_frame.add_vfx(resource)
+	
+	scene_player.set_vfx(_frame.vfx)
 
 
 func _on_vfx_resource_removed(resource: VneResource) -> void:
@@ -251,6 +258,8 @@ func _on_vfx_resource_removed(resource: VneResource) -> void:
 	if _edited_resource is VneVfxResource:
 		_edited_resource = null
 		inspector.set_frame_data(null)
+	
+	scene_player.set_vfx(_frame.vfx)
 
 
 func _on_vfx_resources_order_changed(new_order: Array[VneResource]) -> void:
@@ -263,6 +272,8 @@ func _on_vfx_resources_order_changed(new_order: Array[VneResource]) -> void:
 		if vfx_f:
 			new_vfxs.append(vfx_f)
 	_frame.vfx = new_vfxs
+	
+	scene_player.set_vfx(_frame.vfx)
 
 
 func _on_transition_in_option_button_resource_selected(resource: VneResource) -> void:

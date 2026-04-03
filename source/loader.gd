@@ -18,9 +18,7 @@ func _ready() -> void:
 	_loader_scene = packed.instantiate()
 	add_child(_loader_scene)
 	
-	VneScenePlayer.load_all_characters()
-	VneScenePlayer.load_all_locations()
-	pass
+	VneScenePlayer.load_all_resources()
 
 
 func _process(_delta: float) -> void:
