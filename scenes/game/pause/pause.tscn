@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://c6ppnx1khkfvc"]
 
 [ext_resource type="Script" uid="uid://s5rl12jba1y2" path="res://scenes/game/pause/pause.gd" id="1_okjjf"]
+[ext_resource type="PackedScene" uid="uid://dogjfwgr4fqbu" path="res://scenes/main_menu/settings/settings.tscn" id="2_0jcw3"]
+[ext_resource type="Texture2D" uid="uid://cb7i0205hlw6i" path="res://graphics/фон для настроек.png" id="2_nvhcl"]
+[ext_resource type="FontFile" uid="uid://d05i7wrk48m4v" path="res://graphics/шрифт/static/InterTight-ExtraBold.ttf" id="3_vdi0e"]
 
-[node name="Pause" type="Control" unique_id=2031611172]
+[node name="Pause" type="Control" unique_id=2031611172 node_paths=PackedStringArray("settings")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,15 +13,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_okjjf")
+settings = NodePath("Settings")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1360977577]
+[node name="ColorRect" type="TextureRect" parent="." unique_id=1893124451]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.49803922)
+mouse_filter = 2
+texture = ExtResource("2_nvhcl")
+expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=934477403]
 layout_mode = 1
@@ -36,25 +42,38 @@ grow_vertical = 2
 
 [node name="ContinueButton" type="Button" parent="VBoxContainer" unique_id=450887714]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_vdi0e")
+theme_override_font_sizes/font_size = 38
 text = "Продолжить"
 flat = true
 
 [node name="SaveButton" type="Button" parent="VBoxContainer" unique_id=702606019]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_vdi0e")
+theme_override_font_sizes/font_size = 38
 text = "Сохранить"
 flat = true
 
-[node name="LoadButton" type="Button" parent="VBoxContainer" unique_id=1986472823]
-visible = false
+[node name="SettingsButton" type="Button" parent="VBoxContainer" unique_id=1986472823]
 layout_mode = 2
-text = "Загрузить"
+theme_override_fonts/font = ExtResource("3_vdi0e")
+theme_override_font_sizes/font_size = 38
+text = "Настройки"
 flat = true
 
 [node name="ExitToMenuButton" type="Button" parent="VBoxContainer" unique_id=1636007353]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_vdi0e")
+theme_override_font_sizes/font_size = 38
 text = "Выйти в меню"
 flat = true
 
+[node name="Settings" parent="." unique_id=267592914 instance=ExtResource("2_0jcw3")]
+visible = false
+layout_mode = 1
+
 [connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitToMenuButton" to="." method="_on_exit_to_menu_button_pressed"]
+[connection signal="return_pressed" from="Settings" to="." method="_on_settings_return_pressed"]

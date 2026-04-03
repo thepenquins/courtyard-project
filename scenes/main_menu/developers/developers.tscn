@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://blqkt404q3x2e" path="res://scenes/main_menu/developers/developers_section.gd" id="1_hy3gp"]
 [ext_resource type="Script" uid="uid://csoqt0e86mpit" path="res://scenes/main_menu/menu_element.gd" id="1_nlfm1"]
+[ext_resource type="Texture2D" uid="uid://cb7i0205hlw6i" path="res://graphics/фон для настроек.png" id="2_lpuv2"]
 
 [node name="Developers" type="Control" unique_id=2032380843 node_paths=PackedStringArray("return_button")]
 layout_mode = 3
@@ -13,16 +14,28 @@ grow_vertical = 2
 script = ExtResource("1_nlfm1")
 return_button = NodePath("ReturnButton")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2080118451]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_lpuv2")
+expand_mode = 1
+
 [node name="Title" type="RichTextLabel" parent="." unique_id=1995572303]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -300.0
-offset_top = 100.0
+offset_top = 140.0
 offset_right = 300.0
-offset_bottom = 150.0
+offset_bottom = 190.0
 grow_horizontal = 2
+theme_override_font_sizes/bold_font_size = 32
 bbcode_enabled = true
 text = "[b]Разработчики"
 fit_content = true
@@ -99,10 +112,11 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -98.0
-offset_top = -158.0
+offset_top = -198.0
 offset_right = 98.0
-offset_bottom = -100.0
+offset_bottom = -140.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_font_sizes/font_size = 32
 text = "Вернуться"
 flat = true
