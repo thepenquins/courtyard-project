@@ -19,9 +19,12 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="COLODETS"
-config/version="0.7"
-run/main_scene="uid://cea2kp6234jfk"
+config/version="0.8"
+run/main_scene="uid://c0f35tf8gactr"
 config/features=PackedStringArray("4.6", "Forward Plus")
+boot_splash/bg_color=Color(0.1254902, 0.1254902, 0.1254902, 1)
+boot_splash/stretch_mode=0
+boot_splash/image="uid://ltpqganvrryj"
 config/icon="uid://c5uw7gk2oc74k"
 
 [autoload]
