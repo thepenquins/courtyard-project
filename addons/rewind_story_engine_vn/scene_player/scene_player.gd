@@ -250,14 +250,14 @@ func set_audio_fmod_event(fmod_event: FmodEvent, current_audio: VneAudioResource
 	
 	if current_audio == audio_frame.resource:
 		if fmod_event:
-			_set_fmod_event_parameters(fmod_event, audio_frame.parameters)
+			_set_fmod_event_parameters(fmod_event, current_audio, audio_frame.parameters)
 		return fmod_event
 	
 	if fmod_event:
 		fmod_event.stop(0)
 	
 	fmod_event = _create_fmod_event(audio_frame.resource.path_to_file)
-	_set_fmod_event_parameters(fmod_event, audio_frame.parameters)
+	_set_fmod_event_parameters(fmod_event, current_audio, audio_frame.parameters)
 	
 	return fmod_event
 
@@ -270,14 +270,14 @@ func set_audio_fmod_event_emitter_2d(event_emitter: FmodEventEmitter2D, current_
 	
 	if current_audio == audio_frame.resource:
 		if event_emitter:
-			_set_fmod_event_emitter_2D_parameters(event_emitter, audio_frame.parameters)
+			_set_fmod_event_emitter_2D_parameters(event_emitter, current_audio, audio_frame.parameters)
 		return event_emitter
 	
 	if event_emitter:
 		event_emitter.stop()
 	
 	event_emitter = _create_fmod_event_emitter_2D(audio_frame.resource.path_to_file)
-	_set_fmod_event_emitter_2D_parameters(event_emitter, audio_frame.parameters)
+	_set_fmod_event_emitter_2D_parameters(event_emitter, current_audio, audio_frame.parameters)
 	
 	return event_emitter
 
@@ -339,14 +339,34 @@ func _create_fmod_event_emitter_2D(event_name: String) -> FmodEventEmitter2D:
 	return event_emitter
 
 
-func _set_fmod_event_parameters(fmod_event: FmodEvent, parameters: Dictionary[String, float]) -> void:
+func _set_fmod_event_parameters(fmod_event: FmodEvent, audio: VneAudioResource, parameters: Dictionary[String, float]) -> void:
+	if audio == null:
+		return
+	
+	var event_description = FmodServer.get_event(audio.path_to_file)
+	var event_parameters = event_description.get_parameters()
+	
+	if not event_description.is_valid():
+		return
+	
 	for parameter in parameters:
-		fmod_event.set_parameter_by_id(int(parameter), parameters[parameter])
+		if event_parameters.has(parameter):
+			fmod_event.set_parameter_by_id(int(parameter), parameters[parameter])
 
 
-func _set_fmod_event_emitter_2D_parameters(event_emitter: FmodEventEmitter2D, parameters: Dictionary[String, float]) -> void:
+func _set_fmod_event_emitter_2D_parameters(event_emitter: FmodEventEmitter2D, audio: VneAudioResource, parameters: Dictionary[String, float]) -> void:
+	if audio == null:
+		return
+	
+	var event_description = FmodServer.get_event(audio.path_to_file)
+	var event_parameters = event_description.get_parameters()
+	
+	if not event_description.is_valid():
+		return
+	
 	for parameter in parameters:
-		event_emitter.set_parameter_by_id(int(parameter), parameters[parameter])
+		if event_parameters.has(parameter):
+			event_emitter.set_parameter_by_id(int(parameter), parameters[parameter])
 
 
 func _exit_tree() -> void:

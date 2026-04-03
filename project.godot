@@ -102,4 +102,22 @@ switch_interface_visibility={
 
 [richer_text_label]
 
-fonts={}
+fonts={
+&"InterTight": "res://graphics/шрифт/static/InterTight-Regular.ttf",
+&"InterTight-Black": "res://graphics/шрифт/static/InterTight-Black.ttf",
+&"InterTight-BlackItalic": "res://graphics/шрифт/static/InterTight-BlackItalic.ttf",
+&"InterTight-ExtraBold": "res://graphics/шрифт/static/InterTight-ExtraBold.ttf",
+&"InterTight-ExtraBoldItalic": "res://graphics/шрифт/static/InterTight-ExtraBoldItalic.ttf",
+&"InterTight-ExtraLight": "res://graphics/шрифт/static/InterTight-ExtraLight.ttf",
+&"InterTight-ExtraLightItalic": "res://graphics/шрифт/static/InterTight-ExtraLightItalic.ttf",
+&"InterTight-Light": "res://graphics/шрифт/static/InterTight-Light.ttf",
+&"InterTight-LightItalic": "res://graphics/шрифт/static/InterTight-LightItalic.ttf",
+&"InterTight-Medium": "res://graphics/шрифт/static/InterTight-Medium.ttf",
+&"InterTight-MediumItalic": "res://graphics/шрифт/static/InterTight-MediumItalic.ttf",
+&"InterTight-SemiBold": "res://graphics/шрифт/static/InterTight-SemiBold.ttf",
+&"InterTight-SemiBoldItalic": "res://graphics/шрифт/static/InterTight-SemiBoldItalic.ttf",
+&"InterTight-Thin": "res://graphics/шрифт/static/InterTight-Thin.ttf",
+&"InterTight-ThinItalic": "res://graphics/шрифт/static/InterTight-ThinItalic.ttf",
+&"InterTight-VariableFont_wght": "res://graphics/шрифт/InterTight-VariableFont_wght.ttf",
+&"InterTightItalic": "res://graphics/шрифт/static/InterTight-BoldItalic.ttf"
+}
