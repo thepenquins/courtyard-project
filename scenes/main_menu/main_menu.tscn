@@ -10,6 +10,7 @@
 [ext_resource type="StyleBox" uid="uid://d1fbwm2rnk6g6" path="res://scenes/main_menu/main_menu_button_style_box.tres" id="4_x2yjq"]
 [ext_resource type="FontFile" uid="uid://bsdjrci2x7mok" path="res://graphics/шрифт/static/InterTight-BlackItalic.ttf" id="5_thkx5"]
 [ext_resource type="PackedScene" uid="uid://mr4x0s326o2i" path="res://scenes/save_manager/save_manager.tscn" id="5_wem23"]
+[ext_resource type="PackedScene" uid="uid://vhnb02tsv7tk" path="res://scenes/vfx/pomehi_g/pomehi_g.tscn" id="11_lqpn7"]
 
 [sub_resource type="Animation" id="Animation_thkx5"]
 length = 0.001
@@ -227,6 +228,9 @@ fmod_parameters/unchill_scale/variant_type = 3
 fmod_parameters/transition_speed/id = 1915305782577568744
 fmod_parameters/transition_speed = 0.5
 fmod_parameters/transition_speed/variant_type = 3
+
+[node name="Noise" parent="." unique_id=131947625 instance=ExtResource("11_lqpn7")]
+layout_mode = 1
 
 [connection signal="pressed" from="Main/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Main/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
