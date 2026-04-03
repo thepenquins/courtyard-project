@@ -29,9 +29,7 @@ visible = false
 z_index = 100
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1115625447]
-position = Vector2(-24, -52)
 offset = Vector2(960, 540)
-zoom = Vector2(4, 4)
 
 [connection signal="frame_setting" from="ScenePlayer" to="." method="_on_scene_player_frame_setting"]
 [connection signal="scene_ended" from="ScenePlayer" to="." method="_on_scene_player_scene_ended"]
