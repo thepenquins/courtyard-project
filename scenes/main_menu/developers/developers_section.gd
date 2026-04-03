@@ -64,4 +64,4 @@ func _create_developer(developer_name: String, url: String) -> void:
 
 
 func _on_developer_meta_clicked(meta: Variant) -> void:
-	print(meta)
+	OS.shell_open(meta)
