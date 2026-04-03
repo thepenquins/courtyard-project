@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://lpie5xpngm1o" path="res://scenes/game/history/history.gd" id="1_g63q5"]
 [ext_resource type="Script" uid="uid://8dwfib45n8ir" path="res://addons/rewind_story_engine_vn/utils/set_icon_for_button.gd" id="2_iwt6i"]
+[ext_resource type="Texture2D" uid="uid://dhmgrya5as3ba" path="res://graphics/фон для истории диалогов.png" id="2_okc20"]
 
-[sub_resource type="DPITexture" id="DPITexture_okc20"]
+[sub_resource type="DPITexture" id="DPITexture_0jn8w"]
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"none\" stroke=\"#e0e0e0\" stroke-width=\"2\" d=\"m3 3 10 10M3 13 13 3\"/></svg>
 "
 saturation = 2.0
@@ -25,14 +26,16 @@ container = NodePath("MarginContainer/ScrollContainer/GridContainer")
 scroll_container = NodePath("MarginContainer/ScrollContainer")
 close_button = NodePath("CloseButton")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1712755192]
+[node name="Background" type="TextureRect" parent="." unique_id=311068912]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.49803922)
+mouse_filter = 2
+texture = ExtResource("2_okc20")
+expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1674933043]
 layout_mode = 1
@@ -68,6 +71,6 @@ offset_top = 32.0
 offset_right = -32.0
 offset_bottom = 56.0
 grow_horizontal = 0
-icon = SubResource("DPITexture_okc20")
+icon = SubResource("DPITexture_0jn8w")
 script = ExtResource("2_iwt6i")
 icon_name = &"Close"
