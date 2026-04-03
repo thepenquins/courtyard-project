@@ -157,7 +157,8 @@ func set_frame(frame_index: int, instantly: bool = false) -> void:
 	if _frame == null:
 		return
 	
-	Settings.profile.add_viewed(_scene.episode.uuid, _index)
+	if not Engine.is_editor_hint():
+		Settings.profile.add_viewed(_scene.episode.uuid, _index)
 	
 	set_location(_frame.location)
 	set_characters(_frame.characters, instantly)
