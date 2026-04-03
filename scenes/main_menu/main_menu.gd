@@ -35,7 +35,6 @@ func _on_continue_pressed() -> void:
 
 
 func load_game(save: Save) -> void:
-	#_return_to_main()
 	Game.save_to_load = save
 	_on_play_pressed()
 
