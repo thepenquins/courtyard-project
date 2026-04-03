@@ -121,7 +121,7 @@ Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
 Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
 }
 
-[sub_resource type="DPITexture" id="DPITexture_431fo"]
+[sub_resource type="DPITexture" id="DPITexture_f1fvh"]
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"none\" stroke=\"#e0e0e0\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M10 2H6m2 4v8M4 9l4 5 4-5\"/></svg>
 "
 saturation = 2.0
@@ -131,7 +131,7 @@ Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
 Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
 }
 
-[sub_resource type="DPITexture" id="DPITexture_55t82"]
+[sub_resource type="DPITexture" id="DPITexture_431fo"]
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"m8 1a1 1 0 0 0 -1 1v5h-2c-1.108 0-2 .892-2 2v1h10v-1c0-1.108-.892-2-2-2h-2v-5a1 1 0 0 0 -1-1zm-5 10v4l10-1v-3z\"/></svg>
 "
 saturation = 2.0
@@ -141,7 +141,7 @@ Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
 Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
 }
 
-[sub_resource type="DPITexture" id="DPITexture_f1fvh"]
+[sub_resource type="DPITexture" id="DPITexture_55t82"]
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"M3 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4l-3-3h-1v6H3zm1 0v5h3V1zm4 8a1 1 0 0 1 0 4 1 1 0 0 1 0-4z\"/></svg>
 "
 saturation = 2.0
@@ -597,7 +597,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 0
 tooltip_text = "Наследовать предыдущий кадр"
-icon = SubResource("DPITexture_431fo")
+icon = SubResource("DPITexture_f1fvh")
 script = ExtResource("17_i21fc")
 icon_name = &"MoveDown"
 
@@ -605,7 +605,7 @@ icon_name = &"MoveDown"
 layout_mode = 2
 size_flags_horizontal = 0
 tooltip_text = "Очистить сцену"
-icon = SubResource("DPITexture_55t82")
+icon = SubResource("DPITexture_431fo")
 script = ExtResource("17_i21fc")
 icon_name = &"Clear"
 
@@ -621,11 +621,12 @@ icon_name = &"MoveUp"
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Сохранить сцену"
-icon = SubResource("DPITexture_f1fvh")
+icon = SubResource("DPITexture_55t82")
 script = ExtResource("17_i21fc")
 icon_name = &"Save"
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftDownVBoxContainer" unique_id=1100765979]
+visible = false
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("16_xo5hf")
