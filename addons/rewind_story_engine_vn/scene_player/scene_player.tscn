@@ -8,7 +8,7 @@
 script = ExtResource("1_h4l0k")
 location_container = NodePath("LocationContainer")
 characters_container = NodePath("CharactersContainer")
-text_box = NodePath("TextBox")
+text_box = NodePath("UICanvasLayer/TextBox")
 
 [node name="LocationContainer" type="Node" parent="." unique_id=1557463958]
 
@@ -17,7 +17,9 @@ script = ExtResource("2_72hb3")
 bottom_point = 650.0
 characters_spacing = 512.0
 
-[node name="TextBox" parent="." unique_id=1782723377 instance=ExtResource("3_72hb3")]
+[node name="UICanvasLayer" type="CanvasLayer" parent="." unique_id=1021524477]
+
+[node name="TextBox" parent="UICanvasLayer" unique_id=1782723377 instance=ExtResource("3_72hb3")]
 
 [connection signal="child_order_changed" from="CharactersContainer" to="CharactersContainer" method="move_characters"]
-[connection signal="frame_ended" from="TextBox" to="." method="_on_text_box_frame_ended"]
+[connection signal="frame_ended" from="UICanvasLayer/TextBox" to="." method="_on_text_box_frame_ended"]
