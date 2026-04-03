@@ -12,6 +12,8 @@
 [ext_resource type="FontFile" uid="uid://bsdjrci2x7mok" path="res://graphics/шрифт/static/InterTight-BlackItalic.ttf" id="5_thkx5"]
 [ext_resource type="PackedScene" uid="uid://mr4x0s326o2i" path="res://scenes/save_manager/save_manager.tscn" id="5_wem23"]
 [ext_resource type="Script" uid="uid://ctd4nhsp20vik" path="res://scenes/main_menu/button_with_sound.gd" id="6_rrgl4"]
+[ext_resource type="FontFile" uid="uid://dmeaw7xhsyehc" path="res://graphics/шрифт/static/InterTight-BoldItalic.ttf" id="9_dn3lk"]
+[ext_resource type="Script" uid="uid://ed1xywkvte6x" path="res://scenes/main_menu/rich_text_label.gd" id="10_4ujhu"]
 [ext_resource type="PackedScene" uid="uid://vhnb02tsv7tk" path="res://scenes/vfx/pomehi_g/pomehi_g.tscn" id="12_qel0l"]
 
 [sub_resource type="Animation" id="Animation_thkx5"]
@@ -198,6 +200,19 @@ pause_on_hover = false
 font = ExtResource("5_thkx5")
 text_color = Color(1, 1, 1, 0.6862745)
 
+[node name="RichTextLabel" type="RichTextLabel" parent="Main" unique_id=870985998]
+modulate = Color(1, 1, 1, 0.78431374)
+layout_mode = 0
+offset_left = 45.0
+offset_top = 960.0
+offset_right = 1031.0
+offset_bottom = 1000.0
+theme_override_fonts/normal_font = ExtResource("9_dn3lk")
+bbcode_enabled = true
+text = "Сделано для [url=https://itch.io/jam/vnjamca]Visual Novel Game Jam 2026[/url]"
+fit_content = true
+script = ExtResource("10_4ujhu")
+
 [node name="SaveManager" parent="." unique_id=157741692 instance=ExtResource("5_wem23")]
 visible = false
 layout_mode = 1
@@ -244,6 +259,7 @@ layout_mode = 1
 [connection signal="pressed" from="Main/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Main/VBoxContainer/Developers" to="." method="_on_developers_pressed"]
 [connection signal="pressed" from="Main/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="meta_clicked" from="Main/RichTextLabel" to="Main/RichTextLabel" method="_on_meta_clicked"]
 [connection signal="load_save" from="SaveManager" to="." method="_on_save_manager_load_save"]
 [connection signal="return_pressed" from="SaveManager" to="." method="_return_to_main"]
 [connection signal="return_pressed" from="Extra" to="." method="_return_to_main"]
