@@ -102,6 +102,14 @@ func _load_resources() -> void:
 		var casted_resource = raw_resource.load_casted_resource()
 		add_resource(casted_resource)
 	RSEBaseData.sort_data_array_by_name(resources)
+	
+	RSEBaseData.sort_data_array_by_name(characters)
+	RSEBaseData.sort_data_array_by_name(locations)
+	RSEBaseData.sort_data_array_by_name(music)
+	RSEBaseData.sort_data_array_by_name(bgs)
+	RSEBaseData.sort_data_array_by_name(sfx)
+	RSEBaseData.sort_data_array_by_name(vfx)
+	RSEBaseData.sort_data_array_by_name(transitions)
 
 
 func _load_scenes() -> void:
