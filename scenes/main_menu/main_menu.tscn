@@ -11,6 +11,7 @@
 [ext_resource type="StyleBox" uid="uid://d1fbwm2rnk6g6" path="res://scenes/main_menu/main_menu_button_style_box.tres" id="4_x2yjq"]
 [ext_resource type="FontFile" uid="uid://bsdjrci2x7mok" path="res://graphics/шрифт/static/InterTight-BlackItalic.ttf" id="5_thkx5"]
 [ext_resource type="PackedScene" uid="uid://mr4x0s326o2i" path="res://scenes/save_manager/save_manager.tscn" id="5_wem23"]
+[ext_resource type="Script" uid="uid://ctd4nhsp20vik" path="res://scenes/main_menu/button_with_sound.gd" id="6_rrgl4"]
 [ext_resource type="PackedScene" uid="uid://vhnb02tsv7tk" path="res://scenes/vfx/pomehi_g/pomehi_g.tscn" id="12_qel0l"]
 
 [sub_resource type="Animation" id="Animation_thkx5"]
@@ -111,6 +112,7 @@ theme_override_styles/pressed = ExtResource("4_x2yjq")
 theme_override_styles/hover = ExtResource("4_x2yjq")
 text = "Играть"
 alignment = 0
+script = ExtResource("6_rrgl4")
 
 [node name="Continue" type="Button" parent="Main/VBoxContainer" unique_id=578454009]
 visible = false
@@ -122,6 +124,7 @@ theme_override_styles/hover = ExtResource("4_x2yjq")
 disabled = true
 text = "Продолжить"
 alignment = 0
+script = ExtResource("6_rrgl4")
 
 [node name="Load" type="Button" parent="Main/VBoxContainer" unique_id=2031729635]
 layout_mode = 2
@@ -131,6 +134,7 @@ theme_override_styles/pressed = ExtResource("4_x2yjq")
 theme_override_styles/hover = ExtResource("4_x2yjq")
 text = "Загрузить игру"
 alignment = 0
+script = ExtResource("6_rrgl4")
 
 [node name="Extra" type="Button" parent="Main/VBoxContainer" unique_id=1879831428]
 visible = false
@@ -142,6 +146,7 @@ theme_override_styles/hover = ExtResource("4_x2yjq")
 disabled = true
 text = "Экстра"
 alignment = 0
+script = ExtResource("6_rrgl4")
 
 [node name="Settings" type="Button" parent="Main/VBoxContainer" unique_id=835871003]
 layout_mode = 2
@@ -151,6 +156,7 @@ theme_override_styles/pressed = ExtResource("4_x2yjq")
 theme_override_styles/hover = ExtResource("4_x2yjq")
 text = "Настройки"
 alignment = 0
+script = ExtResource("6_rrgl4")
 
 [node name="Developers" type="Button" parent="Main/VBoxContainer" unique_id=927345693]
 layout_mode = 2
@@ -160,6 +166,7 @@ theme_override_styles/pressed = ExtResource("4_x2yjq")
 theme_override_styles/hover = ExtResource("4_x2yjq")
 text = "Разработчики"
 alignment = 0
+script = ExtResource("6_rrgl4")
 
 [node name="Exit" type="Button" parent="Main/VBoxContainer" unique_id=1073429201]
 layout_mode = 2
@@ -169,6 +176,7 @@ theme_override_styles/pressed = ExtResource("4_x2yjq")
 theme_override_styles/hover = ExtResource("4_x2yjq")
 text = "Выйти"
 alignment = 0
+script = ExtResource("6_rrgl4")
 
 [node name="БегущаяСтрока" type="ColorRect" parent="Main" unique_id=1344773036]
 clip_contents = true

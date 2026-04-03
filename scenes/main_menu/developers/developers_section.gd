@@ -65,3 +65,4 @@ func _create_developer(developer_name: String, url: String) -> void:
 
 func _on_developer_meta_clicked(meta: Variant) -> void:
 	OS.shell_open(meta)
+	AudioPlayer.play_click()

@@ -37,6 +37,7 @@ FmodManager="*uid://cds10pm7hwn3p"
 StoryLoader="*uid://bus06qbqmubs"
 FmodHandler="*uid://jrem3oombdxh"
 SaveManager="*uid://vj1y0r1m1pty"
+AudioPlayer="*uid://by17t4b57ctc4"
 
 [display]
 

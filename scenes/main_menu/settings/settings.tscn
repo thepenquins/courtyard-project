@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://bve84udsyjhov" path="res://scenes/main_menu/settings/setting_text_speed.gd" id="6_7vie7"]
 [ext_resource type="Script" uid="uid://c3twvr5phbd2x" path="res://scenes/main_menu/settings/rewind_option_button.gd" id="8_kct2i"]
 [ext_resource type="StyleBox" uid="uid://b7frbj2fptrvo" path="res://scenes/main_menu/sub_menu_button_style_box.tres" id="8_mqanq"]
+[ext_resource type="Script" uid="uid://ctd4nhsp20vik" path="res://scenes/main_menu/button_with_sound.gd" id="10_xovuy"]
 
 [node name="Settings" type="Control" unique_id=267592914 node_paths=PackedStringArray("return_button")]
 layout_mode = 3
@@ -220,3 +221,4 @@ theme_override_font_sizes/font_size = 32
 theme_override_styles/pressed = ExtResource("8_mqanq")
 theme_override_styles/hover = ExtResource("8_mqanq")
 text = "Вернуться"
+script = ExtResource("10_xovuy")

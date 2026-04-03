@@ -14,7 +14,6 @@ var _active_control: Control
 
 func _ready() -> void:
 	_return_to_main()
-	
 	#print(Settings.profile.viewed)
 
 
