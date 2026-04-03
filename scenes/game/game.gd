@@ -154,7 +154,7 @@ func _frame_setting_processing(rse_frame: RSEFrame, _vn_frame: VneFrame) -> void
 				_sis_camera_2 = true
 				_sis_camera_3 = false
 				camera_2d.zoom = Vector2(3, 3)
-				_move_camera_from_to(Vector2(350.0, 350.0), Vector2(-200.0, 350.0), 5.0)
+				_move_camera_from_to(Vector2(200.0, 210.0), Vector2(-200.0, 350.0), 5.0)
 		elif rse_frame.uuid == "bbc90e72-c43c-47ae-b950-d85c0e22db04" or rse_frame.uuid == "38143268-2375-4cd1-ba61-c1798eaec871": ## 3
 			if not _sis_camera_3:
 				_sis_camera_2 = false
