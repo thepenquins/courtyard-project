@@ -37,6 +37,12 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if not interface_visible:
+		if event is InputEventKey or event is InputEventMouseButton:
+			if event.is_pressed():
+				set_interface_visibility(true)
+				return
+	
 	if event.is_action_pressed("pause"):
 		if not pause.visible:
 			_pause()
@@ -205,8 +211,11 @@ func switch_interface_visibility() -> void:
 	if pause.visible:
 		return
 	
-	interface_visible = not interface_visible
-	
+	set_interface_visibility(not interface_visible)
+
+
+func set_interface_visibility(value: bool) -> void:
+	interface_visible = value
 	options.visible = interface_visible and options.options_container.get_child_count() > 0
 	scene_player.text_box.visible = interface_visible
 
