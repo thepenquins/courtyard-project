@@ -36,4 +36,4 @@ func _update_text() -> void:
 	if _save.auto_save:
 		label.text = "[color=INDIAN_RED][%s][/color] " % tr("АВТО")
 	var datetime = "%s.%02d.%02d %02d:%02d:%02d" % [_save.datetime["year"], _save.datetime["month"], _save.datetime["day"], _save.datetime["hour"], _save.datetime["minute"], _save.datetime["second"]]
-	label.text += "%s\n%s" % [tr(_save.episode_name), datetime]
+	label.text += "[color=orange]%s\n%s" % [tr(_save.episode_name), datetime]
