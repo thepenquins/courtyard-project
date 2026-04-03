@@ -24,27 +24,27 @@
 [sub_resource type="RichTextEffect" id="RichTextEffect_4l6td"]
 resource_name = "prickle"
 script = ExtResource("4_h2ygl")
-metadata/rt = 2220212957264
+metadata/rt = 2177263285924
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_vqpn8"]
 resource_name = "prickle"
 script = ExtResource("4_h2ygl")
-metadata/rt = 2220565278809
+metadata/rt = 2177682716333
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_p5omk"]
 resource_name = "jit2"
 script = ExtResource("3_45kqg")
-metadata/rt = 2220565278809
+metadata/rt = 2177682716333
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_yrk6n"]
 resource_name = "cuss"
 script = ExtResource("4_a7jgp")
-metadata/rt = 2220565278809
+metadata/rt = 2177682716333
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_m1h46"]
 resource_name = "woo"
 script = ExtResource("7_vmmjd")
-metadata/rt = 2220565278809
+metadata/rt = 2177682716333
 
 [sub_resource type="Animation" id="Animation_1hgq8"]
 length = 0.001
@@ -154,7 +154,7 @@ texture_hover = ExtResource("8_p5omk")
 
 [node name="Prev" type="TextureButton" parent="Control/TextureRect/HBoxContainer" unique_id=1332203081]
 layout_mode = 2
-tooltip_text = "Следующий кадр (ЛКМ | Колёсико мыши вниз)"
+tooltip_text = "Предыдущий кадр (Колёсико мыши вверх)"
 mouse_filter = 1
 texture_normal = ExtResource("9_yrk6n")
 texture_hover = ExtResource("10_m1h46")
@@ -282,7 +282,7 @@ metadata/rand = Array[int]([3827202865, 851246197, 3223911580, 1909538342, 34279
 
 [node name="TextRicherTextLabel" type="RichTextLabel" parent="Control" unique_id=1258520363 node_paths=PackedStringArray("ctc_node")]
 clip_contents = false
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 44)
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -312,13 +312,13 @@ script = ExtResource("3_gfp3b")
 animation = "prickle"
 _play = false
 _hold = true
-progress = 0.457924444444444
+progress = 0.4579037037037037
 visible_character = 8
 _triggers = {
 7: [[1003, {}]]
 }
 _transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 718, 35), Transform2D(1, 0, 0, 1, 728, 35), Transform2D(1, 0, 0, 1, 758, 35), Transform2D(1, 0, 0, 1, 766, 35), Transform2D(1, 0, 0, 1, 778, 35), Transform2D(1, 0, 0, 1, 785, 35), Transform2D(1, 0, 0, 1, 805, 35), Transform2D(1, 0, 0, 1, 825, 35), Transform2D(1, 0, 0, 1, 833, 35), Transform2D(1, 0, 0, 1, 841, 35), Transform2D(1, 0, 0, 1, 849, 35), Transform2D(1, 0, 0, 1, 870, 35), Transform2D(1, 0, 0, 1, 890, 35), Transform2D(1, 0, 0, 1, 909, 35), Transform2D(1, 0, 0, 1, 927, 35), Transform2D(1, 0, 0, 1, 954, 35), Transform2D(1, 0, 0, 1, 954, 35)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(7, 26), Vector2(30, 26), Vector2(0, 26), Vector2(15, 26), Vector2(17, 26), Vector2(20, 26), Vector2(22, 26), Vector2(0, 26), Vector2(7, 26), Vector2(0, 26), Vector2(26, 26), Vector2(23, 26), Vector2(21, 26), Vector2(19, 26), Vector2(22, 26), Vector2(0, 26), Vector2(0, 26)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(7, 26), Vector2(30, 26), Vector2(0, 26), Vector2(15, 26), Vector2(27, 26), Vector2(20, 26), Vector2(35, 26), Vector2(0, 26), Vector2(7, 26), Vector2(0, 26), Vector2(26, 26), Vector2(23, 26), Vector2(19, 26), Vector2(22, 26), Vector2(22, 26), Vector2(0, 26), Vector2(0, 26)])
 _alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 _alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 _showing_ctc = true
@@ -401,10 +401,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -86.100006
-offset_right = 76.0
-offset_bottom = -45.09987
+offset_left = -7.0
+offset_top = -87.7
+offset_right = 73.0
+offset_bottom = -46.6999
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("18_vqpn8")
