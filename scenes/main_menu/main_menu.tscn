@@ -6,6 +6,8 @@
 [ext_resource type="FontFile" uid="uid://d05i7wrk48m4v" path="res://graphics/шрифт/static/InterTight-ExtraBold.ttf" id="3_5seab"]
 [ext_resource type="PackedScene" uid="uid://dogjfwgr4fqbu" path="res://scenes/main_menu/settings/settings.tscn" id="3_ob46e"]
 [ext_resource type="PackedScene" uid="uid://mna5pt2yt5wp" path="res://scenes/main_menu/extra/extra.tscn" id="3_uqeha"]
+[ext_resource type="Script" uid="uid://cdr2yyqgqaaxj" path="res://scenes/main_menu/бегущая_строка.gd" id="4_4xg86"]
+[ext_resource type="FontFile" uid="uid://bsdjrci2x7mok" path="res://graphics/шрифт/static/InterTight-BlackItalic.ttf" id="5_thkx5"]
 [ext_resource type="PackedScene" uid="uid://mr4x0s326o2i" path="res://scenes/save_manager/save_manager.tscn" id="5_wem23"]
 
 [node name="MainMenu" type="Control" unique_id=1387221139 node_paths=PackedStringArray("main", "save_manager", "extra", "settings", "developers", "continue_button", "load_button")]
@@ -117,7 +119,8 @@ text = "Выйти"
 flat = true
 alignment = 0
 
-[node name="ColorRect" type="ColorRect" parent="Main" unique_id=1344773036]
+[node name="БегущаяСтрока" type="ColorRect" parent="Main" unique_id=1344773036]
+clip_contents = true
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -127,6 +130,14 @@ offset_top = -40.0
 grow_horizontal = 2
 grow_vertical = 0
 color = Color(0.4392157, 0.4392157, 0.4392157, 0.16862746)
+script = ExtResource("4_4xg86")
+developers = PackedStringArray("O3ZY", "RANKEL", "lexander", "Даня Балахнин", "LehanFox")
+separator = "                              "
+speed = 120.0
+spacing = 120.0
+pause_on_hover = false
+font = ExtResource("5_thkx5")
+text_color = Color(1, 1, 1, 0.6862745)
 
 [node name="SaveManager" parent="." unique_id=157741692 instance=ExtResource("5_wem23")]
 visible = false
