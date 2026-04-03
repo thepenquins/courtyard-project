@@ -42,6 +42,11 @@ func _input(event: InputEvent) -> void:
 			if event.is_pressed():
 				set_interface_visibility(true)
 				return
+	if history.visible:
+		if event is InputEventKey:
+			if event.is_pressed():
+				set_history(false)
+				return
 	
 	if event.is_action_pressed("pause"):
 		if not pause.visible:
