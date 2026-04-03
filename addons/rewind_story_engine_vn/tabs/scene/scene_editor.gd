@@ -430,3 +430,7 @@ func _on_inherit_vfx_next_button_pressed() -> void:
 		var frame_info = _scene.get_frame(i, true)
 		if frame_info.frame:
 			frame_info.frame.copy_vfx_from(_frame)
+
+
+func _on_save_scene_button_pressed() -> void:
+	VNE.visual_novel.save_vn()
