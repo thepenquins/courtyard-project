@@ -72,7 +72,7 @@ layout_mode = 2
 script = ExtResource("1_hy3gp")
 title = "Графика"
 developers = Dictionary[String, String]({
-"LehanFox": "",
+"LehanFox": "https://t.me/LehanFox",
 "RANKEL": "https://vk.com/ankelran"
 })
 
