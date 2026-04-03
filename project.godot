@@ -19,10 +19,10 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="COLODETS"
-config/version="0.6"
+config/version="0.7"
 run/main_scene="uid://cea2kp6234jfk"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://c5uw7gk2oc74k"
 
 [autoload]
 
