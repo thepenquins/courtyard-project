@@ -6,6 +6,8 @@
 @export var day_curtains_nightmare: Texture2D 
 
 @export var evening: Texture2D 
+@export var evening_curtains: Texture2D 
+@export var evening_curtains_nightmare: Texture2D 
 
 @export var night: Texture2D 
 @export var night_nightmare: Texture2D 
@@ -36,7 +38,13 @@ func set_parameters(new_parameters: Dictionary[String, float]) -> void:
 			else:
 				sprite_2d.texture = day_curtains_nightmare
 	elif time == 1: ## Вечер.
-		sprite_2d.texture = evening
+		if curtains == 1:
+			if nightmare == 0:
+				sprite_2d.texture = evening_curtains
+			else:
+				sprite_2d.texture = evening_curtains_nightmare
+		else:
+			sprite_2d.texture = evening
 	else: ## Ночь.
 		if curtains == 0: 
 			if nightmare == 0:

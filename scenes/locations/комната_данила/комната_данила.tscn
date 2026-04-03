@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bsp5hdrjqm87p" path="res://scenes/locations/комната_данила/КБрата1_1.jpg" id="5_1j0wx"]
 [ext_resource type="Texture2D" uid="uid://cd1if3eh11vil" path="res://scenes/locations/комната_данила/КБрата2_3.jpg" id="6_pd4cn"]
 [ext_resource type="Texture2D" uid="uid://bhwnmw22mglyc" path="res://scenes/locations/комната_данила/Кбрата4.jpg" id="7_ikw3u"]
+[ext_resource type="Texture2D" uid="uid://duqgccergr1hr" path="res://scenes/locations/комната_данила/2_4_2.jpg" id="7_ybgvh"]
+[ext_resource type="Texture2D" uid="uid://dnp6fq0x5y61m" path="res://scenes/locations/комната_данила/2_4.jpg" id="8_1j0wx"]
 [ext_resource type="Texture2D" uid="uid://chvdpdmfgu4bi" path="res://scenes/locations/комната_данила/Кбрата4_2.jpg" id="8_eucgu"]
 [ext_resource type="Texture2D" uid="uid://cv3q1mic2aehf" path="res://scenes/locations/комната_данила/Кбрата5.jpg" id="9_5c3n4"]
 [ext_resource type="Texture2D" uid="uid://bhdi0uukvdnk2" path="res://scenes/locations/комната_данила/Кбрата5_1.jpg" id="10_iwehs"]
@@ -18,6 +20,8 @@ day_nightmare = ExtResource("3_25bhh")
 day_curtains = ExtResource("4_ybgvh")
 day_curtains_nightmare = ExtResource("5_1j0wx")
 evening = ExtResource("6_pd4cn")
+evening_curtains = ExtResource("7_ybgvh")
+evening_curtains_nightmare = ExtResource("8_1j0wx")
 night = ExtResource("7_ikw3u")
 night_nightmare = ExtResource("8_eucgu")
 night_curtains = ExtResource("9_5c3n4")
