@@ -44,7 +44,6 @@ SaveManager="*uid://vj1y0r1m1pty"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
-window/stretch/aspect="keep_height"
 mouse_cursor/custom_image="uid://yhg3epvpl402"
 
 [editor_plugins]
