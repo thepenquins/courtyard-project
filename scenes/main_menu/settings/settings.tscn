@@ -93,13 +93,11 @@ layout_mode = 2
 script = ExtResource("3_hcp8u")
 
 [node name="MasterVolumeLabel" type="Label" parent="VBoxContainer/GridContainer" unique_id=1670484672]
-visible = false
 layout_mode = 2
 text = "Общая громкость"
 horizontal_alignment = 2
 
 [node name="MasterVolumeHBoxContainer" type="HBoxContainer" parent="VBoxContainer/GridContainer" unique_id=1553553987 node_paths=PackedStringArray("slider", "spin_box")]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 16
