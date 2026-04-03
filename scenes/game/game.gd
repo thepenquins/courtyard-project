@@ -116,6 +116,89 @@ func _on_scene_player_frame_setting(rse_frame: RSEFrame, vn_frame: VneFrame) -> 
 	_prev_rse_frame = rse_frame
 	_prev_vn_frame = vn_frame
 
+	_frame_setting_processing(rse_frame, vn_frame)
+
+
+func _frame_setting_processing(rse_frame: RSEFrame, _vn_frame: VneFrame) -> void:
+	if _current_episode_uuid == "2e06a402-8c35-4b45-a56a-461653c4289c":
+		if rse_frame.uuid == "065b4619-ead9-4555-aa55-0c195e1446ee" or rse_frame.uuid == "ce7d8169-a703-419f-9de6-fa3988ad69e8":
+			_reset_camera()
+		
+		if rse_frame.uuid == "386c1be4-ee71-4088-af15-f36f412b6d70" or rse_frame.uuid == "8b7e37a1-e972-496c-9273-e9167a76a27c": ## 1
+			if not _sis_camera_1:
+				_sis_camera_1 = true
+				_sis_camera_2 = false
+				camera_2d.zoom = Vector2(3, 3)
+				_move_camera_from_to(Vector2(-250.0, 210.0), Vector2(200.0, 210.0), 5.0)
+		elif rse_frame.uuid == "fe509ff8-5d20-4276-ac05-9bdd56001579" or rse_frame.uuid == "880a3636-e039-4e59-ab0c-4ce6a581614b": ## 2
+			if not _sis_camera_2:
+				_sis_camera_1 = false
+				_sis_camera_2 = true
+				_sis_camera_3 = false
+				camera_2d.zoom = Vector2(3, 3)
+				_move_camera_from_to(Vector2(350.0, 350.0), Vector2(-200.0, 350.0), 5.0)
+		elif rse_frame.uuid == "bbc90e72-c43c-47ae-b950-d85c0e22db04" or rse_frame.uuid == "38143268-2375-4cd1-ba61-c1798eaec871": ## 3
+			if not _sis_camera_3:
+				_sis_camera_2 = false
+				_sis_camera_3 = true
+				_sis_camera_4 = false
+				camera_2d.zoom = Vector2(3, 3)
+				_move_camera_from_to(Vector2(-200.0, 350.0), Vector2(-43.0, 36.0), 5.0)
+		elif rse_frame.uuid == "87fd976d-fa3e-4d6a-8b3c-0da937021e0f" or rse_frame.uuid == "68d723f4-2f0c-409a-a997-f0239cd42047" or rse_frame.uuid == "94e84c58-1791-4c43-9111-9e8acd50c47f": ## 4
+			if not _sis_camera_4:
+				_sis_camera_3 = false
+				_sis_camera_4 = true
+				_zoom_camera_from_to(Vector2(3, 3), Vector2(4, 4), 0.25)
+				_move_camera_from_to(Vector2(-43.0, 36.0), Vector2(-24.0, -52.0), 0.5)
+
+
+var _sis_camera_1: bool = false
+var _sis_camera_2: bool = false
+var _sis_camera_3: bool = false
+var _sis_camera_4: bool = false
+
+@export var camera_2d: Camera2D
+var _camera_tween_position: Tween
+var _camera_tween_zoom: Tween
+
+func _reset_camera() -> void:
+	if _camera_tween_position:
+		if _camera_tween_position.is_valid():
+			_camera_tween_position.kill()
+	if _camera_tween_zoom:
+		if _camera_tween_zoom.is_valid():
+			_camera_tween_zoom.kill()
+	
+	camera_2d.position = Vector2.ZERO
+	camera_2d.zoom = Vector2.ONE
+	
+	_sis_camera_1 = false
+	_sis_camera_2 = false
+	_sis_camera_3 = false
+	_sis_camera_4 = false
+
+
+func _move_camera_from_to(from: Vector2, to: Vector2, duration: float) -> void:
+	if _camera_tween_position:
+		if _camera_tween_position.is_valid():
+			_camera_tween_position.kill()
+	
+	camera_2d.position = from
+	
+	_camera_tween_position = create_tween()
+	_camera_tween_position.tween_property(camera_2d, "position", to, duration).set_trans(Tween.TRANS_CUBIC)
+
+
+func _zoom_camera_from_to(from: Vector2, to: Vector2, duration: float) -> void:
+	if _camera_tween_zoom:
+		if _camera_tween_zoom.is_valid():
+			_camera_tween_zoom.kill()
+	
+	camera_2d.zoom = from
+	
+	_camera_tween_zoom = create_tween()
+	_camera_tween_zoom.tween_property(camera_2d, "zoom", to, duration)
+
 
 func _on_scene_player_scene_ended(scene: VneScene) -> void:
 	if _is_handling_scene_end:

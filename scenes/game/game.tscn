@@ -6,12 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://bo24d73rvgjri" path="res://scenes/game/options/options.tscn" id="3_lfrn8"]
 [ext_resource type="PackedScene" uid="uid://bufkqri1fm8lj" path="res://scenes/game/history/history.tscn" id="4_kelw5"]
 
-[node name="Game" type="Node" unique_id=377975300 node_paths=PackedStringArray("scene_player", "options", "history", "pause")]
+[node name="Game" type="Node" unique_id=377975300 node_paths=PackedStringArray("scene_player", "options", "history", "pause", "camera_2d")]
 script = ExtResource("1_sul5r")
 scene_player = NodePath("ScenePlayer")
 options = NodePath("Options")
 history = NodePath("History")
 pause = NodePath("Pause")
+camera_2d = NodePath("Camera2D")
 
 [node name="ScenePlayer" parent="." unique_id=635273600 instance=ExtResource("2_7h61r")]
 
@@ -26,6 +27,9 @@ z_index = 100
 [node name="Pause" parent="." unique_id=2031611172 instance=ExtResource("3_0sr1o")]
 visible = false
 z_index = 100
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1115625447]
+offset = Vector2(960, 540)
 
 [connection signal="frame_setting" from="ScenePlayer" to="." method="_on_scene_player_frame_setting"]
 [connection signal="scene_ended" from="ScenePlayer" to="." method="_on_scene_player_scene_ended"]
