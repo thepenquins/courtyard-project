@@ -95,7 +95,7 @@ developers = Dictionary[String, String]({
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=74614291]
 layout_mode = 2
 bbcode_enabled = true
-text = "[b]Pen[color=red]q[/color]uins Software"
+text = "[url=https://vk.com/penquins_software][b]Pen[color=red]q[/color]uins Software"
 fit_content = true
 horizontal_alignment = 1
 
@@ -122,3 +122,5 @@ theme_override_font_sizes/font_size = 32
 theme_override_styles/pressed = ExtResource("4_njmok")
 theme_override_styles/hover = ExtResource("4_njmok")
 text = "Вернуться"
+
+[connection signal="meta_clicked" from="VBoxContainer/RichTextLabel" to="VBoxContainer/ProgrammingSection" method="_on_developer_meta_clicked"]
