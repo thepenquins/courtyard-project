@@ -72,7 +72,8 @@ func _next_frame_pressed() -> void:
 			if not next_frame():
 				scene_ended.emit(_scene)
 		else:
-			text_box.advance()
+			if not transition_playing:
+				text_box.advance()
 
 
 func  _prev_frame_pressed() -> void:
