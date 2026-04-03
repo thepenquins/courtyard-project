@@ -13,8 +13,10 @@ var _scene: VneScene
 var _frame: VneFrame
 var _index: int
 
-var _characters: Dictionary[VneCharacterResource, VneCharacter2D]
+static var _characters_packed_scenes: Dictionary[VneCharacterResource, PackedScene]
 static var _locations: Dictionary[VneLocationResource, PackedScene]
+
+var _characters: Dictionary[VneCharacterResource, VneCharacter2D]
 
 var _location_resource: VneLocationResource
 var _current_location: VneLocation
@@ -287,23 +289,30 @@ func set_text(rse_frame: RSEFrame = null, instantly: bool = false) -> void:
 
 
 ## Загрузить персонажей, если их нет.
-func load_all_characters() -> void:
+func instantiate_all_characters() -> void:
+	for character_resource in _characters_packed_scenes:
+		if not _characters.has(character_resource):
+			var character_scene: VneCharacter2D = _characters_packed_scenes[character_resource].instantiate()
+			characters_container.add_character(character_scene)
+			character_scene.set_visibility(false)
+			_characters[character_resource] = character_scene
+
+
+## Загрузить персонажей, если их нет.
+static func load_all_characters() -> void:
 	if VNE.visual_novel == null:
 		return
 	
 	for character in VNE.visual_novel.characters:
-		if not _characters.has(character):
+		if not _characters_packed_scenes.has(character):
 			if character.path_to_file == "":
 				continue
 			var character_packed_scene: PackedScene = load(character.path_to_file)
-			var character_scene: VneCharacter2D = character_packed_scene.instantiate()
-			characters_container.add_character(character_scene)
-			character_scene.visible = false
-			_characters[character] = character_scene
+			_characters_packed_scenes[character] = character_packed_scene
 
 
 ## Загрузить локации, если их нет.
-func load_all_locations() -> void:
+static func load_all_locations() -> void:
 	if VNE.visual_novel == null:
 		return
 	

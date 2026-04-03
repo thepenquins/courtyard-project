@@ -25,8 +25,7 @@ func _ready() -> void:
 	scene_player.text_box.history_button.pressed.connect(switch_history)
 	scene_player.text_box.hide_button.pressed.connect(switch_interface_visibility)
 	
-	scene_player.load_all_characters()
-	scene_player.load_all_locations()
+	scene_player.instantiate_all_characters()
 	
 	history.close_button.pressed.connect(set_history.bind(false))
 	
