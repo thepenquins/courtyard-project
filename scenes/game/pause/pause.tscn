@@ -71,6 +71,7 @@ visible = false
 layout_mode = 1
 
 [node name="Noise" parent="." unique_id=131947625 instance=ExtResource("5_qxty6")]
+modulate = Color(1, 1, 1, 0.1254902)
 layout_mode = 1
 
 [connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]

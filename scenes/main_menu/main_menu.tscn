@@ -4,13 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://b6swifjkjxwor" path="res://scenes/main_menu/developers/developers.tscn" id="1_fsom3"]
 [ext_resource type="Texture2D" uid="uid://1eff70bapcpw" path="res://graphics/главное_меню/Меню.png" id="2_3ovsr"]
 [ext_resource type="FontFile" uid="uid://d05i7wrk48m4v" path="res://graphics/шрифт/static/InterTight-ExtraBold.ttf" id="3_5seab"]
+[ext_resource type="PackedScene" uid="uid://f722v2bme78n" path="res://scenes/vfx/menu_glitch/menu_glitch.tscn" id="3_lqpn7"]
 [ext_resource type="PackedScene" uid="uid://dogjfwgr4fqbu" path="res://scenes/main_menu/settings/settings.tscn" id="3_ob46e"]
 [ext_resource type="PackedScene" uid="uid://mna5pt2yt5wp" path="res://scenes/main_menu/extra/extra.tscn" id="3_uqeha"]
 [ext_resource type="Script" uid="uid://cdr2yyqgqaaxj" path="res://scenes/main_menu/бегущая_строка.gd" id="4_4xg86"]
 [ext_resource type="StyleBox" uid="uid://d1fbwm2rnk6g6" path="res://scenes/main_menu/main_menu_button_style_box.tres" id="4_x2yjq"]
 [ext_resource type="FontFile" uid="uid://bsdjrci2x7mok" path="res://graphics/шрифт/static/InterTight-BlackItalic.ttf" id="5_thkx5"]
 [ext_resource type="PackedScene" uid="uid://mr4x0s326o2i" path="res://scenes/save_manager/save_manager.tscn" id="5_wem23"]
-[ext_resource type="PackedScene" uid="uid://vhnb02tsv7tk" path="res://scenes/vfx/pomehi_g/pomehi_g.tscn" id="11_lqpn7"]
+[ext_resource type="PackedScene" uid="uid://vhnb02tsv7tk" path="res://scenes/vfx/pomehi_g/pomehi_g.tscn" id="12_qel0l"]
 
 [sub_resource type="Animation" id="Animation_thkx5"]
 length = 0.001
@@ -82,6 +83,10 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_3ovsr")
 expand_mode = 1
+
+[node name="Glitch" parent="Main" unique_id=131947625 instance=ExtResource("3_lqpn7")]
+modulate = Color(1, 1, 1, 0.2509804)
+layout_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Main" unique_id=998975460]
 layout_mode = 1
@@ -229,7 +234,8 @@ fmod_parameters/transition_speed/id = 1915305782577568744
 fmod_parameters/transition_speed = 0.5
 fmod_parameters/transition_speed/variant_type = 3
 
-[node name="Noise" parent="." unique_id=131947625 instance=ExtResource("11_lqpn7")]
+[node name="Noise" parent="." unique_id=1356858796 instance=ExtResource("12_qel0l")]
+modulate = Color(1, 1, 1, 0.1254902)
 layout_mode = 1
 
 [connection signal="pressed" from="Main/VBoxContainer/Play" to="." method="_on_play_pressed"]

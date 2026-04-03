@@ -4,7 +4,7 @@
 
 
 func _ready() -> void:
-	z_index = 20
+	#z_index = 20
 	
 	if Engine.is_editor_hint():
 		video_stream_player.play()

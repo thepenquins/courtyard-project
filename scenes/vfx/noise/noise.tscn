@@ -8,6 +8,7 @@
 shader = ExtResource("1_cm5ym")
 
 [node name="Noise" type="Control" unique_id=131947625 node_paths=PackedStringArray("video_stream_player")]
+z_index = 20
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
