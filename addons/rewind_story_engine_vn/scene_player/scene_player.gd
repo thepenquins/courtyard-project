@@ -247,8 +247,6 @@ func set_sfx(sfx_array: Array[VneSfxFrame]) -> void:
 		var emitter = set_audio_fmod_event(null, null, sfx)
 
 
-## 1. Удалить все VFX, которых нет в кадре.
-## 2. Добавить недостающие VFX.
 func set_vfx(vfx_array: Array[VneVfxFrame]) -> void:
 	var new_vfx_dict: Dictionary[VneVfxResource, VneVfx]
 	for vfx in vfx_array:
@@ -274,14 +272,14 @@ func set_audio_fmod_event(fmod_event: FmodEvent, current_audio: VneAudioResource
 	
 	if current_audio == audio_frame.resource:
 		if fmod_event:
-			_set_fmod_event_parameters(fmod_event, current_audio, audio_frame.parameters)
+			_set_fmod_event_parameters(fmod_event, audio_frame.resource, audio_frame.parameters)
 		return fmod_event
 	
 	if fmod_event:
 		fmod_event.stop(0)
 	
 	fmod_event = _create_fmod_event(audio_frame.resource.path_to_file)
-	_set_fmod_event_parameters(fmod_event, current_audio, audio_frame.parameters)
+	_set_fmod_event_parameters(fmod_event, audio_frame.resource, audio_frame.parameters)
 	
 	return fmod_event
 
@@ -294,14 +292,14 @@ func set_audio_fmod_event_emitter_2d(event_emitter: FmodEventEmitter2D, current_
 	
 	if current_audio == audio_frame.resource:
 		if event_emitter:
-			_set_fmod_event_emitter_2D_parameters(event_emitter, current_audio, audio_frame.parameters)
+			_set_fmod_event_emitter_2D_parameters(event_emitter, audio_frame.resource, audio_frame.parameters)
 		return event_emitter
 	
 	if event_emitter:
 		event_emitter.stop()
 	
 	event_emitter = _create_fmod_event_emitter_2D(audio_frame.resource.path_to_file)
-	_set_fmod_event_emitter_2D_parameters(event_emitter, current_audio, audio_frame.parameters)
+	_set_fmod_event_emitter_2D_parameters(event_emitter, audio_frame.resource, audio_frame.parameters)
 	
 	return event_emitter
 
@@ -399,13 +397,15 @@ func _set_fmod_event_parameters(fmod_event: FmodEvent, audio: VneAudioResource, 
 		return
 	
 	var event_description = FmodServer.get_event(audio.path_to_file)
-	var event_parameters = event_description.get_parameters()
 	
 	if not event_description.is_valid():
 		return
 	
+	var event_parameters = event_description.get_parameters()
+	
+		
 	for parameter in parameters:
-		if event_parameters.has(parameter):
+		if event_description.get_parameter_by_id(int(parameter)):
 			fmod_event.set_parameter_by_id(int(parameter), parameters[parameter])
 
 
@@ -414,14 +414,24 @@ func _set_fmod_event_emitter_2D_parameters(event_emitter: FmodEventEmitter2D, au
 		return
 	
 	var event_description = FmodServer.get_event(audio.path_to_file)
-	var event_parameters = event_description.get_parameters()
 	
 	if not event_description.is_valid():
 		return
 	
+	var valid_parameters: Dictionary[String, float]
+		
+	var event_parameters = event_description.get_parameters()
 	for parameter in parameters:
-		if event_parameters.has(parameter):
-			event_emitter.set_parameter_by_id(int(parameter), parameters[parameter])
+		var is_valid: bool = false
+		for event_parameter: FmodParameterDescription in event_parameters:
+			if event_parameter.get_id() == int(parameter):
+				is_valid = true
+				break
+		if is_valid:
+			valid_parameters[parameter] = parameters[parameter]
+	
+	for parameter in valid_parameters:
+		event_emitter.set_parameter_by_id(int(parameter), valid_parameters[parameter])
 
 
 func _exit_tree() -> void:
