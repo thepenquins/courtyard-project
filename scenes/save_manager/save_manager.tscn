@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dddg1a7un5ti6" path="res://scenes/save_manager/save_list.gd" id="1_tuwxg"]
 [ext_resource type="PackedScene" uid="uid://bo1lvhmjwcvg2" path="res://scenes/save_manager/save_container.tscn" id="2_44n2n"]
 [ext_resource type="Texture2D" uid="uid://cb7i0205hlw6i" path="res://graphics/фон для настроек.png" id="2_ycmir"]
+[ext_resource type="StyleBox" uid="uid://b7frbj2fptrvo" path="res://scenes/main_menu/sub_menu_button_style_box.tres" id="4_sdsuj"]
 
 [node name="SaveManager" type="Control" unique_id=157741692 node_paths=PackedStringArray("saves_container", "confirmation_dialog", "return_button")]
 layout_mode = 3
@@ -93,8 +94,9 @@ offset_bottom = -140.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 32
+theme_override_styles/pressed = ExtResource("4_sdsuj")
+theme_override_styles/hover = ExtResource("4_sdsuj")
 text = "Вернуться"
-flat = true
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="." unique_id=760427327]
 oversampling_override = 1.0

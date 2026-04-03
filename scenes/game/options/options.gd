@@ -3,6 +3,7 @@ class_name GameOptions extends Control
 signal option_selected(index: int)
 
 @export var options_container: Container
+@export var option_theme: Theme
 
 
 func _ready() -> void:
@@ -21,6 +22,7 @@ func add_option(option: String, index: int) -> void:
 	var button = Button.new()
 	options_container.add_child(button)
 	button.text = option
+	button.theme = option_theme
 	button.pressed.connect(_on_option_selected.bind(index))
 
 
