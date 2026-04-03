@@ -24,6 +24,12 @@ var mouse_on_ui: bool = false
 func _ready() -> void:
 	if not Engine.is_editor_hint():
 		text_rich_text_label.play_speed = Settings.text_speed
+	
+	Settings.text_speed_was_changed.connect(_on_settings_text_speed_was_changed)
+
+
+func _on_settings_text_speed_was_changed() -> void:
+	text_rich_text_label.play_speed = Settings.text_speed
 
 
 func set_frame(frame: RSEFrame, vn_frame: VneFrame, instantly: bool = false) -> void:
