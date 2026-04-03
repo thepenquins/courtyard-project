@@ -44,7 +44,8 @@ func get_speaker(frame: RSEFrame, vn_frame: VneFrame) -> String:
 		for character_frame: VneCharacterFrame in vn_frame.characters:
 			for character_resource: VneCharacterResource in vn_frame.character_resources:
 				if character_resource.character == frame._character:
-					speaker = character_frame.displayed_name
+					if character_frame.displayed_name != "":
+						speaker = character_frame.displayed_name 
 		return "[skip][color=%s]%s[]" % [frame._character.color.to_html(false), speaker]
 
 
