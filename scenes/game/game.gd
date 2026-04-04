@@ -126,7 +126,6 @@ var first_vent_uuids = [
 	"75b468ab-4abe-4ddb-af66-770bbbd1a26a",
 	"75b468ab-4abe-4ddb-af66-770bbbd1a26a",
 	"837fcf98-1981-42f4-85b9-471313e6738d",
-	"837fcf98-1981-42f4-85b9-471313e6738d",
 	"25e35726-7463-476b-a30c-3391fa700730",
 ]
 
@@ -170,7 +169,7 @@ func _frame_setting_processing(rse_frame: RSEFrame, _vn_frame: VneFrame) -> void
 				_move_camera_from_to(Vector2(-43.0, 36.0), Vector2(-24.0, -52.0), 0.5)
 	
 	if _current_episode_uuid == "6845e21f-aa2a-491f-9b0c-0b14f1c58443":
-		if rse_frame.uuid == "fd01bd5a-e36c-4283-ae9d-fa663f680bec" or rse_frame.uuid == "d48d8cb5-1183-4e12-aaea-6a57c0a0af73":
+		if rse_frame.uuid == "fd01bd5a-e36c-4283-ae9d-fa663f680bec" or rse_frame.uuid == "8592acd8-9285-4c11-9348-a37a02013fae":
 			_reset_camera()
 		elif first_vent_uuids.has(rse_frame.uuid):
 			if not _vent_camera_1:
@@ -210,8 +209,8 @@ func _reset_camera() -> void:
 		if _camera_tween_zoom.is_valid():
 			_camera_tween_zoom.kill()
 	
-	camera_2d.position = Vector2.ZERO
-	camera_2d.zoom = Vector2.ONE
+	#camera_2d.position = Vector2.ZERO
+	#camera_2d.zoom = Vector2.ONE
 	
 	_sis_camera_1 = false
 	_sis_camera_2 = false
@@ -220,6 +219,11 @@ func _reset_camera() -> void:
 	
 	_vent_camera_1 = false
 	_vent_camera_2 = false
+	
+	if camera_2d.position != Vector2.ZERO:
+		_move_camera_from_to(camera_2d.position, Vector2.ZERO, 0.2)
+	if camera_2d.zoom != Vector2.ONE:
+		_zoom_camera_from_to(camera_2d.zoom, Vector2.ONE, 0.2)
 
 
 func _move_camera_from_to(from: Vector2, to: Vector2, duration: float) -> void:
