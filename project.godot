@@ -50,19 +50,6 @@ mouse_cursor/custom_image="uid://yhg3epvpl402"
 
 enabled=PackedStringArray("res://addons/auto_version/plugin.cfg", "res://addons/fmod/plugin.cfg", "res://addons/rewind_story_engine/plugin.cfg", "res://addons/rewind_story_engine_vn/plugin.cfg", "res://addons/richtext2/plugin.cfg")
 
-[file_customization]
-
-folder_colors={
-"res://scenes/locations/cg_сосед_в_окне_1/": "red",
-"res://scenes/locations/cg_сосед_в_окне_2/": "red",
-"res://scenes/locations/cg_сосед_в_окне_3/": "red",
-"res://scenes/locations/дом/": "red",
-"res://scenes/locations/комната_данила/": "red",
-"res://scenes/locations/комната_милалики/": "red",
-"res://scenes/locations/окно/": "red",
-"res://scenes/locations/прихожая/": "red"
-}
-
 [gui]
 
 theme/custom="uid://mu0dua3r4qn0"

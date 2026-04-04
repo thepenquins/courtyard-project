@@ -205,7 +205,9 @@ func set_location(location_frame: VneLocationFrame) -> void:
 	
 	# Нужно передать параметры в локацию.
 	if _current_location:
-		_current_location.set_parameters(location_frame.parameters)
+		var new_location_state = _current_location.set_parameters(location_frame.parameters)
+		if not _is_new_location:
+			_is_new_location = new_location_state
 
 
 func set_characters(character_frames: Array[VneCharacterFrame], instantly: bool = false) -> void:

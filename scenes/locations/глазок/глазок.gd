@@ -7,7 +7,7 @@ func _ready() -> void:
 	animation_player.play("RESET")
 
 
-func set_parameters(new_parameters: Dictionary[String, float]) -> void:
+func set_parameters(new_parameters: Dictionary[String, float]) -> bool:
 	for new_parameter in new_parameters:
 		if new_parameter == "Состояние":
 			var value = new_parameters[new_parameter]
@@ -17,3 +17,5 @@ func set_parameters(new_parameters: Dictionary[String, float]) -> void:
 				animation_player.play("opened")
 			elif value == 2:
 				animation_player.play("opened_nightmare")
+	
+	return false

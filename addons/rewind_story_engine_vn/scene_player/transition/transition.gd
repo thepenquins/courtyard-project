@@ -8,6 +8,8 @@ signal ended
 func _ready() -> void:
 	animation_player.animation_finished.connect(_on_animation_player_animation_finished)
 	animation_player.play("transition")
+	
+	z_index = 10
 
 
 func _on_animation_player_animation_finished(anim_name: String) -> void:

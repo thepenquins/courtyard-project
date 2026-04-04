@@ -13,7 +13,7 @@ func _ready() -> void:
 	sprite_2d.texture = light
 
 
-func set_parameters(new_parameters: Dictionary[String, float]) -> void:
+func set_parameters(new_parameters: Dictionary[String, float]) -> bool:
 	for new_parameter in new_parameters:
 		if new_parameter == "Свет":
 			var value = new_parameters[new_parameter]
@@ -25,3 +25,5 @@ func set_parameters(new_parameters: Dictionary[String, float]) -> void:
 				sprite_2d.texture = evening
 			elif value == 3:
 				sprite_2d.texture = night
+	
+	return false
