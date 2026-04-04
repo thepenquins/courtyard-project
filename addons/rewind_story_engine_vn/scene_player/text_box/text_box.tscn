@@ -24,27 +24,27 @@
 [sub_resource type="RichTextEffect" id="RichTextEffect_4l6td"]
 resource_name = "prickle"
 script = ExtResource("4_h2ygl")
-metadata/rt = 3245485403008
+metadata/rt = 3915936512827
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_vqpn8"]
 resource_name = "prickle"
 script = ExtResource("4_h2ygl")
-metadata/rt = 3245904827829
+metadata/rt = 3916506938160
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_p5omk"]
 resource_name = "jit2"
 script = ExtResource("3_45kqg")
-metadata/rt = 3245904827829
+metadata/rt = 3916506938160
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_yrk6n"]
 resource_name = "cuss"
 script = ExtResource("4_a7jgp")
-metadata/rt = 3245904827829
+metadata/rt = 3916506938160
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_m1h46"]
 resource_name = "woo"
 script = ExtResource("7_vmmjd")
-metadata/rt = 3245904827829
+metadata/rt = 3916506938160
 
 [sub_resource type="Animation" id="Animation_1hgq8"]
 length = 0.001
@@ -205,10 +205,12 @@ fit_content = true
 custom_effects = [SubResource("RichTextEffect_4l6td")]
 script = ExtResource("3_gfp3b")
 animation = "prickle"
+progress = 1.0
+visible_character = 6
 _transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 813, 35), Transform2D(1, 0, 0, 1, 820, 35), Transform2D(1, 0, 0, 1, 828, 35), Transform2D(1, 0, 0, 1, 847, 35), Transform2D(1, 0, 0, 1, 866, 35)])
 _char_size = Array[Vector2]([Vector2(0, 0), Vector2(7, 26), Vector2(8, 26), Vector2(21, 26), Vector2(21, 26), Vector2(0, 26)])
-_alpha = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
-_alpha_goal = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+_alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
 _forced_finish_delay = -0.03227433333333515
 animation = "prickle"
 default_wait_time = 1.0
@@ -308,14 +310,18 @@ fit_content = true
 custom_effects = [SubResource("RichTextEffect_vqpn8"), SubResource("RichTextEffect_p5omk"), SubResource("RichTextEffect_yrk6n"), SubResource("RichTextEffect_m1h46")]
 script = ExtResource("3_gfp3b")
 animation = "prickle"
+_play = false
 _hold = true
+progress = 0.4593936507936491
+visible_character = 8
 _triggers = {
 7: [[1003, {}]]
 }
 _transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 718, 35), Transform2D(1, 0, 0, 1, 728, 35), Transform2D(1, 0, 0, 1, 758, 35), Transform2D(1, 0, 0, 1, 766, 35), Transform2D(1, 0, 0, 1, 778, 35), Transform2D(1, 0, 0, 1, 785, 35), Transform2D(1, 0, 0, 1, 805, 35), Transform2D(1, 0, 0, 1, 825, 35), Transform2D(1, 0, 0, 1, 833, 35), Transform2D(1, 0, 0, 1, 841, 35), Transform2D(1, 0, 0, 1, 849, 35), Transform2D(1, 0, 0, 1, 870, 35), Transform2D(1, 0, 0, 1, 890, 35), Transform2D(1, 0, 0, 1, 909, 35), Transform2D(1, 0, 0, 1, 927, 35), Transform2D(1, 0, 0, 1, 954, 35), Transform2D(1, 0, 0, 1, 954, 35)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(7, 26), Vector2(30, 26), Vector2(0, 26), Vector2(15, 26), Vector2(25, 26), Vector2(20, 26), Vector2(35, 26), Vector2(0, 26), Vector2(7, 26), Vector2(0, 26), Vector2(26, 26), Vector2(23, 26), Vector2(21, 26), Vector2(19, 26), Vector2(22, 26), Vector2(0, 26), Vector2(0, 26)])
-_alpha = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
-_alpha_goal = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(7, 26), Vector2(30, 26), Vector2(0, 26), Vector2(15, 26), Vector2(22, 26), Vector2(20, 26), Vector2(27, 26), Vector2(0, 26), Vector2(7, 26), Vector2(0, 26), Vector2(26, 26), Vector2(23, 26), Vector2(21, 26), Vector2(19, 26), Vector2(22, 26), Vector2(0, 26), Vector2(0, 26)])
+_alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+_showing_ctc = true
 _forced_finish_delay = -0.03227433333333515
 animation = "prickle"
 default_wait_time = 1.0
@@ -389,7 +395,6 @@ metadata/rand = Array[int]([3827202865, 851246197, 3223911580, 1909538342, 34279
 metadata/_edit_group_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Control/TextRicherTextLabel" unique_id=286649157]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -399,7 +404,7 @@ anchor_bottom = 0.5
 offset_left = -7.0
 offset_top = -87.7
 offset_right = 73.0
-offset_bottom = -46.6999
+offset_bottom = -46.7
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("18_vqpn8")
