@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuxmu145owhpn"
-path="res://.godot/imported/подчеркивание.png-230e9344a5e44c67f825439295a89eb7.ctex"
+uid="uid://dhmgrya5as3ba"
+path="res://.godot/imported/background_history.png-41adf852bfa4527ef0c326e02ffd5a5b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/подчеркивание.png"
-dest_files=["res://.godot/imported/подчеркивание.png-230e9344a5e44c67f825439295a89eb7.ctex"]
+source_file="res://graphics/background_history.png"
+dest_files=["res://.godot/imported/background_history.png-41adf852bfa4527ef0c326e02ffd5a5b.ctex"]
 
 [params]
 

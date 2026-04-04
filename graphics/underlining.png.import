@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb7i0205hlw6i"
-path="res://.godot/imported/фон для настроек.png-b26015dceac617a624f8bf3d978232e9.ctex"
+uid="uid://cuxmu145owhpn"
+path="res://.godot/imported/underlining.png-bf8e6359ac511f361dde4231f99fde09.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/фон для настроек.png"
-dest_files=["res://.godot/imported/фон для настроек.png-b26015dceac617a624f8bf3d978232e9.ctex"]
+source_file="res://graphics/underlining.png"
+dest_files=["res://.godot/imported/underlining.png-bf8e6359ac511f361dde4231f99fde09.ctex"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bkgl11fm60jeu"
-path="res://.godot/imported/InterTight-ThinItalic.ttf-dc811b22001dd6cfa9a6467e606b918e.fontdata"
+path="res://.godot/imported/InterTight-ThinItalic.ttf-bbf5fc88666f6e3e66d466502db4e65f.fontdata"
 
 [deps]
 
-source_file="res://graphics/шрифт/static/InterTight-ThinItalic.ttf"
-dest_files=["res://.godot/imported/InterTight-ThinItalic.ttf-dc811b22001dd6cfa9a6467e606b918e.fontdata"]
+source_file="res://graphics/font/static/InterTight-ThinItalic.ttf"
+dest_files=["res://.godot/imported/InterTight-ThinItalic.ttf-bbf5fc88666f6e3e66d466502db4e65f.fontdata"]
 
 [params]
 

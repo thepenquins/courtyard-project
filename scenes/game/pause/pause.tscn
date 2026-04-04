@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://s5rl12jba1y2" path="res://scenes/game/pause/pause.gd" id="1_okjjf"]
 [ext_resource type="PackedScene" uid="uid://dogjfwgr4fqbu" path="res://scenes/main_menu/settings/settings.tscn" id="2_0jcw3"]
-[ext_resource type="Texture2D" uid="uid://cb7i0205hlw6i" path="res://graphics/фон для настроек.png" id="2_nvhcl"]
-[ext_resource type="FontFile" uid="uid://d05i7wrk48m4v" path="res://graphics/шрифт/static/InterTight-ExtraBold.ttf" id="3_vdi0e"]
-[ext_resource type="Script" uid="uid://ctd4nhsp20vik" path="res://scenes/main_menu/button_with_sound.gd" id="4_ghudr"]
+[ext_resource type="Texture2D" uid="uid://cb7i0205hlw6i" path="res://graphics/background_settings.png" id="2_nvhcl"]
+[ext_resource type="FontFile" uid="uid://d05i7wrk48m4v" path="res://graphics/font/static/InterTight-ExtraBold.ttf" id="3_vdi0e"]
+[ext_resource type="Script" uid="uid://ctd4nhsp20vik" path="res://scenes/ui/button_with_sound.gd" id="4_ghudr"]
 [ext_resource type="PackedScene" uid="uid://vhnb02tsv7tk" path="res://scenes/vfx/pomehi_g/pomehi_g.tscn" id="5_qxty6"]
 
 [node name="Pause" type="Control" unique_id=2031611172 node_paths=PackedStringArray("settings")]

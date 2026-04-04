@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1klttk58thof"
-path="res://.godot/imported/ekran.jpg-77a27a76ba4f89eb46ee28d2208c702a.ctex"
+uid="uid://1eff70bapcpw"
+path="res://.godot/imported/background_main_menu.png-988b74be1c46a1a3fb441fc61115e54e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/locations/ekran.jpg"
-dest_files=["res://.godot/imported/ekran.jpg-77a27a76ba4f89eb46ee28d2208c702a.ctex"]
+source_file="res://graphics/background_main_menu.png"
+dest_files=["res://.godot/imported/background_main_menu.png-988b74be1c46a1a3fb441fc61115e54e.ctex"]
 
 [params]
 

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bicv7a0eetowx"
-path="res://.godot/imported/InterTight-Italic.ttf-0da9d98f9a008ce3eb864d1cdad4a474.fontdata"
+uid="uid://ddu0jia54urc0"
+path="res://.godot/imported/InterTight-SemiBoldItalic.ttf-20efef2868c30a6fe36062a06514ea97.fontdata"
 
 [deps]
 
-source_file="res://graphics/шрифт/static/InterTight-Italic.ttf"
-dest_files=["res://.godot/imported/InterTight-Italic.ttf-0da9d98f9a008ce3eb864d1cdad4a474.fontdata"]
+source_file="res://graphics/font/static/InterTight-SemiBoldItalic.ttf"
+dest_files=["res://.godot/imported/InterTight-SemiBoldItalic.ttf-20efef2868c30a6fe36062a06514ea97.fontdata"]
 
 [params]
 

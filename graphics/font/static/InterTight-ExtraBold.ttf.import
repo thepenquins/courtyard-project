@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://22e8lgfsc4dj"
-path="res://.godot/imported/InterTight-VariableFont_wght.ttf-30b4fcd5b5c52db71c879f8cb55d44bb.fontdata"
+uid="uid://d05i7wrk48m4v"
+path="res://.godot/imported/InterTight-ExtraBold.ttf-f7988498c20d53ae7131cf89b00243da.fontdata"
 
 [deps]
 
-source_file="res://graphics/шрифт/InterTight-VariableFont_wght.ttf"
-dest_files=["res://.godot/imported/InterTight-VariableFont_wght.ttf-30b4fcd5b5c52db71c879f8cb55d44bb.fontdata"]
+source_file="res://graphics/font/static/InterTight-ExtraBold.ttf"
+dest_files=["res://.godot/imported/InterTight-ExtraBold.ttf-f7988498c20d53ae7131cf89b00243da.fontdata"]
 
 [params]
 
