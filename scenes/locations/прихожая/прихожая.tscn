@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bw2btmq0sltnr"]
+
+[ext_resource type="Script" uid="uid://cwt4wklegnm4o" path="res://scenes/locations/прихожая/прихожая.gd" id="1_b8cod"]
+[ext_resource type="Texture2D" uid="uid://bhv521bmtj74f" path="res://scenes/locations/прихожая/Прихожая.jpg" id="2_ol68x"]
+
+[node name="Прихожая" type="Node2D" unique_id=1932735683]
+script = ExtResource("1_b8cod")
+uuid = "effc70c0-7559-4b99-9eee-15bf3d7e47e9"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=663555351]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ol68x")
+centered = false

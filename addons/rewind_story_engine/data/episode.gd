@@ -8,6 +8,13 @@ var _story
 var _uuid_generator
 
 var frames: Array[RSEFrame]
+var frames_without_commentary: Array[RSEFrame]:
+	get:
+		var array: Array[RSEFrame]
+		for frame in frames:
+			if not frame.is_commentary:
+				array.append(frame)
+		return array
 
 
 func _init(uuid: String, story: RSEStory) -> void:
@@ -125,3 +132,12 @@ func get_words_count() -> int:
 		words_count += WordCounter.count(frame.text)
 	
 	return words_count
+
+
+func get_frame_by_uuid(uuid: String, include_commentary: bool = false) -> RSEFrame:
+	for frame in frames:
+		if not include_commentary and frame.is_commentary:
+			continue
+		if frame.uuid == uuid:
+			return frame
+	return null

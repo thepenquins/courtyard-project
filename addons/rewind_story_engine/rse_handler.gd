@@ -2,19 +2,31 @@
 extends Node
 
 
-var story: RSEStory
+signal story_setting(story: RSEStory)
+
+
+var story: RSEStory:
+	set(new_story):
+		story = new_story
+		story_setting.emit(story)
 
 var records: Array[RSERecord]:
 	get:
-		return story.records
+		if story:
+			return story.records
+		return []
 
 var characters: Array[RSECharacter]:
 	get:
-		return story.characters
+		if story:
+			return story.characters
+		return []
 
 var episodes: Array[RSEEpisode]:
 	get:
-		return story.episodes
+		if story:
+			return story.episodes
+		return []
 
 
 func get_record_by_name(record_name: String) -> RSERecord:
@@ -45,6 +57,17 @@ func get_episode_by_name(episode_name: String) -> RSEEpisode:
 	
 	for episode in story.episodes:
 		if episode.name == episode_name:
+			return episode
+		
+	return null
+
+
+func get_episode_by_uuid(episode_uuid: String) -> RSEEpisode:
+	if episode_uuid == "":
+		return
+	
+	for episode in story.episodes:
+		if episode.uuid == episode_uuid:
 			return episode
 		
 	return null

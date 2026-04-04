@@ -55,5 +55,6 @@ func initialize_windows() -> void:
 
 
 func return_to_main_window() -> void:
+	self.story = null
+	RSE.story = null
 	tab_container.hide()
-	story = null

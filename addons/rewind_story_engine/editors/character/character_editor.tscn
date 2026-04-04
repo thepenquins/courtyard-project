@@ -1,12 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmu6ars1muck4"]
+[gd_scene format=3 uid="uid://cmu6ars1muck4"]
 
 [ext_resource type="Script" uid="uid://bbp2viv8oisic" path="res://addons/rewind_story_engine/editors/character/character_editor.gd" id="1_e3b53"]
 [ext_resource type="Texture2D" uid="uid://d0typr7e4px1p" path="res://addons/rewind_story_engine/icons/Add.svg" id="2_id2wp"]
 [ext_resource type="Texture2D" uid="uid://bggobug6l5nat" path="res://addons/rewind_story_engine/icons/Remove.svg" id="3_vhwif"]
-[ext_resource type="Texture2D" uid="uid://dhwtfrxt8mnjw" path="res://addons/rewind_story_engine/icons/File.svg" id="4_id2wp"]
 [ext_resource type="Texture2D" uid="uid://drsuumsoitobx" path="res://addons/rewind_story_engine/icons/ActionCopy.svg" id="4_vhwif"]
 
-[node name="Персонажи" type="Control" node_paths=PackedStringArray("character_color_picker_button", "file_name_line_edit", "emotions_item_list", "scene_file_dialog", "base_data_item_list", "add_item_button", "remove_item_button", "remove_confirmation_dialog", "name_line_edit", "uuid_line_edit", "uuid_copy_button", "short_key_line_edit", "short_key_copy_button")]
+[node name="Персонажи" type="Control" unique_id=1271550056 node_paths=PackedStringArray("character_color_picker_button", "emotions_item_list", "base_data_item_list", "add_item_button", "remove_item_button", "remove_confirmation_dialog", "name_line_edit", "uuid_line_edit", "uuid_copy_button", "short_key_line_edit", "short_key_copy_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,9 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e3b53")
 character_color_picker_button = NodePath("HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer/CharacterColorPickerButton")
-file_name_line_edit = NodePath("HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer/HBoxContainer/FileNameLineEdit")
 emotions_item_list = NodePath("HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer/EmotionsItemList")
-scene_file_dialog = NodePath("FileDialog")
 base_data_item_list = NodePath("HSplitContainer/Characters/VBoxContainer/CharactersItemList")
 add_item_button = NodePath("HSplitContainer/Characters/VBoxContainer/HBoxContainer/AddCharacterButton")
 remove_item_button = NodePath("HSplitContainer/Characters/VBoxContainer/HBoxContainer/RemoveCharacterButton")
@@ -28,7 +25,7 @@ uuid_copy_button = NodePath("HSplitContainer/HSplitContainer/CharacterInfo/VBoxC
 short_key_line_edit = NodePath("HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer/ShortKeyHBoxContainer/ShortKeyLineEdit")
 short_key_copy_button = NodePath("HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer/ShortKeyHBoxContainer/CopyShortKeyButton")
 
-[node name="HSplitContainer" type="HSplitContainer" parent="."]
+[node name="HSplitContainer" type="HSplitContainer" parent="." unique_id=855660721]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,7 +33,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Characters" type="MarginContainer" parent="HSplitContainer"]
+[node name="Characters" type="MarginContainer" parent="HSplitContainer" unique_id=2103260649]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_constants/margin_left = 4
@@ -44,131 +41,119 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Characters"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/Characters" unique_id=902249741]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="CharactersItemList" type="ItemList" parent="HSplitContainer/Characters/VBoxContainer"]
+[node name="CharactersItemList" type="ItemList" parent="HSplitContainer/Characters/VBoxContainer" unique_id=1845763756]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/Characters/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/Characters/VBoxContainer" unique_id=1876731403]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="AddCharacterButton" type="Button" parent="HSplitContainer/Characters/VBoxContainer/HBoxContainer"]
+[node name="AddCharacterButton" type="Button" parent="HSplitContainer/Characters/VBoxContainer/HBoxContainer" unique_id=1239378934]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Добавить"
 icon = ExtResource("2_id2wp")
 
-[node name="RemoveCharacterButton" type="Button" parent="HSplitContainer/Characters/VBoxContainer/HBoxContainer"]
+[node name="RemoveCharacterButton" type="Button" parent="HSplitContainer/Characters/VBoxContainer/HBoxContainer" unique_id=1787974129]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Удалить"
 icon = ExtResource("3_vhwif")
 
-[node name="HSplitContainer" type="HSplitContainer" parent="HSplitContainer"]
+[node name="HSplitContainer" type="HSplitContainer" parent="HSplitContainer" unique_id=242418805]
 layout_mode = 2
 
-[node name="CharacterInfo" type="MarginContainer" parent="HSplitContainer/HSplitContainer"]
+[node name="CharacterInfo" type="MarginContainer" parent="HSplitContainer/HSplitContainer" unique_id=603026899]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/HSplitContainer/CharacterInfo"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer/HSplitContainer/CharacterInfo" unique_id=44133632]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="UUIDHBoxContainer" type="HBoxContainer" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer"]
+[node name="UUIDHBoxContainer" type="HBoxContainer" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer" unique_id=1601839392]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Label" type="Label" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer/UUIDHBoxContainer"]
+[node name="Label" type="Label" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer/UUIDHBoxContainer" unique_id=1006679816]
 layout_mode = 2
 text = "UUID:"
 
-[node name="UUIDLineEdit" type="LineEdit" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer/UUIDHBoxContainer"]
+[node name="UUIDLineEdit" type="LineEdit" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer/UUIDHBoxContainer" unique_id=1651368704]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "UUID"
 editable = false
 
-[node name="CopyUUIDButton" type="Button" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer/UUIDHBoxContainer"]
+[node name="CopyUUIDButton" type="Button" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer/UUIDHBoxContainer" unique_id=1358626801]
 layout_mode = 2
 tooltip_text = "Копировать"
 icon = ExtResource("4_vhwif")
 
-[node name="ShortKeyHBoxContainer" type="HBoxContainer" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer"]
+[node name="ShortKeyHBoxContainer" type="HBoxContainer" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer" unique_id=1187236902]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Label" type="Label" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer/ShortKeyHBoxContainer"]
+[node name="Label" type="Label" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer/ShortKeyHBoxContainer" unique_id=1196786968]
 layout_mode = 2
 text = "Short Key:"
 
-[node name="ShortKeyLineEdit" type="LineEdit" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer/ShortKeyHBoxContainer"]
+[node name="ShortKeyLineEdit" type="LineEdit" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer/ShortKeyHBoxContainer" unique_id=1574598310]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Short Key"
 editable = false
 
-[node name="CopyShortKeyButton" type="Button" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer/ShortKeyHBoxContainer"]
+[node name="CopyShortKeyButton" type="Button" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer/ShortKeyHBoxContainer" unique_id=1987524802]
 layout_mode = 2
 tooltip_text = "Копировать"
 icon = ExtResource("4_vhwif")
 
-[node name="CharacterNameLineEdit" type="LineEdit" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer"]
+[node name="CharacterNameLineEdit" type="LineEdit" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer" unique_id=492942247]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 placeholder_text = "Имя персонажа"
 
-[node name="CharacterColorPickerButton" type="ColorPickerButton" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer"]
+[node name="CharacterColorPickerButton" type="ColorPickerButton" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer" unique_id=443054264]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 color = Color(1, 1, 1, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 4
-
-[node name="SelectSceneButton" type="Button" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "Файл сцены"
-icon = ExtResource("4_id2wp")
-
-[node name="FileNameLineEdit" type="LineEdit" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-editable = false
-
-[node name="HSeparator" type="HSeparator" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer" unique_id=2041942619]
 visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer"]
+[node name="Label" type="Label" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer" unique_id=336551047]
+visible = false
 layout_mode = 2
 text = "Эмоции:"
 
-[node name="EmotionsItemList" type="ItemList" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer"]
+[node name="EmotionsItemList" type="ItemList" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer" unique_id=223948523]
+visible = false
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="HSeparator2" type="HSeparator" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer" unique_id=1412654230]
 visible = false
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer"]
+[node name="Label2" type="Label" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer" unique_id=1488701649]
 visible = false
 layout_mode = 2
 text = "Костюмы"
 
-[node name="ItemList" type="ItemList" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer"]
+[node name="ItemList" type="ItemList" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer" unique_id=672243593]
 visible = false
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
@@ -177,22 +162,22 @@ item_count = 2
 item_0/text = "Повседневный"
 item_1/text = "Нарядный"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer" unique_id=770416250]
 visible = false
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Button" type="Button" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer/HBoxContainer3"]
+[node name="Button" type="Button" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer/HBoxContainer3" unique_id=468282466]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Добавить"
 
-[node name="Button2" type="Button" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer/HBoxContainer3"]
+[node name="Button2" type="Button" parent="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer/HBoxContainer3" unique_id=1402594935]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Удалить"
 
-[node name="CharacterPreview" type="MarginContainer" parent="HSplitContainer/HSplitContainer"]
+[node name="CharacterPreview" type="MarginContainer" parent="HSplitContainer/HSplitContainer" unique_id=1567227567]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 4
@@ -200,21 +185,12 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="HSplitContainer/HSplitContainer/CharacterPreview"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HSplitContainer/HSplitContainer/CharacterPreview" unique_id=160227985]
 layout_mode = 2
 
-[node name="FileDialog" type="FileDialog" parent="."]
-title = "Open a File"
-initial_position = 4
-ok_button_text = "Open"
-file_mode = 0
-filters = PackedStringArray("*.tscn")
-
-[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="." unique_id=902967241]
 initial_position = 4
 size = Vector2i(345, 100)
 dialog_text = "Вы уверены? Это действие нельзя отменить."
 
 [connection signal="color_changed" from="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer/CharacterColorPickerButton" to="." method="_on_character_color_picker_button_color_changed"]
-[connection signal="pressed" from="HSplitContainer/HSplitContainer/CharacterInfo/VBoxContainer/HBoxContainer/SelectSceneButton" to="." method="_on_select_scene_button_pressed"]
-[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]

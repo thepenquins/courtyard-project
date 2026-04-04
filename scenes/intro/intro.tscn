@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://c0f35tf8gactr"]
+
+[ext_resource type="Script" uid="uid://bhrd5ghq4mt3m" path="res://scenes/intro/intro.gd" id="1_6spyc"]
+[ext_resource type="Texture2D" uid="uid://ltpqganvrryj" path="res://scenes/intro/with_border.png" id="1_qeukb"]
+[ext_resource type="PackedScene" uid="uid://cea2kp6234jfk" path="res://scenes/main_menu/main_menu.tscn" id="2_8twl8"]
+[ext_resource type="AudioStream" uid="uid://behbc0bo7cxhd" path="res://audio/penguins.mp3" id="5_r2u6x"]
+
+[sub_resource type="Animation" id="Animation_teox7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_iatiw"]
+resource_name = "intro"
+length = 3.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.2, 3.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_teox7"]
+_data = {
+&"RESET": SubResource("Animation_teox7"),
+&"intro": SubResource("Animation_iatiw")
+}
+
+[node name="Intro" type="Control" unique_id=2133051141]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6spyc")
+main_menu = ExtResource("2_8twl8")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2091743237]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.125911, 0.125911, 0.125911, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1711722587]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qeukb")
+stretch_mode = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=147206526]
+stream = ExtResource("5_r2u6x")
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1040171442]
+libraries/ = SubResource("AnimationLibrary_teox7")
+autoplay = &"intro"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

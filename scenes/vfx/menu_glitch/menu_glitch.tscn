@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://f722v2bme78n"]
+
+[ext_resource type="Script" uid="uid://cara46po7m3fa" path="res://addons/rewind_story_engine_vn/scene_player/vfx/vfx.gd" id="1_0qt4i"]
+[ext_resource type="VideoStream" uid="uid://cxn873y6ep5ep" path="res://scenes/vfx/menu_glitch/МенюГлитч.ogv" id="2_o81n3"]
+
+[node name="Glitch" type="Control" unique_id=131947625 node_paths=PackedStringArray("video_stream_player")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_0qt4i")
+video_stream_player = NodePath("VideoStreamPlayer")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1060901511]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stream = ExtResource("2_o81n3")
+volume_db = -80.0
+autoplay = true
+expand = true
+loop = true

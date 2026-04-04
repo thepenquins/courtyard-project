@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cpkj3jaa4i4c"]
+
+[ext_resource type="Script" uid="uid://dslxigjk3qefa" path="res://scenes/locations/cg_сосед_в_окне_3/cg_сосед_в_окне_3.gd" id="1_c462d"]
+[ext_resource type="Texture2D" uid="uid://bcfn0t3abw1b1" path="res://scenes/locations/cg_сосед_в_окне_3/cg3_1.jpg" id="1_ogqng"]
+
+[node name="CgСоседВОкне3" type="Node2D" unique_id=2082984537]
+script = ExtResource("1_c462d")
+uuid = "a9e7a5a1-b975-4eb8-9dbb-686105a983dd"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=477432506]
+texture = ExtResource("1_ogqng")
+centered = false

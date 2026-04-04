@@ -20,6 +20,13 @@ var speaker_with_color: String:
 		return speaker
 var text: String
 
+var text_with_speaker: String:
+	get:
+		if speaker == "":
+			return text
+		else:
+			return "%s: %s" % [speaker_with_color, text]
+
 var _story
 var _character: RSECharacter
 

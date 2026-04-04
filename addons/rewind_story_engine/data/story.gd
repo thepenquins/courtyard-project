@@ -2,6 +2,10 @@ class_name RSEStory
 extends RefCounted
 
 
+signal character_added(character: RSECharacter)
+signal character_removed(character: RSECharacter)
+
+
 const PATH_RECORDS: String = "records"
 const PATH_CHARACTERS: String = "characters"
 const PATH_EPISODES: String = "episodes"
@@ -34,6 +38,7 @@ func _init(path_to_story_file: String):
 		dir.make_dir(PATH_EPISODES)
 
 
+## TODO: Добавить проверку на уникальные значения.
 func get_uuid() -> String:
 	return _uuid_generator.v4()
 
@@ -47,6 +52,7 @@ func add_record() -> RSERecord:
 func add_character() -> RSECharacter:
 	var character = RSECharacter.new(get_uuid())
 	characters.append(character)
+	character_added.emit(character)
 	return character
 
 
@@ -69,6 +75,7 @@ func remove_character(character: RSECharacter) -> void:
 	for index in characters.size():
 		if characters[index] == character:
 			characters.remove_at(index)
+			character_removed.emit(character)
 			var p = _directory.path_join(PATH_CHARACTERS).path_join(character.path_to_data_file)
 			DirAccess.remove_absolute(p)
 			break
@@ -269,4 +276,29 @@ static func load_episodes(directory: String, story: RSEStory) -> void:
 		var episode = RSEEpisode.new("", story)
 		episode.load_data(directory.path_join(file))
 		story.episodes.append(episode)
+#endregion
+
+#region Utils
+func get_directory() -> String:
+	return _directory
+
+
+func get_filename_without_extension() -> String:
+	var full_file_name = _path_to_story_file.get_file()
+	var last_dot_index = full_file_name.rfind(".")
+	return full_file_name.substr(0, last_dot_index)
+
+
+func get_character_by_uuid(uuid: String) -> RSECharacter:
+	for character in characters:
+		if character.uuid == uuid:
+			return character
+	return null
+
+
+func get_episode_by_uuid(uuid: String) -> RSEEpisode:
+	for episode in episodes:
+		if episode.uuid == uuid:
+			return episode
+	return null
 #endregion

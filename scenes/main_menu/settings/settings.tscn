@@ -1,0 +1,226 @@
+[gd_scene format=3 uid="uid://dogjfwgr4fqbu"]
+
+[ext_resource type="Script" uid="uid://csoqt0e86mpit" path="res://scenes/main_menu/menu_element.gd" id="1_1uif8"]
+[ext_resource type="Script" uid="uid://5amx0785udqd" path="res://scenes/main_menu/settings/setting_screen_mode.gd" id="2_7vg70"]
+[ext_resource type="Texture2D" uid="uid://cb7i0205hlw6i" path="res://graphics/фон для настроек.png" id="2_ywu6w"]
+[ext_resource type="Script" uid="uid://c73hb4etnplp1" path="res://scenes/main_menu/settings/setting_language.gd" id="3_hcp8u"]
+[ext_resource type="Script" uid="uid://qc4jxomgpxgy" path="res://scenes/main_menu/settings/setting_audio_bus.gd" id="4_fb5ky"]
+[ext_resource type="Script" uid="uid://ctdwgd7h8c4f3" path="res://scenes/main_menu/settings/setting_bleep_mode.gd" id="5_7vie7"]
+[ext_resource type="Script" uid="uid://bve84udsyjhov" path="res://scenes/main_menu/settings/setting_text_speed.gd" id="6_7vie7"]
+[ext_resource type="Script" uid="uid://c3twvr5phbd2x" path="res://scenes/main_menu/settings/rewind_option_button.gd" id="8_kct2i"]
+[ext_resource type="StyleBox" uid="uid://b7frbj2fptrvo" path="res://scenes/main_menu/sub_menu_button_style_box.tres" id="8_mqanq"]
+[ext_resource type="Script" uid="uid://ctd4nhsp20vik" path="res://scenes/main_menu/button_with_sound.gd" id="10_xovuy"]
+
+[node name="Settings" type="Control" unique_id=267592914 node_paths=PackedStringArray("return_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1uif8")
+return_button = NodePath("ReturnButton")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1333880155]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_ywu6w")
+expand_mode = 1
+
+[node name="Title" type="RichTextLabel" parent="." unique_id=1778146791]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 140.0
+offset_right = 300.0
+offset_bottom = 190.0
+grow_horizontal = 2
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+text = "[b]Настройки"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1414523967]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer" unique_id=314006072]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+columns = 2
+
+[node name="ScreenModeLabel" type="Label" parent="VBoxContainer/GridContainer" unique_id=1444161233]
+layout_mode = 2
+text = "Режим экрана"
+horizontal_alignment = 2
+
+[node name="ScreenModeOptionButton" type="OptionButton" parent="VBoxContainer/GridContainer" unique_id=170603347]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Window"
+popup/item_0/id = 0
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 4
+script = ExtResource("2_7vg70")
+
+[node name="LanguageModeLabel" type="Label" parent="VBoxContainer/GridContainer" unique_id=1280753598]
+layout_mode = 2
+text = "Язык"
+horizontal_alignment = 2
+
+[node name="LanguageOptionButton" type="OptionButton" parent="VBoxContainer/GridContainer" unique_id=1370234033]
+layout_mode = 2
+script = ExtResource("3_hcp8u")
+
+[node name="MasterVolumeLabel" type="Label" parent="VBoxContainer/GridContainer" unique_id=1670484672]
+visible = false
+layout_mode = 2
+text = "Общая громкость"
+horizontal_alignment = 2
+
+[node name="MasterVolumeHBoxContainer" type="HBoxContainer" parent="VBoxContainer/GridContainer" unique_id=1553553987 node_paths=PackedStringArray("slider", "spin_box")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+script = ExtResource("4_fb5ky")
+slider = NodePath("HSlider")
+spin_box = NodePath("SpinBox")
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/GridContainer/MasterVolumeHBoxContainer" unique_id=1517367641]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/GridContainer/MasterVolumeHBoxContainer" unique_id=1173219340]
+layout_mode = 2
+
+[node name="SfxVolumeLabel" type="Label" parent="VBoxContainer/GridContainer" unique_id=1582005817]
+layout_mode = 2
+text = "Громкость звуков"
+horizontal_alignment = 2
+
+[node name="SfxVolumeHBoxContainer" type="HBoxContainer" parent="VBoxContainer/GridContainer" unique_id=1074457245 node_paths=PackedStringArray("slider", "spin_box")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+script = ExtResource("4_fb5ky")
+bus = 1
+slider = NodePath("HSlider")
+spin_box = NodePath("SpinBox")
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/GridContainer/SfxVolumeHBoxContainer" unique_id=649519231]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/GridContainer/SfxVolumeHBoxContainer" unique_id=1019944151]
+layout_mode = 2
+
+[node name="MusicVolumeLabel" type="Label" parent="VBoxContainer/GridContainer" unique_id=595019255]
+layout_mode = 2
+text = "Громкость музыки"
+horizontal_alignment = 2
+
+[node name="MusicVolumeHBoxContainer" type="HBoxContainer" parent="VBoxContainer/GridContainer" unique_id=449368754 node_paths=PackedStringArray("slider", "spin_box")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+script = ExtResource("4_fb5ky")
+bus = 2
+slider = NodePath("HSlider")
+spin_box = NodePath("SpinBox")
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/GridContainer/MusicVolumeHBoxContainer" unique_id=980002942]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/GridContainer/MusicVolumeHBoxContainer" unique_id=231706430]
+layout_mode = 2
+
+[node name="BleepsLabel" type="Label" parent="VBoxContainer/GridContainer" unique_id=1838804995]
+visible = false
+layout_mode = 2
+text = "Блипы персонажей"
+horizontal_alignment = 2
+
+[node name="BleepsCheckBox" type="CheckBox" parent="VBoxContainer/GridContainer" unique_id=1974147970]
+visible = false
+layout_mode = 2
+script = ExtResource("5_7vie7")
+
+[node name="TextSpeedLabel" type="Label" parent="VBoxContainer/GridContainer" unique_id=2087706980]
+layout_mode = 2
+text = "Скорость текста"
+horizontal_alignment = 2
+
+[node name="TextSpeedHBoxContainer" type="HBoxContainer" parent="VBoxContainer/GridContainer" unique_id=596951727 node_paths=PackedStringArray("slider", "spin_box")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+script = ExtResource("6_7vie7")
+slider = NodePath("HSlider")
+spin_box = NodePath("SpinBox")
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/GridContainer/TextSpeedHBoxContainer" unique_id=686793466]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/GridContainer/TextSpeedHBoxContainer" unique_id=1535561861]
+visible = false
+layout_mode = 2
+
+[node name="TextSpeedLabel2" type="Label" parent="VBoxContainer/GridContainer" unique_id=17742859]
+layout_mode = 2
+text = "Режим перемеотки"
+horizontal_alignment = 2
+
+[node name="RewindOptionButton" type="OptionButton" parent="VBoxContainer/GridContainer" unique_id=2138304838]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Только просмотренное"
+popup/item_0/id = 0
+popup/item_1/text = "Пропускать всё"
+popup/item_1/id = 1
+script = ExtResource("8_kct2i")
+
+[node name="ReturnButton" type="Button" parent="." unique_id=270555135]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -98.0
+offset_top = -198.0
+offset_right = 98.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/pressed = ExtResource("8_mqanq")
+theme_override_styles/hover = ExtResource("8_mqanq")
+text = "Вернуться"
+script = ExtResource("10_xovuy")

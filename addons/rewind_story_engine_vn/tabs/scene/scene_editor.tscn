@@ -1,0 +1,805 @@
+[gd_scene format=3 uid="uid://dvxndubv71qvf"]
+
+[ext_resource type="Script" uid="uid://x20i247d6d67" path="res://addons/rewind_story_engine_vn/tabs/scene/scene_editor.gd" id="1_3n7vu"]
+[ext_resource type="Script" uid="uid://cpxdu385wp0aj" path="res://addons/rewind_story_engine_vn/tabs/scene/sub_viewport_container.gd" id="2_bsqx8"]
+[ext_resource type="Texture2D" uid="uid://yp6628h3onox" path="res://addons/rewind_story_engine/icons/GuiScrollArrowRight.svg" id="2_dajhn"]
+[ext_resource type="PackedScene" uid="uid://bsc42mb2c8nlx" path="res://addons/rewind_story_engine_vn/scene_player/scene_player.tscn" id="2_ysgoj"]
+[ext_resource type="Script" uid="uid://clruybafd2yqo" path="res://addons/rewind_story_engine_vn/tabs/scene/add_resource_option_button/add_location_button.gd" id="3_rbo53"]
+[ext_resource type="Script" uid="uid://bjuynt85vq502" path="res://addons/rewind_story_engine_vn/utils/set_icon_for_texture_rect.gd" id="4_los03"]
+[ext_resource type="Script" uid="uid://bri1rk7g5hpcx" path="res://addons/rewind_story_engine_vn/tabs/scene/add_resource_option_button/add_music_button.gd" id="5_2eajn"]
+[ext_resource type="Script" uid="uid://ddj5b1a3a6n73" path="res://addons/rewind_story_engine_vn/tabs/scene/add_resource_button/add_sfx_button.gd" id="6_2eajn"]
+[ext_resource type="Script" uid="uid://chvcjquk68un1" path="res://addons/rewind_story_engine_vn/tabs/scene/add_resource_option_button/add_bgs_button.gd" id="7_io0yf"]
+[ext_resource type="Script" uid="uid://bdmb0sijgp8hk" path="res://addons/rewind_story_engine_vn/tabs/scene/resource_container/drop_zone_for_resources.gd" id="9_y7m3g"]
+[ext_resource type="Script" uid="uid://dt0vgh4ifbcyt" path="res://addons/rewind_story_engine_vn/tabs/scene/add_resource_button/add_character_button.gd" id="10_y7m3g"]
+[ext_resource type="Script" uid="uid://dta4vqfl8g8b5" path="res://addons/rewind_story_engine_vn/tabs/scene/ui_visability_check_button.gd" id="12_mlkba"]
+[ext_resource type="PackedScene" uid="uid://duei0f41kemq" path="res://addons/rewind_story_engine_vn/tabs/scene/inspector/inspector.tscn" id="14_hpj0k"]
+[ext_resource type="Script" uid="uid://debioms5t20ev" path="res://addons/rewind_story_engine_vn/tabs/scene/add_resource_button/add_vfx_button.gd" id="14_mlkba"]
+[ext_resource type="Script" uid="uid://chb6p35t70sxp" path="res://addons/rewind_story_engine_vn/tabs/scene/audio_volume_slider.gd" id="15_bsqx8"]
+[ext_resource type="Script" uid="uid://dixg8opgfc8ae" path="res://addons/rewind_story_engine_vn/tabs/scene/add_resource_option_button/add_transition_button.gd" id="15_hpj0k"]
+[ext_resource type="StyleBox" uid="uid://ccjrts3npg683" path="res://addons/rewind_story_engine/styles/style_box_flat.tres" id="16_xo5hf"]
+[ext_resource type="Script" uid="uid://8dwfib45n8ir" path="res://addons/rewind_story_engine_vn/utils/set_icon_for_button.gd" id="17_i21fc"]
+[ext_resource type="Texture2D" uid="uid://b85rhljrt02e3" path="res://addons/rewind_story_engine/icons/GuiScrollArrowLeft.svg" id="17_ijj02"]
+[ext_resource type="Texture2D" uid="uid://d16tbknyvcxp4" path="res://addons/rewind_story_engine/icons/GuiScrollArrowRightHl.svg" id="21_xo5hf"]
+
+[sub_resource type="DPITexture" id="DPITexture_bsqx8"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"none\" stroke=\"#e0e0e0\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M6 14h4m-2-4V2m4 5L8 2 4 7\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[sub_resource type="DPITexture" id="DPITexture_ijj02"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#8da5f3\" d=\"M6.492 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h1v.99a1 1 0 0 0-.316.062l-2.051.684-.684-2.051a1 1 0 0 0-1.898.631l1 3a1 1 0 0 0 1.265.633l1.684-.56v.61c0 .041.019.076.024.116l-4.579 3.052a1 1 0 1 0 1.11 1.664l5.056-3.37 1.495 2.986a1 1 0 0 0 1.21.502l3-1a1 1 0 1 0-.632-1.897l-2.178.725-.975-1.951a.981.981 0 0 0 .469-.827V9h1.383l.722 1.448a1 1 0 1 0 1.79-.895l-1-2A1 1 0 0 0 12.492 7h-3V6h1a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zm0 2h1v2h-1z\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[sub_resource type="DPITexture" id="DPITexture_xo5hf"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"m7 1v6h-6v2h6v6h2v-6h6v-2h-6v-6z\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[sub_resource type="DPITexture" id="DPITexture_i21fc"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><linearGradient id=\"a\" y2=\"0\" gradientUnits=\"userSpaceOnUse\"><stop stop-color=\"#fc7f7f\"/><stop offset=\".5\" stop-color=\"#fc7f7f\"/><stop stop-color=\"#8da5f3\"/></linearGradient><g fill=\"none\" stroke=\"url(#a)\"><circle cx=\"8\" cy=\"8\" r=\"6\" stroke-width=\"2\"/><path stroke-width=\"1.5\" d=\"M2 8a6.5 2 0 0 0 12 0M8 2c-3 4-3 8 0 12M8 2c3 4 3 8 0 12\"/></g></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[sub_resource type="DPITexture" id="DPITexture_pelwf"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"m7 1c-.554 0-1 .446-1 1v2h4v-2c0-.554-.446-1-1-1zm-1 4v7l2 3 2-3v-7zm1 1h1v5h-1z\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[sub_resource type="DPITexture" id="DPITexture_los03"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><linearGradient id=\"a\" x2=\"0\" y1=\"1\" y2=\"15\" gradientUnits=\"userSpaceOnUse\"><stop offset=\"0\" stop-color=\"#ff5f5f\"/><stop offset=\".5\" stop-color=\"#e1da5b\"/><stop offset=\"1\" stop-color=\"#5fff97\"/></linearGradient><path fill=\"url(#a)\" d=\"M13 2a1 1 0 0 0-1-1L4.754 3A1 1 0 0 0 4 4v5.55A2.5 2.5 0 1 0 6 12V4.756l5-1.428V6.5l2-1z\"/><path fill=\"none\" stroke=\"url(#a)\" stroke-linecap=\"round\" d=\"M10.5 8v5m2-4v3m-4-2v1m6-1v1\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[sub_resource type="DPITexture" id="DPITexture_yciay"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><linearGradient id=\"a\" x2=\"0\" y1=\"1\" y2=\"15\" gradientUnits=\"userSpaceOnUse\"><stop offset=\"0\" stop-color=\"#ff5f5f\"/><stop offset=\".5\" stop-color=\"#e1da5b\"/><stop offset=\"1\" stop-color=\"#5fff97\"/></linearGradient><path fill=\"url(#a)\" d=\"m12 2a-1 1 0 0 1 0 2a 8 8 0 0 0-8 8a-1 1 0 0 1-2 0a10 10 0 0 1 10-10zm0 4A-1 1 0 0 1 12 8a 4 4 0 0 0-4 4A-1 1 0 0 1 6 12a6 6 0 0 1 6-6zm0 4A-2 2 0 0 1 12 14A-2 2 0 0 1 12 10z\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[sub_resource type="DPITexture" id="DPITexture_1glhi"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" xml:space=\"preserve\" width=\"16\" height=\"16\" version=\"1.0\" viewBox=\"0 0 2.4 2.4\"><path fill=\"#8da5f3\" d=\"M1.252.15a.1.1 0 0 0-.082.03L.6.75H.318C.225.75.15.817.15.9v.6c0 .083.075.15.168.15H.6l.57.57c.066.067.18.02.18-.074V.256A.106.106 0 0 0 1.252.15\" paint-order=\"markers stroke fill\"/><path fill=\"none\" stroke=\"#8da5f3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\".165\" d=\"M1.575.675c.45.525 0 1.05 0 1.05m.3-1.35c.675.825 0 1.65 0 1.65\" paint-order=\"markers stroke fill\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[sub_resource type="DPITexture" id="DPITexture_hdeyu"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#8da5f3\" d=\"M4.586.5a.764.764 0 0 0-.764.764v.6h-1.2a.764.764 0 0 0-.764.764v1.2h-.6a.764.764 0 0 0-.764.764v.4a.764.764 0 0 0 .764.764h.6v4.5h-.6a.764.764 0 0 0-.764.764v.4a.764.764 0 0 0 .764.764h.6v1.2a.764.764 0 0 0 .764.764h1.2v.6a.764.764 0 0 0 .764.764h.4a.764.764 0 0 0 .764-.764v-.6h4.5v.6a.764.764 0 0 0 .764.764h.4a.764.764 0 0 0 .764-.764v-.6h1.2a.764.764 0 0 0 .764-.764v-1.2h.6a.764.764 0 0 0 .764-.764v-.4a.764.764 0 0 0-.764-.764h-.6v-4.5h.6a.764.764 0 0 0 .764-.764v-.4a.764.764 0 0 0-.764-.764h-.6v-1.2a.764.764 0 0 0-.764-.763h-1.2v-.6a.764.764 0 0 0-.764-.764h-.4a.764.764 0 0 0-.764.764v.6h-4.5v-.6a.764.764 0 0 0-.764-.764zm6.575 5.3a2.186 2.186 0 0 1-.3 4.349h-5.83a2.186 2.186 0 0 1-.3-4.349 3.28 3.644 0 0 1 6.434 0zM5.084 11a.729.729 0 0 1 0 1.459.729.729 0 0 1 0-1.459zm5.83 0a.729.729 0 0 1 0 1.459.729.729 0 0 1 0-1.459zM8 11.729a.729.729 0 0 1 0 1.459.729.729 0 0 1 0-1.46z\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[sub_resource type="DPITexture" id="DPITexture_g2gmg"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"M8 2C5.443 2 2.209 3.948 1.045 7.705a1 1 0 0 0 0 .55C2.163 12.211 5.5 14 8 14s5.836-1.789 6.961-5.725a1 1 0 0 0 0-.55C13.861 3.935 10.554 2 8 2zm0 2a4 4 0 0 1 0 8 4 4 0 0 1 0-8zm0 2a2 2 0 0 0 0 4 2 2 0 0 0 0-4z\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[sub_resource type="DPITexture" id="DPITexture_f1fvh"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"none\" stroke=\"#e0e0e0\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M10 2H6m2 4v8M4 9l4 5 4-5\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[sub_resource type="DPITexture" id="DPITexture_431fo"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"m8 1a1 1 0 0 0 -1 1v5h-2c-1.108 0-2 .892-2 2v1h10v-1c0-1.108-.892-2-2-2h-2v-5a1 1 0 0 0 -1-1zm-5 10v4l10-1v-3z\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[sub_resource type="DPITexture" id="DPITexture_55t82"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"M3 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4l-3-3h-1v6H3zm1 0v5h3V1zm4 8a1 1 0 0 1 0 4 1 1 0 0 1 0-4z\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[sub_resource type="DPITexture" id="DPITexture_w16c2"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" xml:space=\"preserve\" width=\"16\" height=\"16\" version=\"1.0\" viewBox=\"0 0 2.4 2.4\"><path fill=\"#e0e0e0\" d=\"M1.252.15a.1.1 0 0 0-.082.03L.6.75H.318C.225.75.15.817.15.9v.6c0 .083.075.15.168.15H.6l.57.57c.066.067.18.02.18-.074V.256A.106.106 0 0 0 1.252.15\" paint-order=\"markers stroke fill\"/><path fill=\"none\" stroke=\"#e0e0e0\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\".165\" d=\"M1.575.675c.45.525 0 1.05 0 1.05m.3-1.35c.675.825 0 1.65 0 1.65\" paint-order=\"markers stroke fill\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[sub_resource type="DPITexture" id="DPITexture_3iuyd"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"M8 14A6 6 0 0 0 8 2a6 6 0 0 0 0 12zM5.293 8.707a1 1 0 0 1 0-1.414l3-3a1 1 0 0 1 1.414 1.414L7.414 8l2.293 2.293a1 1 0 0 1-1.414 1.414z\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_mlkba"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_hpj0k"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_ysgoj"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_bsqx8"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_ijj02"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_xo5hf"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_i21fc"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_pelwf"]
+
+[sub_resource type="DPITexture" id="DPITexture_8rral"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"M8 2a6 6 0 0 0 0 12A6 6 0 0 0 8 2zm2.707 5.293a1 1 0 0 1 0 1.414l-3 3a1 1 0 0 1-1.414-1.414L8.586 8 6.293 5.707a1 1 0 0 1 1.414-1.414z\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[node name="SceneEditor" type="Control" unique_id=49954602 node_paths=PackedStringArray("margin_container", "ui_controls", "location_option_button", "music_option_button", "bgs_option_button", "add_sfx_button", "add_character_button", "add_vfx_button", "transition_in_option_button", "transition_out_option_button", "auto_inherit_check_box", "inherit_prev_button", "inherit_next_button", "_frame_spin_box", "inspector", "scene_player")]
+clip_contents = true
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3n7vu")
+margin_container = NodePath("MarginContainer")
+ui_controls = [NodePath("MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer"), NodePath("MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftDownVBoxContainer"), NodePath("MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/Inspector")]
+location_option_button = NodePath("MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/LocationHBoxContainer/VneAddLocationButton")
+music_option_button = NodePath("MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/MusicHBoxContainer/VneAddMusicButton")
+bgs_option_button = NodePath("MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/BGSHBoxContainer/VneAddBgsButton")
+add_sfx_button = NodePath("MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/SFXHBoxContainer/AddSfxButton")
+add_character_button = NodePath("MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/CharactersHBoxContainer/AddCharacterButton")
+add_vfx_button = NodePath("MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/VFXHBoxContainer/VneAddVfxButton")
+transition_in_option_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer/TransitionInOptionButton")
+transition_out_option_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer/TransitionOutOptionButton")
+auto_inherit_check_box = NodePath("MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftDownVBoxContainer/PanelContainer/AutoInheritCheckBox")
+inherit_prev_button = NodePath("MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftDownVBoxContainer/HBoxContainer/InheritPrevButton")
+inherit_next_button = NodePath("MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftDownVBoxContainer/HBoxContainer/InheritNextButton")
+_frame_spin_box = NodePath("MarginContainer/VBoxContainer/HBoxContainer/FrameSpinBox")
+inspector = NodePath("MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/Inspector")
+scene_player = NodePath("MarginContainer/VBoxContainer/Scene/AspectRatioContainer/SubViewportContainer/SubViewport/ScenePlayer")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1296077081]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="InfoLabel" type="Label" parent="CenterContainer" unique_id=1424484976]
+layout_mode = 2
+text = "Выберете эпизод для редактирования"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1961950753]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1074457013]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="Scene" type="Control" parent="MarginContainer/VBoxContainer" unique_id=967265786]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/Scene" unique_id=205595266]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("16_xo5hf")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/VBoxContainer/Scene" unique_id=1332696052]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+ratio = 1.78
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/VBoxContainer/Scene/AspectRatioContainer" unique_id=1985238085]
+texture_filter = 5
+layout_mode = 2
+size_flags_vertical = 3
+stretch = true
+script = ExtResource("2_bsqx8")
+
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/VBoxContainer/Scene/AspectRatioContainer/SubViewportContainer" unique_id=1084950756]
+handle_input_locally = false
+canvas_item_default_texture_filter = 3
+size = Vector2i(1840, 1034)
+size_2d_override = Vector2i(1920, 1080)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="ScenePlayer" parent="MarginContainer/VBoxContainer/Scene/AspectRatioContainer/SubViewportContainer/SubViewport" unique_id=2115196977 instance=ExtResource("2_ysgoj")]
+
+[node name="UIMarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Scene" unique_id=976552749]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer" unique_id=265600660]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="LeftUpVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control" unique_id=2094223382]
+layout_mode = 1
+offset_right = 304.0
+offset_bottom = 287.0
+
+[node name="CharactersHBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer" unique_id=358353594]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="InheritNextButton" type="Button" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/CharactersHBoxContainer" unique_id=1986699503]
+layout_mode = 2
+size_flags_horizontal = 0
+tooltip_text = "Наследовать от этого кадра все следующие кадры до конца эпизода для этой категории"
+icon = SubResource("DPITexture_bsqx8")
+script = ExtResource("17_i21fc")
+icon_name = &"MoveUp"
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/CharactersHBoxContainer" unique_id=266209681]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("16_xo5hf")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/CharactersHBoxContainer/PanelContainer" unique_id=1745946528]
+layout_mode = 2
+texture = SubResource("DPITexture_ijj02")
+stretch_mode = 3
+script = ExtResource("4_los03")
+icon_name = &"CharacterBody2D"
+
+[node name="AddCharacterButton" type="Button" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/CharactersHBoxContainer" unique_id=652049578 node_paths=PackedStringArray("_res_container")]
+layout_mode = 2
+tooltip_text = "Добавить персонажа"
+disabled = true
+icon = SubResource("DPITexture_xo5hf")
+script = ExtResource("10_y7m3g")
+_res_container = NodePath("../HBoxContainer")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/CharactersHBoxContainer" unique_id=1268104933]
+layout_mode = 2
+script = ExtResource("9_y7m3g")
+
+[node name="LocationHBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer" unique_id=315726915]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="InheritNextButton" type="Button" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/LocationHBoxContainer" unique_id=1924967943]
+layout_mode = 2
+size_flags_horizontal = 0
+tooltip_text = "Наследовать от этого кадра все следующие кадры до конца эпизода для этой категории"
+icon = SubResource("DPITexture_bsqx8")
+script = ExtResource("17_i21fc")
+icon_name = &"MoveUp"
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/LocationHBoxContainer" unique_id=1594114889]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("16_xo5hf")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/LocationHBoxContainer/PanelContainer" unique_id=829091358]
+layout_mode = 2
+texture = SubResource("DPITexture_i21fc")
+stretch_mode = 3
+script = ExtResource("4_los03")
+icon_name = &"WorldEnvironment"
+
+[node name="EditButton" type="Button" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/LocationHBoxContainer" unique_id=7605276]
+layout_mode = 2
+tooltip_text = "Редактировать"
+icon = SubResource("DPITexture_pelwf")
+icon_alignment = 1
+script = ExtResource("17_i21fc")
+icon_name = &"Edit"
+
+[node name="VneAddLocationButton" type="OptionButton" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/LocationHBoxContainer" unique_id=356743062]
+layout_mode = 2
+tooltip_text = "Выбрать локацию"
+selected = 0
+fit_to_longest_item = false
+item_count = 1
+popup/item_0/text = "[Пусто]"
+popup/item_0/id = 0
+script = ExtResource("3_rbo53")
+metadata/_custom_type_script = "uid://clruybafd2yqo"
+
+[node name="MusicHBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer" unique_id=1350737231]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="InheritNextButton" type="Button" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/MusicHBoxContainer" unique_id=299000821]
+layout_mode = 2
+size_flags_horizontal = 0
+tooltip_text = "Наследовать от этого кадра все следующие кадры до конца эпизода для этой категории"
+icon = SubResource("DPITexture_bsqx8")
+script = ExtResource("17_i21fc")
+icon_name = &"MoveUp"
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/MusicHBoxContainer" unique_id=488755410]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("16_xo5hf")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/MusicHBoxContainer/PanelContainer" unique_id=1556030752]
+layout_mode = 2
+texture = SubResource("DPITexture_los03")
+stretch_mode = 3
+script = ExtResource("4_los03")
+icon_name = &"AudioStreamMP3"
+
+[node name="EditButton" type="Button" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/MusicHBoxContainer" unique_id=142941093]
+layout_mode = 2
+tooltip_text = "Редактировать"
+icon = SubResource("DPITexture_pelwf")
+icon_alignment = 1
+script = ExtResource("17_i21fc")
+icon_name = &"Edit"
+
+[node name="VneAddMusicButton" type="OptionButton" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/MusicHBoxContainer" unique_id=1630292455]
+layout_mode = 2
+tooltip_text = "Выбрать музыку"
+selected = 0
+fit_to_longest_item = false
+item_count = 1
+popup/item_0/text = "[Пусто]"
+popup/item_0/id = 0
+script = ExtResource("5_2eajn")
+metadata/_custom_type_script = "uid://bri1rk7g5hpcx"
+
+[node name="BGSHBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer" unique_id=775157050]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="InheritNextButton" type="Button" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/BGSHBoxContainer" unique_id=1736733445]
+layout_mode = 2
+size_flags_horizontal = 0
+tooltip_text = "Наследовать от этого кадра все следующие кадры до конца эпизода для этой категории"
+icon = SubResource("DPITexture_bsqx8")
+script = ExtResource("17_i21fc")
+icon_name = &"MoveUp"
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/BGSHBoxContainer" unique_id=744100923]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("16_xo5hf")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/BGSHBoxContainer/PanelContainer" unique_id=1198368769]
+layout_mode = 2
+texture = SubResource("DPITexture_yciay")
+stretch_mode = 3
+script = ExtResource("4_los03")
+icon_name = &"AudioStream"
+
+[node name="EditButton" type="Button" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/BGSHBoxContainer" unique_id=193059541]
+layout_mode = 2
+tooltip_text = "Редактировать"
+icon = SubResource("DPITexture_pelwf")
+icon_alignment = 1
+script = ExtResource("17_i21fc")
+icon_name = &"Edit"
+
+[node name="VneAddBgsButton" type="OptionButton" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/BGSHBoxContainer" unique_id=955572474]
+layout_mode = 2
+tooltip_text = "Выбрать фоновый звук"
+selected = 0
+fit_to_longest_item = false
+item_count = 1
+popup/item_0/text = "[Пусто]"
+popup/item_0/id = 0
+script = ExtResource("7_io0yf")
+metadata/_custom_type_script = "uid://chvcjquk68un1"
+
+[node name="SFXHBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer" unique_id=178764344]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="InheritNextButton" type="Button" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/SFXHBoxContainer" unique_id=804305113]
+layout_mode = 2
+size_flags_horizontal = 0
+tooltip_text = "Наследовать от этого кадра все следующие кадры до конца эпизода для этой категории"
+icon = SubResource("DPITexture_bsqx8")
+script = ExtResource("17_i21fc")
+icon_name = &"MoveUp"
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/SFXHBoxContainer" unique_id=2081342373]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("16_xo5hf")
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/SFXHBoxContainer/PanelContainer" unique_id=824955819]
+layout_mode = 2
+texture = SubResource("DPITexture_1glhi")
+stretch_mode = 3
+script = ExtResource("4_los03")
+icon_name = &"AudioStreamPlayer2D"
+
+[node name="AddSfxButton" type="Button" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/SFXHBoxContainer" unique_id=801627711 node_paths=PackedStringArray("_res_container")]
+layout_mode = 2
+tooltip_text = "Добавить звуковой эффект"
+disabled = true
+icon = SubResource("DPITexture_xo5hf")
+script = ExtResource("6_2eajn")
+_res_container = NodePath("../HBoxContainer")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/SFXHBoxContainer" unique_id=2129875186]
+layout_mode = 2
+script = ExtResource("9_y7m3g")
+
+[node name="VFXHBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer" unique_id=1696774883]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="InheritNextButton" type="Button" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/VFXHBoxContainer" unique_id=1835850831]
+layout_mode = 2
+size_flags_horizontal = 0
+tooltip_text = "Наследовать от этого кадра все следующие кадры до конца эпизода для этой категории"
+icon = SubResource("DPITexture_bsqx8")
+script = ExtResource("17_i21fc")
+icon_name = &"MoveUp"
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/VFXHBoxContainer" unique_id=66779446]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("16_xo5hf")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/VFXHBoxContainer/PanelContainer" unique_id=1800275337]
+layout_mode = 2
+texture = SubResource("DPITexture_hdeyu")
+stretch_mode = 3
+script = ExtResource("4_los03")
+icon_name = &"CPUParticles2D"
+
+[node name="VneAddVfxButton" type="Button" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/VFXHBoxContainer" unique_id=1876846502 node_paths=PackedStringArray("_res_container")]
+layout_mode = 2
+tooltip_text = "Добавить визуальный эффект"
+disabled = true
+icon = SubResource("DPITexture_xo5hf")
+script = ExtResource("14_mlkba")
+_res_container = NodePath("../HBoxContainer")
+metadata/_custom_type_script = "uid://debioms5t20ev"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/VFXHBoxContainer" unique_id=1031012158]
+layout_mode = 2
+script = ExtResource("9_y7m3g")
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer" unique_id=1333830490]
+visible = false
+layout_mode = 2
+
+[node name="RightUpVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control" unique_id=1051231699]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/RightUpVBoxContainer" unique_id=1718727721]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("16_xo5hf")
+
+[node name="UICheckButton" type="CheckButton" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/RightUpVBoxContainer/PanelContainer" unique_id=355516336]
+layout_mode = 2
+tooltip_text = "Переключить видимость интерфейса"
+icon = SubResource("DPITexture_g2gmg")
+script = ExtResource("12_mlkba")
+
+[node name="LeftDownVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control" unique_id=1616548250]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftDownVBoxContainer" unique_id=1348161871]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="InheritPrevButton" type="Button" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftDownVBoxContainer/HBoxContainer" unique_id=266926273]
+layout_mode = 2
+size_flags_horizontal = 0
+tooltip_text = "Наследовать предыдущий кадр"
+icon = SubResource("DPITexture_f1fvh")
+script = ExtResource("17_i21fc")
+icon_name = &"MoveDown"
+
+[node name="ClearSceneButton" type="Button" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftDownVBoxContainer/HBoxContainer" unique_id=1234390804]
+layout_mode = 2
+size_flags_horizontal = 0
+tooltip_text = "Очистить сцену"
+icon = SubResource("DPITexture_431fo")
+script = ExtResource("17_i21fc")
+icon_name = &"Clear"
+
+[node name="InheritNextButton" type="Button" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftDownVBoxContainer/HBoxContainer" unique_id=2006532733]
+layout_mode = 2
+size_flags_horizontal = 0
+tooltip_text = "Наследовать следующий кадр"
+icon = SubResource("DPITexture_bsqx8")
+script = ExtResource("17_i21fc")
+icon_name = &"MoveUp"
+
+[node name="SaveSceneButton" type="Button" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftDownVBoxContainer/HBoxContainer" unique_id=1035370721]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Сохранить сцену"
+icon = SubResource("DPITexture_55t82")
+script = ExtResource("17_i21fc")
+icon_name = &"Save"
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftDownVBoxContainer" unique_id=1100765979]
+visible = false
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("16_xo5hf")
+
+[node name="AutoInheritCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftDownVBoxContainer/PanelContainer" unique_id=1055389686]
+layout_mode = 2
+button_pressed = true
+text = "Автонаследование новых кадров"
+
+[node name="AudioVolumePanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftDownVBoxContainer" unique_id=1792802377]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("16_xo5hf")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftDownVBoxContainer/AudioVolumePanelContainer" unique_id=926897585]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftDownVBoxContainer/AudioVolumePanelContainer/MarginContainer" unique_id=461259041]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftDownVBoxContainer/AudioVolumePanelContainer/MarginContainer/HBoxContainer" unique_id=449566659]
+layout_mode = 2
+texture = SubResource("DPITexture_w16c2")
+stretch_mode = 5
+script = ExtResource("4_los03")
+icon_name = &"AudioStreamPlayer"
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftDownVBoxContainer/AudioVolumePanelContainer/MarginContainer/HBoxContainer" unique_id=1486121058]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 0.5
+script = ExtResource("15_bsqx8")
+
+[node name="Inspector" parent="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control" unique_id=792062279 instance=ExtResource("14_hpj0k")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -43.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1277332238]
+layout_mode = 2
+alignment = 1
+
+[node name="TransitionInOptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1267650167]
+layout_mode = 2
+alignment = 1
+selected = 0
+item_count = 1
+popup/item_0/text = "[Без перехода]"
+popup/item_0/id = 0
+script = ExtResource("15_hpj0k")
+metadata/_custom_type_script = "uid://dixg8opgfc8ae"
+
+[node name="FirstFrame" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1622530778]
+visible = false
+layout_mode = 2
+tooltip_text = "Предыдущий кадр"
+mouse_default_cursor_shape = 2
+icon = ExtResource("17_ijj02")
+flat = true
+
+[node name="PrevFrame" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=186721351]
+layout_mode = 2
+tooltip_text = "Предыдущий кадр"
+mouse_default_cursor_shape = 2
+icon = SubResource("DPITexture_3iuyd")
+flat = true
+script = ExtResource("17_i21fc")
+icon_name = &"GuiScrollArrowLeft"
+
+[node name="FrameSpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1828253613]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_constants/buttons_width = 0
+theme_override_icons/up = SubResource("ImageTexture_mlkba")
+theme_override_icons/up_hover = SubResource("ImageTexture_hpj0k")
+theme_override_icons/up_pressed = SubResource("ImageTexture_ysgoj")
+theme_override_icons/up_disabled = SubResource("ImageTexture_bsqx8")
+theme_override_icons/down = SubResource("ImageTexture_ijj02")
+theme_override_icons/down_hover = SubResource("ImageTexture_xo5hf")
+theme_override_icons/down_pressed = SubResource("ImageTexture_i21fc")
+theme_override_icons/down_disabled = SubResource("ImageTexture_pelwf")
+max_value = 10000.0
+alignment = 1
+prefix = "кадр"
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1552888545]
+visible = false
+layout_mode = 2
+icon = ExtResource("2_dajhn")
+flat = true
+
+[node name="NextFrame" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=678957145]
+layout_mode = 2
+tooltip_text = "Следующий кадр"
+mouse_default_cursor_shape = 2
+icon = SubResource("DPITexture_8rral")
+flat = true
+script = ExtResource("17_i21fc")
+icon_name = &"GuiScrollArrowRightHl"
+
+[node name="LastFrame" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=287555279]
+visible = false
+layout_mode = 2
+tooltip_text = "Следующий кадр"
+mouse_default_cursor_shape = 2
+icon = ExtResource("21_xo5hf")
+flat = true
+
+[node name="TransitionOutOptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=285290549]
+layout_mode = 2
+alignment = 1
+selected = 0
+item_count = 1
+popup/item_0/text = "[Без перехода]"
+popup/item_0/id = 0
+script = ExtResource("15_hpj0k")
+metadata/_custom_type_script = "uid://dixg8opgfc8ae"
+
+[connection signal="size_changed" from="MarginContainer/VBoxContainer/Scene/AspectRatioContainer/SubViewportContainer/SubViewport" to="MarginContainer/VBoxContainer/Scene/AspectRatioContainer/SubViewportContainer" method="_update_viewport"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/CharactersHBoxContainer/InheritNextButton" to="." method="_on_inherit_characters_next_button_pressed"]
+[connection signal="resource_added" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/CharactersHBoxContainer/AddCharacterButton" to="." method="_on_character_resource_added"]
+[connection signal="resource_edited" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/CharactersHBoxContainer/AddCharacterButton" to="." method="_on_resource_edited"]
+[connection signal="resource_removed" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/CharactersHBoxContainer/AddCharacterButton" to="." method="_on_character_resource_removed"]
+[connection signal="resources_order_changed" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/CharactersHBoxContainer/AddCharacterButton" to="." method="_on_characters_resources_order_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/LocationHBoxContainer/InheritNextButton" to="." method="_on_inherit_location_next_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/LocationHBoxContainer/EditButton" to="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/LocationHBoxContainer/VneAddLocationButton" method="_on_edit_pressed"]
+[connection signal="resource_edited" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/LocationHBoxContainer/VneAddLocationButton" to="." method="_on_resource_edited"]
+[connection signal="resource_selected" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/LocationHBoxContainer/VneAddLocationButton" to="." method="_on_add_location_button_resource_selected"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/MusicHBoxContainer/InheritNextButton" to="." method="_on_inherit_music_next_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/MusicHBoxContainer/EditButton" to="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/MusicHBoxContainer/VneAddMusicButton" method="_on_edit_pressed"]
+[connection signal="resource_edited" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/MusicHBoxContainer/VneAddMusicButton" to="." method="_on_resource_edited"]
+[connection signal="resource_selected" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/MusicHBoxContainer/VneAddMusicButton" to="." method="_on_add_music_button_resource_selected"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/BGSHBoxContainer/InheritNextButton" to="." method="_on_inherit_bgs_next_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/BGSHBoxContainer/EditButton" to="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/BGSHBoxContainer/VneAddBgsButton" method="_on_edit_pressed"]
+[connection signal="resource_edited" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/BGSHBoxContainer/VneAddBgsButton" to="." method="_on_resource_edited"]
+[connection signal="resource_selected" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/BGSHBoxContainer/VneAddBgsButton" to="." method="_on_add_bgs_button_resource_selected"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/SFXHBoxContainer/InheritNextButton" to="." method="_on_inherit_sfx_next_button_pressed"]
+[connection signal="resource_added" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/SFXHBoxContainer/AddSfxButton" to="." method="_on_sfx_resource_added"]
+[connection signal="resource_edited" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/SFXHBoxContainer/AddSfxButton" to="." method="_on_resource_edited"]
+[connection signal="resource_removed" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/SFXHBoxContainer/AddSfxButton" to="." method="_on_sfx_resource_removed"]
+[connection signal="resources_order_changed" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/SFXHBoxContainer/AddSfxButton" to="." method="_on_sfx_resources_order_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/VFXHBoxContainer/InheritNextButton" to="." method="_on_inherit_vfx_next_button_pressed"]
+[connection signal="resource_added" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/VFXHBoxContainer/VneAddVfxButton" to="." method="_on_vfx_resource_added"]
+[connection signal="resource_edited" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/VFXHBoxContainer/VneAddVfxButton" to="." method="_on_resource_edited"]
+[connection signal="resource_removed" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/VFXHBoxContainer/VneAddVfxButton" to="." method="_on_vfx_resource_removed"]
+[connection signal="resources_order_changed" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftUpVBoxContainer/VFXHBoxContainer/VneAddVfxButton" to="." method="_on_vfx_resources_order_changed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/RightUpVBoxContainer/PanelContainer/UICheckButton" to="." method="_on_ui_check_button_toggled"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftDownVBoxContainer/HBoxContainer/InheritPrevButton" to="." method="_inherit_prev_frame"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftDownVBoxContainer/HBoxContainer/ClearSceneButton" to="." method="_on_clear_scene_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftDownVBoxContainer/HBoxContainer/InheritNextButton" to="." method="_inherit_next_frame"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/LeftDownVBoxContainer/HBoxContainer/SaveSceneButton" to="." method="_on_save_scene_button_pressed"]
+[connection signal="audio_was_changed" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/Inspector" to="." method="_on_inspector_audio_was_changed"]
+[connection signal="character_was_changed" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/Inspector" to="." method="_on_inspector_character_was_changed"]
+[connection signal="frame_was_changed" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/Inspector" to="." method="_on_inspector_frame_was_changed"]
+[connection signal="location_was_changed" from="MarginContainer/VBoxContainer/Scene/UIMarginContainer/Control/Inspector" to="." method="_on_inspector_location_was_changed"]
+[connection signal="resource_selected" from="MarginContainer/VBoxContainer/HBoxContainer/TransitionInOptionButton" to="." method="_on_transition_in_option_button_resource_selected"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/PrevFrame" to="." method="_on_prev_frame_pressed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer/FrameSpinBox" to="." method="_on_frame_spin_box_value_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/NextFrame" to="." method="_on_next_frame_pressed"]
+[connection signal="resource_selected" from="MarginContainer/VBoxContainer/HBoxContainer/TransitionOutOptionButton" to="." method="_on_transition_out_option_button_resource_selected"]

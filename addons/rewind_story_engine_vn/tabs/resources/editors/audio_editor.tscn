@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://c8dbdc7405tod"]
+
+[ext_resource type="Script" uid="uid://8dwfib45n8ir" path="res://addons/rewind_story_engine_vn/utils/set_icon_for_button.gd" id="1_g6bv8"]
+[ext_resource type="Script" uid="uid://dgueixmft0jyq" path="res://addons/rewind_story_engine_vn/tabs/resources/editors/audio_editor.gd" id="1_gwhcb"]
+
+[sub_resource type="DPITexture" id="DPITexture_kvvfv"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"M15 6v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-3h2v2h8V7h-3a1 1 0 0 1-1-1V3H5v4H3V2a1 1 0 0 1 1-1h6zm-9 6v-2H1V8h5V6l3 3z\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[sub_resource type="DPITexture" id="DPITexture_058c4"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"M5 8a4 4 0 1 1 4 4v2a6 6 0 1 0-6-6H1l3 4 3-4z\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[sub_resource type="DPITexture" id="DPITexture_44otc"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"M4 12a1 1 0 0 0 1.555.832l6-4a1 1 0 0 0 0-1.664l-6-4A1 1 0 0 0 4 4z\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[sub_resource type="DPITexture" id="DPITexture_qw71t"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"10\" height=\"10\" x=\"3\" y=\"3\" fill=\"#e0e0e0\" rx=\"1\"/></svg>
+"
+saturation = 2.0
+color_map = {
+Color(1, 0.37254903, 0.37254903, 1): Color(1, 0.47, 0.42, 1),
+Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
+Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
+}
+
+[node name="AudioEditor" type="HBoxContainer" unique_id=1537110270 node_paths=PackedStringArray("audio_type_option_button", "regular_container", "path_to_file_line_edit", "file_dialog", "fmod__container", "fmod_event_option_button")]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+script = ExtResource("1_gwhcb")
+audio_type_option_button = NodePath("AudioTypeOptionButton")
+regular_container = NodePath("RegularHBoxContainer")
+path_to_file_line_edit = NodePath("RegularHBoxContainer/PathToFileLineEdit")
+file_dialog = NodePath("RegularHBoxContainer/OpenFileDialogButton/FileDialog")
+fmod__container = NodePath("FmodHBoxContainer")
+fmod_event_option_button = NodePath("FmodHBoxContainer/FmodEventOptionButton")
+
+[node name="Label" type="Label" parent="." unique_id=568210483]
+layout_mode = 2
+text = "Тип аудио:"
+
+[node name="AudioTypeOptionButton" type="OptionButton" parent="." unique_id=434640280]
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "Regular"
+popup/item_0/id = 0
+popup/item_1/text = "FMOD"
+popup/item_1/id = 1
+
+[node name="RegularHBoxContainer" type="HBoxContainer" parent="." unique_id=66540915]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PathToFileLineEdit" type="LineEdit" parent="RegularHBoxContainer" unique_id=795994159]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Путь к файлу"
+editable = false
+expand_to_text_length = true
+
+[node name="OpenFileDialogButton" type="Button" parent="RegularHBoxContainer" unique_id=794612662]
+layout_mode = 2
+tooltip_text = "Открыть файл"
+icon = SubResource("DPITexture_kvvfv")
+script = ExtResource("1_g6bv8")
+icon_name = &"FileAccess"
+
+[node name="FileDialog" type="FileDialog" parent="RegularHBoxContainer/OpenFileDialogButton" unique_id=2138619005]
+oversampling_override = 1.0
+title = "Open a File"
+initial_position = 4
+file_mode = 0
+filters = PackedStringArray("*.ogg", "*.mp3")
+
+[node name="FmodHBoxContainer" type="HBoxContainer" parent="." unique_id=1457222400]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FmodEventOptionButton" type="OptionButton" parent="FmodHBoxContainer" unique_id=1578199270]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 7
+popup/item_0/text = "event:/SFX/snd_explosion"
+popup/item_0/id = 0
+popup/item_1/text = "event:/UI/snd_hover"
+popup/item_1/id = 1
+popup/item_2/text = "event:/UI/snd_select"
+popup/item_2/id = 2
+popup/item_3/text = "event:/amb/amb_bigfan"
+popup/item_3/id = 3
+popup/item_4/text = "event:/mus/mus_bachbabach"
+popup/item_4/id = 4
+popup/item_5/text = "event:/mus/mus_pieceofkinight"
+popup/item_5/id = 5
+popup/item_6/text = "event:/mus/mus_puzzle"
+popup/item_6/id = 6
+
+[node name="RefreshFmodBanksButton" type="Button" parent="FmodHBoxContainer" unique_id=191237855]
+layout_mode = 2
+text = "Обновить"
+icon = SubResource("DPITexture_058c4")
+script = ExtResource("1_g6bv8")
+icon_name = &"Reload"
+
+[node name="PlayFmodEmitterButton" type="Button" parent="FmodHBoxContainer" unique_id=15917064]
+visible = false
+layout_mode = 2
+icon = SubResource("DPITexture_44otc")
+script = ExtResource("1_g6bv8")
+icon_name = &"Play"
+
+[node name="StopFmodEmitterButton" type="Button" parent="FmodHBoxContainer" unique_id=2129205467]
+visible = false
+layout_mode = 2
+icon = SubResource("DPITexture_qw71t")
+script = ExtResource("1_g6bv8")
+icon_name = &"Stop"
+
+[connection signal="item_selected" from="AudioTypeOptionButton" to="." method="_on_audio_type_option_button_item_selected"]
+[connection signal="pressed" from="RegularHBoxContainer/OpenFileDialogButton" to="." method="_on_open_file_dialog_button_pressed"]
+[connection signal="file_selected" from="RegularHBoxContainer/OpenFileDialogButton/FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="item_selected" from="FmodHBoxContainer/FmodEventOptionButton" to="." method="_on_fmod_event_option_button_item_selected"]
+[connection signal="pressed" from="FmodHBoxContainer/RefreshFmodBanksButton" to="." method="_update_fmod_events"]

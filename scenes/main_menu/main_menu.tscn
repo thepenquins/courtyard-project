@@ -1,0 +1,267 @@
+[gd_scene format=3 uid="uid://cea2kp6234jfk"]
+
+[ext_resource type="Script" uid="uid://cjfajfghsdim5" path="res://scenes/main_menu/main_menu.gd" id="1_0ebjn"]
+[ext_resource type="PackedScene" uid="uid://b6swifjkjxwor" path="res://scenes/main_menu/developers/developers.tscn" id="1_fsom3"]
+[ext_resource type="Texture2D" uid="uid://1eff70bapcpw" path="res://graphics/главное_меню/Меню.png" id="2_3ovsr"]
+[ext_resource type="FontFile" uid="uid://d05i7wrk48m4v" path="res://graphics/шрифт/static/InterTight-ExtraBold.ttf" id="3_5seab"]
+[ext_resource type="PackedScene" uid="uid://f722v2bme78n" path="res://scenes/vfx/menu_glitch/menu_glitch.tscn" id="3_lqpn7"]
+[ext_resource type="PackedScene" uid="uid://dogjfwgr4fqbu" path="res://scenes/main_menu/settings/settings.tscn" id="3_ob46e"]
+[ext_resource type="PackedScene" uid="uid://mna5pt2yt5wp" path="res://scenes/main_menu/extra/extra.tscn" id="3_uqeha"]
+[ext_resource type="Script" uid="uid://cdr2yyqgqaaxj" path="res://scenes/main_menu/бегущая_строка.gd" id="4_4xg86"]
+[ext_resource type="StyleBox" uid="uid://d1fbwm2rnk6g6" path="res://scenes/main_menu/main_menu_button_style_box.tres" id="4_x2yjq"]
+[ext_resource type="FontFile" uid="uid://bsdjrci2x7mok" path="res://graphics/шрифт/static/InterTight-BlackItalic.ttf" id="5_thkx5"]
+[ext_resource type="PackedScene" uid="uid://mr4x0s326o2i" path="res://scenes/save_manager/save_manager.tscn" id="5_wem23"]
+[ext_resource type="Script" uid="uid://ctd4nhsp20vik" path="res://scenes/main_menu/button_with_sound.gd" id="6_rrgl4"]
+[ext_resource type="FontFile" uid="uid://dmeaw7xhsyehc" path="res://graphics/шрифт/static/InterTight-BoldItalic.ttf" id="9_dn3lk"]
+[ext_resource type="Script" uid="uid://ed1xywkvte6x" path="res://scenes/main_menu/rich_text_label.gd" id="10_4ujhu"]
+[ext_resource type="PackedScene" uid="uid://vhnb02tsv7tk" path="res://scenes/vfx/pomehi_g/pomehi_g.tscn" id="12_qel0l"]
+
+[sub_resource type="Animation" id="Animation_thkx5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.1254902, 0.1254902, 0.1254902, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_x2yjq"]
+resource_name = "fade_out"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.1254902, 0.1254902, 0.1254902, 1), Color(0.1254902, 0.1254902, 0.1254902, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lqpn7"]
+_data = {
+&"RESET": SubResource("Animation_thkx5"),
+&"fade_out": SubResource("Animation_x2yjq")
+}
+
+[node name="MainMenu" type="Control" unique_id=1387221139 node_paths=PackedStringArray("main", "save_manager", "extra", "settings", "developers", "continue_button", "load_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0ebjn")
+main = NodePath("Main")
+save_manager = NodePath("SaveManager")
+extra = NodePath("Extra")
+settings = NodePath("Settings")
+developers = NodePath("Developers")
+continue_button = NodePath("Main/VBoxContainer/Continue")
+load_button = NodePath("Main/VBoxContainer/Load")
+
+[node name="Main" type="Control" parent="." unique_id=428847958]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Main" unique_id=544769208]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3ovsr")
+expand_mode = 1
+
+[node name="Glitch" parent="Main" unique_id=131947625 instance=ExtResource("3_lqpn7")]
+modulate = Color(1, 1, 1, 0.2509804)
+layout_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main" unique_id=998975460]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -729.0
+offset_top = 115.0
+offset_right = -153.0
+offset_bottom = 466.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -8
+
+[node name="Play" type="Button" parent="Main/VBoxContainer" unique_id=2025765370]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5seab")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/pressed = ExtResource("4_x2yjq")
+theme_override_styles/hover = ExtResource("4_x2yjq")
+text = "Играть"
+alignment = 0
+script = ExtResource("6_rrgl4")
+
+[node name="Continue" type="Button" parent="Main/VBoxContainer" unique_id=578454009]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5seab")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/pressed = ExtResource("4_x2yjq")
+theme_override_styles/hover = ExtResource("4_x2yjq")
+disabled = true
+text = "Продолжить"
+alignment = 0
+script = ExtResource("6_rrgl4")
+
+[node name="Load" type="Button" parent="Main/VBoxContainer" unique_id=2031729635]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5seab")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/pressed = ExtResource("4_x2yjq")
+theme_override_styles/hover = ExtResource("4_x2yjq")
+text = "Загрузить игру"
+alignment = 0
+script = ExtResource("6_rrgl4")
+
+[node name="Extra" type="Button" parent="Main/VBoxContainer" unique_id=1879831428]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5seab")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/pressed = ExtResource("4_x2yjq")
+theme_override_styles/hover = ExtResource("4_x2yjq")
+disabled = true
+text = "Экстра"
+alignment = 0
+script = ExtResource("6_rrgl4")
+
+[node name="Settings" type="Button" parent="Main/VBoxContainer" unique_id=835871003]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5seab")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/pressed = ExtResource("4_x2yjq")
+theme_override_styles/hover = ExtResource("4_x2yjq")
+text = "Настройки"
+alignment = 0
+script = ExtResource("6_rrgl4")
+
+[node name="Developers" type="Button" parent="Main/VBoxContainer" unique_id=927345693]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5seab")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/pressed = ExtResource("4_x2yjq")
+theme_override_styles/hover = ExtResource("4_x2yjq")
+text = "Разработчики"
+alignment = 0
+script = ExtResource("6_rrgl4")
+
+[node name="Exit" type="Button" parent="Main/VBoxContainer" unique_id=1073429201]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5seab")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/pressed = ExtResource("4_x2yjq")
+theme_override_styles/hover = ExtResource("4_x2yjq")
+text = "Выйти"
+alignment = 0
+script = ExtResource("6_rrgl4")
+
+[node name="БегущаяСтрока" type="ColorRect" parent="Main" unique_id=1344773036]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.4392157, 0.4392157, 0.4392157, 0.16862746)
+script = ExtResource("4_4xg86")
+developers = PackedStringArray("Наша семья переехала в новостройку с внутренним двором. Нас всегда было трое: я, моя сестра, моя мать и наш сосед. ...Погодите, что? Зачем он лезет в нашу жизнь? Почему смотрит из окна напротив? Как в нашей квартире что-то меняется? И жив ли сосед? Или за нами следит что-то... неживое?        Каждый двор-колодец имеет двойное дно.", "O3ZY", "RANKEL", "lexander", "Даня Балахнин", "LehanFox")
+separator = "                              "
+speed = 120.0
+spacing = 120.0
+pause_on_hover = false
+font = ExtResource("5_thkx5")
+text_color = Color(1, 1, 1, 0.6862745)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Main" unique_id=870985998]
+modulate = Color(1, 1, 1, 0.78431374)
+layout_mode = 0
+offset_left = 45.0
+offset_top = 960.0
+offset_right = 1031.0
+offset_bottom = 1000.0
+theme_override_fonts/normal_font = ExtResource("9_dn3lk")
+bbcode_enabled = true
+text = "Сделано для [url=https://itch.io/jam/vnjamca]Visual Novel Game Jam 2026[/url]"
+fit_content = true
+script = ExtResource("10_4ujhu")
+
+[node name="SaveManager" parent="." unique_id=157741692 instance=ExtResource("5_wem23")]
+visible = false
+layout_mode = 1
+
+[node name="Extra" parent="." unique_id=1207989455 instance=ExtResource("3_uqeha")]
+visible = false
+layout_mode = 1
+
+[node name="Settings" parent="." unique_id=267592914 instance=ExtResource("3_ob46e")]
+visible = false
+layout_mode = 1
+
+[node name="Developers" parent="." unique_id=2032380843 instance=ExtResource("1_fsom3")]
+visible = false
+layout_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1488435546]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.1254902, 0.1254902, 0.1254902, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect" unique_id=498077173]
+libraries/ = SubResource("AnimationLibrary_lqpn7")
+autoplay = &"fade_out"
+
+[node name="FmodEventEmitter2D" type="FmodEventEmitter2D" parent="." unique_id=753607642]
+event_name = "event:/amb/wind"
+event_guid = "{06e55e4a-fddd-4c89-98e3-cfea555e3a25}"
+autoplay = true
+
+[node name="Noise" parent="." unique_id=1356858796 instance=ExtResource("12_qel0l")]
+modulate = Color(1, 1, 1, 0.1254902)
+layout_mode = 1
+
+[connection signal="pressed" from="Main/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/Extra" to="." method="_on_extra_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/Developers" to="." method="_on_developers_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="meta_clicked" from="Main/RichTextLabel" to="Main/RichTextLabel" method="_on_meta_clicked"]
+[connection signal="load_save" from="SaveManager" to="." method="_on_save_manager_load_save"]
+[connection signal="return_pressed" from="SaveManager" to="." method="_return_to_main"]
+[connection signal="return_pressed" from="Extra" to="." method="_return_to_main"]
+[connection signal="return_pressed" from="Settings" to="." method="_return_to_main"]
+[connection signal="return_pressed" from="Developers" to="." method="_return_to_main"]

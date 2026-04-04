@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bj1rlb6p0nvyx"]
+
+[ext_resource type="Script" uid="uid://cara46po7m3fa" path="res://addons/rewind_story_engine_vn/scene_player/vfx/vfx.gd" id="1_g2w34"]
+[ext_resource type="Shader" uid="uid://b6ly7i2kr4628" path="res://scenes/vfx/overlay.gdshader" id="2_0t7uv"]
+[ext_resource type="VideoStream" uid="uid://g2p510i2cy6" path="res://scenes/vfx/glitch/glitch.ogv" id="3_utq1i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kovox"]
+shader = ExtResource("2_0t7uv")
+
+[node name="Glitch" type="Control" unique_id=131947625 node_paths=PackedStringArray("video_stream_player")]
+z_index = 20
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_g2w34")
+video_stream_player = NodePath("VideoStreamPlayer")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1060901511]
+material = SubResource("ShaderMaterial_kovox")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stream = ExtResource("3_utq1i")
+autoplay = true
+expand = true
+loop = true

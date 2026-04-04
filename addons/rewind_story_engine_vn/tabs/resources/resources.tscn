@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bf0qauknekgym"]
+
+[ext_resource type="Script" uid="uid://3dj0v6y0pel6" path="res://addons/rewind_story_engine_vn/tabs/resources/resources.gd" id="1_f525c"]
+[ext_resource type="PackedScene" uid="uid://rt5iix7jd8dk" path="res://addons/rewind_story_engine_vn/tabs/resources/resource_editor.tscn" id="2_k5q2q"]
+[ext_resource type="StyleBox" uid="uid://ccjrts3npg683" path="res://addons/rewind_story_engine/styles/style_box_flat.tres" id="2_liotr"]
+
+[node name="Ресурсы" type="Control" unique_id=808717785 node_paths=PackedStringArray("resource_editor", "tree", "popup_menu", "confirmation_dialog")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_f525c")
+resource_editor = NodePath("HSplitContainer/ResourceEditor")
+tree = NodePath("HSplitContainer/PanelContainer/Tree")
+popup_menu = NodePath("HSplitContainer/PanelContainer/Tree/PopupMenu")
+confirmation_dialog = NodePath("ConfirmationDialog")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="." unique_id=909957928]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HSplitContainer" unique_id=1928873692]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_liotr")
+
+[node name="Tree" type="Tree" parent="HSplitContainer/PanelContainer" unique_id=1736668961]
+layout_mode = 2
+allow_rmb_select = true
+hide_root = true
+scroll_horizontal_enabled = false
+
+[node name="PopupMenu" type="PopupMenu" parent="HSplitContainer/PanelContainer/Tree" unique_id=573924356]
+oversampling_override = 1.0
+position = Vector2i(522, 274)
+size = Vector2i(323, 100)
+item_count = 3
+item_0/text = "Просмотреть в проводнике"
+item_0/id = 2
+item_0/disabled = true
+item_1/id = 1
+item_1/separator = true
+item_2/text = "Удалить"
+item_2/id = 0
+
+[node name="ResourceEditor" parent="HSplitContainer" unique_id=682510827 instance=ExtResource("2_k5q2q")]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="." unique_id=251261195]
+oversampling_override = 1.0
+initial_position = 4
+size = Vector2i(382, 100)
+dialog_text = "Вы уверены? Это действие нельзя отменить."
+
+[connection signal="resource_path_changed" from="HSplitContainer/ResourceEditor" to="." method="_on_resource_editor_resource_path_changed"]
+[connection signal="resource_renamed" from="HSplitContainer/ResourceEditor" to="." method="_on_resource_editor_resource_renamed"]
