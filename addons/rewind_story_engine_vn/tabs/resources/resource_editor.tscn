@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c8dbdc7405tod" path="res://addons/rewind_story_engine_vn/tabs/resources/editors/audio_editor.tscn" id="3_5emsu"]
 [ext_resource type="PackedScene" uid="uid://80k2f3feh77s" path="res://addons/rewind_story_engine_vn/tabs/resources/editors/character_editor.tscn" id="3_phe0k"]
 
-[sub_resource type="DPITexture" id="DPITexture_2vetw"]
+[sub_resource type="DPITexture" id="DPITexture_potss"]
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"M2 1a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h1V3h9V2a1 1 0 0 0-1-1zm3 3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zm1 2h7v7H6z\"/></svg>
 "
 saturation = 2.0
@@ -15,7 +15,7 @@ Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
 Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
 }
 
-[sub_resource type="DPITexture" id="DPITexture_phe0k"]
+[sub_resource type="DPITexture" id="DPITexture_2vetw"]
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"M15 6v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-3h2v2h8V7h-3a1 1 0 0 1-1-1V3H5v4H3V2a1 1 0 0 1 1-1h6zm-9 6v-2H1V8h5V6l3 3z\"/></svg>
 "
 saturation = 2.0
@@ -82,7 +82,7 @@ editable = false
 [node name="CopyUUIDButton" type="Button" parent="DataPanelContainer/Container/UUIDHBoxContainer" unique_id=468830299]
 layout_mode = 2
 tooltip_text = "Копировать"
-icon = SubResource("DPITexture_2vetw")
+icon = SubResource("DPITexture_potss")
 script = ExtResource("3_2vetw")
 icon_name = &"ActionCopy"
 
@@ -103,7 +103,7 @@ editable = false
 [node name="CopyShortKeyButton" type="Button" parent="DataPanelContainer/Container/ShortKeyHBoxContainer" unique_id=966621608]
 layout_mode = 2
 tooltip_text = "Копировать"
-icon = SubResource("DPITexture_2vetw")
+icon = SubResource("DPITexture_potss")
 script = ExtResource("3_2vetw")
 icon_name = &"ActionCopy"
 
@@ -126,7 +126,7 @@ expand_to_text_length = true
 [node name="OpenFileDialogButton" type="Button" parent="DataPanelContainer/Container/PathToFileHBoxContainer" unique_id=1622340497]
 layout_mode = 2
 tooltip_text = "Открыть файл"
-icon = SubResource("DPITexture_phe0k")
+icon = SubResource("DPITexture_2vetw")
 script = ExtResource("3_2vetw")
 icon_name = &"FileAccess"
 

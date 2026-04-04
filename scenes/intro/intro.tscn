@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c0f35tf8gactr"]
 
 [ext_resource type="Script" uid="uid://bhrd5ghq4mt3m" path="res://scenes/intro/intro.gd" id="1_6spyc"]
-[ext_resource type="Texture2D" uid="uid://ltpqganvrryj" path="res://scenes/intro/with_border.png" id="1_qeukb"]
+[ext_resource type="Texture2D" uid="uid://ltpqganvrryj" path="res://graphics/penquins.png" id="1_qeukb"]
 [ext_resource type="PackedScene" uid="uid://cea2kp6234jfk" path="res://scenes/main_menu/main_menu.tscn" id="2_8twl8"]
 [ext_resource type="AudioStream" uid="uid://behbc0bo7cxhd" path="res://audio/penguins.mp3" id="5_r2u6x"]
 

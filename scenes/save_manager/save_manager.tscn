@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dddg1a7un5ti6" path="res://scenes/save_manager/save_list.gd" id="1_tuwxg"]
 [ext_resource type="PackedScene" uid="uid://bo1lvhmjwcvg2" path="res://scenes/save_manager/save_container.tscn" id="2_44n2n"]
-[ext_resource type="Texture2D" uid="uid://cb7i0205hlw6i" path="res://graphics/фон для настроек.png" id="2_ycmir"]
+[ext_resource type="Texture2D" uid="uid://cb7i0205hlw6i" path="res://graphics/background_settings.png" id="2_ycmir"]
 [ext_resource type="StyleBox" uid="uid://b7frbj2fptrvo" path="res://scenes/main_menu/sub_menu_button_style_box.tres" id="4_sdsuj"]
-[ext_resource type="Script" uid="uid://ctd4nhsp20vik" path="res://scenes/main_menu/button_with_sound.gd" id="5_6e4vy"]
+[ext_resource type="Script" uid="uid://ctd4nhsp20vik" path="res://scenes/ui/button_with_sound.gd" id="5_6e4vy"]
 
 [node name="SaveManager" type="Control" unique_id=157741692 node_paths=PackedStringArray("saves_container", "confirmation_dialog", "return_button")]
 layout_mode = 3

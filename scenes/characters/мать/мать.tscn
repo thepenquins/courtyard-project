@@ -2718,18 +2718,23 @@ animated_sprites = {
 
 [node name="Руки" type="AnimatedSprite2D" parent="." unique_id=502561690]
 sprite_frames = SubResource("SpriteFrames_r3dgt")
+animation = &"Грустьнеадекв_0"
 
 [node name="Голова" type="AnimatedSprite2D" parent="." unique_id=1454714134]
 sprite_frames = SubResource("SpriteFrames_n1cuu")
+animation = &"Грустьнеадекв_0"
 
 [node name="Рот" type="AnimatedSprite2D" parent="." unique_id=403269281]
 sprite_frames = SubResource("SpriteFrames_yvpur")
+animation = &"Грустьнеадекв_0"
 
 [node name="Глаза" type="AnimatedSprite2D" parent="." unique_id=934918469]
 sprite_frames = SubResource("SpriteFrames_rvhk6")
+animation = &"Грустьнеадекв_0"
 
 [node name="Брови" type="AnimatedSprite2D" parent="." unique_id=868450631]
 sprite_frames = SubResource("SpriteFrames_8obti")
+animation = &"Грустьнеадекв_0"
 
 [node name="Очки" type="Sprite2D" parent="." unique_id=661198060]
 

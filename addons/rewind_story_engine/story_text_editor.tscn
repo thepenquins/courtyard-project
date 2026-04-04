@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://chhm8wyxan0rj"]
 
-[node name="StoryTextEditor" type="Control"]
+[node name="StoryTextEditor" type="Control" unique_id=810455526]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

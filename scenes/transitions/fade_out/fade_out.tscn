@@ -40,6 +40,7 @@ _data = {
 }
 
 [node name="FadeOut" type="Control" unique_id=565094897 node_paths=PackedStringArray("animation_player")]
+z_index = 10
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

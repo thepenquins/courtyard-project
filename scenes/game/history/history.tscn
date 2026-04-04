@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://lpie5xpngm1o" path="res://scenes/game/history/history.gd" id="1_g63q5"]
 [ext_resource type="Script" uid="uid://8dwfib45n8ir" path="res://addons/rewind_story_engine_vn/utils/set_icon_for_button.gd" id="2_iwt6i"]
-[ext_resource type="Texture2D" uid="uid://dhmgrya5as3ba" path="res://graphics/фон для истории диалогов.png" id="2_okc20"]
+[ext_resource type="Texture2D" uid="uid://dhmgrya5as3ba" path="res://graphics/background_history.png" id="2_okc20"]
 
-[sub_resource type="DPITexture" id="DPITexture_0jn8w"]
+[sub_resource type="DPITexture" id="DPITexture_okc20"]
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"none\" stroke=\"#e0e0e0\" stroke-width=\"2\" d=\"m3 3 10 10M3 13 13 3\"/></svg>
 "
 saturation = 2.0
@@ -71,6 +71,6 @@ offset_top = 32.0
 offset_right = -32.0
 offset_bottom = 56.0
 grow_horizontal = 0
-icon = SubResource("DPITexture_0jn8w")
+icon = SubResource("DPITexture_okc20")
 script = ExtResource("2_iwt6i")
 icon_name = &"Close"
