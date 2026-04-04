@@ -29,6 +29,7 @@ func add_option(option: String, index: int) -> void:
 func _on_option_selected(index: int) -> void:
 	option_selected.emit(index)
 	hide()
+	_clear_container()
 
 
 func _clear_container() -> void:
