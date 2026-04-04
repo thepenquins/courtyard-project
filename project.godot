@@ -23,6 +23,10 @@ boot_splash/stretch_mode=0
 boot_splash/image="uid://ltpqganvrryj"
 config/icon="uid://c5uw7gk2oc74k"
 
+[audio]
+
+buses/default_bus_layout="res://bus_layout.tres"
+
 [autoload]
 
 Settings="*res://source/settings/settings.gd"
