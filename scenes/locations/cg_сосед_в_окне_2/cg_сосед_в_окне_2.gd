@@ -11,7 +11,7 @@ func _ready() -> void:
 	sprite_2d.texture = normal
 
 
-func set_parameters(new_parameters: Dictionary[String, float]) -> void:
+func set_parameters(new_parameters: Dictionary[String, float]) -> bool:
 	for new_parameter in new_parameters:
 		if new_parameter == "Приближение":
 			var value = new_parameters[new_parameter]
@@ -19,3 +19,5 @@ func set_parameters(new_parameters: Dictionary[String, float]) -> void:
 				sprite_2d.texture = normal
 			elif value == 1:
 				sprite_2d.texture = zoomed
+	
+	return false

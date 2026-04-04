@@ -16,17 +16,20 @@
 
 @export var sprite_2d: Sprite2D
 
+var _time: float = 0
+
 
 func _ready() -> void:
 	sprite_2d.texture = day
 
 
-func set_parameters(new_parameters: Dictionary[String, float]) -> void:
-	var time = new_parameters.get("Время суток", 0)
+func set_parameters(new_parameters: Dictionary[String, float]) -> bool:
+	var prev_time = _time
+	_time = new_parameters.get("Время суток", 0)
 	var curtains = new_parameters.get("Шторы", 0)
 	var nightmare = new_parameters.get("Мрак", 0)
 	
-	if time == 0: ## День
+	if _time == 0: ## День
 		if curtains == 0: 
 			if nightmare == 0:
 				sprite_2d.texture = day
@@ -37,7 +40,9 @@ func set_parameters(new_parameters: Dictionary[String, float]) -> void:
 				sprite_2d.texture = day_curtains
 			else:
 				sprite_2d.texture = day_curtains_nightmare
-	elif time == 1: ## Вечер.
+		if prev_time == 1 or prev_time == 2:
+			return true
+	elif _time == 1: ## Вечер.
 		if curtains == 1:
 			if nightmare == 0:
 				sprite_2d.texture = evening_curtains
@@ -45,6 +50,8 @@ func set_parameters(new_parameters: Dictionary[String, float]) -> void:
 				sprite_2d.texture = evening_curtains_nightmare
 		else:
 			sprite_2d.texture = evening
+		if prev_time == 0 or prev_time == 2:
+			return true
 	else: ## Ночь.
 		if curtains == 0: 
 			if nightmare == 0:
@@ -56,3 +63,7 @@ func set_parameters(new_parameters: Dictionary[String, float]) -> void:
 				sprite_2d.texture = night_curtains
 			else:
 				sprite_2d.texture = night_nightmare_curtains
+		if prev_time == 0 or prev_time == 1:
+			return true
+	
+	return false

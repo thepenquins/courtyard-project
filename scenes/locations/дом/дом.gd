@@ -12,7 +12,7 @@ func _ready() -> void:
 	sprite_2d.texture = normal
 
 
-func set_parameters(new_parameters: Dictionary[String, float]) -> void:
+func set_parameters(new_parameters: Dictionary[String, float]) -> bool:
 	for new_parameter in new_parameters:
 		if new_parameter == "Состояние":
 			var value = new_parameters[new_parameter]
@@ -22,3 +22,5 @@ func set_parameters(new_parameters: Dictionary[String, float]) -> void:
 				sprite_2d.texture = nightmare
 			elif value == 2:
 				sprite_2d.texture = nightmare_blood
+	
+	return false

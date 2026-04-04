@@ -25,4 +25,4 @@ func _update_resource() -> void:
 		_location_resource.parameters = parameters
 
 
-@abstract func set_parameters(new_parameters: Dictionary[String, float]) -> void
+@abstract func set_parameters(new_parameters: Dictionary[String, float]) -> bool
