@@ -133,7 +133,7 @@
 [ext_resource type="Texture2D" uid="uid://cen57vsjo5yvi" path="res://scenes/characters/милалика/sprites/0/sprite_head1_brows_1.png" id="119_nd4nb"]
 [ext_resource type="Texture2D" uid="uid://d1mwjnlak4syq" path="res://scenes/characters/милалика/sprites/1/sprite_head1_brows_1.png" id="120_kamql"]
 [ext_resource type="Texture2D" uid="uid://bg78s3iilt8rq" path="res://scenes/characters/милалика/sprites/2/sprite_head1_brows_1.png" id="121_cvxmx"]
-[ext_resource type="Texture2D" uid="uid://u4oohef56e5w" path="res://scenes/characters/милалика/sprites/0/sprite_head1_brows_5.png" id="122_01iy3"]
+[ext_resource type="Texture2D" uid="uid://vlhp1i6l3x4k" path="res://scenes/characters/милалика/sprites/0/sprite_head1_brows_3.png" id="122_01iy3"]
 [ext_resource type="Texture2D" uid="uid://dtxr85gjappbv" path="res://scenes/characters/милалика/sprites/1/sprite_head1_brows_5.png" id="123_gtdc7"]
 [ext_resource type="Texture2D" uid="uid://dajp3ibpekceh" path="res://scenes/characters/милалика/sprites/2/sprite_head1_brows_5.png" id="124_lit6v"]
 

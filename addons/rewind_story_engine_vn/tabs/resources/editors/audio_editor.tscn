@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://8dwfib45n8ir" path="res://addons/rewind_story_engine_vn/utils/set_icon_for_button.gd" id="1_g6bv8"]
 [ext_resource type="Script" uid="uid://dgueixmft0jyq" path="res://addons/rewind_story_engine_vn/tabs/resources/editors/audio_editor.gd" id="1_gwhcb"]
 
-[sub_resource type="DPITexture" id="DPITexture_kvvfv"]
+[sub_resource type="DPITexture" id="DPITexture_2vetw"]
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"M15 6v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-3h2v2h8V7h-3a1 1 0 0 1-1-1V3H5v4H3V2a1 1 0 0 1 1-1h6zm-9 6v-2H1V8h5V6l3 3z\"/></svg>
 "
 saturation = 2.0
@@ -13,7 +13,7 @@ Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
 Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
 }
 
-[sub_resource type="DPITexture" id="DPITexture_058c4"]
+[sub_resource type="DPITexture" id="DPITexture_kvvfv"]
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"M5 8a4 4 0 1 1 4 4v2a6 6 0 1 0-6-6H1l3 4 3-4z\"/></svg>
 "
 saturation = 2.0
@@ -23,7 +23,7 @@ Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
 Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
 }
 
-[sub_resource type="DPITexture" id="DPITexture_44otc"]
+[sub_resource type="DPITexture" id="DPITexture_piloo"]
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#e0e0e0\" d=\"M4 12a1 1 0 0 0 1.555.832l6-4a1 1 0 0 0 0-1.664l-6-4A1 1 0 0 0 4 4z\"/></svg>
 "
 saturation = 2.0
@@ -33,7 +33,7 @@ Color(0.37254903, 1, 0.5921569, 1): Color(0.45, 0.95, 0.5, 1),
 Color(1, 0.8666667, 0.39607844, 1): Color(0.83, 0.78, 0.62, 1)
 }
 
-[sub_resource type="DPITexture" id="DPITexture_qw71t"]
+[sub_resource type="DPITexture" id="DPITexture_02ixt"]
 _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"10\" height=\"10\" x=\"3\" y=\"3\" fill=\"#e0e0e0\" rx=\"1\"/></svg>
 "
 saturation = 2.0
@@ -83,7 +83,7 @@ expand_to_text_length = true
 [node name="OpenFileDialogButton" type="Button" parent="RegularHBoxContainer" unique_id=794612662]
 layout_mode = 2
 tooltip_text = "Открыть файл"
-icon = SubResource("DPITexture_kvvfv")
+icon = SubResource("DPITexture_2vetw")
 script = ExtResource("1_g6bv8")
 icon_name = &"FileAccess"
 
@@ -103,40 +103,42 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 selected = 0
-item_count = 7
-popup/item_0/text = "event:/SFX/snd_explosion"
+item_count = 8
+popup/item_0/text = "event:/amb/wind"
 popup/item_0/id = 0
-popup/item_1/text = "event:/UI/snd_hover"
+popup/item_1/text = "event:/mus/anxiety"
 popup/item_1/id = 1
-popup/item_2/text = "event:/UI/snd_select"
+popup/item_2/text = "event:/mus/evening"
 popup/item_2/id = 2
-popup/item_3/text = "event:/amb/amb_bigfan"
+popup/item_3/text = "event:/mus/haunting"
 popup/item_3/id = 3
-popup/item_4/text = "event:/mus/mus_bachbabach"
+popup/item_4/text = "event:/mus/main"
 popup/item_4/id = 4
-popup/item_5/text = "event:/mus/mus_pieceofkinight"
+popup/item_5/text = "event:/sfx/curtain"
 popup/item_5/id = 5
-popup/item_6/text = "event:/mus/mus_puzzle"
+popup/item_6/text = "event:/sfx/lock"
 popup/item_6/id = 6
+popup/item_7/text = "event:/sfx/thud"
+popup/item_7/id = 7
 
 [node name="RefreshFmodBanksButton" type="Button" parent="FmodHBoxContainer" unique_id=191237855]
 layout_mode = 2
 text = "Обновить"
-icon = SubResource("DPITexture_058c4")
+icon = SubResource("DPITexture_kvvfv")
 script = ExtResource("1_g6bv8")
 icon_name = &"Reload"
 
 [node name="PlayFmodEmitterButton" type="Button" parent="FmodHBoxContainer" unique_id=15917064]
 visible = false
 layout_mode = 2
-icon = SubResource("DPITexture_44otc")
+icon = SubResource("DPITexture_piloo")
 script = ExtResource("1_g6bv8")
 icon_name = &"Play"
 
 [node name="StopFmodEmitterButton" type="Button" parent="FmodHBoxContainer" unique_id=2129205467]
 visible = false
 layout_mode = 2
-icon = SubResource("DPITexture_qw71t")
+icon = SubResource("DPITexture_02ixt")
 script = ExtResource("1_g6bv8")
 icon_name = &"Stop"
 

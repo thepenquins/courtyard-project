@@ -239,6 +239,7 @@ text = "Выберете эпизод для редактирования"
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1961950753]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -290,10 +291,10 @@ script = ExtResource("2_bsqx8")
 [node name="SubViewport" type="SubViewport" parent="MarginContainer/VBoxContainer/Scene/AspectRatioContainer/SubViewportContainer" unique_id=1084950756]
 handle_input_locally = false
 canvas_item_default_texture_filter = 3
-size = Vector2i(1840, 1034)
+size = Vector2i(2, 2)
 size_2d_override = Vector2i(1920, 1080)
 size_2d_override_stretch = true
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="ScenePlayer" parent="MarginContainer/VBoxContainer/Scene/AspectRatioContainer/SubViewportContainer/SubViewport" unique_id=2115196977 instance=ExtResource("2_ysgoj")]
 
