@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dogjfwgr4fqbu" path="res://scenes/main_menu/settings/settings.tscn" id="2_0jcw3"]
 [ext_resource type="Texture2D" uid="uid://cb7i0205hlw6i" path="res://graphics/фон для настроек.png" id="2_nvhcl"]
 [ext_resource type="FontFile" uid="uid://d05i7wrk48m4v" path="res://graphics/шрифт/static/InterTight-ExtraBold.ttf" id="3_vdi0e"]
+[ext_resource type="Script" uid="uid://ctd4nhsp20vik" path="res://scenes/main_menu/button_with_sound.gd" id="4_ghudr"]
 [ext_resource type="PackedScene" uid="uid://vhnb02tsv7tk" path="res://scenes/vfx/pomehi_g/pomehi_g.tscn" id="5_qxty6"]
 
 [node name="Pause" type="Control" unique_id=2031611172 node_paths=PackedStringArray("settings")]
@@ -47,24 +48,28 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_vdi0e")
 theme_override_font_sizes/font_size = 38
 text = "Продолжить"
+script = ExtResource("4_ghudr")
 
 [node name="SaveButton" type="Button" parent="VBoxContainer" unique_id=702606019]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_vdi0e")
 theme_override_font_sizes/font_size = 38
 text = "Сохранить"
+script = ExtResource("4_ghudr")
 
 [node name="SettingsButton" type="Button" parent="VBoxContainer" unique_id=1986472823]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_vdi0e")
 theme_override_font_sizes/font_size = 38
 text = "Настройки"
+script = ExtResource("4_ghudr")
 
 [node name="ExitToMenuButton" type="Button" parent="VBoxContainer" unique_id=1636007353]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_vdi0e")
 theme_override_font_sizes/font_size = 38
 text = "Выйти в меню"
+script = ExtResource("4_ghudr")
 
 [node name="Settings" parent="." unique_id=267592914 instance=ExtResource("2_0jcw3")]
 visible = false
