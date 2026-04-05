@@ -202,14 +202,34 @@ text_color = Color(1, 1, 1, 0.6862745)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Main" unique_id=870985998]
 modulate = Color(1, 1, 1, 0.78431374)
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
 offset_left = 45.0
-offset_top = 960.0
+offset_top = -120.0
 offset_right = 1031.0
-offset_bottom = 1000.0
+offset_bottom = -80.0
 theme_override_fonts/normal_font = ExtResource("9_dn3lk")
 bbcode_enabled = true
 text = "Сделано для [url=https://itch.io/jam/vnjamca]Visual Novel Game Jam 2026[/url]"
+fit_content = true
+script = ExtResource("10_4ujhu")
+
+[node name="Version" type="RichTextLabel" parent="Main" unique_id=1243518448]
+modulate = Color(1, 1, 1, 0.78431374)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1823.0
+offset_top = -120.0
+offset_right = 1880.0
+offset_bottom = -80.0
+grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("9_dn3lk")
+bbcode_enabled = true
+text = "1.0.1"
 fit_content = true
 script = ExtResource("10_4ujhu")
 
@@ -260,6 +280,7 @@ layout_mode = 1
 [connection signal="pressed" from="Main/VBoxContainer/Developers" to="." method="_on_developers_pressed"]
 [connection signal="pressed" from="Main/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="meta_clicked" from="Main/RichTextLabel" to="Main/RichTextLabel" method="_on_meta_clicked"]
+[connection signal="meta_clicked" from="Main/Version" to="Main/Version" method="_on_meta_clicked"]
 [connection signal="load_save" from="SaveManager" to="." method="_on_save_manager_load_save"]
 [connection signal="return_pressed" from="SaveManager" to="." method="_return_to_main"]
 [connection signal="return_pressed" from="Extra" to="." method="_return_to_main"]
