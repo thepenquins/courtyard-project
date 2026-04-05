@@ -77,7 +77,7 @@ horizontal_alignment = 2
 [node name="ScreenModeOptionButton" type="OptionButton" parent="VBoxContainer/GridContainer" unique_id=170603347]
 layout_mode = 2
 item_count = 2
-popup/item_0/text = "Window"
+popup/item_0/text = "Windowed"
 popup/item_0/id = 0
 popup/item_1/text = "Fullscreen"
 popup/item_1/id = 4
