@@ -183,14 +183,14 @@ func set_visibility(visible: bool, instant: bool = false) -> void:
 	var target_alpha = 1.0 if visible else 0.0
 
 	if instant:
-		modulate.a = target_alpha
+		self_modulate.a = target_alpha
 		return
 
-	if is_equal_approx(modulate.a, target_alpha):
+	if is_equal_approx(self_modulate.a, target_alpha):
 		return
 
 	_visibility_tween = create_tween()
-	_visibility_tween.tween_property(self, "modulate:a", target_alpha, 0.5).set_trans(Tween.TRANS_BACK)
+	_visibility_tween.tween_property(self, "self_modulate:a", target_alpha, 0.5).set_trans(Tween.TRANS_BACK)
 
 
 func _process_emotion_setter() -> void:
