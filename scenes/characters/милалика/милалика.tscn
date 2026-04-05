@@ -3611,7 +3611,7 @@ animations = [{
 "speed": 1.0
 }]
 
-[node name="Милалика" type="Node2D" unique_id=438957723 node_paths=PackedStringArray("animated_sprites")]
+[node name="Милалика" type="CanvasGroup" unique_id=1221928912 node_paths=PackedStringArray("animated_sprites")]
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_ix7ng")
 uuid = "abea155a-50cd-44db-9770-9b6d245de91e"
