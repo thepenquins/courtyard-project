@@ -102,9 +102,14 @@ script = ExtResource("5_6e4vy")
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="." unique_id=760427327]
 oversampling_override = 1.0
+title = "Подтвердите действие..."
 initial_position = 4
 size = Vector2i(268, 102)
-dialog_text = "Удалить сохранение"
+unresizable = true
+force_native = true
+ok_button_text = "Да"
+dialog_text = "Удалить сохранение?"
 dialog_autowrap = true
+cancel_button_text = "Отмена"
 
 [connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]
