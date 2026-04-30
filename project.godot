@@ -15,7 +15,7 @@ General/banks_path="res://audio/banks"
 [application]
 
 config/name="COLODETS"
-config/version="1.0.1"
+config/version="1.0.2"
 run/main_scene="uid://c0f35tf8gactr"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/bg_color=Color(0.1254902, 0.1254902, 0.1254902, 1)
