@@ -55,6 +55,11 @@ var screen_mode: DisplayServer.WindowMode = DisplayServer.WINDOW_MODE_EXCLUSIVE_
 		screen_mode = mode
 		DisplayServer.window_set_mode(screen_mode)
 		print("Screen mode: %s" % screen_mode)
+		if screen_mode == DisplayServer.WINDOW_MODE_WINDOWED:
+			var screen_size = DisplayServer.screen_get_usable_rect(DisplayServer.SCREEN_WITH_MOUSE_FOCUS).size
+			if screen_size < get_window().size:
+				get_window().move_to_center()
+				get_window().size = screen_size
 
 
 var master_volume: int = 50:
@@ -178,9 +183,10 @@ func load_config() -> void:
 		locale = config.get_value("general_settings", "locale", "en")
 		
 		screen_mode = config.get_value("screen_settings", "mode", DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
-	
-		get_window().size = config.get_value("screen_settings", "screen_size", Vector2(1280, 720))
-		get_window().move_to_center()
+		
+		#var usable_window_size = DisplayServer.screen_get_usable_rect(DisplayServer.SCREEN_WITH_MOUSE_FOCUS).size
+		#get_window().size = config.get_value("screen_settings", "screen_size", usable_window_size)
+		#get_window().move_to_center()
 		
 		master_volume = config.get_value("audio_settings", "master_volume", 50)
 		sfx_volume = config.get_value("audio_settings", "sfx_volume", 50)
