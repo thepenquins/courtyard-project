@@ -64,6 +64,9 @@ func _input(event: InputEvent) -> void:
 
 
 func _next_frame_pressed() -> void:
+	if not is_processing_input():
+		return
+	
 	if Engine.is_editor_hint():
 		text_box.advance()
 	else:
@@ -77,6 +80,9 @@ func _next_frame_pressed() -> void:
 
 
 func  _prev_frame_pressed() -> void:
+	if not is_processing_input():
+		return
+	
 	if not Engine.is_editor_hint():
 		if _ready_to_next_frame:
 			if not prev_frame():
